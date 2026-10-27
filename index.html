@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greens Technologies – Pages</title>
-  <meta name="description" content="Choose a Greens Technologies page to view: the main landing page or the course landing page." />
+  <meta name="description" content="Choose a Greens Technologies page to view: the main landing page, course landing page, or data engineering course page." />
   <meta name="theme-color" content="#1b3a1c" />
   <link rel="icon" type="image/png" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
   <link rel="apple-touch-icon" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
@@ -38,7 +38,7 @@
     h1, h2 { font-family: "Plus Jakarta Sans", sans-serif; line-height: 1.2; color: var(--green); letter-spacing: -0.02em; }
     a { color: inherit; text-decoration: none; }
     svg.i { width: 1em; height: 1em; flex-shrink: 0; }
-    .container { width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 20px; }
+    .container { width: 100%; max-width: 1240px; margin: 0 auto; padding: 0 20px; }
 
     /* Header band */
     .top {
@@ -54,7 +54,7 @@
     .top p { color: rgba(255,255,255,.85); font-size: 17px; max-width: 560px; }
 
     /* Page cards */
-    .pages { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; margin-top: -84px; padding-bottom: 60px; }
+    .pages { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: -84px; padding-bottom: 60px; }
     .card {
       background: var(--white); border: 1px solid var(--border); border-radius: 20px; overflow: hidden;
       box-shadow: var(--shadow-lg); display: flex; flex-direction: column; transition: transform .25s, box-shadow .25s;
@@ -95,10 +95,11 @@
 
     footer { margin-top: auto; text-align: center; font-size: 13px; color: var(--muted); padding: 20px 0 28px; }
 
-    @media (max-width: 800px) {
-      .pages { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+    @media (max-width: 980px) {
+      .pages { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
     }
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
+      .pages { grid-template-columns: minmax(0, 1fr); gap: 20px; }
       .container { padding: 0 16px; }
       .top { padding: 26px 0 104px; }
       .brand-row { margin-bottom: 32px; }
@@ -155,6 +156,21 @@
         <div class="actions">
           <a href="course-landing-page.html" class="btn btn-green">View Page <svg class="i"><use href="#i-arrow"/></svg></a>
           <a href="course-landing-page.html" target="_blank" rel="noopener" class="btn btn-outline">New Tab <svg class="i"><use href="#i-external"/></svg></a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <a class="preview" href="data-engineering-course-chennai.html" aria-label="Open the Data Engineering Course Page">
+        <iframe data-src="data-engineering-course-chennai.html" title="Preview of the data engineering course page" tabindex="-1" aria-hidden="true" loading="lazy"></iframe>
+      </a>
+      <div class="card-body">
+        <span class="file">data-engineering-course-chennai.html</span>
+        <h2>Data Engineering Course</h2>
+        <p>Master Data Engineering in Chennai: hands-on Python, SQL, PySpark, AWS, Snowflake, DBT, Airflow &amp; Power BI with 100% placement assurance and live projects.</p>
+        <div class="actions">
+          <a href="data-engineering-course-chennai.html" class="btn btn-green">View Page <svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="data-engineering-course-chennai.html" target="_blank" rel="noopener" class="btn btn-outline">New Tab <svg class="i"><use href="#i-external"/></svg></a>
         </div>
       </div>
     </article>
