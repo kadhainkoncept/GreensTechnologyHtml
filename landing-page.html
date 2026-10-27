@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Greens Technologys – No 1 Software Training Institute in Chennai with Placements</title>
+  <meta name="description" content="Greens Technologys – Chennai's leading software training and placement institute. 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more. Classroom & online training across 22 branches." />
+  <meta name="theme-color" content="#1b3a1c" />
+  <link rel="icon" type="image/png" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
+  <link rel="apple-touch-icon" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============ THEME – greens from the Greens Technologys logo ============ */
+    :root {
+      --green:        #1b3a1c;   /* logo text green */
+      --green-dark:   #102512;
+      --green-mid:    #2e5a2f;
+      --green-soft:   #e9f0e7;
+      --green-tint:   #f5f8f3;
+      --accent:       #8cc63f;   /* fresh green for dark backgrounds */
+      --accent-dark:  #4f8a26;
+      --white:        #ffffff;
+      --text:         #1b2a1c;
+      --muted:        #4f5f50;
+      --border:       #dde6da;
+      --shadow:       0 10px 30px rgba(27, 58, 28, 0.08);
+      --shadow-lg:    0 20px 45px rgba(27, 58, 28, 0.16);
+      --container:    1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: "Inter", system-ui, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { font-family: "Plus Jakarta Sans", sans-serif; line-height: 1.2; color: var(--green); letter-spacing: -0.02em; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    svg.i { width: 1em; height: 1em; flex-shrink: 0; }
+
+    .container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    section { padding: 90px 0; }
+
+    .section-head { text-align: center; max-width: 700px; margin: 0 auto 50px; }
+    .section-head h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 12px; }
+    .section-head p { color: var(--muted); font-size: 17px; }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 14px 28px; border-radius: 12px; font-weight: 700; font-size: 15px;
+      border: 2px solid transparent; cursor: pointer; transition: all .25s ease; font-family: inherit;
+    }
+    .btn-light { background: var(--white); color: var(--green); }
+    .btn-light:hover { background: var(--green-soft); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,.2); }
+    .btn-outline { border-color: rgba(255,255,255,.6); color: var(--white); }
+    .btn-outline:hover { background: var(--white); color: var(--green); }
+    .btn-green { background: var(--green); color: var(--white); }
+    .btn-green:hover { background: var(--green-mid); transform: translateY(-2px); box-shadow: 0 10px 22px rgba(27,58,28,.25); }
+    .btn-wa { background: #25d366; color: #fff; }
+    .btn-wa:hover { background: #1ebe5a; transform: translateY(-2px); }
+
+    /* ============ TOP BAR ============ */
+    .topbar { background: var(--green-dark); color: rgba(255,255,255,.9); font-size: 13px; padding: 8px 0; }
+    .topbar .container { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+    .topbar-left, .topbar-right { display: flex; gap: 18px; align-items: center; font-weight: 600; }
+    .topbar-right a { display: inline-flex; align-items: center; gap: 6px; }
+    .topbar a:hover { color: var(--accent); }
+
+    /* ============ NAVBAR ============ */
+    .navbar {
+      position: sticky; top: 0; z-index: 100; background: var(--white);
+      border-bottom: 1px solid var(--border); transition: box-shadow .3s;
+    }
+    .navbar.scrolled { box-shadow: 0 6px 24px rgba(27,58,28,.12); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 80px; }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo img { height: 60px; width: 60px; object-fit: contain; }
+    .brand { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand b { font-family: "Plus Jakarta Sans", sans-serif; font-size: 20px; font-weight: 800; letter-spacing: 3px; color: var(--green); }
+    .brand small { font-size: 10.5px; font-weight: 700; letter-spacing: 2.6px; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a { color: var(--green); font-weight: 700; font-size: 14.5px; padding: 8px 12px; border-radius: 10px; transition: all .2s; }
+    .nav-links a:hover { background: var(--green-soft); }
+    .nav-links .btn { padding: 11px 20px; margin-left: 10px; color: var(--white); }
+    .nav-links .btn:hover { background: var(--green-mid); }
+    .menu-toggle { display: none; background: var(--green); border: 0; border-radius: 12px; padding: 8px; cursor: pointer; color: var(--white); }
+
+    /* ============ 1. HERO ============ */
+    .hero {
+      position: relative; padding: 80px 0 150px; color: var(--white); overflow: hidden;
+      background:
+        radial-gradient(circle at 88% 12%, rgba(140,198,63,.18), transparent 38%),
+        linear-gradient(135deg, var(--green-dark) 0%, var(--green) 55%, var(--green-mid) 100%);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+      background-size: 26px 26px;
+    }
+    .hero-grid { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; }
+    .hero h1 { color: var(--white); font-size: clamp(34px, 5.2vw, 56px); font-weight: 800; margin-bottom: 20px; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero p { font-size: 18px; color: rgba(255,255,255,.85); max-width: 560px; margin-bottom: 26px; }
+    .hero-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; max-width: 580px; margin-bottom: 34px; }
+    .hero-points li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.92); line-height: 1.35; }
+    .pt-ic {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; font-size: 18px;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); color: var(--accent);
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
+    .hero-tags span {
+      font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 8px;
+      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.9);
+    }
+
+    .hero-visual { position: relative; }
+    .hero-visual .main-img { width: 100%; aspect-ratio: 4/4.3; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-lg); }
+    .icon-tile {
+      flex-shrink: 0; display: grid; place-items: center; border-radius: 12px;
+      background: var(--green); color: var(--white);
+    }
+
+    /* Highlights (below header) */
+    .highlights { position: relative; z-index: 5; margin-top: -80px; padding: 0; }
+    .hl-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: var(--white); border-radius: 22px; box-shadow: var(--shadow-lg); overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .hl-item { padding: 28px 24px; display: flex; gap: 16px; align-items: center; border-right: 1px solid var(--border); transition: background .25s; }
+    .hl-item:last-child { border-right: 0; }
+    .hl-item:hover { background: var(--green-tint); }
+    .hl-item .icon-tile { width: 54px; height: 54px; font-size: 26px; border-radius: 14px; }
+    .hl-item h3 { font-size: 26px; font-weight: 800; }
+    .hl-item p { font-size: 14px; color: var(--muted); font-weight: 500; }
+
+    /* ============ 2. COURSES ============ */
+    .course-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .course-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px;
+      overflow: hidden; transition: all .3s ease; display: flex; flex-direction: column;
+    }
+    .course-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+    .course-thumb { position: relative; aspect-ratio: 16/10; overflow: hidden; background: var(--green); }
+    .course-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .course-card:hover .course-thumb img { transform: scale(1.06); }
+    .tag {
+      position: absolute; top: 12px; left: 12px; background: var(--green); color: var(--white);
+      font-size: 11px; font-weight: 800; padding: 5px 11px; border-radius: 50px; text-transform: uppercase; letter-spacing: .4px;
+    }
+    .course-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+    .course-meta { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
+    .course-body h3 { font-size: 18px; margin-bottom: 8px; }
+    .course-body .desc { font-size: 13.5px; color: var(--muted); margin-bottom: 12px; }
+    .rating { display: flex; align-items: center; gap: 6px; font-size: 13.5px; margin-bottom: 14px; }
+    .stars { color: var(--accent-dark); letter-spacing: 1px; }
+    .rating small { color: var(--muted); }
+    .course-foot {
+      margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding-top: 14px; border-top: 1px solid var(--border);
+    }
+    .fees { font-size: 12.5px; font-weight: 700; color: var(--green-mid); }
+    .link-arrow { font-weight: 800; font-size: 14px; color: var(--green); display: inline-flex; align-items: center; gap: 4px; transition: gap .2s; }
+    .link-arrow:hover { gap: 8px; }
+
+    /* ============ 3. REVIEWS (slider with arrows) ============ */
+    .reviews { background: var(--green-tint); border-block: 1px solid var(--border); }
+    .review-track {
+      display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
+      padding: 6px 2px 10px; scrollbar-width: none;
+    }
+    .review-track::-webkit-scrollbar { display: none; }
+    .review-track:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 20px; }
+    .review-card {
+      flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; background: var(--white); border-radius: 20px; padding: 26px;
+      border: 1px solid var(--border); display: flex; flex-direction: column; transition: box-shadow .3s;
+    }
+    .slider-nav { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
+    .slider-btn {
+      width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--green);
+      display: grid; place-items: center; font-size: 20px; cursor: pointer; transition: all .2s; box-shadow: var(--shadow);
+    }
+    .slider-btn:hover:not(:disabled) { background: var(--green); color: var(--white); border-color: var(--green); }
+    .slider-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+    .slider-btn:disabled { opacity: .4; cursor: default; box-shadow: none; }
+    .review-card:hover { box-shadow: var(--shadow-lg); }
+    .review-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .pkg { font-size: 12px; font-weight: 800; color: var(--green); background: var(--green-soft); padding: 4px 10px; border-radius: 8px; }
+    .review-card h4.headline { font-size: 16px; color: var(--green-mid); margin-bottom: 10px; }
+    .review-card p { color: var(--muted); font-size: 14.5px; margin-bottom: 22px; font-style: italic; }
+    .reviewer { display: flex; align-items: center; gap: 12px; margin-top: auto; padding-top: 16px; border-top: 1px solid var(--border); }
+    .avatar {
+      width: 48px; height: 48px; border-radius: 14px; flex-shrink: 0; background: var(--green); color: var(--white);
+      display: grid; place-items: center; font-weight: 800; font-size: 17px; font-family: "Plus Jakarta Sans";
+    }
+    .reviewer h4 { font-size: 15px; }
+    .reviewer span { font-size: 12.5px; color: var(--muted); font-weight: 600; }
+    .reviewer span b { color: var(--green-mid); }
+
+    /* ============ 4. WHY CHOOSE US ============ */
+    .why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: center; }
+    .why-img { position: relative; }
+    .why-img img { border-radius: 22px; width: 100%; aspect-ratio: 4/4.5; object-fit: cover; box-shadow: var(--shadow-lg); }
+    .why-img .exp {
+      position: absolute; bottom: -22px; right: -18px; background: var(--green); color: var(--white);
+      padding: 20px 24px; border-radius: 20px; box-shadow: var(--shadow-lg); text-align: center;
+    }
+    .why-img .exp b { font-family: "Plus Jakarta Sans"; font-size: 36px; display: block; line-height: 1; color: var(--accent); }
+    .why-img .exp span { font-size: 13px; font-weight: 700; }
+    .why-content h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 14px; }
+    .why-content > p { color: var(--muted); margin-bottom: 30px; }
+    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .feature { display: flex; gap: 14px; padding: 18px; border-radius: 16px; background: var(--white); border: 1px solid var(--border); transition: all .25s; }
+    .feature:hover { border-color: var(--green); background: var(--green-tint); }
+    .feature .icon-tile { width: 44px; height: 44px; font-size: 21px; }
+    .feature h4 { font-size: 15.5px; margin-bottom: 4px; }
+    .feature p { font-size: 13.5px; color: var(--muted); }
+
+    /* ============ 5. HIRING COMPANIES ============ */
+    .companies { background: var(--green); }
+    .companies .section-head h2 { color: var(--white); }
+    .companies .section-head p { color: rgba(255,255,255,.8); }
+    .company-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .company {
+      background: var(--white); border-radius: 14px; padding: 18px; display: flex; align-items: center; justify-content: center; gap: 12px;
+      font-weight: 700; font-size: 14px; color: #1d293d; transition: all .3s;
+    }
+    .company img { width: 30px; height: 30px; object-fit: contain; }
+    .company:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+    .placement-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; text-align: center; gap: 16px; }
+    .placement-stats div { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 18px; padding: 22px 10px; }
+    .placement-stats b { font-family: "Plus Jakarta Sans"; font-size: clamp(22px, 3vw, 30px); color: var(--accent); display: block; }
+    .placement-stats span { color: rgba(255,255,255,.8); font-size: 13px; font-weight: 600; }
+
+    /* ============ 6. FOUNDER ============ */
+    .founder-card {
+      background: var(--white); border: 1px solid var(--border); border-radius: 28px; padding: 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 44px; align-items: center; box-shadow: var(--shadow-lg);
+    }
+    .video-wrap { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 16/9; background: #0b120b; }
+    .video-wrap iframe, .video-wrap button { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+    .video-wrap button { background: none; cursor: pointer; padding: 0; }
+    .video-wrap button img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+    .video-wrap button:hover img { transform: scale(1.05); }
+    .play {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+      width: 72px; height: 72px; border-radius: 50%; background: var(--white); color: var(--green);
+      display: grid; place-items: center; box-shadow: 0 10px 30px rgba(0,0,0,.4); transition: transform .25s;
+    }
+    .video-wrap button:hover .play { transform: translate(-50%, -50%) scale(1.1); }
+    .founder-content .role { font-size: 12px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--green-mid); }
+    .founder-content h3 { font-size: clamp(24px, 3vw, 32px); font-weight: 800; margin: 6px 0 4px; }
+    .founder-content .sub { font-weight: 700; font-size: 15px; margin-bottom: 16px; }
+    .founder-content blockquote {
+      background: var(--green-tint); padding: 14px 18px; border-radius: 12px;
+      font-style: italic; margin-bottom: 16px; color: var(--text);
+    }
+    .founder-content p { color: var(--muted); margin-bottom: 20px; }
+    .founder-content p strong { color: var(--green); }
+    .f-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .f-stats div { background: var(--green-soft); border-radius: 14px; padding: 14px 8px; text-align: center; }
+    .f-stats b { display: block; font-family: "Plus Jakarta Sans"; font-size: 20px; color: var(--green); }
+    .f-stats span { font-size: 11.5px; font-weight: 700; color: var(--muted); }
+
+    /* ============ 7. BRANCHES ============ */
+    .branches { background: var(--green-tint); border-top: 1px solid var(--border); }
+    .branch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .branch-card {
+      background: var(--white); border-radius: 18px; padding: 22px; border: 1px solid var(--border);
+      display: flex; flex-direction: column; transition: all .3s;
+    }
+    .branch-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .branch-card h3 { font-size: 17px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .branch-card h3 svg { color: var(--green-mid); }
+    .ho-badge { font-size: 10px; font-weight: 800; background: var(--green-soft); color: var(--green); padding: 2px 8px; border-radius: 6px; text-transform: uppercase; }
+    .branch-card p { font-size: 13px; color: var(--muted); margin-bottom: 14px; flex: 1; }
+    .branch-actions { display: flex; gap: 8px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .branch-actions a {
+      flex: 1; font-size: 12.5px; font-weight: 800; padding: 9px 6px; border-radius: 10px;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all .2s;
+    }
+    .b-map { background: var(--green-soft); color: var(--green); }
+    .b-map:hover { background: var(--green); color: var(--white); }
+    .b-wa { background: #25d366; color: #fff; }
+    .b-wa:hover { background: #1ebe5a; }
+    .branch-card.hidden { display: none; }
+    .center-btn { text-align: center; margin-top: 36px; }
+
+    /* CTA strip */
+    .cta { padding: 0; position: relative; z-index: 2; margin-bottom: -70px; background: var(--green-tint); }
+    .cta-box {
+      background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 40px 46px;
+      display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: var(--shadow-lg);
+    }
+    .cta-box h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; }
+    .cta-box p { color: var(--muted); font-weight: 600; }
+    .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+
+    /* ============ 8. FOOTER ============ */
+    footer { background: var(--green-dark); color: rgba(255,255,255,.78); padding: 140px 0 0; font-size: 14.5px; }
+    .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.3fr; gap: 40px; padding-bottom: 50px; }
+    footer h4 { color: var(--white); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 18px; }
+    .f-logo { margin-bottom: 18px; }
+    .f-logo img { height: 68px; width: 68px; }
+    .f-logo .brand b { color: var(--white); }
+    .f-logo .brand small { color: rgba(255,255,255,.65); }
+    footer li { margin-bottom: 10px; }
+    footer li a:hover { color: var(--accent); }
+    .contact-list li { display: flex; gap: 10px; align-items: flex-start; }
+    .contact-list svg { color: var(--accent); margin-top: 4px; }
+    .socials { display: flex; gap: 10px; margin-top: 20px; }
+    .socials a {
+      width: 40px; height: 40px; border-radius: 50%; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+      display: grid; place-items: center; transition: all .25s;
+    }
+    .socials a:hover { background: var(--white); color: var(--green); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.12); padding: 22px 0; display: flex;
+      justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 13px; color: rgba(255,255,255,.65);
+    }
+    .footer-bottom a:hover { color: var(--accent); }
+
+    .wa-float {
+      position: fixed; right: 20px; bottom: 20px; z-index: 90; width: 56px; height: 56px; border-radius: 50%;
+      background: #25d366; color: #fff; display: grid; place-items: center; font-size: 28px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.25); border: 3px solid #fff; transition: transform .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: all .7s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    /* Mobile menu backdrop */
+    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(16,37,18,.5); z-index: 100; }
+    .nav-overlay.show { display: block; }
+    body.menu-open { overflow: hidden; }
+
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1100px) {
+      .nav-links a { padding: 8px 8px; font-size: 13.5px; }
+      .course-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 1024px) {
+      .hl-grid { grid-template-columns: repeat(2, 1fr); }
+      .hl-item:nth-child(2) { border-right: 0; }
+      .hl-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .company-grid { grid-template-columns: repeat(4, 1fr); }
+      .review-card { flex-basis: calc((100% - 24px) / 2); }
+      .branch-grid { grid-template-columns: repeat(3, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .founder-card { grid-template-columns: 1fr; padding: 28px; }
+    }
+    @media (max-width: 900px) {
+      section { padding: 70px 0; }
+      .topbar .hide-sm { display: none; }
+      .menu-toggle { display: block; position: relative; z-index: 102; }
+      .nav-inner { height: 68px; }
+      .logo img { height: 48px; width: 48px; }
+      .brand b { font-size: 17px; letter-spacing: 2.5px; }
+      .brand small { font-size: 9px; letter-spacing: 2px; }
+      .nav-links {
+        position: fixed; top: 0; right: -100%; height: 100vh; width: 290px;
+        background: var(--white); flex-direction: column; align-items: stretch;
+        padding: 90px 22px; gap: 4px; transition: right .35s ease; box-shadow: -10px 0 30px rgba(0,0,0,.2); z-index: 101;
+      }
+      .nav-links.open { right: 0; }
+      .nav-links a { font-size: 15px; padding: 12px 14px; }
+      .nav-links .btn { margin: 12px 0 0; }
+      .hero { padding: 60px 0 130px; text-align: center; }
+      .hero-grid, .why-grid { grid-template-columns: 1fr; }
+      .hero p { margin-left: auto; margin-right: auto; }
+      .hero-btns, .hero-tags { justify-content: center; }
+      .hero-points { margin-left: auto; margin-right: auto; text-align: left; }
+      .hero-visual { max-width: 420px; margin: 10px auto 0; }
+      .why-img { max-width: 480px; margin: 0 auto 20px; }
+      .course-grid { grid-template-columns: repeat(2, 1fr); }
+      .cta-box { flex-direction: column; text-align: center; padding: 34px 24px; }
+      .cta-btns { justify-content: center; }
+      .branch-grid { grid-template-columns: repeat(2, 1fr); }
+      .placement-stats { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      section { padding: 56px 0; }
+      .container { padding: 0 16px; }
+      .section-head { margin-bottom: 32px; }
+      .section-head p { font-size: 15px; }
+      .topbar { font-size: 12px; }
+      .topbar .container { justify-content: center; }
+      .topbar-left { display: none; }
+      .nav-links { width: 82%; }
+      .hero { padding: 44px 0 110px; }
+      .hero p { font-size: 16px; }
+      .hero-tags span { font-size: 12px; }
+      .hero-btns .btn { width: 100%; }
+      .hero-points { grid-template-columns: minmax(0, 1fr); max-width: 340px; gap: 12px; }
+      .highlights { margin-top: -70px; }
+      .hl-grid, .course-grid, .branch-grid, .feature-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hl-item { padding: 18px 20px; border-right: 0 !important; border-bottom: 1px solid var(--border); }
+      .hl-item:last-child { border-bottom: 0; }
+      .hl-item h3 { font-size: 22px; }
+      .review-card { flex-basis: 100%; padding: 22px; }
+      .why-grid { gap: 40px; }
+      .why-img .exp { right: 0; }
+      .company-grid { grid-template-columns: repeat(2, 1fr); }
+      .company { padding: 14px 10px; font-size: 13px; }
+      .placement-stats { margin-top: 28px; gap: 10px; }
+      .founder-card { padding: 20px; border-radius: 20px; gap: 26px; }
+      .f-stats { gap: 8px; }
+      .f-stats b { font-size: 16px; }
+      .f-stats span { font-size: 10.5px; }
+      .cta-btns .btn, .center-btn .btn { width: 100%; }
+      .cta-box { padding: 28px 18px; border-radius: 20px; }
+      footer { padding-top: 120px; }
+      .footer-grid { gap: 30px; }
+      .footer-bottom { justify-content: center; text-align: center; }
+      .wa-float { width: 50px; height: 50px; font-size: 24px; right: 14px; bottom: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reusable icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M5 12h14M13 5l7 7-7 7"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M3 5h18v14H3zM3 6l9 7 9-7"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></symbol>
+    <symbol id="i-headset" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 18v-6a9 9 0 0 1 18 0v6M21 19a2 2 0 0 1-2 2h-1v-6h3zM3 19a2 2 0 0 0 2 2h1v-6H3z"/></symbol>
+    <symbol id="i-lang" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m5 8 6 6M4 14l6-6 2-3M2 5h12M7 2h1M22 22l-5-10-5 10M14 18h6"/></symbol>
+    <symbol id="i-trend" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m23 6-9.5 9.5-5-5L1 18M17 6h6v6"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7 4v16l13-8z"/></symbol>
+    <symbol id="i-cap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
+    <symbol id="i-building" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"/></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></symbol>
+    <symbol id="i-briefcase" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M2 4h20v13H2zM8 21h8M12 17v4"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M3 5h18v16H3zM16 3v4M8 3v4M3 10h18"/></symbol>
+  </svg>
+
+  <!-- ================= TOP BAR ================= -->
+  <div class="topbar">
+    <div class="container">
+      <div class="topbar-left">
+        <span>Call us for course fees & attractive discounts</span>
+      </div>
+      <div class="topbar-right">
+        <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
+        <a href="mailto:contact@greenstechnologys.com" class="hide-sm">contact@greenstechnologys.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo" aria-label="Greens Technologies home">
+        <img src="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" alt="Greens Technologies logo" />
+        <span class="brand"><b>GREENS</b><small>TECHNOLOGIES</small></span>
+      </a>
+      <nav class="nav-links" id="navLinks">
+        <a href="#courses">Courses</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#why">Why Us</a>
+        <a href="#placements">Placements</a>
+        <a href="#founder">About</a>
+        <a href="#branches">Branches</a>
+        <a href="#contact" class="btn btn-green">Book Free Demo</a>
+      </nav>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ================= 1. HERO ================= -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <h1>No 1 Software Training Institute in Chennai <em>with Placements</em></h1>
+        <p>Practical, real-time training from trainers who work in MNCs. Choose from 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more — for freshers and working professionals.</p>
+        <ul class="hero-points">
+          <li><span class="pt-ic"><svg class="i"><use href="#i-star"/></svg></span>4.8 Stars · 10,132 Ratings</li>
+          <li><span class="pt-ic"><svg class="i"><use href="#i-building"/></svg></span>500+ Hiring Partners</li>
+          <li><span class="pt-ic"><svg class="i"><use href="#i-headset"/></svg></span>100% Lifetime Support</li>
+          <li><span class="pt-ic"><svg class="i"><use href="#i-lang"/></svg></span>Bilingual Expert Training in Tamil &amp; English</li>
+        </ul>
+        <div class="hero-btns">
+          <a href="#courses" class="btn btn-light">Explore Courses <svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-outline">
+            <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Book a Free Demo
+          </a>
+        </div>
+        <div class="hero-tags">
+          <!-- <span>Python</span><span>Full Stack</span><span>AWS</span><span>Data Science</span><span>Selenium</span><span>Power BI</span><span>DevOps</span> -->
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img class="main-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80" alt="Students learning at Greens Technologys" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Highlights below header -->
+  <section class="highlights">
+    <div class="container">
+      <div class="hl-grid">
+        <div class="hl-item">
+          <div class="icon-tile"><svg class="i"><use href="#i-award"/></svg></div>
+          <div><h3 data-count="70" data-prefix="₹" data-suffix=" LPA">₹0 LPA</h3><p>Highest Package Offered</p></div>
+        </div>
+        <div class="hl-item">
+          <div class="icon-tile"><svg class="i"><use href="#i-trend"/></svg></div>
+          <div><h3 data-count="95" data-suffix="%">0%</h3><p>Placement Success Rate</p></div>
+        </div>
+        <div class="hl-item">
+          <div class="icon-tile"><svg class="i"><use href="#i-cap"/></svg></div>
+          <div><h3>1 Lakh+</h3><p>Students Placed</p></div>
+        </div>
+        <div class="hl-item">
+          <div class="icon-tile"><svg class="i"><use href="#i-monitor"/></svg></div>
+          <div><h3>4</h3><p>Flexible Training Modes</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 2. TRENDING COURSES ================= -->
+  <section class="courses" id="courses">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Most Popular Courses</h2>
+        <p>Job-oriented programs with real-time projects, lab handouts and placement support. Available in classroom and online.</p>
+      </div>
+      <div class="course-grid" id="courseGrid"><!-- rendered by script --></div>
+    </div>
+  </section>
+
+  <!-- ================= 3. STUDENT REVIEWS ================= -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Real Students. Real Careers.</h2>
+        <p>Rated <b>4.9 / 5</b> by our students. Here are a few of their career stories.</p>
+      </div>
+      <div class="review-track" id="reviewTrack" tabindex="0" aria-label="Student reviews"><!-- rendered by script --></div>
+      <div class="slider-nav">
+        <button type="button" class="slider-btn" id="reviewPrev" aria-label="Previous review"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="slider-btn" id="reviewNext" aria-label="Next review"><svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 4. WHY CHOOSE US ================= -->
+  <section class="why" id="why">
+    <div class="container why-grid">
+      <div class="why-img reveal">
+        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Classroom session at Greens Technologys" />
+        <div class="exp"><b>10+</b><span>Years in IT Industry</span></div>
+      </div>
+
+      <div class="why-content reveal">
+        <h2>Practical Training That Gets You Hired</h2>
+        <p>Greens Technologys is a leading training and placement company in Chennai, headquartered on OMR. We focus on practical, real-time learning — not just theory.</p>
+
+        <div class="feature-grid">
+          <div class="feature">
+            <div class="icon-tile"><svg class="i"><use href="#i-users"/></svg></div>
+            <div><h4>Trainers from MNCs</h4><p>Learn from working professionals and get real corporate exposure.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon-tile"><svg class="i"><use href="#i-code"/></svg></div>
+            <div><h4>Real-Time Projects</h4><p>Lab handouts, case studies and live projects for every course.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon-tile"><svg class="i"><use href="#i-monitor"/></svg></div>
+            <div><h4>Flexible Training Modes</h4><p>Classroom, online, video-based and corporate training on current versions.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon-tile"><svg class="i"><use href="#i-chat"/></svg></div>
+            <div><h4>Interactive Sessions</h4><p>Ask questions during and after class — doubts cleared every day.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon-tile"><svg class="i"><use href="#i-calendar"/></svg></div>
+            <div><h4>Clear Course Plan</h4><p>A day-by-day course plan is shared with you before you register.</p></div>
+          </div>
+          <div class="feature">
+            <div class="icon-tile"><svg class="i"><use href="#i-briefcase"/></svg></div>
+            <div><h4>Placement Support</h4><p>Resume building, mock interviews and job openings for freshers & professionals.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 5. TOP HIRING COMPANIES ================= -->
+  <section class="companies" id="placements">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>Our Students Work at Top Companies</h2>
+        <p>Greens Technologys students are hired by global IT companies, consultancies and product firms.</p>
+      </div>
+
+      <div class="company-grid reveal" id="companyGrid"><!-- rendered by script --></div>
+
+      <div class="placement-stats reveal">
+        <div><b>500+</b><span>Hiring Partners</span></div>
+        <div><b>100%</b><span>Placement Assistance</span></div>
+        <div><b>1,00,000+</b><span>Students Placed</span></div>
+        <div><b>22</b><span>Training Centers</span></div>
+      </div>
+
+      <div class="center-btn reveal">
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20career%20consultation." target="_blank" rel="noopener" class="btn btn-light">Book Free Consultation <svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6. FOUNDER ================= -->
+  <section class="founder" id="founder">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>A Message from Our Founder</h2>
+      </div>
+
+      <div class="founder-card reveal">
+        <div class="video-wrap" id="videoWrap">
+          <button type="button" id="playVideo" aria-label="Play founder video">
+            <img src="https://img.youtube.com/vi/ytqbpfoqGSA/hqdefault.jpg" alt="Greens Technologys founder video" />
+            <span class="play"><svg class="i" style="font-size:30px;margin-left:4px"><use href="#i-play"/></svg></span>
+          </button>
+        </div>
+
+        <div class="founder-content">
+          <span class="role">Founder & Managing Director</span>
+          <h3>Greens Technologys Leadership</h3>
+          <p class="sub">Building Chennai's leading software training & placement institute</p>
+          <blockquote>"Our mission is simple — make quality software education accessible, practical and 100% job-oriented."</blockquote>
+          <p>What began as a single training center in Adyar has grown to <strong>22 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
+          <div class="f-stats">
+            <div><b>10+ Years</b><span>In IT Industry</span></div>
+            <div><b>1,00,000+</b><span>Students Placed</span></div>
+            <div><b>22</b><span>Branches</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 7. BRANCHES ================= -->
+  <section class="branches" id="branches">
+    <div class="container">
+      <div class="section-head reveal">
+        <h2>22 Centers — One Near You</h2>
+        <p>Walk in for free counselling and a demo class at any of our branches in Chennai, Trichy and Salem.</p>
+      </div>
+
+      <div class="branch-grid" id="branchGrid"><!-- rendered by script --></div>
+      <div class="center-btn"><button class="btn btn-green" id="toggleBranches">View All 22 Branches</button></div>
+    </div>
+  </section>
+
+  <!-- CTA strip (overlaps footer) -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta-box reveal">
+        <div>
+          <h2>Call Us for Course Fees & Attractive Discounts</h2>
+          <p>Book a free demo class and get a day-by-day course plan before you join.</p>
+        </div>
+        <div class="cta-btns">
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> WhatsApp Us</a>
+          <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 8. FOOTER ================= -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a href="#home" class="logo f-logo" aria-label="Greens Technologies home"><img src="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" alt="Greens Technologies logo" /><span class="brand"><b>GREENS</b><small>TECHNOLOGIES</small></span></a>
+          <p>Leading software training and placement company in Chennai, offering classroom, online and corporate training on the latest technologies for freshers and working professionals.</p>
+          <div class="socials">
+            <a href="https://www.facebook.com/pages/Greens-Technologys/137199446328133" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="https://twitter.com/greenstech" target="_blank" rel="noopener" aria-label="Twitter / X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23.3 22h-6.9l-5.4-7-6.2 7H1.7l8-9.2L1.3 2h7l4.9 6.4L18.9 2zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20z"/></svg></a>
+            <a href="https://wa.me/918939915577" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="https://greenstechnologys.com/job-placement.html" target="_blank" rel="noopener">Job Vacancies</a></li>
+            <li><a href="https://greenstechnologys.com/Certifications.html" target="_blank" rel="noopener">Certifications</a></li>
+            <li><a href="https://greenstechnologys.com/franchise-opportunities-bangalore.html" target="_blank" rel="noopener">Franchise Opportunities</a></li>
+            <li><a href="https://greenstechnologys.com/food-plus-accommodation-greens-womens-hostel-adyar.html" target="_blank" rel="noopener">Women's Hostel – Adyar</a></li>
+            <li><a href="https://greenstechnologys.com/contact.php" target="_blank" rel="noopener">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Master Programs</h4>
+          <ul>
+            <li><a href="#courses">Full Stack Developer</a></li>
+            <li><a href="#courses">Data Scientist</a></li>
+            <li><a href="#courses">Data Analytics</a></li>
+            <li><a href="#courses">Cloud Architect</a></li>
+            <li><a href="#courses">DevOps Engineer</a></li>
+            <li><a href="#courses">Digital Marketing</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Head Office</h4>
+          <ul class="contact-list">
+            <li><svg class="i"><use href="#i-pin"/></svg><span>19, Balamurugan Garden, Rajiv Gandhi Salai (OMR), Thoraipakkam, Chennai – 600097</span></li>
+            <li><svg class="i"><use href="#i-phone"/></svg><span><a href="tel:+918939915577">+91 89399 15577</a> / <a href="tel:+918939982288">89399 82288</a></span></li>
+            <li><svg class="i"><use href="#i-mail"/></svg><a href="mailto:contact@greenstechnologys.com">contact@greenstechnologys.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Copyright © <span id="year"></span> greenstechnologys.com. All Rights Reserved.</span>
+        <span><a href="https://greenstechnologys.com/Privacy_Policy_of_Greens_Technologys.html" target="_blank" rel="noopener">Privacy Policy</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20am%20interested%20in%20your%20courses." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
+
+  <script>
+    const WA = 'https://wa.me/918939915577?text=';
+    const waLink = msg => WA + encodeURIComponent(msg);
+
+    /* ---------- Trending courses (from greenstechnologys.com catalogue) ---------- */
+    const courses = [
+      { title: 'Full Stack Developer', tag: '100% Placement', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&q=80',
+        meta: 'Master Program · Classroom & Online', desc: 'Front-end, back-end, databases and deployment — build complete web applications.' },
+      { title: 'Data Science & AI', tag: 'Trending', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80',
+        meta: 'Master Program · Classroom & Online', desc: 'Python, R, SAS, Machine Learning and Deep Learning with TensorFlow.' },
+      { title: 'AWS & Cloud Computing', tag: 'High Demand', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&q=80',
+        meta: 'Cloud Architect · Classroom & Online', desc: 'AWS, Azure and Google Cloud Platform with hands-on labs.' },
+      { title: 'DevOps & Kubernetes', tag: 'Popular', img: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=700&q=80',
+        meta: 'DevOps Engineer · Classroom & Online', desc: 'CI/CD, Docker, Kubernetes and DevSecOps practices used in real teams.' },
+      { title: 'Python Programming', tag: 'Beginner Friendly', img: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=700&q=80',
+        meta: 'Classroom & Online', desc: 'From basics to advanced Python — the foundation for data, AI and web.' },
+      { title: 'Selenium & Software Testing', tag: 'Job Oriented', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80',
+        meta: 'Test Automation Engineer · Classroom & Online', desc: 'Manual testing, Selenium, Playwright, API testing and automation frameworks.' },
+      { title: 'Power BI & Tableau', tag: 'Analytics', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80',
+        meta: 'Business Intelligence · Classroom & Online', desc: 'Dashboards, data modelling and reporting for business analytics roles.' },
+      { title: 'Digital Marketing', tag: '100% Placement', img: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80',
+        meta: 'Master Program · Classroom & Online', desc: 'SEO, social media, Google Ads, content and analytics — hands-on campaigns.' }
+    ];
+    document.getElementById('courseGrid').innerHTML = courses.map(c => `
+      <article class="course-card reveal">
+        <div class="course-thumb"><img src="${c.img}" alt="${c.title} course" loading="lazy" /><span class="tag">${c.tag}</span></div>
+        <div class="course-body">
+          <div class="course-meta">${c.meta}</div>
+          <h3>${c.title}</h3>
+          <p class="desc">${c.desc}</p>
+          <div class="rating"><span class="stars">★★★★★</span><b>4.9</b><small>student rating</small></div>
+          <div class="course-foot">
+            <span class="fees">Call for fees & offers</span>
+            <a href="${waLink('Hi Greens Technologys, I am interested in the ' + c.title + ' course. Please share the fees and batch details.')}" target="_blank" rel="noopener" class="link-arrow">Enquire <svg class="i"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </article>`).join('');
+
+    /* ---------- Student reviews (arrow slider) ---------- */
+    const reviews = [
+      { name: 'Surya Prakash', role: 'AI Software Engineer', company: 'Jaikrishna Technology', pkg: '₹14.5 LPA',
+        headline: 'Building end-to-end AI systems',
+        quote: 'Deep Learning, Python and TensorFlow training with real-time projects and 1-on-1 mentor guidance helped me move into an enterprise AI engineering role.' },
+      { name: 'Priyanka M', role: 'NLP & Python Specialist', company: 'BCC Martech', pkg: '₹12.0 LPA',
+        headline: 'From an uncertain start to a developer career',
+        quote: 'I mastered Python, Keras and NLP workflows. The faculty guidance helped me turn theory into production-ready work.' },
+      { name: 'Maheshwaran R', role: 'Computer Vision Associate', company: 'Zoho Corporation', pkg: '₹16.0 LPA',
+        headline: 'Practical labs made the difference',
+        quote: 'The hands-on lab exercises and intensive technical mock interviews helped me secure a high-impact role.' },
+      { name: 'Ananya Sundaram', role: 'Azure AI Associate', company: 'Cognizant', pkg: '₹11.5 LPA',
+        headline: 'Career switch from manual QA to cloud',
+        quote: 'With zero coding background, daily lab tasks and resume workshops gave me the confidence and skills for a top-tier placement.' },
+      { name: 'Karthik Raja', role: 'ML Developer', company: 'TCS Digital', pkg: '₹9.5 LPA',
+        headline: 'Fresher to developer in 4 months',
+        quote: 'Fresh out of college, my capstone project directly impressed the interviewers during the recruitment drive.' },
+      { name: 'Divya Lakshmi', role: 'Analytics Specialist', company: 'Accenture', pkg: '₹13.2 LPA',
+        headline: 'Non-IT graduate to a high-growth role',
+        quote: 'Weekend doubt-clearing sessions and portfolio mentorship gave me the confidence to crack technical rounds.' }
+    ];
+    const initials = n => n.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+    const reviewTrack = document.getElementById('reviewTrack');
+    reviewTrack.innerHTML = reviews.map(r => `
+      <div class="review-card">
+        <div class="review-top"><span class="stars">★★★★★</span><span class="pkg">${r.pkg}</span></div>
+        <h4 class="headline">"${r.headline}"</h4>
+        <p>${r.quote}</p>
+        <div class="reviewer">
+          <div class="avatar">${initials(r.name)}</div>
+          <div><h4>${r.name}</h4><span>${r.role} · <b>${r.company}</b></span></div>
+        </div>
+      </div>`).join('');
+    const reviewPrev = document.getElementById('reviewPrev');
+    const reviewNext = document.getElementById('reviewNext');
+    const reviewStep = () => reviewTrack.querySelector('.review-card').offsetWidth + 24;
+    const updateReviewNav = () => {
+      reviewPrev.disabled = reviewTrack.scrollLeft <= 2;
+      reviewNext.disabled = reviewTrack.scrollLeft + reviewTrack.clientWidth >= reviewTrack.scrollWidth - 2;
+    };
+    reviewPrev.addEventListener('click', () => reviewTrack.scrollBy({ left: -reviewStep() }));
+    reviewNext.addEventListener('click', () => reviewTrack.scrollBy({ left: reviewStep() }));
+    reviewTrack.addEventListener('scroll', updateReviewNav, { passive: true });
+    window.addEventListener('resize', updateReviewNav);
+    updateReviewNav();
+
+    /* ---------- Hiring companies ---------- */
+    const companies = [
+      ['Google', 'logos/google-icon'], ['Microsoft', 'logos/microsoft-icon'], ['Amazon', 'simple-icons/amazon.svg?color=%23FF9900'],
+      ['IBM', 'logos/ibm'], ['Oracle', 'logos/oracle'], ['Accenture', 'simple-icons/accenture.svg?color=%23A100FF'],
+      ['Cognizant', 'simple-icons/cognizant.svg?color=%230033A0'], ['Infosys', 'simple-icons/infosys.svg?color=%23007CC3'],
+      ['TCS', 'simple-icons/tcs.svg?color=%23005A9C'], ['Wipro', 'simple-icons/wipro.svg?color=%23341C53'],
+      ['Zoho', 'simple-icons/zoho.svg?color=%23E42527'], ['Cisco', 'simple-icons/cisco.svg?color=%231BA0D7'],
+      ['Dell', 'simple-icons/dell.svg?color=%23007DB8'], ['Salesforce', 'logos/salesforce'], ['PayPal', 'logos/paypal']
+    ];
+    document.getElementById('companyGrid').innerHTML = companies.map(([name, path]) => {
+      const src = 'https://api.iconify.design/' + (path.includes('.svg') ? path : path + '.svg');
+      return `<div class="company"><img src="${src}" alt="${name} logo" loading="lazy" onerror="this.style.display='none'" /><span>${name}</span></div>`;
+    }).join('');
+
+    /* ---------- Branches (addresses from greenstechnologys.com) ---------- */
+    const branches = [
+      ['OMR – Thoraipakkam', '19, Balamurugan Garden, Rajiv Gandhi Salai, Thoraipakkam, Chennai – 600097', 'https://share.google/8oWecnVgKQJA5nOYW', true],
+      ['Adyar', '11 First Street, Padmanabha Nagar, Adyar, Chennai', 'https://share.google/a6orw7BDvFhW0e0Ly'],
+      ['Anna Nagar', 'New No. W125, 3rd Avenue, W Block, Anna Nagar, Chennai – 600040', 'https://share.google/2EjHCxXg20uET0OLQ'],
+      ['Velachery', '51-A, 2nd Floor, Velachery Road, Dhadeswaram Nagar, Chennai – 600042', 'https://share.google/ZyOh1xcZ3z6wmFa2A'],
+      ['T Nagar', '160, North Usman Road, T Nagar, Chennai – 600017', 'https://share.google/75PLx9DJorttvTKck'],
+      ['Navalur', 'No. 12, Rajiv Gandhi Salai (OMR), Egattur Village, Navalur, Chennai – 600035', 'https://share.google/EDr8HiWDCKGBcfWu8'],
+      ['Porur', '149, 1C/1D, 1st Floor, Opp. DLF IT Park, Ramapuram, Chennai – 600089', 'https://share.google/PCT3sKhhUAtNq5iad'],
+      ['Tambaram (Sanatorium)', 'No. 1, Appa Rao Colony, Tambaram Sanatorium, Chennai – 600047', 'https://share.google/TbZAIGuiIaxMOLgEr'],
+      ['Vadapalani', '79, 100 Feet Road, Thiru Nagar Colony, NGO Colony, Vadapalani, Chennai – 600026', 'https://share.google/D0SoO9Or2nO36cPE9'],
+      ['Perumbakkam', 'Plot 19 & 20, American Advent Christian Layout, Perumbakkam, Chennai – 600100', 'https://share.google/JrdDMVCqQmcdn6J7q'],
+      ['West Tambaram', 'No. 05, Bakthavachalam Street, West Tambaram, Chennai – 600045', 'https://share.google/eRmf7qPqqklN17San'],
+      ['Avadi', 'New No. 398, Old No. 577, CTH Road, Avadi Checkpost, Avadi – 600054', 'https://share.google/niX88xLf9ZFhIkqOM'],
+      ['Mugalivakkam', 'No. 01, Adithi Colony, Mugalivakkam Main Road, Porur, Chennai – 600116', 'https://share.google/np21kIy6Dtu5m3RSp'],
+      ['Mount Road', '162, 2nd Floor, Anna Salai, Express Estate, Triplicane, Chennai – 600002', 'https://share.google/nmxVbGgRqixWtjyMW'],
+      ['Kolathur', 'No. 7, 2nd Floor, Perambur Paper Mills Road, Kolathur, Chennai – 600099', 'https://share.google/V8w2mcjSHm6wk3wQ2'],
+      ['Ambattur', '3rd Floor, No. 27/A, North Park Street, Venkatapuram, Ambattur, Chennai – 600053', 'https://share.google/M6XB1gHSmK8ubrV3z'],
+      ['Guduvancheri', '162, Grand Southern Trunk Road, Nandivaram, Guduvancheri – 603202', 'https://share.google/wb9oSEAuI86mIHyQr'],
+      ['Gowriwakkam', 'No. 280 K, Saranya Complex, Velachery Road, Gowriwakkam, Chennai – 600073', 'https://share.google/SJ6foQBR851yqvEoX'],
+      ['Tiruvottiyur', 'No. 1050, 2nd Floor, Tiruvottiyur High Road, above KFC, Chennai – 600019', 'https://share.google/CxF1GLMPJwzGtTDeo'],
+      ['Poonamallee', 'Om Sakthi Plaza, 1st Floor, Avadi Road, Karayanchavadi, Poonamallee, Chennai – 600056', 'https://share.google/kVZMYJx1huDLxTzK2'],
+      ['Trichy', '75/E-3, Sri Krishna Enclave, Salai Road, Thillai Nagar, Tiruchirappalli – 620018', 'https://share.google/94HqgHo8IRJXZV4XX'],
+      ['Salem', '2nd Floor, Sri Sai Kamatchi Complex, Vincent, Salem – 636007', 'https://share.google/4sytYY1jtRZtJVurw']
+    ];
+    const VISIBLE = 8;
+    document.getElementById('branchGrid').innerHTML = branches.map(([name, addr, map, ho], i) => `
+      <div class="branch-card${i >= VISIBLE ? ' hidden extra' : ''}">
+        <h3><svg class="i"><use href="#i-pin"/></svg>${name}${ho ? '<span class="ho-badge">Head Office</span>' : ''}</h3>
+        <p>${addr}</p>
+        <div class="branch-actions">
+          <a href="${map}" target="_blank" rel="noopener" class="b-map">Directions</a>
+          <a href="${waLink('Hi Greens Technologys, I would like to book a free demo class at your ' + name + ' branch.')}" target="_blank" rel="noopener" class="b-wa"><svg class="i"><use href="#i-wa"/></svg> Demo</a>
+        </div>
+      </div>`).join('');
+    const toggleBtn = document.getElementById('toggleBranches');
+    toggleBtn.addEventListener('click', () => {
+      const showing = toggleBtn.dataset.open === '1';
+      document.querySelectorAll('.branch-card.extra').forEach(el => el.classList.toggle('hidden', showing));
+      toggleBtn.dataset.open = showing ? '0' : '1';
+      toggleBtn.textContent = showing ? 'View All 22 Branches' : 'Show Fewer Branches';
+      if (showing) document.getElementById('branches').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    /* ---------- Founder video (loads on click) ---------- */
+    document.getElementById('playVideo').addEventListener('click', () => {
+      document.getElementById('videoWrap').innerHTML =
+        '<iframe src="https://www.youtube.com/embed/ytqbpfoqGSA?autoplay=1&rel=0&modestbranding=1" title="Greens Technologys founder video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    });
+
+    /* ---------- Navbar + mobile menu ---------- */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
+    const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.getElementById('menuToggle');
+    const navOverlay = document.getElementById('navOverlay');
+    const ICON_MENU = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
+    const ICON_CLOSE = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    const setMenu = open => {
+      navLinks.classList.toggle('open', open);
+      navOverlay.classList.toggle('show', open);
+      document.body.classList.toggle('menu-open', open);
+      menuToggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
+      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
+    navOverlay.addEventListener('click', () => setMenu(false));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
+
+    /* ---------- Reveal on scroll ---------- */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); revealObserver.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    /* ---------- Count-up highlights ---------- */
+    const countObserver = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        const el = e.target, target = +el.dataset.count, prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
+        const start = performance.now(), duration = 1600;
+        const tick = now => {
+          const p = Math.min((now - start) / duration, 1);
+          el.textContent = prefix + Math.floor(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN') + suffix;
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
+
