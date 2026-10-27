@@ -465,7 +465,7 @@
     .nav-container {
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      gap: 20px;
       height: 74px;
     }
 
@@ -502,17 +502,23 @@
       list-style: none;
     }
 
-    @media (min-width: 1140px) {
+    .nav-right {
+      display: none;
+      margin-left: auto;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-right,
       .nav-links {
         display: flex;
       }
     }
 
     .nav-links a {
-      font-size: 0.85rem;
-      font-weight: 700;
+      font-size: 0.95rem;
+      font-weight: 600;
       color: rgba(238, 242, 227, 0.88);
-      padding: 8px 11px;
+      padding: 8px 14px;
       border-radius: 8px;
       transition: var(--transition);
       white-space: nowrap;
@@ -527,6 +533,155 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      margin-left: auto;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-actions {
+        margin-left: 0;
+      }
+    }
+
+    /* Courses mega menu (desktop) */
+    .nav-courses {
+      position: relative;
+      display: none;
+    }
+
+    @media (min-width: 1024px) {
+      .nav-courses {
+        display: block;
+      }
+    }
+
+    .nav-courses-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      height: 40px;
+      padding: 0 16px;
+      border-radius: 10px;
+      background: var(--brand-lime);
+      color: var(--brand-primary);
+      font-weight: 800;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .nav-courses-btn .ico {
+      transition: transform 0.2s ease;
+    }
+
+    .nav-courses.open .nav-courses-btn .ico {
+      transform: rotate(180deg);
+    }
+
+    .mega-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 12px);
+      left: 0;
+      width: 760px;
+      max-width: calc(100vw - 40px);
+      grid-template-columns: 230px 1fr;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .nav-courses.open .mega-menu {
+      display: grid;
+    }
+
+    .mega-cats {
+      list-style: none;
+      background: var(--cream-surface);
+      border-right: 1px solid var(--border-color);
+      padding: 8px;
+      margin: 0;
+    }
+
+    .mega-cat {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 12px;
+      border-radius: 8px;
+      background: transparent;
+      border: none;
+      text-align: left;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .mega-cat .ico {
+      transform: rotate(-90deg);
+      opacity: 0.5;
+    }
+
+    .mega-cat.active,
+    .mega-cat:hover {
+      background: #FFFFFF;
+      color: var(--brand-primary);
+    }
+
+    .mega-panels {
+      padding: 18px 22px;
+    }
+
+    .mega-panel {
+      display: none;
+    }
+
+    .mega-panel.active {
+      display: block;
+    }
+
+    .mega-panel h4 {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--brand-forest);
+      margin-bottom: 10px;
+    }
+
+    .mega-panel ul {
+      list-style: none;
+      margin: 0 0 14px;
+      padding: 0;
+      display: grid;
+      gap: 2px;
+    }
+
+    .mega-panel a {
+      display: block;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .mega-panel ul a:hover {
+      background: var(--cream-surface);
+      color: var(--brand-primary);
+    }
+
+    .mega-viewall {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: var(--brand-forest);
     }
 
     .nav-cta-btn {
@@ -579,7 +734,7 @@
       color: #FFFFFF;
     }
 
-    @media (min-width: 1140px) {
+    @media (min-width: 1024px) {
       .menu-toggle-btn {
         display: none;
       }
@@ -633,6 +788,68 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .mobile-nav-links details > summary {
+      list-style: none;
+    }
+
+    .mobile-nav-links details > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .m-courses > details > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 10px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--brand-dark);
+      border-bottom: 1px solid var(--border-subtle);
+      cursor: pointer;
+    }
+
+    .m-courses details[open] > summary > .ico,
+    .m-cat[open] > summary > .ico {
+      transform: rotate(180deg);
+    }
+
+    .m-cats {
+      padding: 4px 0 8px 10px;
+    }
+
+    .m-cat > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 9px 10px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+    }
+
+    .m-cat ul {
+      list-style: none;
+      margin: 0 0 6px;
+      padding: 0 0 0 10px;
+      border-left: 2px solid var(--border-color);
+    }
+
+    .mobile-nav-links .m-cat ul a {
+      padding: 7px 10px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      border: none;
+      background: none;
+    }
+
+    .m-cats .mega-viewall {
+      justify-content: flex-start;
+      padding: 8px 10px;
+      border: none;
+      color: var(--brand-forest);
     }
 
     .mobile-nav-links {
@@ -1084,6 +1301,164 @@
     }
 
     /* ============================================================
+       MEET OUR FOUNDER SECTION
+       ============================================================ */
+    .founder-section {
+      background: #FFFFFF;
+    }
+
+    .founder-card {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--cream-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    @media (min-width: 900px) {
+      .founder-card {
+        grid-template-columns: 1fr 1fr;
+        gap: 44px;
+        padding: 36px;
+      }
+    }
+
+    .founder-video {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #0B120B;
+    }
+
+    .founder-video button,
+    .founder-video iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      padding: 0;
+      background: none;
+      cursor: pointer;
+    }
+
+    .founder-video img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .founder-video button:hover img {
+      transform: scale(1.04);
+    }
+
+    .founder-play {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      color: var(--brand-primary);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .founder-play svg {
+      width: 30px;
+      height: 30px;
+      margin-left: 4px;
+    }
+
+    .founder-role {
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-forest);
+    }
+
+    .founder-name {
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
+      font-weight: 800;
+      color: var(--brand-dark);
+      margin: 6px 0 4px;
+    }
+
+    .founder-sub {
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 16px;
+    }
+
+    .founder-quote {
+      background: #FFFFFF;
+      border-left: 3px solid var(--brand-forest);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-style: italic;
+      color: var(--text-main);
+      margin: 0 0 16px;
+    }
+
+    .founder-text {
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .founder-text strong {
+      color: var(--brand-primary);
+    }
+
+    .founder-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .founder-stats div {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 12px 6px;
+      text-align: center;
+    }
+
+    .founder-stats b {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.1rem;
+      color: var(--brand-primary);
+    }
+
+    .founder-stats span {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 640px) {
+      .founder-stats b {
+        font-size: 0.95rem;
+      }
+
+      .founder-stats span {
+        font-size: 0.66rem;
+      }
+    }
+
+    /* ============================================================
        FACULTY / INSTRUCTORS SECTION
        ============================================================ */
     .faculty-section {
@@ -1100,6 +1475,36 @@
       .faculty-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
+      }
+    }
+
+    /* Mobile: single-row swipe carousel, next card peeks in */
+    @media (max-width: 767px) {
+      .faculty-grid {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 86%;
+        gap: 14px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-padding: 0 20px;
+        margin: 0 -20px;
+        padding: 4px 20px 12px;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .faculty-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .faculty-card {
+        scroll-snap-align: start;
+        padding: 22px 18px;
+      }
+
+      .faculty-card:hover {
+        transform: none;
       }
     }
 
@@ -1391,7 +1796,10 @@
       font-size: 0.9rem;
       color: var(--text-main);
       line-height: 1.6;
-      font-style: italic;
+    }
+
+    .review-text strong {
+      color: var(--brand-dark);
     }
 
     .review-transition-badge {
@@ -1574,6 +1982,7 @@
     }
 
     .letter-chip {
+      white-space: nowrap;
       font-size: 0.68rem;
       font-weight: 800;
       color: var(--brand-forest);
@@ -3419,122 +3828,168 @@
 
     .branches-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr;
       gap: 14px;
-      max-width: 980px;
+      max-width: 1200px;
       margin: 0 auto 36px auto;
+    }
+
+    @media (min-width: 641px) {
+      .branches-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (min-width: 1024px) {
       .branches-grid {
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
       }
     }
 
     .branch-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
       background: var(--cream-surface);
       border: 1px solid var(--border-color);
       border-radius: var(--radius-md);
-      padding: 16px 14px;
-      text-align: center;
-      text-decoration: none;
-      color: inherit;
+      padding: 18px;
       transition: var(--transition);
-      cursor: pointer;
     }
 
     .branch-card:hover {
       background: #FFFFFF;
       border-color: var(--brand-forest);
-      transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
-      color: inherit;
+    }
+
+    .branch-card-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
     }
 
     .branch-pin-icon {
+      display: flex;
       font-size: 18px;
-      line-height: 1;
       color: var(--brand-forest);
-      margin-bottom: 5px;
-      transition: transform 0.2s ease;
-    }
-
-    .branch-card:hover .branch-pin-icon {
-      transform: scale(1.15);
     }
 
     .branch-name {
-      font-size: 0.92rem;
-      font-weight: 700;
+      font-size: 1rem;
+      font-weight: 800;
       color: var(--brand-dark);
-      transition: color 0.2s ease;
+      margin: 0;
     }
 
-    .branch-card:hover .branch-name {
+    .branch-name a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .branch-address {
+      font-style: normal;
+      font-size: 0.86rem;
+      line-height: 1.55;
+      color: var(--text-muted);
+    }
+
+    .branch-landmark {
+      font-size: 0.8rem;
+      line-height: 1.5;
+      color: var(--text-main);
+      margin-top: 6px;
+    }
+
+    .branch-landmark strong {
       color: var(--brand-forest);
     }
 
-    .branch-meta {
-      font-size: 0.72rem;
-      color: var(--text-light);
-      margin-top: 4px;
+    .branch-actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 14px;
     }
 
+    .branch-action {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
+      background: #FFFFFF;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .branch-action:hover {
+      border-color: var(--brand-forest);
+      color: var(--brand-forest);
+    }
+
+    .branch-action.primary {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    .branch-action.primary:hover {
+      background: var(--brand-forest);
+      color: #FFFFFF;
+    }
+
+    /* Mobile: compact tiles, same treatment as the hiring-company tiles */
     @media (max-width: 640px) {
       .branches-grid {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 8px 10px;
-        margin-bottom: 28px;
-        padding: 0 4px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
       }
 
       .branch-card {
-        display: inline-flex;
-        flex-direction: row;
-        align-items: center;
-        gap: 6px;
-        padding: 8px 14px;
-        border-radius: 9999px;
-        background: var(--cream-surface);
-        border: 1px solid var(--border-color);
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-        width: auto;
+        position: relative;
+        padding: 10px 4px;
+        background: #FFFFFF;
+        border-radius: var(--radius-sm);
+        justify-content: center;
       }
 
-      .branch-card:hover,
-      .branch-card:active {
-        background: #FFFFFF;
-        border-color: var(--brand-forest);
-        color: var(--brand-forest);
-        transform: translateY(-1px);
-        box-shadow: 0 2px 6px rgba(16, 77, 54, 0.12);
+      .branch-card-head {
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 0;
+        gap: 4px;
+        text-align: center;
       }
 
       .branch-pin-icon {
-        font-size: 14px;
-        margin-bottom: 0;
-        line-height: 1;
-      }
-
-      .branch-card:hover .branch-pin-icon {
-        transform: none;
+        font-size: 16px;
       }
 
       .branch-name {
-        font-size: 0.84rem;
-        font-weight: 600;
-        white-space: nowrap;
-        line-height: 1.2;
+        font-size: 0.74rem;
+        font-weight: 700;
+        line-height: 1.25;
       }
 
-      .branch-meta {
-        display: none !important;
+      /* Whole tile opens Maps */
+      .branch-name a::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+      }
+
+      .branch-address,
+      .branch-landmark,
+      .branch-actions {
+        display: none;
       }
     }
 
@@ -4032,29 +4487,182 @@
         />
       </a>
 
+      <!-- Courses Mega Menu -->
+      <div class="nav-courses" id="navCourses">
+        <button type="button" class="nav-courses-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleCoursesMenu(event)">
+          Courses <svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+        </button>
+        <div class="mega-menu" role="menu">
+          <ul class="mega-cats">
+              <li><button type="button" class="mega-cat active" data-cat="0">Master Program<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="1">Data Science<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="2">Oracle<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="3">RPA<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="4">Dot Net<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="5">Java<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="6">Software Testing<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="7">Data Warehousing<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="8">MSBI<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="9">Programming<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+              <li><button type="button" class="mega-cat" data-cat="10">Other<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></button></li>
+          </ul>
+          <div class="mega-panels">
+            <div class="mega-panel active" data-cat="0">
+              <h4>Master Program Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/data-analytics-courses-in-chennai.html">Data Analytics Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/full-stack-developer-training-in-chennai.html">Full Stack Developer Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/digital-marketing-training-in-chennai.html">Digital Marketing Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/devops-training-and-certification-in-chennai.html">Devops Engineer Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/data-science-training-in-chennai.html">Data Scientist Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/big-data-and-hadoop-training-in-chennai.html">Bigdata Architect Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/machine-learning-training-in-chennai.html">Machine Learning Engineer</a></li>
+                <li><a href="https://www.greenstechnologys.com/software-testing-course-content.html">Test Automation Engineer</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="1">
+              <h4>Data Science Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/data-science-with-r-training-in-chennai.html">Data Science with R Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/data-science-with-python-training-in-chennai.html">Data Science with Python Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/machine-learning-training-in-chennai.html">Machine Learning Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/data-science-with-sas-training-in-chennai.html">Data Science with SAS Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="2">
+              <h4>Oracle Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/oracle-sql-plsql-training-in-chennai.html">Oracle SQL and PLSQL Placement Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/oracle-sql-training-in-chennai.html">SQL Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/plsql-course-content.html">PLSQL Certification</a></li>
+                <li><a href="https://www.greenstechnologys.com/performance-tunning-course-content.html">Performance Tuning Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/oracle-dba-course-content.html">Oracle DBA Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/oracle-rac-training-course-content.html">Oracle RAC Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/oracle-apps-dba-training-in-chennai.html">Oracle Apps DBA Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/oracle-apps-technical-training-in-chennai.html">Oracle Apps Technical Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="3">
+              <h4>RPA Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/blue-prism-training.html">Blue Prism Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/automation-anywhere-training-in-chennai.html">Automation Anywhere Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/uipath-training-in-chennai.html">UiPath Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/openspan-training-in-chennai.html">OpenSpan Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="4">
+              <h4>Dot Net Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/C-Net-training-in-chennai.html">C Sharp .NET Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/linq-entityframework-training-in-chennai.html">LINQ Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/Asp-Net-training-in-chennai.html">ASP.NET Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/wcf-training-in-chennai.html">WCF Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/wpf-training-in-chennai.html">WPF Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/aspnet-mvc-training-in-chennai.html">MVC 4.0 Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/silverlight-training.html">Silverlight Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/SharePoint-training-in-chennai.html">SharePoint Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="5">
+              <h4>Java Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/java-training-course-content.html">Core Java Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/J2EE-Training-in-Chennai.html">J2EE Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/angularjs-training-in-chennai.html">AngularJS Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/angular-2-training-in-chennai.html">Angular 2 Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/angular-5-training-in-chennai.html">Angular 5 Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/Struts-Training-In-Chennai.html">Struts Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/hibernate-training-institute-center-in-chennai.html">Hibernate Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/hibernate-training-institute-center-in-chennai.html">Spring Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="6">
+              <h4>Software Testing Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/istqb-certification-training-chennai.html">ISTQB Certification</a></li>
+                <li><a href="https://www.greenstechnologys.com/qtp-course-content.html">QTP / UFT Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/etl-training-in-chennai.html">ETL Testing Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/LoadRunner-course-content.html">LoadRunner Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/selenium-course-content.html">Selenium Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/soapui-testing-training-in-chennai.html">SoapUI API Testing Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/Jmeter-course-content.html">Jmeter Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/mobile-application-testing-training-in-chennai.html">Mobile Testing Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="7">
+              <h4>Data Warehousing Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/informatica-course-content.html">Informatica Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/talend-training-in-chennai.html">Talend Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/cognos-course-content.html">COGNOS Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/cognos-tm1-course-content.html">COGNOS TM1 Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/obiee-course-content.html">OBIEE Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/data-stage-course-content.html">DataStage Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/db2-training-in-chennai.html">DB2 DBA Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/abinitio-course-content.html">Ab Initio Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="8">
+              <h4>MSBI Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/SSAS-course-chennai.html">SSAS Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/SSIS-course-chennai.html">SSIS Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/SSRS-course-chennai.html">SSRS Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/powerbi-training-in-chennai.html">Power BI Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="9">
+              <h4>Programming Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/apple-ios-training-in-chennai.html">Apple IOS Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/Android-training-institute-Chennai.html">Android Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/react-native-training-in-chennai.html">React Native Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/Websphere_training_in_chennai.html">Websphere Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/salesforce-training-in-chennai.html">Salesforce Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/blockchain-training-in-chennai.html">Blockchain Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+            <div class="mega-panel" data-cat="10">
+              <h4>Other Courses</h4>
+              <ul>
+                <li><a href="https://www.greenstechnologys.com/Cloud-Computing-course-content.html">Cloud Computing</a></li>
+                <li><a href="https://www.greenstechnologys.com/weblogic-training-institutes-chennai.html">Weblogic Server Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/R-language-training-in-chennai.html">R Language Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/C-C++-best-training-institute-Chennai.html">C C++ Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/linux-training-in-chennai.html">Linux Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/unix-course-content.html">UNIX SHELL Scripting Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/shell-perl-course-content.html">PERL Certification Training</a></li>
+                <li><a href="https://www.greenstechnologys.com/Sales-Force-CRM-training-institute-Chennai.html">Salesforce Certification Training</a></li>
+              </ul>
+              <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Desktop Nav Links -->
-      <nav>
+      <nav class="nav-right">
         <ul class="nav-links">
-          <li><a href="#overview">Overview</a></li>
-          <li><a href="#curriculum">Curriculum</a></li>
-          <li><a href="#batches">Batches</a></li>
-          <li><a href="#projects">Live Projects</a></li>
-          <li><a href="#delivery-modes">Delivery Modes</a></li>
-          <li><a href="#placements">Placements</a></li>
-          <li><a href="#certifications">Certifications</a></li>
-          <li><a href="#faculty">Faculty</a></li>
-          <li><a href="#reviews">Reviews</a></li>
-          <li><a href="#branches">Branches</a></li>
-          <li><a href="#faqs">FAQ</a></li>
+          <li><a href="https://www.greenstechnologys.com/corporate-training-in-chennai.html">Corporate Training</a></li>
+          <li><a href="https://www.greenstechnologys.com/courses.html">All Courses</a></li>
+          <li><a href="https://www.greenstechnologys.com/contact.php">All Branches</a></li>
         </ul>
       </nav>
 
       <!-- Header Actions -->
       <div class="nav-actions">
-        <button class="nav-cta-btn" onclick="openLeadModal('Book a Free Demo Class')">
-          <span>Book Demo</span>
-          <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-        </button>
+        <a class="nav-cta-btn" href="https://www.greenstechnologys.com/contact.php">Contact Us</a>
 
         <button class="menu-toggle-btn" id="menuToggle" onclick="toggleMenu()" aria-label="Toggle navigation menu">
           <svg class="ico" aria-hidden="true"><use href="#i-menu"/></svg>
@@ -4081,21 +4689,150 @@
         <div class="mobile-drawer-body">
           <div class="mobile-nav-title">
             <span>Navigation Menu</span>
-            <span style="color:var(--text-light); font-weight:600;">11 Sections</span>
           </div>
 
           <ul class="mobile-nav-links">
-            <li><a href="#overview" onclick="toggleMenu()"><span>Course Overview</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#curriculum" onclick="toggleMenu()"><span>Curriculum (10 Modules)</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#batches" onclick="toggleMenu()"><span>Upcoming Batches</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#projects" onclick="toggleMenu()"><span>Live AI / Data Projects</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#delivery-modes" onclick="toggleMenu()"><span>Training Modes</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#placements" onclick="toggleMenu()"><span>Placement Assurance</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#certifications" onclick="toggleMenu()"><span>Global Certifications</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#faculty" onclick="toggleMenu()"><span>Senior Faculty</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#reviews" onclick="toggleMenu()"><span>Student Reviews</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#branches" onclick="toggleMenu()"><span>25+ Branches</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
-            <li><a href="#faqs" onclick="toggleMenu()"><span>Course FAQs</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+            <li class="m-courses">
+              <details>
+                <summary><span>Courses</span><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+                <div class="m-cats">
+            <details class="m-cat">
+              <summary>Master Program<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/data-analytics-courses-in-chennai.html">Data Analytics Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/full-stack-developer-training-in-chennai.html">Full Stack Developer Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/digital-marketing-training-in-chennai.html">Digital Marketing Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/devops-training-and-certification-in-chennai.html">Devops Engineer Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/data-science-training-in-chennai.html">Data Scientist Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/big-data-and-hadoop-training-in-chennai.html">Bigdata Architect Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/machine-learning-training-in-chennai.html">Machine Learning Engineer</a></li>
+                  <li><a href="https://www.greenstechnologys.com/software-testing-course-content.html">Test Automation Engineer</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Data Science<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/data-science-with-r-training-in-chennai.html">Data Science with R Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/data-science-with-python-training-in-chennai.html">Data Science with Python Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/machine-learning-training-in-chennai.html">Machine Learning Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/data-science-with-sas-training-in-chennai.html">Data Science with SAS Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Oracle<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/oracle-sql-plsql-training-in-chennai.html">Oracle SQL and PLSQL Placement Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/oracle-sql-training-in-chennai.html">SQL Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/plsql-course-content.html">PLSQL Certification</a></li>
+                  <li><a href="https://www.greenstechnologys.com/performance-tunning-course-content.html">Performance Tuning Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/oracle-dba-course-content.html">Oracle DBA Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/oracle-rac-training-course-content.html">Oracle RAC Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/oracle-apps-dba-training-in-chennai.html">Oracle Apps DBA Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/oracle-apps-technical-training-in-chennai.html">Oracle Apps Technical Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>RPA<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/blue-prism-training.html">Blue Prism Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/automation-anywhere-training-in-chennai.html">Automation Anywhere Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/uipath-training-in-chennai.html">UiPath Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/openspan-training-in-chennai.html">OpenSpan Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Dot Net<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/C-Net-training-in-chennai.html">C Sharp .NET Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/linq-entityframework-training-in-chennai.html">LINQ Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/Asp-Net-training-in-chennai.html">ASP.NET Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/wcf-training-in-chennai.html">WCF Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/wpf-training-in-chennai.html">WPF Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/aspnet-mvc-training-in-chennai.html">MVC 4.0 Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/silverlight-training.html">Silverlight Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/SharePoint-training-in-chennai.html">SharePoint Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Java<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/java-training-course-content.html">Core Java Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/J2EE-Training-in-Chennai.html">J2EE Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/angularjs-training-in-chennai.html">AngularJS Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/angular-2-training-in-chennai.html">Angular 2 Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/angular-5-training-in-chennai.html">Angular 5 Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/Struts-Training-In-Chennai.html">Struts Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/hibernate-training-institute-center-in-chennai.html">Hibernate Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/hibernate-training-institute-center-in-chennai.html">Spring Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Software Testing<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/istqb-certification-training-chennai.html">ISTQB Certification</a></li>
+                  <li><a href="https://www.greenstechnologys.com/qtp-course-content.html">QTP / UFT Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/etl-training-in-chennai.html">ETL Testing Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/LoadRunner-course-content.html">LoadRunner Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/selenium-course-content.html">Selenium Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/soapui-testing-training-in-chennai.html">SoapUI API Testing Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/Jmeter-course-content.html">Jmeter Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/mobile-application-testing-training-in-chennai.html">Mobile Testing Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Data Warehousing<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/informatica-course-content.html">Informatica Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/talend-training-in-chennai.html">Talend Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/cognos-course-content.html">COGNOS Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/cognos-tm1-course-content.html">COGNOS TM1 Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/obiee-course-content.html">OBIEE Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/data-stage-course-content.html">DataStage Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/db2-training-in-chennai.html">DB2 DBA Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/abinitio-course-content.html">Ab Initio Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>MSBI<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/SSAS-course-chennai.html">SSAS Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/SSIS-course-chennai.html">SSIS Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/SSRS-course-chennai.html">SSRS Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/powerbi-training-in-chennai.html">Power BI Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Programming<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/apple-ios-training-in-chennai.html">Apple IOS Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/Android-training-institute-Chennai.html">Android Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/react-native-training-in-chennai.html">React Native Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/Websphere_training_in_chennai.html">Websphere Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/salesforce-training-in-chennai.html">Salesforce Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/blockchain-training-in-chennai.html">Blockchain Certification Training</a></li>
+              </ul>
+            </details>
+            <details class="m-cat">
+              <summary>Other<svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+              <ul>
+                  <li><a href="https://www.greenstechnologys.com/Cloud-Computing-course-content.html">Cloud Computing</a></li>
+                  <li><a href="https://www.greenstechnologys.com/weblogic-training-institutes-chennai.html">Weblogic Server Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/R-language-training-in-chennai.html">R Language Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/C-C++-best-training-institute-Chennai.html">C C++ Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/linux-training-in-chennai.html">Linux Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/unix-course-content.html">UNIX SHELL Scripting Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/shell-perl-course-content.html">PERL Certification Training</a></li>
+                  <li><a href="https://www.greenstechnologys.com/Sales-Force-CRM-training-institute-Chennai.html">Salesforce Certification Training</a></li>
+              </ul>
+            </details>
+                  <a class="mega-viewall" href="https://www.greenstechnologys.com/courses.html">View All Courses <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a>
+                </div>
+              </details>
+            </li>
+            <li><a href="https://www.greenstechnologys.com/corporate-training-in-chennai.html"><span>Corporate Training</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+            <li><a href="https://www.greenstechnologys.com/courses.html"><span>All Courses</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+            <li><a href="https://www.greenstechnologys.com/contact.php"><span>All Branches</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
+            <li><a href="https://www.greenstechnologys.com/contact.php"><span>Contact Us</span><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></a></li>
           </ul>
 
           <!-- Action Buttons in Drawer -->
@@ -4296,6 +5033,40 @@
     </section>
 
     <!-- ============================================================
+         MEET OUR FOUNDER SECTION
+         ============================================================ -->
+    <section class="section-spacing founder-section" id="founder">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Meet Our Founder</h2>
+          <p class="section-subtitle">A message from the leadership behind Greens Technologies.</p>
+        </div>
+
+        <div class="founder-card">
+          <div class="founder-video" id="founderVideo">
+            <button type="button" onclick="playFounderVideo()" aria-label="Play founder video">
+              <img src="https://img.youtube.com/vi/ytqbpfoqGSA/hqdefault.jpg" alt="Greens Technologies founder video" loading="lazy" />
+              <span class="founder-play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>
+            </button>
+          </div>
+
+          <div class="founder-content">
+            <span class="founder-role">Founder &amp; Managing Director</span>
+            <h3 class="founder-name">Greens Technologies Leadership</h3>
+            <p class="founder-sub">Building Chennai's leading software training &amp; placement institute</p>
+            <blockquote class="founder-quote">"Our mission is simple: make quality software education accessible, practical and 100% job-oriented."</blockquote>
+            <p class="founder-text">What began as a single training center in Adyar has grown to <strong>22 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
+            <div class="founder-stats">
+              <div><b>10+ Years</b><span>In IT Industry</span></div>
+              <div><b>1,00,000+</b><span>Students Placed</span></div>
+              <div><b>22</b><span>Branches</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          FACULTY / INSTRUCTORS SECTION
          ============================================================ -->
     <section class="section-spacing faculty-section" id="faculty">
@@ -4482,88 +5253,83 @@
         <!-- Scrollable Carousel Track with 5 Reviews -->
         <div class="reviews-carousel-track" id="reviewsCarousel">
           <!-- Review 1 -->
-          <div class="review-card" data-letter="" tabindex="0" role="button" aria-label="View review and joining letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <div class="review-stars"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div>
-            <span class="review-transition-badge">Manual QA <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> Data Engineer (Freshworks)</span>
+          <div class="review-card" data-letter="assets/offer-letters/jithin-b-photon.jpg" tabindex="0" role="button" aria-label="View Jithin B's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
+            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
             <p class="review-text">
-              "Coming from a manual testing background, I was intimidated by Big Data. Greens Technologies made Python, SQL, and PySpark so approachable. The live AWS project on Sales Data Lake gave me the confidence to ace technical rounds at Freshworks!"
+              Offered the role of <strong>Senior Data Engineer I</strong> at Photon Interactive, Chennai, with an annual CTC of <strong>&#8377;10 LPA</strong>.
             </p>
             <div class="review-author-wrap">
-              <div class="review-avatar-char">V</div>
+              <div class="review-avatar-char">J</div>
               <div class="review-author-info">
-                <h4>Vigneshwaran M.</h4>
-                <p>Data Engineer • Freshworks Chennai (₹14.5 LPA)</p>
+                <h4>Jithin B</h4>
+                <p>Senior Data Engineer I &bull; Photon Chennai (&#8377;10 LPA)</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Joining Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
           </div>
 
           <!-- Review 2 -->
-          <div class="review-card" data-letter="" tabindex="0" role="button" aria-label="View review and joining letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <div class="review-stars"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div>
-            <span class="review-transition-badge">Fresher (B.Tech ECE) <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> Cloud Data Eng (Amazon)</span>
+          <div class="review-card" data-letter="assets/offer-letters/shreyash-jain-tcs.jpg" tabindex="0" role="button" aria-label="View Shreyash Jain's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
+            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
             <p class="review-text">
-              "I had zero coding experience in college. The complimentary foundation course in SQL &amp; Python built my base. The placement cell scheduled 6 mock interviews until I cracked the AWS Kinesis &amp; Redshift pipeline questions at Amazon."
+              Offered the role of <strong>Systems Engineer</strong> at Tata Consultancy Services, Chennai, with an annual CTC of <strong>&#8377;10 LPA</strong>.
             </p>
             <div class="review-author-wrap">
-              <div class="review-avatar-char">A</div>
+              <div class="review-avatar-char">S</div>
               <div class="review-author-info">
-                <h4>Ananya Sundaram</h4>
-                <p>Associate Data Engineer • Amazon (₹18.2 LPA)</p>
+                <h4>Shreyash Jain</h4>
+                <p>Systems Engineer &bull; TCS Chennai (&#8377;10 LPA)</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Joining Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
           </div>
 
           <!-- Review 3 -->
-          <div class="review-card" data-letter="" tabindex="0" role="button" aria-label="View review and joining letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <div class="review-stars"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div>
-            <span class="review-transition-badge">BI Analyst <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> Senior Analytics Eng (Zoho)</span>
+          <div class="review-card" data-letter="assets/offer-letters/c-malarvizhi-tech-mahindra.jpg" tabindex="0" role="button" aria-label="View C Malarvizhi's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
+            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
             <p class="review-text">
-              "I already knew SQL and Power BI, but I wanted to break into Snowflake, DBT, and Apache Airflow. The curriculum matches 100% of modern production stacks. Greens Technologies placement team directly referred me to Zoho!"
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">K</div>
-              <div class="review-author-info">
-                <h4>Karthik Balaji</h4>
-                <p>Senior Analytics Engineer • Zoho (₹24 LPA)</p>
-              </div>
-            </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Joining Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
-
-          <!-- Review 4 -->
-          <div class="review-card" data-letter="" tabindex="0" role="button" aria-label="View review and joining letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <div class="review-stars"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div>
-            <span class="review-transition-badge">Non-IT Switch <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> Big Data Engineer (TCS)</span>
-            <p class="review-text">
-              "Coming from a non-IT banking operations role, transitioning to big data felt like an uphill climb. The trainers patiently broke down SQL, PySpark joins, and Snowflake pipelines step-by-step. The 1-on-1 lab guidance made all the difference!"
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">P</div>
-              <div class="review-author-info">
-                <h4>Priya Ramachandran</h4>
-                <p>Big Data Engineer • TCS Digital (₹12.8 LPA)</p>
-              </div>
-            </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Joining Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
-
-          <!-- Review 5 -->
-          <div class="review-card" data-letter="" tabindex="0" role="button" aria-label="View review and joining letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <div class="review-stars"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg></div>
-            <span class="review-transition-badge">Database Support / DBA <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg> Data Platform Eng (Accenture)</span>
-            <p class="review-text">
-              "As an on-premise Oracle DBA, I needed to master cloud warehouses and orchestrations fast. Greens Technologies covered Snowflake, DBT, AWS Glue, and Apache Airflow with production-grade depth. I secured a 160% salary hike!"
+              Offered the role of <strong>Tech Lead</strong> at Tech Mahindra, Bengaluru, with an annual CTC of <strong>&#8377;14 LPA</strong>.
             </p>
             <div class="review-author-wrap">
               <div class="review-avatar-char">M</div>
               <div class="review-author-info">
-                <h4>Mohammed Farhan</h4>
-                <p>Data Platform Engineer • Accenture (₹19.5 LPA)</p>
+                <h4>C Malarvizhi</h4>
+                <p>Tech Lead &bull; Tech Mahindra Bengaluru (&#8377;14 LPA)</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Joining Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="review-card" data-letter="assets/offer-letters/praveen-kumar-capgemini.jpg" tabindex="0" role="button" aria-label="View Praveen Kumar's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
+            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
+            <p class="review-text">
+              Offered the role of <strong>Consultant</strong> at Capgemini, Chennai, with an annual CTC of <strong>&#8377;14 LPA</strong>.
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-avatar-char">P</div>
+              <div class="review-author-info">
+                <h4>Praveen Kumar</h4>
+                <p>Consultant &bull; Capgemini Chennai (&#8377;14 LPA)</p>
+              </div>
+            </div>
+            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="review-card" data-letter="assets/offer-letters/rahul-t-capgemini.jpg" tabindex="0" role="button" aria-label="View Rahul T's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
+            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
+            <p class="review-text">
+              Offered the role of <strong>Manager</strong> at Capgemini, Bengaluru, with an annual CTC of <strong>&#8377;19 LPA</strong>.
+            </p>
+            <div class="review-author-wrap">
+              <div class="review-avatar-char">R</div>
+              <div class="review-author-info">
+                <h4>Rahul T</h4>
+                <p>Manager &bull; Capgemini Bengaluru (&#8377;19 LPA)</p>
+              </div>
+            </div>
+            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
           </div>
         </div>
 
@@ -8818,95 +9584,276 @@
         </div>
 
         <div class="branches-grid">
-          <a class="branch-card" href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Adyar on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Adyar</span>
-            <span class="branch-meta">Chennai Main Center</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener noreferrer">Adyar</a></h3>
+            </div>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Adyar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/2EjHCxXg20uET0OLQ" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Anna Nagar on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Anna Nagar</span>
-            <span class="branch-meta">Chennai Metro Hub</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/8oWecnVgKQJA5nOYW" target="_blank" rel="noopener noreferrer">OMR (Thoraipakkam)</a></h3>
+            </div>
+            <address class="branch-address">19, Balamurugan Garden, Rajiv Gandhi Salai<br />Thoraipakkam, Chennai - 600097</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Opp. to Geetham Restaurant</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/8oWecnVgKQJA5nOYW" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies OMR (Thoraipakkam) on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/8oWecnVgKQJA5nOYW" target="_blank" rel="noopener noreferrer" title="View Greens Technologies OMR Thoraipakkam on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">OMR (Thoraipakkam)</span>
-            <span class="branch-meta">IT Corridor Branch</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/TbZAIGuiIaxMOLgEr" target="_blank" rel="noopener noreferrer">Tambaram Sanatorium</a></h3>
+            </div>
+            <address class="branch-address">No. 1, Appa Rao Colony<br />Tambaram Sanatorium, Chennai - 600047</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Opp. Sri Rama Anjaneyar Temple, near HP Petrol Bunk</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/TbZAIGuiIaxMOLgEr" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Tambaram Sanatorium on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/TbZAIGuiIaxMOLgEr" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Tambaram on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Tambaram</span>
-            <span class="branch-meta">South Chennai Center</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/EDr8HiWDCKGBcfWu8" target="_blank" rel="noopener noreferrer">Navalur</a></h3>
+            </div>
+            <address class="branch-address">No. 12, Rajiv Gandhi Salai (OMR), Egattur Village<br />Navalur (just before Navalur Tollgate), Chennai - 600035</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/EDr8HiWDCKGBcfWu8" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Navalur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/EDr8HiWDCKGBcfWu8" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Navalur on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Navalur</span>
-            <span class="branch-meta">OMR Tech Park</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/PCT3sKhhUAtNq5iad" target="_blank" rel="noopener noreferrer">Porur</a></h3>
+            </div>
+            <address class="branch-address">149, 1C/1D, 1st Floor, Opp. to DLF IT Park<br />Ramapuram, Chennai - 600089</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/PCT3sKhhUAtNq5iad" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Porur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/PCT3sKhhUAtNq5iad" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Porur on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Porur</span>
-            <span class="branch-meta">West Chennai Center</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/JrdDMVCqQmcdn6J7q" target="_blank" rel="noopener noreferrer">Perumbakkam</a></h3>
+            </div>
+            <address class="branch-address">1st Floor, Plot No. 19 &amp; 20, American Advent Christian Layout<br />Sholinganallur to Medavakkam Main Road, Perumbakkam, Chennai - 600100</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Next to OMR Food Street</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/JrdDMVCqQmcdn6J7q" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Perumbakkam on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/JrdDMVCqQmcdn6J7q" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Perumbakkam on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Perumbakkam</span>
-            <span class="branch-meta">Near Medavakkam</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/2EjHCxXg20uET0OLQ" target="_blank" rel="noopener noreferrer">Anna Nagar</a></h3>
+            </div>
+            <address class="branch-address">Ground Floor, New No. W125, Old No. W42, 3rd Avenue, W Block<br />Anna Nagar, Chennai - 600040</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Near Parambriym Hotel, opp. HP Petrol Bunk</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/2EjHCxXg20uET0OLQ" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Anna Nagar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/ZyOh1xcZ3z6wmFa2A" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Velachery on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Velachery</span>
-            <span class="branch-meta">South Chennai Hub</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/eRmf7qPqqklN17San" target="_blank" rel="noopener noreferrer">West Tambaram</a></h3>
+            </div>
+            <address class="branch-address">No. 05, Bakthavachalam Street<br />West Tambaram, Chennai - 600045</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/eRmf7qPqqklN17San" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies West Tambaram on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/D0SoO9Or2nO36cPE9" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Vadapalani on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Vadapalani</span>
-            <span class="branch-meta">Central Chennai</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/ZyOh1xcZ3z6wmFa2A" target="_blank" rel="noopener noreferrer">Velachery</a></h3>
+            </div>
+            <address class="branch-address">51-A, 2nd Floor, Velachery Road, Dhadeswaram Nagar<br />Velachery, Chennai - 600042</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/ZyOh1xcZ3z6wmFa2A" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Velachery on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/75PLx9DJorttvTKck" target="_blank" rel="noopener noreferrer" title="View Greens Technologies T. Nagar on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">T. Nagar</span>
-            <span class="branch-meta">Central Shopping Hub</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/D0SoO9Or2nO36cPE9" target="_blank" rel="noopener noreferrer">Vadapalani</a></h3>
+            </div>
+            <address class="branch-address">79, 100 Feet Road, Thiru Nagar Colony, NGO Colony<br />Vadapalani, Chennai - 600026</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/D0SoO9Or2nO36cPE9" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Vadapalani on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://www.google.com/maps/search/?api=1&query=Greens+Technologies+Bengaluru" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Bengaluru on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Bengaluru</span>
-            <span class="branch-meta">BTM &amp; Marathahalli</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/niX88xLf9ZFhIkqOM" target="_blank" rel="noopener noreferrer">Avadi</a></h3>
+            </div>
+            <address class="branch-address">New No. 398, Old No. 577, CTH Road, Avadi Checkpost<br />Avadi, Chennai - 600054</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/niX88xLf9ZFhIkqOM" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Avadi on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://www.google.com/maps/search/?api=1&query=Greens+Technologies+Gandhipuram+Coimbatore" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Coimbatore on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Coimbatore</span>
-            <span class="branch-meta">Gandhipuram Hub</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/np21kIy6Dtu5m3RSp" target="_blank" rel="noopener noreferrer">Mugalivakkam</a></h3>
+            </div>
+            <address class="branch-address">No. 01, Adithi Colony, Mugalivakkam Main Road<br />Mugalivakkam, Porur, Chennai - 600116</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/np21kIy6Dtu5m3RSp" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Mugalivakkam on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/4sytYY1jtRZtJVurw" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Salem on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Salem</span>
-            <span class="branch-meta">New Fairlands</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/nmxVbGgRqixWtjyMW" target="_blank" rel="noopener noreferrer">Mount Road</a></h3>
+            </div>
+            <address class="branch-address">162, Second Floor, Anna Salai, Express Estate<br />Triplicane, Chennai - 600002</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/nmxVbGgRqixWtjyMW" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Mount Road on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="https://share.google/94HqgHo8IRJXZV4XX" target="_blank" rel="noopener noreferrer" title="View Greens Technologies Trichy on Google Maps">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
-            <span class="branch-name">Trichy</span>
-            <span class="branch-meta">Thillai Nagar</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/V8w2mcjSHm6wk3wQ2" target="_blank" rel="noopener noreferrer">Kolathur</a></h3>
+            </div>
+            <address class="branch-address">No. 7, 2nd Floor, Perambur Paper Mills Road<br />Kolathur, Chennai - 600099</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Near Everwin Vidhyasram School, above Axis Bank</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/V8w2mcjSHm6wk3wQ2" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Kolathur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
 
-          <a class="branch-card" href="javascript:void(0)" onclick="openLeadModal('Enroll Live Online Batch')" title="Enroll in Live Online Batch">
-            <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-globe"/></svg></span>
-            <span class="branch-name">Live Online</span>
-            <span class="branch-meta">Pan-India &amp; Global</span>
-          </a>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/75PLx9DJorttvTKck" target="_blank" rel="noopener noreferrer">T. Nagar</a></h3>
+            </div>
+            <address class="branch-address">160, North Usman Road<br />T. Nagar, Chennai - 600017</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/75PLx9DJorttvTKck" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies T. Nagar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/M6XB1gHSmK8ubrV3z" target="_blank" rel="noopener noreferrer">Ambattur</a></h3>
+            </div>
+            <address class="branch-address">3rd Floor, No. 27/A, North Park Street, Secretariat Colony, Venkatapuram<br />Ambattur, Chennai - 600053</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/M6XB1gHSmK8ubrV3z" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Ambattur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/wb9oSEAuI86mIHyQr" target="_blank" rel="noopener noreferrer">Guduvancheri</a></h3>
+            </div>
+            <address class="branch-address">162, Grand Southern Trunk Road, near Guduvancheri Railway Station<br />Nandivaram, Guduvancheri - 603202</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/wb9oSEAuI86mIHyQr" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Guduvancheri on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/94HqgHo8IRJXZV4XX" target="_blank" rel="noopener noreferrer">Trichy</a></h3>
+            </div>
+            <address class="branch-address">75/E-3, Sri Krishna Enclave, 2nd Floor, Salai Road<br />Thillai Nagar, Tiruchirappalli - 620018</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/94HqgHo8IRJXZV4XX" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Trichy on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/4sytYY1jtRZtJVurw" target="_blank" rel="noopener noreferrer">Salem</a></h3>
+            </div>
+            <address class="branch-address">2nd Floor, Sri Sai Kamatchi Complex, Vincent<br />Salem - 636007</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Opp. to Government Arts College</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/4sytYY1jtRZtJVurw" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Salem on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/SJ6foQBR851yqvEoX" target="_blank" rel="noopener noreferrer">Gowriwakkam</a></h3>
+            </div>
+            <address class="branch-address">No. 280 K, Saranya Complex, Velachery Road, Shanthi Nagar<br />New Kunagkurichi, Gowriwakkam, Sembakkam, Chennai - 600073</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/SJ6foQBR851yqvEoX" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Gowriwakkam on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/CxF1GLMPJwzGtTDeo" target="_blank" rel="noopener noreferrer">Tiruvottiyur</a></h3>
+            </div>
+            <address class="branch-address">No. 1050, 2nd Floor, Tiruvottiyur High Road, Thangal<br />Near Kaladipet, Rajakadai Metro, Chennai - 600019</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Above KFC</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/CxF1GLMPJwzGtTDeo" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Tiruvottiyur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/kVZMYJx1huDLxTzK2" target="_blank" rel="noopener noreferrer">Poonamallee</a></h3>
+            </div>
+            <address class="branch-address">Om Sakthi Plaza, First Floor, Old No. 1, New No. 126, Avadi Road<br />Karayanchavadi, Poonamallee, Chennai - 600056</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/kVZMYJx1huDLxTzK2" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Poonamallee on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -9076,12 +10023,12 @@
        REVIEW EXPANDED VIEW + JOINING LETTER
        ============================================================ -->
   <div class="modal-overlay" id="reviewModal" onclick="closeReviewOnOverlay(event)">
-    <div class="review-modal-card" role="dialog" aria-modal="true" aria-label="Student review and joining letter">
+    <div class="review-modal-card" role="dialog" aria-modal="true" aria-label="Student placement and offer letter">
       <button class="modal-close-btn" onclick="closeReviewModal()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
       <div class="review-modal-grid">
         <div class="review-modal-story" id="reviewModalStory"></div>
         <div class="review-modal-letter">
-          <div class="letter-label"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> Joining Letter</div>
+          <div class="letter-label"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> Offer Letter</div>
           <div id="reviewModalLetter"></div>
         </div>
       </div>
@@ -9148,6 +10095,39 @@
       }
     }
 
+    // Courses mega menu: click to toggle, hover to preview a category
+    function toggleCoursesMenu(event) {
+      event.stopPropagation();
+      const menu = document.getElementById('navCourses');
+      const open = menu.classList.toggle('open');
+      menu.querySelector('.nav-courses-btn').setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+
+    document.querySelectorAll('.mega-cat').forEach(btn => {
+      const show = () => {
+        document.querySelectorAll('.mega-cat, .mega-panel').forEach(el => {
+          el.classList.toggle('active', el.dataset.cat === btn.dataset.cat);
+        });
+      };
+      btn.addEventListener('mouseenter', show);
+      btn.addEventListener('focus', show);
+      btn.addEventListener('click', show);
+    });
+
+    document.addEventListener('click', e => {
+      const menu = document.getElementById('navCourses');
+      if (menu && !menu.contains(e.target)) {
+        menu.classList.remove('open');
+        menu.querySelector('.nav-courses-btn').setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        document.getElementById('navCourses')?.classList.remove('open');
+      }
+    });
+
     // Curriculum Tabs
     function switchCurriculumTab(tab) {
       document.querySelectorAll('.curriculum-tab').forEach(t => {
@@ -9166,6 +10146,12 @@
       if (!wasActive) {
         item.classList.add('active');
       }
+    }
+
+    // Founder video: load the YouTube player only on click
+    function playFounderVideo() {
+      document.getElementById('founderVideo').innerHTML =
+        '<iframe src="https://www.youtube.com/embed/ytqbpfoqGSA?autoplay=1&rel=0&modestbranding=1" title="Greens Technologies founder video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     }
 
     // FAQ Accordion Toggle
@@ -9275,9 +10261,15 @@
       if (card.dataset.letter) {
         const img = document.createElement('img');
         img.src = card.dataset.letter;
-        img.alt = 'Joining letter - ' + name;
+        img.alt = 'Offer letter (first page, personal details hidden) - ' + name;
         img.className = 'letter-img';
-        letter.appendChild(img);
+        // Tap to view the page full size
+        const link = document.createElement('a');
+        link.href = card.dataset.letter;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.appendChild(img);
+        letter.appendChild(link);
       } else {
         const doc = document.createElement('div');
         doc.className = 'letter-doc';
