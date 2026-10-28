@@ -419,10 +419,35 @@
       border-color: var(--brand-lime);
     }
 
+    /* Mobile: Hire from Us, We Are Hiring and the phone number on one row */
     @media (max-width: 639px) {
+      .top-announcement {
+        padding: 7px 0;
+      }
+
       .top-announcement .container {
-        justify-content: center;
-        gap: 8px;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 6px;
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .top-hire-actions {
+        gap: 6px;
+      }
+
+      .top-pill-btn,
+      .top-phone-chip {
+        font-size: 0.72rem;
+        padding: 3px 9px;
+        gap: 4px;
+      }
+    }
+
+    @media (max-width: 374px) {
+      .top-pill-btn .ico {
+        display: none;
       }
     }
 
@@ -1676,10 +1701,27 @@
       text-align: left;
     }
 
-    .reviews-nav-arrows {
-      display: inline-flex;
+    .reviews-controls {
+      display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .reviews-controls .carousel-dots-wrap {
+      margin-top: 0;
+    }
+
+    @media (max-width: 767px) {
+      .reviews-controls {
+        gap: 14px;
+      }
+
+      .reviews-controls .carousel-arrow-btn {
+        width: 40px;
+        height: 40px;
+      }
     }
 
     .carousel-arrow-btn {
@@ -1785,284 +1827,177 @@
       background: var(--brand-forest);
     }
 
-    .review-stars {
-      display: flex;
-      gap: 4px;
-      color: #F59E0B;
-      font-size: 14px;
-    }
-
-    .review-text {
-      font-size: 0.9rem;
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    .review-text strong {
-      color: var(--brand-dark);
-    }
-
-    .review-transition-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      background: rgba(120, 197, 28, 0.2);
-      color: var(--brand-forest);
-      padding: 4px 10px;
-      border-radius: var(--radius-full);
-      width: fit-content;
-    }
-
-    .review-author-wrap {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-top: auto;
-      border-top: 1px solid var(--border-color);
-      padding-top: 14px;
-    }
-
-    .review-avatar-char {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--brand-primary);
-      color: var(--brand-lime);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
-    .review-author-info h4 {
-      font-size: 0.95rem;
-      font-weight: 800;
-      color: var(--brand-dark);
-    }
-
-    .review-author-info p {
-      font-size: 0.78rem;
-      color: var(--text-light);
+    /* Equal-height cards; while a letter is open, the others keep their natural height */
+    .reviews-carousel-track.has-open-letter {
+      align-items: flex-start;
     }
 
     .reviews-carousel-track .review-card {
-      cursor: pointer;
-    }
-
-    .reviews-carousel-track .review-card:focus-visible {
-      outline: 3px solid var(--brand-vibrant);
-      outline-offset: 2px;
-    }
-
-    .review-letter-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      color: var(--brand-forest);
-    }
-
-    .review-letter-link .ico:last-child {
-      transition: transform 0.2s ease;
-    }
-
-    .review-card:hover .review-letter-link .ico:last-child {
-      transform: translateX(3px);
-    }
-
-    /* Review Expanded View */
-    .review-modal-card {
       background: #FFFFFF;
-      border-radius: var(--radius-lg);
-      max-width: 920px;
-      width: 100%;
-      max-height: calc(100vh - 40px);
-      overflow-y: auto;
-      padding: 52px 28px 28px;
-      position: relative;
-      box-shadow: var(--shadow-lg);
-      animation: reviewExpand 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 2px solid #DDE6D2;
+      border-radius: 22px;
+      padding: 24px 22px;
+      gap: 14px;
     }
 
-    @keyframes reviewExpand {
-      from {
-        opacity: 0;
-        transform: scale(0.9);
-      }
-      to {
-        opacity: 1;
-        transform: scale(1);
-      }
-    }
-
-    .review-modal-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    @media (min-width: 768px) {
-      .review-modal-grid {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-      }
-    }
-
-    .review-modal-card .modal-close-btn {
-      top: 12px;
-      right: 12px;
-    }
-
-    .review-modal-story {
+    .rv-head {
       display: flex;
-      flex-direction: column;
+      align-items: center;
       gap: 16px;
     }
 
-    .review-modal-story .review-text {
-      font-size: 1rem;
-    }
-
-    .review-modal-story .review-letter-link {
-      display: none;
-    }
-
-    .review-modal-letter {
-      background: var(--cream-bg);
-      border-radius: var(--radius-md);
-      padding: 16px;
-    }
-
-    .letter-label {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
+    .rv-avatar {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-forest) 100%);
+      color: var(--brand-lime);
+      display: grid;
+      place-items: center;
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
       font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--brand-forest);
-      margin-bottom: 12px;
+      box-shadow: 0 8px 18px rgba(4, 63, 46, 0.25);
     }
 
-    .letter-img {
-      display: block;
-      width: 100%;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-md);
-    }
-
-    .letter-doc {
-      background: #FFFFFF;
-      border-radius: var(--radius-sm);
-      box-shadow: var(--shadow-md);
-      padding: 22px 20px;
+    .rv-id {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      align-items: flex-start;
+      gap: 4px;
+      min-width: 0;
     }
 
-    .letter-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--brand-primary);
-    }
-
-    .letter-company {
+    .rv-name {
       font-family: var(--font-heading);
+      font-size: 1.35rem;
       font-weight: 800;
-      font-size: 1.1rem;
       color: var(--brand-dark);
+      line-height: 1.2;
     }
 
-    .letter-chip {
-      white-space: nowrap;
-      font-size: 0.68rem;
-      font-weight: 800;
-      color: var(--brand-forest);
-      background: rgba(120, 197, 28, 0.18);
+    .rv-verified {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       padding: 3px 10px;
       border-radius: var(--radius-full);
+      background: #E4EED8;
+      border: 1px solid #C9D9B5;
+      color: var(--brand-forest);
+      font-size: 0.78rem;
+      font-weight: 700;
     }
 
-    .letter-title {
-      font-family: var(--font-heading);
-      font-weight: 800;
-      font-size: 0.95rem;
-      text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
+    .rv-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .rv-placed {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+    }
+
+    .rv-meta {
+      display: flex;
+      justify-content: flex-end;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .rv-package {
+      padding: 5px 12px;
+      border-radius: 8px;
+      background: #E4EED8;
+      border: 1px solid #C9D9B5;
       color: var(--brand-dark);
+      font-size: 0.85rem;
+      font-weight: 800;
     }
 
-    .letter-field {
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 0.82rem;
-      color: var(--text-light);
+    .rv-headline {
+      font-family: var(--font-heading);
+      font-size: 1.15rem;
+      font-weight: 800;
+      line-height: 1.35;
+      color: var(--brand-forest);
     }
 
-    .letter-field strong {
+    .rv-comment {
+      background: var(--cream-surface);
+      border: 1px solid var(--border-color);
+      border-left: 5px solid #DDE6D2;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font-size: 0.92rem;
+      font-style: italic;
+      line-height: 1.65;
       color: var(--text-main);
-      text-align: right;
     }
 
-    .letter-redacted {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 4px;
-      filter: blur(1.5px);
-    }
-
-    .letter-redacted i {
-      display: block;
-      height: 8px;
-      border-radius: 4px;
-      background: #DDE5D3;
-    }
-
-    .letter-redacted i:nth-child(2n) {
-      width: 86%;
-    }
-
-    .letter-redacted i:last-child {
-      width: 60%;
-    }
-
-    .letter-sign {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 4px;
-      margin-top: 8px;
-      font-size: 0.72rem;
-      color: var(--text-light);
-    }
-
-    .letter-sign i {
-      display: block;
-      width: 110px;
-      height: 1px;
-      background: var(--text-light);
-    }
-
-    .letter-note {
-      display: flex;
+    .rv-letter-btn {
+      margin-top: auto;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      font-size: 0.72rem;
+      gap: 8px;
+      width: 100%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--brand-forest);
+      background: #FFFFFF;
+      color: var(--brand-forest);
+      font-size: 0.92rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .rv-letter-btn:hover,
+    .rv-letter-btn[aria-expanded="true"] {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: var(--brand-lime);
+    }
+
+    .rv-chevron {
+      transition: transform 0.2s ease;
+    }
+
+    .rv-letter-btn[aria-expanded="true"] .rv-chevron {
+      transform: rotate(180deg);
+    }
+
+    .rv-letter img {
+      display: block;
+      width: 100%;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .rv-letter small {
+      display: block;
+      margin-top: 8px;
+      text-align: center;
+      font-size: 0.75rem;
       color: var(--text-light);
-      border-top: 1px dashed var(--border-color);
-      padding-top: 10px;
+    }
+
+    @media (max-width: 640px) {
+      .rv-avatar {
+        width: 56px;
+        height: 56px;
+        font-size: 1.15rem;
+      }
+
+      .rv-name {
+        font-size: 1.2rem;
+      }
     }
 
     /* ============================================================
@@ -3232,14 +3167,35 @@
 
     @media (max-width: 640px) {
       .placement-badge {
-        display: block;
-        border-radius: var(--radius-md);
         padding: 12px 16px;
-        font-size: 0.78rem;
-        line-height: 1.5;
-        letter-spacing: 0.03em;
-        text-transform: none;
       }
+    }
+
+    .placement-badge {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      text-align: center;
+      background: var(--brand-lime);
+      color: var(--brand-dark);
+      border-radius: var(--radius-md);
+      padding: 12px 24px;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+
+    .placement-badge-title {
+      font-size: 0.85rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .placement-badge-text {
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.45;
     }
 
     .prereq-title {
@@ -4342,17 +4298,311 @@
       }
     }
 
-    .mobile-sticky-bar .btn {
+    .sticky-call-btn,
+    .sticky-demo-btn {
       flex: 1;
-      padding: 12px 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      height: 48px;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .sticky-call-btn {
+      background: #EEF3E6;
+      border: 1.5px solid #C9D6BC;
+      color: var(--brand-dark);
+    }
+
+    .sticky-call-btn .ico {
+      color: var(--brand-forest);
+    }
+
+    .sticky-demo-btn {
+      border: none;
+      background: linear-gradient(90deg, var(--brand-dark) 0%, var(--brand-forest) 100%);
+      color: var(--brand-lime);
+      box-shadow: 0 6px 16px rgba(4, 63, 46, 0.25);
+    }
+
+    /* ============================================================
+       FLOATING CALL / WHATSAPP / CHAT
+       ============================================================ */
+    .float-actions {
+      position: fixed;
+      right: 20px;
+      bottom: 24px;
+      z-index: 1050;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .float-btn {
+      position: relative;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 10px 24px rgba(4, 63, 46, 0.3);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-2px) scale(1.04);
+    }
+
+    .float-btn svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .float-call {
+      background: var(--brand-forest);
+      border-color: #6F9A4B;
+      color: var(--brand-lime);
+    }
+
+    .float-wa {
+      background: #25D366;
+      border-color: rgba(37, 211, 102, 0.35);
+      color: #FFFFFF;
+    }
+
+    .float-chat {
+      width: 62px;
+      height: 62px;
+      background: var(--brand-primary);
+      border-color: #6F9A4B;
+      color: var(--brand-lime);
+    }
+
+    .float-chat-dot {
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--brand-lime);
+      border: 3px solid var(--brand-dark);
+    }
+
+    .float-chat.opened .float-chat-dot {
+      display: none;
+    }
+
+    /* Mobile/tablet: call lives in the bottom bar, so float only WhatsApp + chat above it */
+    @media (max-width: 1023px) {
+      .float-actions {
+        right: 14px;
+        bottom: 84px;
+        gap: 12px;
+      }
+
+      .float-call {
+        display: none;
+      }
+
+      .float-btn {
+        width: 52px;
+        height: 52px;
+      }
+
+      .float-chat {
+        width: 56px;
+        height: 56px;
+      }
+    }
+
+    /* Chat panel */
+    .chat-panel {
+      position: fixed;
+      right: 96px;
+      bottom: 24px;
+      z-index: 1060;
+      width: 360px;
+      max-height: min(560px, calc(100vh - 48px));
+      display: none;
+      flex-direction: column;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .chat-panel.open {
+      display: flex;
+      animation: reviewExpand 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @media (max-width: 1023px) {
+      .chat-panel {
+        left: 12px;
+        right: 12px;
+        bottom: 84px;
+        width: auto;
+        max-height: calc(100vh - 170px);
+      }
+    }
+
+    .chat-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 16px;
+      background: linear-gradient(90deg, var(--brand-dark) 0%, var(--brand-forest) 100%);
+      color: #FFFFFF;
+    }
+
+    .chat-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--brand-lime);
+      color: var(--brand-primary);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .chat-head-text {
+      flex: 1;
+      line-height: 1.25;
+    }
+
+    .chat-head-text strong {
+      display: block;
+      font-size: 0.95rem;
+    }
+
+    .chat-head-text span {
+      font-size: 0.75rem;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .chat-close {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255, 255, 255, 0.12);
+      color: #FFFFFF;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+    }
+
+    .chat-body {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--cream-bg);
+    }
+
+    .chat-msg {
+      max-width: 85%;
+      padding: 9px 12px;
+      border-radius: 14px;
+      font-size: 0.86rem;
+      line-height: 1.45;
+    }
+
+    .chat-msg.bot {
+      align-self: flex-start;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      border-bottom-left-radius: 4px;
+    }
+
+    .chat-msg.user {
+      align-self: flex-end;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      border-bottom-right-radius: 4px;
+    }
+
+    .chat-msg a {
+      display: inline-block;
+      margin-top: 6px;
+      font-weight: 700;
+      color: var(--brand-forest);
+    }
+
+    .chat-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .chat-quick button {
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--brand-forest);
+      background: #FFFFFF;
+      color: var(--brand-forest);
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .chat-quick button:hover {
+      background: var(--brand-forest);
+      color: #FFFFFF;
+    }
+
+    .chat-form {
+      display: flex;
+      gap: 8px;
+      padding: 10px;
+      border-top: 1px solid var(--border-color);
+      background: #FFFFFF;
+    }
+
+    .chat-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 14px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-color);
       font-size: 0.88rem;
+      outline: none;
+    }
+
+    .chat-form input:focus {
+      border-color: var(--brand-forest);
+    }
+
+    .chat-form button {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--brand-primary);
+      color: var(--brand-lime);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
     }
 
     /* Toast Notification */
     .toast-notice {
       position: fixed;
       bottom: 24px;
-      right: 24px;
+      right: 100px;
       background: var(--brand-dark);
       color: #FFFFFF;
       border: 1px solid var(--brand-lime);
@@ -4370,6 +4620,14 @@
     .toast-notice.show {
       display: flex;
       animation: modalFadeIn 0.3s ease;
+    }
+
+    @media (max-width: 1023px) {
+      .toast-notice {
+        left: 12px;
+        right: 12px;
+        bottom: 84px;
+      }
     }
   </style>
 </head>
@@ -5059,7 +5317,7 @@
             <div class="founder-stats">
               <div><b>10+ Years</b><span>In IT Industry</span></div>
               <div><b>1,00,000+</b><span>Students Placed</span></div>
-              <div><b>22</b><span>Branches</span></div>
+              <div><b>25</b><span>Branches</span></div>
             </div>
           </div>
         </div>
@@ -5225,121 +5483,191 @@
          ============================================================ -->
     <section class="section-spacing reviews-section" id="reviews">
       <div class="container">
-        <!-- Section Top Bar: Title alone and Carousel Arrow Controls -->
+        <!-- Section Top Bar -->
         <div class="reviews-top-bar">
           <h2 class="section-title">Real Students. Real Career Transformations.</h2>
-          <div class="reviews-nav-arrows">
-            <button
-              class="carousel-arrow-btn"
-              id="reviewPrevBtn"
-              onclick="scrollReviews('prev')"
-              aria-label="Previous Review"
-              title="Previous Review"
-            >
-              <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg>
-            </button>
-            <button
-              class="carousel-arrow-btn"
-              id="reviewNextBtn"
-              onclick="scrollReviews('next')"
-              aria-label="Next Review"
-              title="Next Review"
-            >
-              <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-            </button>
-          </div>
         </div>
 
         <!-- Scrollable Carousel Track with 5 Reviews -->
         <div class="reviews-carousel-track" id="reviewsCarousel">
           <!-- Review 1 -->
-          <div class="review-card" data-letter="assets/offer-letters/jithin-b-photon.jpg" tabindex="0" role="button" aria-label="View Jithin B's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
-            <p class="review-text">
-              Offered the role of <strong>Senior Data Engineer I</strong> at Photon Interactive, Chennai, with an annual CTC of <strong>&#8377;10 LPA</strong>.
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">J</div>
-              <div class="review-author-info">
-                <h4>Jithin B</h4>
-                <p>Senior Data Engineer I &bull; Photon Chennai (&#8377;10 LPA)</p>
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">JB</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Jithin B</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Senior Data Engineer I &bull; Chennai</p>
+                <p class="rv-placed">Placed at Photon Interactive</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;10 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Senior Data Engineer at Photon</h5>
+            <!-- Replace with the student's own comment when available -->
+            <p class="rv-comment">Offered the role of Senior Data Engineer I (Band JM2) at Photon Interactive, joining at DLF IT Park, Chennai on 11 September 2026.</p>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/jithin-b-photon.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/jithin-b-photon.jpg" alt="Jithin B's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
 
           <!-- Review 2 -->
-          <div class="review-card" data-letter="assets/offer-letters/shreyash-jain-tcs.jpg" tabindex="0" role="button" aria-label="View Shreyash Jain's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
-            <p class="review-text">
-              Offered the role of <strong>Systems Engineer</strong> at Tata Consultancy Services, Chennai, with an annual CTC of <strong>&#8377;10 LPA</strong>.
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">S</div>
-              <div class="review-author-info">
-                <h4>Shreyash Jain</h4>
-                <p>Systems Engineer &bull; TCS Chennai (&#8377;10 LPA)</p>
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">SJ</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Shreyash Jain</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Systems Engineer &bull; Chennai</p>
+                <p class="rv-placed">Placed at Tata Consultancy Services</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;10 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Systems Engineer at TCS</h5>
+            <!-- Replace with the student's own comment when available -->
+            <p class="rv-comment">Selected as Systems Engineer (Grade C1) at Tata Consultancy Services, Chennai, with the offer issued on 1 October 2026.</p>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/shreyash-jain-tcs.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/shreyash-jain-tcs.jpg" alt="Shreyash Jain's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
 
           <!-- Review 3 -->
-          <div class="review-card" data-letter="assets/offer-letters/c-malarvizhi-tech-mahindra.jpg" tabindex="0" role="button" aria-label="View C Malarvizhi's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
-            <p class="review-text">
-              Offered the role of <strong>Tech Lead</strong> at Tech Mahindra, Bengaluru, with an annual CTC of <strong>&#8377;14 LPA</strong>.
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">M</div>
-              <div class="review-author-info">
-                <h4>C Malarvizhi</h4>
-                <p>Tech Lead &bull; Tech Mahindra Bengaluru (&#8377;14 LPA)</p>
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">CM</div>
+              <div class="rv-id">
+                <h4 class="rv-name">C Malarvizhi</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Tech Lead &bull; Bengaluru</p>
+                <p class="rv-placed">Placed at Tech Mahindra</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;14 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Tech Lead at Tech Mahindra</h5>
+            <!-- Replace with the student's own comment when available -->
+            <p class="rv-comment">Offered the position of Tech Lead (Band U4) at Tech Mahindra&#x27;s Bengaluru office, starting 2 September 2026.</p>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/c-malarvizhi-tech-mahindra.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/c-malarvizhi-tech-mahindra.jpg" alt="C Malarvizhi's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
 
           <!-- Review 4 -->
-          <div class="review-card" data-letter="assets/offer-letters/praveen-kumar-capgemini.jpg" tabindex="0" role="button" aria-label="View Praveen Kumar's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
-            <p class="review-text">
-              Offered the role of <strong>Consultant</strong> at Capgemini, Chennai, with an annual CTC of <strong>&#8377;14 LPA</strong>.
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">P</div>
-              <div class="review-author-info">
-                <h4>Praveen Kumar</h4>
-                <p>Consultant &bull; Capgemini Chennai (&#8377;14 LPA)</p>
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">PK</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Praveen Kumar</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Consultant &bull; Chennai</p>
+                <p class="rv-placed">Placed at Capgemini</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;14 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Consultant at Capgemini</h5>
+            <!-- Replace with the student's own comment when available -->
+            <p class="rv-comment">Offered the role of Consultant (B2) at Capgemini Technology Services in Chennai, starting 26 October 2026.</p>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/praveen-kumar-capgemini.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/praveen-kumar-capgemini.jpg" alt="Praveen Kumar's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
 
           <!-- Review 5 -->
-          <div class="review-card" data-letter="assets/offer-letters/rahul-t-capgemini.jpg" tabindex="0" role="button" aria-label="View Rahul T's offer letter" onclick="openReview(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openReview(this);}">
-            <span class="review-transition-badge"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Offer Letter Verified</span>
-            <p class="review-text">
-              Offered the role of <strong>Manager</strong> at Capgemini, Bengaluru, with an annual CTC of <strong>&#8377;19 LPA</strong>.
-            </p>
-            <div class="review-author-wrap">
-              <div class="review-avatar-char">R</div>
-              <div class="review-author-info">
-                <h4>Rahul T</h4>
-                <p>Manager &bull; Capgemini Bengaluru (&#8377;19 LPA)</p>
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">RT</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Rahul T</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Manager &bull; Bengaluru</p>
+                <p class="rv-placed">Placed at Capgemini</p>
               </div>
             </div>
-            <span class="review-letter-link"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> View Offer Letter <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></span>
-          </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;19 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Manager at Capgemini</h5>
+            <!-- Replace with the student's own comment when available -->
+            <p class="rv-comment">Offered the role of Manager (C2) at Capgemini Technology Services in Bengaluru, starting 1 October 2026.</p>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/rahul-t-capgemini.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/rahul-t-capgemini.jpg" alt="Rahul T's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
         </div>
 
-        <!-- Carousel Dots Indicator -->
-        <div class="carousel-dots-wrap" id="carouselDots">
-          <span class="carousel-dot active" onclick="scrollToReviewCard(0)" title="Review 1"></span>
-          <span class="carousel-dot" onclick="scrollToReviewCard(1)" title="Review 2"></span>
-          <span class="carousel-dot" onclick="scrollToReviewCard(2)" title="Review 3"></span>
-          <span class="carousel-dot" onclick="scrollToReviewCard(3)" title="Review 4"></span>
-          <span class="carousel-dot" onclick="scrollToReviewCard(4)" title="Review 5"></span>
+        <!-- Carousel Controls: arrows either side of the dots -->
+        <div class="reviews-controls">
+          <button
+            class="carousel-arrow-btn"
+            id="reviewPrevBtn"
+            onclick="scrollReviews('prev')"
+            aria-label="Previous Review"
+            title="Previous Review"
+          >
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg>
+          </button>
+          <div class="carousel-dots-wrap" id="carouselDots">
+            <span class="carousel-dot active" onclick="scrollToReviewCard(0)" title="Review 1"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(1)" title="Review 2"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(2)" title="Review 3"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(3)" title="Review 4"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(4)" title="Review 5"></span>
+          </div>
+          <button
+            class="carousel-arrow-btn"
+            id="reviewNextBtn"
+            onclick="scrollReviews('next')"
+            aria-label="Next Review"
+            title="Next Review"
+          >
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -9102,8 +9430,9 @@
             Practical training, project preparation and career services in one course. Our dedicated placement cell bridges the gap between your training and your first data engineering role.
           </p>
           <div style="margin-top: 14px;">
-            <span class="section-badge placement-badge" style="background: var(--brand-lime); color: var(--brand-dark); font-weight:800;">
-              PLACEMENTS GUARANTEED &bull; Build your skills and prepare for the next step with Greens Technologies
+            <span class="section-badge placement-badge">
+              <strong class="placement-badge-title">Placements Guaranteed</strong>
+              <span class="placement-badge-text">Build your skills and prepare for the next step with Greens Technologies</span>
             </span>
           </div>
         </div>
@@ -9988,12 +10317,44 @@
        MOBILE STICKY ACTION BAR
        ============================================================ -->
   <div class="mobile-sticky-bar">
-    <a href="tel:+918939915577" class="btn btn-outline" style="flex:1;">
-      <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call Us
+    <a href="tel:+918939915577" class="sticky-call-btn">
+      <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call Advisor
     </a>
-    <button class="btn btn-accent" style="flex:1.2;" onclick="openLeadModal('Book a Free Demo Class')">
+    <button type="button" class="sticky-demo-btn" onclick="openLeadModal('Book a Free Demo Class')">
       Book Free Demo
     </button>
+  </div>
+
+  <!-- ============================================================
+       FLOATING CALL / WHATSAPP / CHAT
+       ============================================================ -->
+  <div class="float-actions">
+    <a href="tel:+918939915577" class="float-btn float-call" aria-label="Call +91 8939915577" title="Call us">
+      <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
+    </a>
+    <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies,%20I%20would%20like%20to%20know%20more%20about%20the%20Data%20Engineering%20Course%20in%20Chennai." class="float-btn float-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp us">
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <button type="button" class="float-btn float-chat" id="chatToggle" onclick="toggleChat()" aria-label="Open chat assistant" aria-controls="chatPanel" aria-expanded="false" title="Chat with us">
+      <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg>
+      <span class="float-chat-dot" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Greens course assistant">
+    <div class="chat-head">
+      <span class="chat-avatar"><svg class="ico" aria-hidden="true"><use href="#i-message"/></svg></span>
+      <div class="chat-head-text">
+        <strong>Greens Course Assistant</strong>
+        <span>Data Engineering Course in Chennai</span>
+      </div>
+      <button type="button" class="chat-close" onclick="toggleChat(false)" aria-label="Close chat"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <form class="chat-form" onsubmit="sendChat(event)">
+      <input type="text" id="chatInput" placeholder="Type your question..." aria-label="Type your question" autocomplete="off" />
+      <button type="submit" aria-label="Send"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+    </form>
   </div>
 
   <!-- ============================================================
@@ -10016,22 +10377,6 @@
           Confirm Request
         </button>
       </form>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       REVIEW EXPANDED VIEW + JOINING LETTER
-       ============================================================ -->
-  <div class="modal-overlay" id="reviewModal" onclick="closeReviewOnOverlay(event)">
-    <div class="review-modal-card" role="dialog" aria-modal="true" aria-label="Student placement and offer letter">
-      <button class="modal-close-btn" onclick="closeReviewModal()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
-      <div class="review-modal-grid">
-        <div class="review-modal-story" id="reviewModalStory"></div>
-        <div class="review-modal-letter">
-          <div class="letter-label"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> Offer Letter</div>
-          <div id="reviewModalLetter"></div>
-        </div>
-      </div>
     </div>
   </div>
 
@@ -10125,6 +10470,9 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         document.getElementById('navCourses')?.classList.remove('open');
+        if (document.getElementById('chatPanel').classList.contains('open')) {
+          toggleChat(false);
+        }
       }
     });
 
@@ -10152,6 +10500,72 @@
     function playFounderVideo() {
       document.getElementById('founderVideo').innerHTML =
         '<iframe src="https://www.youtube.com/embed/ytqbpfoqGSA?autoplay=1&rel=0&modestbranding=1" title="Greens Technologies founder video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+    }
+
+    // Chat assistant: canned answers from this page; free text goes to an advisor on WhatsApp
+    const CHAT_TOPICS = {
+      'Upcoming batches': 'New batches start every Monday and Friday. Weekday slots run between 6:00 AM and 8:30 PM, and weekend batches are also available, in classroom or online live. <a href="#batches" onclick="toggleChat(false)">See batch timings</a>',
+      'Course curriculum': 'Choose the AWS or Azure Data Engineering track. Each has 19 modules organised into phases, with a hands-on lab in every module. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
+      'Placement support': 'Our placement cell helps with resume preparation, mock interviews and interview coordination, through 500+ hiring partners. <a href="#placements" onclick="toggleChat(false)">See placement details</a>',
+      'Course fees': 'Fees depend on the track and batch you choose. Share your details and an advisor will send you the current fees and offers. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Course Fee Details\')">Get fee details</a>',
+      'Book a free demo': 'Great! Fill in your name, mobile number and email and we will confirm your free demo class. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Book a Free Demo Class\')">Book free demo</a>'
+    };
+
+    function addChatMsg(html, who) {
+      const body = document.getElementById('chatBody');
+      const msg = document.createElement('div');
+      msg.className = 'chat-msg ' + who;
+      if (who === 'user') {
+        msg.textContent = html;
+      } else {
+        msg.innerHTML = html;
+      }
+      body.appendChild(msg);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function addChatOptions() {
+      const body = document.getElementById('chatBody');
+      const wrap = document.createElement('div');
+      wrap.className = 'chat-quick';
+      Object.keys(CHAT_TOPICS).forEach(topic => {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.textContent = topic;
+        b.onclick = () => {
+          addChatMsg(topic, 'user');
+          setTimeout(() => addChatMsg(CHAT_TOPICS[topic], 'bot'), 300);
+        };
+        wrap.appendChild(b);
+      });
+      body.appendChild(wrap);
+    }
+
+    function toggleChat(force) {
+      const panel = document.getElementById('chatPanel');
+      const btn = document.getElementById('chatToggle');
+      const open = typeof force === 'boolean' ? force : !panel.classList.contains('open');
+      panel.classList.toggle('open', open);
+      btn.classList.add('opened');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      if (open && !document.getElementById('chatBody').children.length) {
+        addChatMsg('Hi! I am the Greens course assistant. What would you like to know about the Data Engineering course?', 'bot');
+        addChatOptions();
+      }
+      if (open) {
+        document.getElementById('chatInput').focus({ preventScroll: true });
+      }
+    }
+
+    function sendChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      addChatMsg(text, 'user');
+      input.value = '';
+      const wa = 'https://wa.me/918939915577?text=' + encodeURIComponent('Hi Greens Technologies, about the Data Engineering Course: ' + text);
+      setTimeout(() => addChatMsg('Thanks! Our advisor can answer that right away. <a href="' + wa + '" target="_blank" rel="noopener noreferrer">Send this question on WhatsApp</a> or call <a href="tel:+918939915577">+91 89399 15577</a>.', 'bot'), 300);
     }
 
     // FAQ Accordion Toggle
@@ -10243,68 +10657,21 @@
 
     // Review Expanded View with Joining Letter
     // Set data-letter="<image url>" on a .review-card to show the student's actual letter scan.
-    function openReview(card) {
-      const story = document.getElementById('reviewModalStory');
-      const letter = document.getElementById('reviewModalLetter');
-      const name = card.querySelector('.review-author-info h4').textContent.trim();
-      const meta = card.querySelector('.review-author-info p').textContent.trim();
-      const role = meta.split('•')[0].trim();
-      const company = (meta.split('•')[1] || '').replace(/\(.*\)/, '').trim();
-
-      story.innerHTML = '';
-      ['.review-stars', '.review-transition-badge', '.review-text', '.review-author-wrap'].forEach(sel => {
-        const el = card.querySelector(sel);
-        if (el) story.appendChild(el.cloneNode(true));
-      });
-
-      letter.innerHTML = '';
-      if (card.dataset.letter) {
-        const img = document.createElement('img');
-        img.src = card.dataset.letter;
-        img.alt = 'Offer letter (first page, personal details hidden) - ' + name;
-        img.className = 'letter-img';
-        // Tap to view the page full size
-        const link = document.createElement('a');
-        link.href = card.dataset.letter;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.appendChild(img);
-        letter.appendChild(link);
-      } else {
-        const doc = document.createElement('div');
-        doc.className = 'letter-doc';
-        doc.innerHTML =
-          '<div class="letter-head"><span class="letter-company"></span><span class="letter-chip">Offer Accepted</span></div>' +
-          '<div class="letter-title">Letter of Appointment</div>' +
-          '<div class="letter-field"><span>Candidate</span><strong class="lf-name"></strong></div>' +
-          '<div class="letter-field"><span>Designation</span><strong class="lf-role"></strong></div>' +
-          '<div class="letter-redacted"><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
-          '<div class="letter-sign"><i></i><span>Authorised Signatory</span></div>' +
-          '<div class="letter-note"><svg class="ico" aria-hidden="true"><use href="#i-lock"/></svg> Confidential details blurred for privacy</div>';
-        doc.querySelector('.letter-company').textContent = company;
-        doc.querySelector('.lf-name').textContent = name;
-        doc.querySelector('.lf-role').textContent = role;
-        letter.appendChild(doc);
-      }
-
-      document.getElementById('reviewModal').classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeReviewModal() {
-      document.getElementById('reviewModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function closeReviewOnOverlay(e) {
-      if (e.target.id === 'reviewModal') {
-        closeReviewModal();
-      }
+    // Reviews: expand the offer letter inside the card
+    function toggleOfferLetter(btn) {
+      const card = btn.closest('.review-card');
+      const letter = card.querySelector('.rv-letter');
+      const open = btn.getAttribute('aria-expanded') !== 'true';
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      btn.querySelector('span').textContent = open ? 'Hide Offer Letter' : 'View Offer Letter';
+      letter.hidden = !open;
+      card.classList.toggle('letter-open', open);
+      const track = card.parentElement;
+      track.classList.toggle('has-open-letter', !!track.querySelector('.review-card.letter-open'));
     }
 
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        closeReviewModal();
         closeLeadModal();
       }
     });
@@ -10327,7 +10694,8 @@
       if (!carousel) return;
       const cards = carousel.querySelectorAll('.review-card');
       if (cards[index]) {
-        cards[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+        // Scroll only the track, never the page
+        carousel.scrollTo({ left: cards[index].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
       }
     }
 
@@ -10350,6 +10718,61 @@
           dot.classList.toggle('active', idx === activeIdx);
         });
       }, { passive: true });
+
+      // Mobile autoplay: advance one card every 4s, looping back to the first.
+      // Pauses while the user touches the track, while the section is off-screen and while an offer letter is expanded.
+      const mobileQuery = window.matchMedia('(max-width: 767px)');
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let reviewIndex = 0;
+      let reviewTimer = null;
+      let reviewsVisible = false;
+      let resumeTimer = null;
+
+      const currentReviewIndex = () => {
+        const dots = [...document.querySelectorAll('#carouselDots .carousel-dot')];
+        return Math.max(0, dots.findIndex(d => d.classList.contains('active')));
+      };
+
+      const stopReviewAutoplay = () => {
+        clearInterval(reviewTimer);
+        reviewTimer = null;
+      };
+
+      const startReviewAutoplay = () => {
+        stopReviewAutoplay();
+        if (!mobileQuery.matches || reducedMotion.matches || !reviewsVisible) return;
+        reviewTimer = setInterval(() => {
+          if (reviewsTrack.querySelector('.review-card.letter-open')) return;
+          const total = reviewsTrack.querySelectorAll('.review-card').length;
+          reviewIndex = (currentReviewIndex() + 1) % total;
+          scrollToReviewCard(reviewIndex);
+        }, 4000);
+      };
+
+      document.querySelectorAll('.reviews-controls .carousel-arrow-btn, #carouselDots .carousel-dot').forEach(el => {
+        el.addEventListener('click', () => {
+          stopReviewAutoplay();
+          clearTimeout(resumeTimer);
+          resumeTimer = setTimeout(startReviewAutoplay, 6000);
+        });
+      });
+
+      reviewsTrack.addEventListener('touchstart', () => {
+        stopReviewAutoplay();
+        clearTimeout(resumeTimer);
+      }, { passive: true });
+
+      reviewsTrack.addEventListener('touchend', () => {
+        clearTimeout(resumeTimer);
+        resumeTimer = setTimeout(startReviewAutoplay, 6000);
+      }, { passive: true });
+
+      new IntersectionObserver(entries => {
+        reviewsVisible = entries[0].isIntersecting;
+        reviewsVisible ? startReviewAutoplay() : stopReviewAutoplay();
+      }, { threshold: 0.4 }).observe(reviewsTrack);
+
+      mobileQuery.addEventListener('change', startReviewAutoplay);
     }
   </script>
 </body>
