@@ -9015,9 +9015,15 @@
 
         <!-- Curriculum CTAs -->
         <div class="curriculum-cta-box">
-          <button class="btn btn-primary" onclick="openLeadModal('Download Full Syllabus PDF')">
-            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download Syllabus (PDF)
-          </button>
+          <!-- Downloads the brochure for the selected curriculum tab (updated by switchCurriculumTab) -->
+          <a
+            class="btn btn-primary"
+            id="brochureDownload"
+            href="assets/Broucher/AWS%20Data%20Engineering%20Broucher.pdf"
+            download="Greens-Technologies-AWS-Data-Engineering-Brochure.pdf"
+          >
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download AWS Brochure (PDF)</span>
+          </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
             <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg> Book Free Counselling
           </button>
@@ -10484,6 +10490,13 @@
         t.setAttribute('aria-selected', active ? 'true' : 'false');
         document.getElementById(t.dataset.panel).hidden = !active;
       });
+
+      // Point the brochure button at the selected track
+      const track = tab.dataset.panel === 'currAzure' ? 'Azure' : 'AWS';
+      const link = document.getElementById('brochureDownload');
+      link.href = `assets/Broucher/${track}%20Data%20Engineering%20Broucher.pdf`;
+      link.download = `Greens-Technologies-${track}-Data-Engineering-Brochure.pdf`;
+      link.querySelector('span').textContent = `Download ${track} Brochure (PDF)`;
     }
 
     // Curriculum Phase Dropdowns
