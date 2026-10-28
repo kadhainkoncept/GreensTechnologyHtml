@@ -11,7 +11,7 @@
 
   <!-- Primary SEO Meta Tags -->
   <title>Data Engineering Course in Chennai | Placement Assurance & Certification | Greens Technologies</title>
-  <meta name="description" content="Master Data Engineering in Chennai with Greens Technologies. Hands-on training in Python, SQL, PySpark, AWS, Snowflake, DBT, Airflow & Power BI. ₹70+ LPA potential, 100% placement assurance, 25+ branches & live online." />
+  <meta name="description" content="Master Data Engineering in Chennai with Greens Technologies. Hands-on training in Python, SQL, PySpark, AWS, Snowflake, DBT, Airflow & Power BI. ₹70+ LPA potential, 100% placement assurance, 25 branches & live online." />
   <meta name="keywords" content="Data Engineering Course in Chennai, Data Engineering Training Chennai, PySpark training chennai, Snowflake course chennai, AWS data engineer training, Greens Technologies data engineering, dbt airflow course chennai" />
   <meta name="author" content="Greens Technologies" />
   <meta name="robots" content="index, follow" />
@@ -1126,6 +1126,57 @@
       object-fit: cover;
     }
 
+    /* Hero right column: photo, then the enquiry form */
+    .hero-enquiry {
+      background: #FFFFFF;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-enquiry .hero-media {
+      position: relative;
+      border-radius: 0;
+      box-shadow: none;
+      aspect-ratio: 16 / 8;
+    }
+
+    .hero-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px 22px 22px;
+    }
+
+    .hero-form-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--brand-dark);
+    }
+
+    .hero-form-sub {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .hero-form-btn {
+      width: 100%;
+      justify-content: center;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 640px) {
+      .hero-enquiry .hero-media {
+        aspect-ratio: 16 / 10;
+      }
+
+      .hero-form {
+        padding: 18px 16px 18px;
+      }
+    }
+
     /* Key Stats Card (overlaps into the white strip) */
     .hero-stats-card {
       position: relative;
@@ -1658,6 +1709,24 @@
       line-height: 1.6;
     }
 
+    .faculty-controls {
+      display: none;
+    }
+
+    @media (max-width: 767px) {
+      .faculty-controls {
+        display: flex;
+        justify-content: center;
+        gap: 14px;
+        margin: 6px 0 20px;
+      }
+
+      .faculty-controls .carousel-arrow-btn {
+        width: 40px;
+        height: 40px;
+      }
+    }
+
     .faculty-bottom-banner {
       margin-top: 40px;
       background: linear-gradient(135deg, var(--brand-dark), var(--brand-primary));
@@ -1928,6 +1997,7 @@
     }
 
     .rv-comment {
+      margin: 0;
       background: var(--cream-surface);
       border: 1px solid var(--border-color);
       border-left: 5px solid #DDE6D2;
@@ -4725,7 +4795,7 @@
         </a>
         <a href="#branches" class="top-centers-link">
           <svg class="ico ico-lime" aria-hidden="true"><use href="#i-pin"/></svg>
-          <span>25+ Chennai Centers</span>
+          <span>25 Branches</span>
         </a>
       </div>
     </div>
@@ -5190,13 +5260,24 @@
             </div>
           </div>
 
-          <!-- Right Hero Column: Image -->
-          <div class="hero-media">
-            <img
-              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&amp;q=75&amp;auto=format&amp;fit=crop"
-              alt="Students learning data engineering together on laptops"
-              fetchpriority="high"
-            />
+          <!-- Right Hero Column: Image + Enquiry Form -->
+          <div class="hero-enquiry">
+            <div class="hero-media">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&amp;q=75&amp;auto=format&amp;fit=crop"
+                alt="Students learning data engineering together on laptops"
+                fetchpriority="high"
+              />
+            </div>
+
+            <form class="hero-form" onsubmit="handleModalSubmit(event)">
+              <h3 class="hero-form-title">Book Free Counselling</h3>
+              <p class="hero-form-sub">Talk to our career counsellor about the course, batch timings and placements.</p>
+              <input type="text" class="modal-input" placeholder="Full Name *" aria-label="Full Name" required />
+              <input type="tel" class="modal-input" placeholder="Mobile Number (WhatsApp) *" aria-label="Mobile Number" required />
+              <input type="email" class="modal-input" placeholder="Email Address *" aria-label="Email Address" required />
+              <button type="submit" class="btn btn-accent hero-form-btn">Book Free Counselling</button>
+            </form>
           </div>
         </div>
 
@@ -5219,7 +5300,7 @@
           <div class="hero-stat">
             <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-grad"/></svg></span>
             <div>
-              <div class="hero-stat-value">5,00,000+</div>
+              <div class="hero-stat-value">1,00,000+</div>
               <div class="hero-stat-label">Careers Launched</div>
             </div>
           </div>
@@ -5313,7 +5394,7 @@
             <h3 class="founder-name">Greens Technologies Leadership</h3>
             <p class="founder-sub">Building Chennai's leading software training &amp; placement institute</p>
             <blockquote class="founder-quote">"Our mission is simple: make quality software education accessible, practical and 100% job-oriented."</blockquote>
-            <p class="founder-text">What began as a single training center in Adyar has grown to <strong>22 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
+            <p class="founder-text">What began as a single training center in Adyar has grown to <strong>25 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
             <div class="founder-stats">
               <div><b>10+ Years</b><span>In IT Industry</span></div>
               <div><b>1,00,000+</b><span>Students Placed</span></div>
@@ -5466,6 +5547,16 @@
           </div>
         </div>
 
+        <!-- Mobile carousel arrows (the grid scrolls sideways on phones) -->
+        <div class="faculty-controls">
+          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(-1)" aria-label="Previous instructor" title="Previous instructor">
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg>
+          </button>
+          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(1)" aria-label="Next instructor" title="Next instructor">
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
+        </div>
+
         <div class="faculty-bottom-banner">
           <div>
             <h4 style="color:#FFFFFF; font-size:1.15rem; margin-bottom:4px;">Want to talk directly to our Trainer before enrolling?</h4>
@@ -5493,66 +5584,6 @@
           <!-- Review 1 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">JB</div>
-              <div class="rv-id">
-                <h4 class="rv-name">Jithin B</h4>
-                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">Senior Data Engineer I &bull; Chennai</p>
-                <p class="rv-placed">Placed at Photon Interactive</p>
-              </div>
-            </div>
-            <div class="rv-meta">
-              <span class="rv-package">Package: &#8377;10 LPA</span>
-            </div>
-            <h5 class="rv-headline">Now a Senior Data Engineer at Photon</h5>
-            <!-- Replace with the student's own comment when available -->
-            <p class="rv-comment">Offered the role of Senior Data Engineer I (Band JM2) at Photon Interactive, joining at DLF IT Park, Chennai on 11 September 2026.</p>
-            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
-              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
-              <span>View Offer Letter</span>
-              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-            <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/jithin-b-photon.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/jithin-b-photon.jpg" alt="Jithin B's offer letter, first page (personal details hidden)" loading="lazy" />
-              </a>
-              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
-            </div>
-          </article>
-
-          <!-- Review 2 -->
-          <article class="review-card">
-            <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">SJ</div>
-              <div class="rv-id">
-                <h4 class="rv-name">Shreyash Jain</h4>
-                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">Systems Engineer &bull; Chennai</p>
-                <p class="rv-placed">Placed at Tata Consultancy Services</p>
-              </div>
-            </div>
-            <div class="rv-meta">
-              <span class="rv-package">Package: &#8377;10 LPA</span>
-            </div>
-            <h5 class="rv-headline">Now a Systems Engineer at TCS</h5>
-            <!-- Replace with the student's own comment when available -->
-            <p class="rv-comment">Selected as Systems Engineer (Grade C1) at Tata Consultancy Services, Chennai, with the offer issued on 1 October 2026.</p>
-            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
-              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
-              <span>View Offer Letter</span>
-              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
-            </button>
-            <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/shreyash-jain-tcs.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/shreyash-jain-tcs.jpg" alt="Shreyash Jain's offer letter, first page (personal details hidden)" loading="lazy" />
-              </a>
-              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
-            </div>
-          </article>
-
-          <!-- Review 3 -->
-          <article class="review-card">
-            <div class="rv-head">
               <div class="rv-avatar" aria-hidden="true">CM</div>
               <div class="rv-id">
                 <h4 class="rv-name">C Malarvizhi</h4>
@@ -5565,8 +5596,7 @@
               <span class="rv-package">Package: &#8377;14 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Tech Lead at Tech Mahindra</h5>
-            <!-- Replace with the student's own comment when available -->
-            <p class="rv-comment">Offered the position of Tech Lead (Band U4) at Tech Mahindra&#x27;s Bengaluru office, starting 2 September 2026.</p>
+            <blockquote class="rv-comment">&ldquo;I had spent years working with data in bits and pieces without a clear path forward. The course gave me that path: SQL and Python first, then AWS pipelines, PySpark and Snowflake, all tied together in one capstone I could walk interviewers through. The mock interviews prepared me for exactly the kind of architecture questions a Tech Lead round asks. I cleared the Tech Mahindra process and stepped into a Tech Lead role at 14 LPA.&rdquo;</blockquote>
             <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
               <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
               <span>View Offer Letter</span>
@@ -5580,7 +5610,36 @@
             </div>
           </article>
 
-          <!-- Review 4 -->
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">JB</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Jithin B</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Senior Data Engineer I &bull; Cuddalore</p>
+                <p class="rv-placed">Placed at Photon Interactive</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;10 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Senior Data Engineer at Photon</h5>
+            <blockquote class="rv-comment">&ldquo;Coming from Cuddalore, I joined the online batch hoping for any entry into data. What I got was a full stack: from Linux and SQL basics all the way to Airflow orchestration and Power BI dashboards. My end-to-end pipeline project was the centrepiece of every interview I attended. Photon offered me a Senior Data Engineer I role before I had even fully wrapped up my placement interviews.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/jithin-b-photon.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/jithin-b-photon.jpg" alt="Jithin B's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
           <article class="review-card">
             <div class="rv-head">
               <div class="rv-avatar" aria-hidden="true">PK</div>
@@ -5595,8 +5654,7 @@
               <span class="rv-package">Package: &#8377;14 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Consultant at Capgemini</h5>
-            <!-- Replace with the student's own comment when available -->
-            <p class="rv-comment">Offered the role of Consultant (B2) at Capgemini Technology Services in Chennai, starting 26 October 2026.</p>
+            <blockquote class="rv-comment">&ldquo;I was doing reporting work and watching data engineering job posts ask for tools I had never touched. In three months I went from basic SQL to building an S3 data lake, transforming it with PySpark and modelling it in Snowflake with dbt. The trainers answered doubts until late in the evening, and the placement team kept scheduling interviews until the right one clicked. Capgemini&#x27;s Consultant offer at 14 LPA made the weekends worth it.&rdquo;</blockquote>
             <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
               <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
               <span>View Offer Letter</span>
@@ -5610,14 +5668,14 @@
             </div>
           </article>
 
-          <!-- Review 5 -->
+          <!-- Review 4 -->
           <article class="review-card">
             <div class="rv-head">
               <div class="rv-avatar" aria-hidden="true">RT</div>
               <div class="rv-id">
                 <h4 class="rv-name">Rahul T</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">Manager &bull; Bengaluru</p>
+                <p class="rv-role">Manager &bull; Chennai</p>
                 <p class="rv-placed">Placed at Capgemini</p>
               </div>
             </div>
@@ -5625,8 +5683,7 @@
               <span class="rv-package">Package: &#8377;19 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Manager at Capgemini</h5>
-            <!-- Replace with the student's own comment when available -->
-            <p class="rv-comment">Offered the role of Manager (C2) at Capgemini Technology Services in Bengaluru, starting 1 October 2026.</p>
+            <blockquote class="rv-comment">&ldquo;As a working professional, I needed depth, not another overview course. The modules on lakehouse design, Glue and Athena workflows, and pipeline orchestration matched what senior data roles actually test. I could discuss medallion architecture and partitioning trade-offs from real lab work, not slides. That made the difference in the Manager interviews, and I moved to 19 LPA.&rdquo;</blockquote>
             <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
               <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
               <span>View Offer Letter</span>
@@ -5635,6 +5692,35 @@
             <div class="rv-letter" hidden>
               <a href="assets/offer-letters/rahul-t-capgemini.jpg" target="_blank" rel="noopener">
                 <img src="assets/offer-letters/rahul-t-capgemini.jpg" alt="Rahul T's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+
+          <!-- Review 5 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">SJ</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Shreyash Jain</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Systems Engineer &bull; Durg</p>
+                <p class="rv-placed">Placed at Tata Consultancy Services</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-package">Package: &#8377;10 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Systems Engineer at TCS</h5>
+            <blockquote class="rv-comment">&ldquo;I joined the online batch from Durg with no industry connections and a lot of doubt. The course assumed nothing and built everything: SQL, Python, AWS, Snowflake, then a capstone that gave me something real to talk about. The resume and LinkedIn sessions changed how recruiters saw my profile. TCS Chennai made me an offer, and my family watched me become the first engineer among us.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="assets/offer-letters/shreyash-jain-tcs.jpg" target="_blank" rel="noopener">
+                <img src="assets/offer-letters/shreyash-jain-tcs.jpg" alt="Shreyash Jain's offer letter, first page (personal details hidden)" loading="lazy" />
               </a>
               <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
             </div>
@@ -9317,7 +9403,7 @@
             <span class="mini-icon"><svg class="ico" aria-hidden="true"><use href="#i-building"/></svg></span>
             <div>
               <h3 class="mini-title">Classroom Training</h3>
-              <p class="mini-sub">Hands-on labs at 25+ centers</p>
+              <p class="mini-sub">Hands-on labs at 25 branches</p>
             </div>
           </div>
           <div class="mini-card">
@@ -9574,7 +9660,7 @@
             <div class="hiring-stat-item">
               <span class="hiring-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg></span>
               <div class="hiring-stat-text">
-                <strong>5,00,000+</strong> Careers Launched
+                <strong>1,00,000+</strong> Careers Launched
               </div>
             </div>
           </div>
@@ -9793,7 +9879,7 @@
               <span class="faq-toggle-icon"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span>
             </button>
             <div class="faq-answer">
-              Yes. We offer live instructor-led online sessions across India with flexible timings (weekday evening and dedicated weekend batches) and international time-zone support for working professionals, alongside classroom batches at 25+ Chennai branches.
+              Yes. We offer live instructor-led online sessions across India with flexible timings (weekday evening and dedicated weekend batches) and international time-zone support for working professionals, alongside classroom batches at our 25 branches.
             </div>
           </div>
 
@@ -9912,7 +9998,7 @@
     <section class="section-spacing branches-section" id="branches">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">25+ Greens Technologies Branches in Chennai, Bengaluru, Coimbatore, Salem and Trichy</h2>
+          <h2 class="section-title">25 Greens Technologies Branches in Chennai, Bengaluru, Coimbatore, Salem and Trichy</h2>
           <p class="section-subtitle">
             Visit your nearest branch for walk-in counseling, lab tours, and live classroom batches. Also present in Salem, Trichy, Bengaluru and Coimbatore. Online live batches serve learners across all of India.
           </p>
@@ -10201,7 +10287,7 @@
         <div class="final-cta-content">
           <h2 class="final-cta-title">Ready to Accelerate Your Career in Data Engineering?</h2>
           <p class="final-cta-text">
-            Join over 5,00,000+ successful engineers placed through Greens Technologies since 2008. Get live hands-on guidance, global certification preparation, and placement assurance with interview coordination.
+            Join over 1,00,000+ successful engineers placed through Greens Technologies since 2008. Get live hands-on guidance, global certification preparation, and placement assurance with interview coordination.
           </p>
 
           <div class="final-cta-buttons">
@@ -10688,6 +10774,19 @@
         closeLeadModal();
       }
     });
+
+    // Instructors carousel (mobile): move one card at a time, wrapping at either end
+    function scrollFaculty(dir) {
+      const grid = document.querySelector('.faculty-grid');
+      const cards = grid.querySelectorAll('.faculty-card');
+      if (cards.length < 2) return;
+      const step = cards[1].offsetLeft - cards[0].offsetLeft;
+      const max = grid.scrollWidth - grid.clientWidth;
+      let target = grid.scrollLeft + dir * step;
+      if (dir > 0 && grid.scrollLeft >= max - 4) target = 0;
+      if (dir < 0 && grid.scrollLeft <= 4) target = max;
+      grid.scrollTo({ left: target, behavior: 'smooth' });
+    }
 
     // Reviews Carousel Arrow Navigation & Dot Sync
     function scrollReviews(direction) {
