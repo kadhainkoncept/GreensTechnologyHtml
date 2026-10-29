@@ -7096,7 +7096,7 @@
               <button type="button" class="privacy-btn" aria-expanded="false" aria-controls="privacyFull" onclick="togglePrivacyPolicy(this)">
                 <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> <span>Read Policy</span>
               </button>
-              <button type="button" class="privacy-btn primary" onclick="downloadPrivacyPdf()">
+              <button type="button" class="privacy-btn primary" onclick="requestDownload('Download Privacy Policy PDF', downloadPrivacyPdf)">
                 <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download PDF
               </button>
             </div>
@@ -7505,7 +7505,7 @@
               Upcoming weekday &amp; weekend batches, syllabus releases, and exclusive demo invites.
             </p>
             <form class="subscribe-form" onsubmit="handleSubscribe(event)">
-              <input type="email" class="subscribe-input" placeholder="Enter your email address..." required />
+              <input type="email" class="subscribe-input" placeholder="Enter your email address..." aria-label="Email Address" required />
               <button type="submit" class="btn btn-accent btn-sm">
                 Subscribe
               </button>
@@ -7662,7 +7662,7 @@
         <input type="tel" class="modal-input" placeholder="Mobile Number (WhatsApp) *" required />
         <input type="email" class="modal-input" placeholder="Email Address *" required />
 
-        <button type="submit" class="btn btn-accent" style="width:100%; margin-top:6px;">
+        <button type="submit" class="btn btn-accent" id="modalSubmitBtn" style="width:100%; margin-top:6px;">
           Confirm Request
         </button>
       </form>
@@ -7926,11 +7926,38 @@
       switchFaqTab(document.getElementById('privacyTab'));
     }
 
+    // Downloads are gated behind the enquiry form: the file is only delivered after the form is submitted
+    let pendingDownload = null;
+
+    function requestDownload(purpose, deliver) {
+      openLeadModal(purpose);
+      pendingDownload = deliver;
+      document.getElementById('modalSubtitleText').textContent = 'Fill in your details to download. Your download will start as soon as you submit.';
+      document.getElementById('modalSubmitBtn').textContent = 'Submit & Download';
+    }
+
+    function downloadFile(url, filename) {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = filename || '';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+    }
+
+    function gateBrochureDownload(e) {
+      e.preventDefault();
+      const link = e.currentTarget;
+      requestDownload(link.querySelector('span').textContent.replace(' (PDF)', ''), () => downloadFile(link.href, link.download));
+    }
+
     // Universal Lead Modal
     function openLeadModal(purpose) {
       const modal = document.getElementById('leadModal');
       const title = document.getElementById('modalTitleText');
       const subtitle = document.getElementById('modalSubtitleText');
+      pendingDownload = null;
+      document.getElementById('modalSubmitBtn').textContent = 'Confirm Request';
 
       if (purpose) {
         title.textContent = purpose;
@@ -7945,6 +7972,7 @@
     function closeLeadModal() {
       const modal = document.getElementById('leadModal');
       modal.classList.remove('active');
+      pendingDownload = null;
     }
 
     function closeModalOnOverlay(e) {
@@ -7964,16 +7992,64 @@
       }, 4000);
     }
 
+    // Send every form submission to the leads inbox via FormSubmit (free, no account needed).
+    // The very first submission triggers a one-time activation email to this inbox; click "Activate" in it.
+    const LEADS_ENDPOINT = 'https://formsubmit.co/ajax/greensadsmanager@gmail.com';
+
+    function sendLead(form, purpose) {
+      const data = {};
+      form.querySelectorAll('input, select, textarea').forEach(field => {
+        if (!field.value || field.type === 'submit') return;
+        const label = (field.name || field.getAttribute('aria-label') || field.placeholder || field.type)
+          .replace(/\s*\*$/, '').replace(/\.{3}$/, '').trim();
+        data[label] = field.value.trim();
+      });
+      data['Enquiry Type'] = purpose;
+      const course = document.title.split('|')[0].trim();
+      data['Course Page'] = course;
+      data['Page URL'] = window.location.href;
+      data['Submitted At'] = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+      data._subject = `New Lead: ${purpose} | ${course}`;
+      data._template = 'table';
+      data._captcha = 'false';
+
+      return fetch(LEADS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data),
+        keepalive: true,
+      })
+        .then(res => res.json())
+        .then(res => {
+          if (String(res.success) !== 'true') console.warn('FormSubmit did not accept the lead:', res.message);
+        })
+        .catch(err => console.warn('FormSubmit request failed (the page must be opened from a web server, not as a file):', err));
+    }
+
     // Form Handlers
     function handleModalSubmit(e) {
       e.preventDefault();
+      const deliver = e.target.closest('#leadModal') ? pendingDownload : null;
+      const inModal = !!e.target.closest('#leadModal');
+      const purpose = inModal
+        ? document.getElementById('modalTitleText').textContent
+        : (e.target.querySelector('.hero-form-title')?.textContent || 'Hero Enquiry Form');
+      sendLead(e.target, purpose);
       closeLeadModal();
-      showToast('Request submitted! Our counselor will call you within 15 minutes.');
+      if (deliver) {
+        deliver();
+        showToast('Thank you! Your download has started.');
+      } else if (inModal && /^Download/.test(purpose)) {
+        showToast('Thank you! We will share the PDF with you on WhatsApp and email shortly.');
+      } else {
+        showToast('Request submitted! Our counselor will call you within 15 minutes.');
+      }
       e.target.reset();
     }
 
     function handleSubscribe(e) {
       e.preventDefault();
+      sendLead(e.target, 'Batch Alerts Subscription');
       showToast('Subscribed successfully! You will receive batch notifications.');
       e.target.reset();
     }
