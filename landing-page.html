@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greens Technologys – No 1 Software Training Institute in Chennai with Placements</title>
-  <meta name="description" content="Greens Technologys – Chennai's leading software training and placement institute. 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more. Classroom & online training across 22 branches." />
+  <meta name="description" content="Greens Technologys – Chennai's leading software training and placement institute. 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more. Classroom & online training across 25 branches." />
   <meta name="theme-color" content="#1b3a1c" />
   <link rel="icon" type="image/png" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
   <link rel="apple-touch-icon" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
@@ -97,35 +97,77 @@
 
     /* ============ 1. HERO ============ */
     .hero {
-      position: relative; padding: 80px 0 150px; color: var(--white); overflow: hidden;
+      position: relative; padding: 56px 0 150px; overflow: hidden; text-align: center;
       background:
-        radial-gradient(circle at 88% 12%, rgba(140,198,63,.18), transparent 38%),
-        linear-gradient(135deg, var(--green-dark) 0%, var(--green) 55%, var(--green-mid) 100%);
+        radial-gradient(circle at 12% 30%, rgba(140,198,63,.22), transparent 30%),
+        radial-gradient(circle at 90% 55%, rgba(140,198,63,.2), transparent 32%),
+        linear-gradient(180deg, var(--green-tint) 0%, var(--green-soft) 100%);
     }
     .hero::before {
       content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(27,58,28,.07) 1px, transparent 1px);
       background-size: 26px 26px;
+      mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
     }
-    .hero-grid { position: relative; display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; }
-    .hero h1 { color: var(--white); font-size: clamp(34px, 5.2vw, 56px); font-weight: 800; margin-bottom: 20px; }
-    .hero h1 em { font-style: normal; color: var(--accent); }
-    .hero p { font-size: 18px; color: rgba(255,255,255,.85); max-width: 560px; margin-bottom: 26px; }
-    .hero-points { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 24px; max-width: 580px; margin-bottom: 34px; }
-    .hero-points li { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 600; color: rgba(255,255,255,.92); line-height: 1.35; }
-    .pt-ic {
-      flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; font-size: 18px;
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18); color: var(--accent);
+    .hero-wrap { position: relative; min-height: 560px; }
+    .hero-center { position: relative; z-index: 2; max-width: 660px; margin: 0 auto; padding-top: 24px; }
+    .hero-badge {
+      display: inline-block; padding: 6px 16px; border-radius: 999px; margin-bottom: 22px;
+      background: rgba(140,198,63,.2); border: 1px solid rgba(140,198,63,.55); color: var(--accent-dark);
+      font-size: 12.5px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
     }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 30px; }
-    .hero-tags span {
-      font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 8px;
-      background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15); color: rgba(255,255,255,.9);
+    .hero h1 { font-size: clamp(34px, 5.4vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; margin-bottom: 26px; }
+    .hero h1 .hl {
+      position: relative; display: inline-block;
+      background: linear-gradient(90deg, var(--accent-dark), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent;
     }
+    .hero h1 .hl svg { position: absolute; left: 6%; bottom: -16px; width: 52%; height: 16px; color: var(--accent-dark); }
+    .hero .hero-sub { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(18px, 2vw, 22px); font-weight: 800; color: var(--green); margin-bottom: 14px; }
+    .hero p { font-size: 16.5px; color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn-lime { background: var(--accent); color: var(--green-dark); box-shadow: 0 10px 22px rgba(140,198,63,.35); }
+    .btn-lime:hover { background: #9dd44e; transform: translateY(-2px); }
+    .btn-line { background: var(--white); border-color: var(--green); color: var(--green); }
+    .btn-line:hover { background: var(--green); color: var(--white); }
+    .hero-proof { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; text-align: left; font-size: 13px; color: var(--muted); }
+    .hero-proof b { display: block; color: var(--green); font-size: 14px; }
+    .avatars { display: flex; }
+    .avatars img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); margin-left: -10px; }
+    .avatars img:first-child { margin-left: 0; }
 
-    .hero-visual { position: relative; }
-    .hero-visual .main-img { width: 100%; aspect-ratio: 4/4.3; object-fit: cover; border-radius: 24px; box-shadow: var(--shadow-lg); }
+    /* Floating chips + photos around the headline */
+    .hero-chip {
+      position: absolute; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 12px 16px; text-align: left;
+      background: var(--white); border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--border);
+      color: var(--green); font-size: 13.5px; font-weight: 700; line-height: 1.3; animation: float 6s ease-in-out infinite;
+    }
+    .hero-chip small { display: block; font-size: 12px; color: var(--muted); font-weight: 500; }
+    .hero-chip .chip-ic { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--green-soft); font-size: 19px; flex-shrink: 0; }
+    .hero-chip .chev { color: var(--muted); font-size: 18px; margin-left: 4px; }
+    .hero-chip strong { font-family: "Plus Jakarta Sans"; font-size: 20px; font-weight: 800; }
+    .hero-chip .star { color: #f5b301; font-size: 15px; vertical-align: -1px; }
+    .chip-rating { top: 10px; left: 0; animation-delay: 0s; }
+    .chip-partners { top: 120px; left: 10px; animation-delay: -1.5s; }
+    .chip-lang { top: 455px; left: 0; animation-delay: -3s; }
+    .chip-support { top: 10px; right: 0; animation-delay: -2s; }
+    .chip-courses { top: 455px; right: 0; animation-delay: -4s; }
+    @keyframes float { 50% { transform: translateY(-8px); } }
+
+    .hero-photo { position: absolute; z-index: 1; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-left { left: 30px; top: 205px; width: 250px; height: 280px; }
+    .photo-left::before {
+      content: ""; position: absolute; inset: 18px -26px -14px 30px; border-radius: 40px; background: var(--accent); opacity: .35; transform: rotate(-8deg);
+    }
+    .photo-left img { position: relative; border-radius: 32px 32px 32px 110px; box-shadow: var(--shadow-lg); }
+    .photo-right { right: 40px; top: 105px; width: 230px; height: 300px; transform: rotate(5deg); }
+    .photo-right img { border-radius: 28px; border: 6px solid var(--white); box-shadow: var(--shadow-lg); }
+    .photo-tag {
+      position: absolute; right: -28px; bottom: 26px; transform: rotate(-5deg); display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px; border-radius: 14px; background: var(--white); box-shadow: var(--shadow-lg);
+      font-size: 12.5px; font-weight: 800; color: var(--green); text-align: left; line-height: 1.25;
+    }
+    .photo-tag span { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-size: 13px; transform: rotate(-45deg); }
     .icon-tile {
       flex-shrink: 0; display: grid; place-items: center; border-radius: 12px;
       background: var(--green); color: var(--white);
@@ -141,7 +183,7 @@
     .hl-item { padding: 28px 24px; display: flex; gap: 16px; align-items: center; border-right: 1px solid var(--border); transition: background .25s; }
     .hl-item:last-child { border-right: 0; }
     .hl-item:hover { background: var(--green-tint); }
-    .hl-item .icon-tile { width: 54px; height: 54px; font-size: 26px; border-radius: 14px; }
+    .hl-item .icon-tile { width: 56px; height: 56px; font-size: 25px; border-radius: 50%; background: var(--green-soft); color: var(--green); }
     .hl-item h3 { font-size: 26px; font-weight: 800; }
     .hl-item p { font-size: 14px; color: var(--muted); font-weight: 500; }
 
@@ -209,23 +251,86 @@
     .reviewer span b { color: var(--green-mid); }
 
     /* ============ 4. WHY CHOOSE US ============ */
-    .why-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 60px; align-items: center; }
-    .why-img { position: relative; }
-    .why-img img { border-radius: 22px; width: 100%; aspect-ratio: 4/4.5; object-fit: cover; box-shadow: var(--shadow-lg); }
-    .why-img .exp {
-      position: absolute; bottom: -22px; right: -18px; background: var(--green); color: var(--white);
-      padding: 20px 24px; border-radius: 20px; box-shadow: var(--shadow-lg); text-align: center;
+    .why { background: radial-gradient(120% 90% at 0% 100%, #e3f0d6 0%, transparent 55%), linear-gradient(120deg, var(--green-tint) 0%, var(--green-soft) 60%, #d7e9c4 100%); overflow: hidden; }
+    .why-head { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: end; margin-bottom: 56px; }
+    .why-head h2 { font-size: clamp(30px, 4.2vw, 46px); font-weight: 800; }
+    .why-head p { color: var(--muted); font-size: 16.5px; }
+    .why-head .exp-pill {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 16px; padding: 8px 16px 8px 8px; border-radius: 999px;
+      background: var(--white); box-shadow: var(--shadow); font-size: 13px; font-weight: 700; color: var(--green);
     }
-    .why-img .exp b { font-family: "Plus Jakarta Sans"; font-size: 36px; display: block; line-height: 1; color: var(--accent); }
-    .why-img .exp span { font-size: 13px; font-weight: 700; }
-    .why-content h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 800; margin-bottom: 14px; }
-    .why-content > p { color: var(--muted); margin-bottom: 30px; }
-    .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .feature { display: flex; gap: 14px; padding: 18px; border-radius: 16px; background: var(--white); border: 1px solid var(--border); transition: all .25s; }
-    .feature:hover { border-color: var(--green); background: var(--green-tint); }
-    .feature .icon-tile { width: 44px; height: 44px; font-size: 21px; }
-    .feature h4 { font-size: 15.5px; margin-bottom: 4px; }
-    .feature p { font-size: 13.5px; color: var(--muted); }
+    .exp-pill b { background: var(--green); color: var(--accent); border-radius: 999px; padding: 4px 10px; font-family: "Plus Jakarta Sans"; }
+
+    .why-carousel { position: relative; height: 500px; }
+    .why-stage { position: absolute; inset: 0; }
+    .wcard {
+      position: absolute; top: 50%; left: 50%; width: 340px; padding: 20px 20px 28px; border-radius: 22px; text-align: center;
+      background: rgba(255,255,255,.5); border: 1px solid rgba(255,255,255,.7); backdrop-filter: blur(6px);
+      transform: translate(calc(-50% + var(--x, 0px)), -50%) scale(var(--s, .9)); opacity: var(--o, 0);
+      transition: transform .55s cubic-bezier(.2,.7,.2,1), opacity .45s, background .45s, box-shadow .45s; cursor: pointer;
+    }
+    .wcard.active { background: var(--white); box-shadow: var(--shadow-lg); cursor: default; z-index: 2; }
+    .wcard.hidden { pointer-events: none; }
+    .wcard-visual { height: 210px; border-radius: 16px; background: var(--green-tint); position: relative; overflow: hidden; margin-bottom: 22px; }
+    .mock {
+      position: absolute; top: 34px; left: 28px; right: -20px; padding: 18px; border-radius: 14px; background: var(--white);
+      border: 1px solid var(--border); text-align: left; box-shadow: var(--shadow);
+    }
+    .wcard.active .mock { background: var(--green); border-color: var(--green); }
+    .mock-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .mock .icon-tile { width: 42px; height: 42px; font-size: 20px; }
+    .wcard.active .mock .icon-tile { background: var(--white); color: var(--green); }
+    .mock-top b { display: block; font-size: 14px; color: var(--green); }
+    .mock-top small { font-size: 12px; color: var(--muted); white-space: nowrap; }
+    .wcard.active .mock-top b { color: var(--white); }
+    .wcard.active .mock-top small { color: rgba(255,255,255,.75); }
+    .mock-line { height: 8px; border-radius: 4px; background: var(--green-soft); margin-bottom: 8px; }
+    .mock-line.short { width: 60%; }
+    .wcard.active .mock-line { background: rgba(255,255,255,.18); }
+    .mock-btn {
+      position: absolute; left: 22px; bottom: 26px; padding: 9px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700;
+      background: var(--green-mid); color: var(--white); box-shadow: 0 8px 18px rgba(27,58,28,.25);
+    }
+    .wcard.active .mock-btn { background: var(--accent); color: var(--green-dark); }
+    .wcard h4 { font-size: 21px; margin-bottom: 8px; }
+    .wcard p { font-size: 14.5px; color: var(--muted); max-width: 280px; margin: 0 auto; }
+    .wcard:not(.active) h4, .wcard:not(.active) p { opacity: .7; }
+    .wcard-link {
+      display: inline-block; margin-top: 16px; font-weight: 700; font-size: 15px; color: var(--green);
+      border-bottom: 2px solid var(--accent-dark); padding-bottom: 2px; opacity: 0; transition: opacity .3s;
+    }
+    .wcard.active .wcard-link { opacity: 1; }
+    .why-carousel .slider-btn { position: absolute; top: 50%; transform: translateY(-50%); z-index: 3; }
+    .why-carousel .why-prev { left: 0; }
+    .why-carousel .why-next { right: 0; }
+    .why-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 10px; }
+    .why-dots button { width: 9px; height: 9px; border-radius: 99px; border: 0; background: rgba(27,58,28,.25); cursor: pointer; padding: 0; transition: all .3s; }
+    .why-dots button.on { width: 26px; background: var(--green); }
+    .why-dots .why-play {
+      width: 34px; height: 34px; margin-left: 10px; display: grid; place-items: center; background: var(--white); color: var(--green);
+      box-shadow: var(--shadow); font-size: 13px;
+    }
+
+    /* ============ PLACEMENT ASSISTANCE ============ */
+    .support { background: var(--white); }
+    .support-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
+    .support-eyebrow {
+      display: inline-block; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
+      background: rgba(140,198,63,.2); color: var(--accent-dark); font-size: 12.5px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
+    }
+    .support-intro h2 { font-size: clamp(28px, 3.8vw, 40px); font-weight: 800; margin-bottom: 16px; }
+    .support-intro p { color: var(--muted); font-size: 16.5px; margin-bottom: 28px; }
+    .support-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .support-card {
+      padding: 24px; border-radius: 20px; background: var(--green-tint); border: 1px solid var(--border); transition: all .25s;
+    }
+    .support-card:nth-child(even) { transform: translateY(28px); }
+    .support-card:hover { background: var(--white); border-color: var(--accent); box-shadow: var(--shadow-lg); }
+    .support-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
+    .support-card .icon-tile { width: 48px; height: 48px; font-size: 22px; }
+    .support-num { font-family: "Plus Jakarta Sans"; font-size: 30px; font-weight: 800; color: rgba(27,58,28,.12); }
+    .support-card h4 { font-size: 17px; margin-bottom: 8px; }
+    .support-card p { font-size: 14px; color: var(--muted); }
 
     /* ============ 5. HIRING COMPANIES ============ */
     .companies { background: var(--green); }
@@ -303,8 +408,8 @@
       background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 40px 46px;
       display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: var(--shadow-lg);
     }
-    .cta-box h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; }
-    .cta-box p { color: var(--muted); font-weight: 600; }
+    .cta-box h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin-bottom: 10px; }
+    .cta-box p { color: var(--muted); font-weight: 500; max-width: 640px; }
     .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
 
     /* ============ 8. FOOTER ============ */
@@ -352,6 +457,13 @@
       .nav-links a { padding: 8px 8px; font-size: 13.5px; }
       .course-grid { grid-template-columns: repeat(3, 1fr); }
     }
+    @media (max-width: 1240px) {
+      .hero-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; min-height: 0; }
+      .hero-center { order: -1; flex-basis: 100%; margin-bottom: 26px; }
+      .hero-chip { position: static; animation: none; box-shadow: var(--shadow); }
+      .hero-chip .chev, .hero-photo { display: none; }
+      .chip-lang br { display: none; }
+    }
     @media (max-width: 1024px) {
       .hl-grid { grid-template-columns: repeat(2, 1fr); }
       .hl-item:nth-child(2) { border-right: 0; }
@@ -378,13 +490,11 @@
       .nav-links.open { right: 0; }
       .nav-links a { font-size: 15px; padding: 12px 14px; }
       .nav-links .btn { margin: 12px 0 0; }
-      .hero { padding: 60px 0 130px; text-align: center; }
-      .hero-grid, .why-grid { grid-template-columns: 1fr; }
-      .hero p { margin-left: auto; margin-right: auto; }
-      .hero-btns, .hero-tags { justify-content: center; }
-      .hero-points { margin-left: auto; margin-right: auto; text-align: left; }
-      .hero-visual { max-width: 420px; margin: 10px auto 0; }
-      .why-img { max-width: 480px; margin: 0 auto 20px; }
+      .hero { padding: 44px 0 130px; }
+      .why-head, .support-grid { grid-template-columns: 1fr; }
+      .support-grid { gap: 36px; }
+      .support-intro { text-align: center; }
+      .why-head { gap: 14px; margin-bottom: 36px; text-align: center; }
       .course-grid { grid-template-columns: repeat(2, 1fr); }
       .cta-box { flex-direction: column; text-align: center; padding: 34px 24px; }
       .cta-btns { justify-content: center; }
@@ -400,19 +510,28 @@
       .topbar .container { justify-content: center; }
       .topbar-left { display: none; }
       .nav-links { width: 82%; }
-      .hero { padding: 44px 0 110px; }
-      .hero p { font-size: 16px; }
-      .hero-tags span { font-size: 12px; }
+      .hero { padding: 32px 0 110px; }
+      .hero p { font-size: 15.5px; }
+      .hero h1 br { display: none; }
       .hero-btns .btn { width: 100%; }
-      .hero-points { grid-template-columns: minmax(0, 1fr); max-width: 340px; gap: 12px; }
+      .hero-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+      .hero-center { grid-column: 1 / -1; }
+      .hero-chip { padding: 10px 12px; gap: 10px; font-size: 12.5px; }
+      .hero-chip .chip-ic { width: 34px; height: 34px; font-size: 16px; }
+      .hero-chip strong { font-size: 17px; }
+      .chip-rating { grid-column: 1 / -1; }
       .highlights { margin-top: -70px; }
-      .hl-grid, .course-grid, .branch-grid, .feature-grid, .footer-grid { grid-template-columns: 1fr; }
+      .hl-grid, .course-grid, .branch-grid, .footer-grid, .support-cards { grid-template-columns: 1fr; }
+      .support-card:nth-child(even) { transform: none; }
+      .support-intro .btn { width: 100%; }
       .hl-item { padding: 18px 20px; border-right: 0 !important; border-bottom: 1px solid var(--border); }
       .hl-item:last-child { border-bottom: 0; }
       .hl-item h3 { font-size: 22px; }
       .review-card { flex-basis: 100%; padding: 22px; }
-      .why-grid { gap: 40px; }
-      .why-img .exp { right: 0; }
+      .why-carousel { height: 470px; }
+      .wcard { width: min(300px, calc(100vw - 110px)); }
+      .wcard-visual { height: 180px; }
+      .why-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
       .company-grid { grid-template-columns: repeat(2, 1fr); }
       .company { padding: 14px 10px; font-size: 13px; }
       .placement-stats { margin-top: 28px; gap: 10px; }
@@ -493,29 +612,67 @@
 
   <!-- ================= 1. HERO ================= -->
   <section class="hero" id="home">
-    <div class="container hero-grid">
-      <div class="hero-text">
-        <h1>No 1 Software Training Institute in Chennai <em>with Placements</em></h1>
-        <p>Practical, real-time training from trainers who work in MNCs. Choose from 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more — for freshers and working professionals.</p>
-        <ul class="hero-points">
-          <li><span class="pt-ic"><svg class="i"><use href="#i-star"/></svg></span>4.8 Stars · 10,132 Ratings</li>
-          <li><span class="pt-ic"><svg class="i"><use href="#i-building"/></svg></span>500+ Hiring Partners</li>
-          <li><span class="pt-ic"><svg class="i"><use href="#i-headset"/></svg></span>100% Lifetime Support</li>
-          <li><span class="pt-ic"><svg class="i"><use href="#i-lang"/></svg></span>Bilingual Expert Training in Tamil &amp; English</li>
-        </ul>
+    <div class="container hero-wrap">
+      <!-- Floating chips (left) -->
+      <div class="hero-chip chip-rating">
+        <span class="chip-ic" style="background:#fff;border:1px solid var(--border)">
+          <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+        </span>
+        <div><strong>4.8</strong> <svg class="i star"><use href="#i-star"/></svg> Google Rating<small>10,132 Ratings</small></div>
+        <span class="chev">›</span>
+      </div>
+      <div class="hero-chip chip-partners">
+        <span class="chip-ic"><svg class="i"><use href="#i-building"/></svg></span>
+        <div><strong>500+</strong><small>Hiring Partners</small></div>
+        <span class="chev">›</span>
+      </div>
+      <div class="hero-chip chip-lang">
+        <span class="chip-ic"><svg class="i"><use href="#i-lang"/></svg></span>
+        <div>Tamil &amp; English <br />Training</div>
+        <span class="chev">›</span>
+      </div>
+
+      <!-- Floating chips (right) -->
+      <div class="hero-chip chip-support">
+        <span class="chip-ic"><svg class="i"><use href="#i-headset"/></svg></span>
+        <div>100% Lifetime Support</div>
+        <span class="chev">›</span>
+      </div>
+      <div class="hero-chip chip-courses">
+        <span class="chip-ic"><svg class="i"><use href="#i-book"/></svg></span>
+        <div>200+ Courses<small>Trainers from MNCs</small></div>
+        <span class="chev">›</span>
+      </div>
+
+      <!-- Photos -->
+      <div class="hero-photo photo-left">
+        <img src="https://images.unsplash.com/photo-1615109398623-88346a601842?w=600&q=80" alt="Smiling Greens Technologys student" />
+      </div>
+      <div class="hero-photo photo-right">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Greens Technologys student placed in an IT job" />
+        <div class="photo-tag">From Learning<br />to a Great Career <span><svg class="i"><use href="#i-arrow"/></svg></span></div>
+      </div>
+
+      <div class="hero-center">
+        <span class="hero-badge">IT Training in Chennai · OMR</span>
+        <h1>No 1 Software Training<br /><span class="hl">Institute in Chennai<svg viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12C50 3 120 2 198 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
+        <p class="hero-sub">Practical training. Focused on getting you placed.</p>
+        <p>Real-time training from trainers who work in MNCs. Choose from 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more — for freshers and working professionals.</p>
         <div class="hero-btns">
-          <a href="#courses" class="btn btn-light">Explore Courses <svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-outline">
+          <a href="#courses" class="btn btn-lime">Explore Courses <svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-line">
             <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Book a Free Demo
           </a>
         </div>
-        <div class="hero-tags">
-          <!-- <span>Python</span><span>Full Stack</span><span>AWS</span><span>Data Science</span><span>Selenium</span><span>Power BI</span><span>DevOps</span> -->
+        <div class="hero-proof">
+          <span class="avatars">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=70" alt="" />
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=70" alt="" />
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=70" alt="" />
+            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&q=70" alt="" />
+          </span>
+          <span><b>1 Lakh+ Students</b>Trained &amp; Placed</span>
         </div>
-      </div>
-
-      <div class="hero-visual">
-        <img class="main-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80" alt="Students learning at Greens Technologys" />
       </div>
     </div>
   </section>
@@ -549,7 +706,7 @@
     <div class="container">
       <div class="section-head reveal">
         <h2>Most Popular Courses</h2>
-        <p>Job-oriented programs with real-time projects, lab handouts and placement support. Available in classroom and online.</p>
+        <p>Find the right course for your career goals. Greens Technologies offers practical training programs to help you learn new skills, improve your qualifications and explore better career opportunities.</p>
       </div>
       <div class="course-grid" id="courseGrid"><!-- rendered by script --></div>
     </div>
@@ -559,8 +716,8 @@
   <section class="reviews" id="reviews">
     <div class="container">
       <div class="section-head reveal">
-        <h2>Real Students. Real Careers.</h2>
-        <p>Rated <b>4.9 / 5</b> by our students. Here are a few of their career stories.</p>
+        <h2>Placement Success Stories</h2>
+        <p>Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
       </div>
       <div class="review-track" id="reviewTrack" tabindex="0" aria-label="Student reviews"><!-- rendered by script --></div>
       <div class="slider-nav">
@@ -572,41 +729,56 @@
 
   <!-- ================= 4. WHY CHOOSE US ================= -->
   <section class="why" id="why">
-    <div class="container why-grid">
-      <div class="why-img reveal">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Classroom session at Greens Technologys" />
-        <div class="exp"><b>10+</b><span>Years in IT Industry</span></div>
+    <div class="container">
+      <div class="why-head reveal">
+        <h2>Practical Training That Gets You Hired</h2>
+        <div>
+          <p>Greens Technologys is a leading training and placement company in Chennai, headquartered on OMR. We focus on practical, real-time learning — not just theory.</p>
+          <span class="exp-pill"><b>10+</b> Years in IT Industry</span>
+        </div>
       </div>
 
-      <div class="why-content reveal">
-        <h2>Practical Training That Gets You Hired</h2>
-        <p>Greens Technologys is a leading training and placement company in Chennai, headquartered on OMR. We focus on practical, real-time learning — not just theory.</p>
+      <div class="why-carousel reveal" aria-roledescription="carousel" aria-label="Why choose Greens Technologys">
+        <div class="why-stage" id="whyStage"><!-- rendered by script --></div>
+        <button type="button" class="slider-btn why-prev" id="whyPrev" aria-label="Previous feature"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="slider-btn why-next" id="whyNext" aria-label="Next feature"><svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="why-dots" id="whyDots"></div>
+    </div>
+  </section>
 
-        <div class="feature-grid">
-          <div class="feature">
-            <div class="icon-tile"><svg class="i"><use href="#i-users"/></svg></div>
-            <div><h4>Trainers from MNCs</h4><p>Learn from working professionals and get real corporate exposure.</p></div>
-          </div>
-          <div class="feature">
-            <div class="icon-tile"><svg class="i"><use href="#i-code"/></svg></div>
-            <div><h4>Real-Time Projects</h4><p>Lab handouts, case studies and live projects for every course.</p></div>
-          </div>
-          <div class="feature">
-            <div class="icon-tile"><svg class="i"><use href="#i-monitor"/></svg></div>
-            <div><h4>Flexible Training Modes</h4><p>Classroom, online, video-based and corporate training on current versions.</p></div>
-          </div>
-          <div class="feature">
-            <div class="icon-tile"><svg class="i"><use href="#i-chat"/></svg></div>
-            <div><h4>Interactive Sessions</h4><p>Ask questions during and after class — doubts cleared every day.</p></div>
-          </div>
-          <div class="feature">
-            <div class="icon-tile"><svg class="i"><use href="#i-calendar"/></svg></div>
-            <div><h4>Clear Course Plan</h4><p>A day-by-day course plan is shared with you before you register.</p></div>
-          </div>
-          <div class="feature">
-            <div class="icon-tile"><svg class="i"><use href="#i-briefcase"/></svg></div>
-            <div><h4>Placement Support</h4><p>Resume building, mock interviews and job openings for freshers & professionals.</p></div>
-          </div>
+  <!-- ================= PLACEMENT ASSISTANCE ================= -->
+  <section class="support" id="career-support">
+    <div class="container support-grid">
+      <div class="support-intro reveal">
+        <span class="support-eyebrow">Career Support</span>
+        <h2>Placement Assistance &amp; Career Support</h2>
+        <p>Your career preparation goes beyond completing the syllabus. Greens Technologies provides placement assistance to help students improve their interview readiness, communicate their skills effectively and pursue relevant employment opportunities.</p>
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20know%20about%20placement%20assistance." target="_blank" rel="noopener" class="btn btn-green">
+          <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Talk to a Placement Advisor
+        </a>
+      </div>
+
+      <div class="support-cards reveal">
+        <div class="support-card">
+          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-book"/></svg></div><span class="support-num">01</span></div>
+          <h4>Resume Building &amp; Profile Preparation</h4>
+          <p>Learn how to present your qualifications, projects and technical skills effectively to potential employers.</p>
+        </div>
+        <div class="support-card">
+          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-chat"/></svg></div><span class="support-num">02</span></div>
+          <h4>Technical &amp; HR Interview Preparation</h4>
+          <p>Understand common interview expectations and practise answering technical, behavioural and HR questions with confidence.</p>
+        </div>
+        <div class="support-card">
+          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-users"/></svg></div><span class="support-num">03</span></div>
+          <h4>Mock Interviews &amp; Communication Skills</h4>
+          <p>Gain interview experience through practice sessions designed to improve your communication, confidence and preparation.</p>
+        </div>
+        <div class="support-card">
+          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-briefcase"/></svg></div><span class="support-num">04</span></div>
+          <h4>Job Opportunities &amp; Placement Guidance</h4>
+          <p>Receive placement-related guidance and support in identifying suitable opportunities based on your training, eligibility and career interests.</p>
         </div>
       </div>
     </div>
@@ -626,7 +798,7 @@
         <div><b>500+</b><span>Hiring Partners</span></div>
         <div><b>100%</b><span>Placement Assistance</span></div>
         <div><b>1,00,000+</b><span>Students Placed</span></div>
-        <div><b>22</b><span>Training Centers</span></div>
+        <div><b>25</b><span>Training Centers</span></div>
       </div>
 
       <div class="center-btn reveal">
@@ -655,11 +827,11 @@
           <h3>Greens Technologys Leadership</h3>
           <p class="sub">Building Chennai's leading software training & placement institute</p>
           <blockquote>"Our mission is simple — make quality software education accessible, practical and 100% job-oriented."</blockquote>
-          <p>What began as a single training center in Adyar has grown to <strong>22 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
+          <p>What began as a single training center in Adyar has grown to <strong>25 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
           <div class="f-stats">
             <div><b>10+ Years</b><span>In IT Industry</span></div>
             <div><b>1,00,000+</b><span>Students Placed</span></div>
-            <div><b>22</b><span>Branches</span></div>
+            <div><b>25</b><span>Branches</span></div>
           </div>
         </div>
       </div>
@@ -670,12 +842,12 @@
   <section class="branches" id="branches">
     <div class="container">
       <div class="section-head reveal">
-        <h2>22 Centers — One Near You</h2>
-        <p>Walk in for free counselling and a demo class at any of our branches in Chennai, Trichy and Salem.</p>
+        <h2>25 Centers — One Near You</h2>
+        <p>Walk in for free counselling and a demo class at any of our branches in Chennai, Bengaluru, Coimbatore, Salem and Trichy. Online live batches are open to learners across India.</p>
       </div>
 
       <div class="branch-grid" id="branchGrid"><!-- rendered by script --></div>
-      <div class="center-btn"><button class="btn btn-green" id="toggleBranches">View All 22 Branches</button></div>
+      <div class="center-btn"><button class="btn btn-green" id="toggleBranches">View All Branches</button></div>
     </div>
   </section>
 
@@ -684,12 +856,12 @@
     <div class="container">
       <div class="cta-box reveal">
         <div>
-          <h2>Call Us for Course Fees & Attractive Discounts</h2>
-          <p>Book a free demo class and get a day-by-day course plan before you join.</p>
+          <h2>Your Dream Job Starts with the Right Training.</h2>
+          <p>Get the skills, practical experience and interview preparation you need to pursue better job opportunities. Start your training with Greens Technologies and benefit from dedicated placement assistance along the way.</p>
         </div>
         <div class="cta-btns">
-          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> WhatsApp Us</a>
-          <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
+          <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> Enquire Now</a>
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> Book a Free Demo</a>
         </div>
       </div>
     </div>
@@ -836,6 +1008,84 @@
     window.addEventListener('resize', updateReviewNav);
     updateReviewNav();
 
+    /* ---------- Why choose us carousel ---------- */
+    const whyFeatures = [
+      { icon: 'users', title: 'Trainers from MNCs', text: 'Learn from working professionals and get real corporate exposure.',
+        mock: ['Your Mentor', '10+ yrs at a top MNC', 'Book a demo'] },
+      { icon: 'code', title: 'Real-Time Projects', text: 'Lab handouts, case studies and live projects for every course.',
+        mock: ['Live Project', 'E-commerce app · Sprint 2', 'Open lab'] },
+      { icon: 'monitor', title: 'Flexible Training Modes', text: 'Classroom, online, video-based and corporate training on current versions.',
+        mock: ['Choose your mode', 'Classroom · Online · Video', 'Switch mode'] },
+      { icon: 'chat', title: 'Interactive Sessions', text: 'Ask questions during and after class — doubts cleared every day.',
+        mock: ['Doubt cleared ✓', 'Ask anything, any time', 'Ask a question'] },
+      { icon: 'calendar', title: 'Clear Course Plan', text: 'A day-by-day course plan is shared with you before you register.',
+        mock: ['Day 12 of 45', 'Today: REST APIs', 'View plan'] },
+      { icon: 'briefcase', title: 'Placement Support', text: 'Resume building, mock interviews and job openings for freshers & professionals.',
+        mock: ['Mock Interview', 'Scheduled · Friday 4 PM', 'View openings'] }
+    ];
+    const whyStage = document.getElementById('whyStage');
+    const whyDots = document.getElementById('whyDots');
+    whyStage.innerHTML = whyFeatures.map((f, i) => `
+      <article class="wcard" data-i="${i}" aria-label="${i + 1} of ${whyFeatures.length}: ${f.title}">
+        <div class="wcard-visual" aria-hidden="true">
+          <div class="mock">
+            <div class="mock-top"><div class="icon-tile"><svg class="i"><use href="#i-${f.icon}"/></svg></div><div><b>${f.mock[0]}</b><small>${f.mock[1]}</small></div></div>
+            <div class="mock-line"></div><div class="mock-line short"></div>
+          </div>
+          <span class="mock-btn">${f.mock[2]}</span>
+        </div>
+        <h4>${f.title}</h4>
+        <p>${f.text}</p>
+        <a class="wcard-link" href="#branches" tabindex="-1">Talk to a counsellor</a>
+      </article>`).join('');
+    whyDots.innerHTML = whyFeatures.map((f, i) => `<button type="button" aria-label="Show ${f.title}" data-i="${i}"></button>`).join('')
+      + '<button type="button" class="why-play" id="whyPlay" aria-label="Pause autoplay"></button>';
+    const whyCards = [...whyStage.children];
+    const whyPlay = document.getElementById('whyPlay');
+    const pauseIcon = '<svg class="i" viewBox="0 0 24 24"><path fill="currentColor" d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>';
+    const playIcon = '<svg class="i"><use href="#i-play"/></svg>';
+    let whyIndex = 0, whyTimer = null, whyAuto = !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const renderWhy = () => {
+      const n = whyCards.length, gap = Math.min(window.innerWidth * 0.27, 360), single = window.innerWidth < 600;
+      whyCards.forEach((card, i) => {
+        let off = (i - whyIndex + n) % n;
+        if (off > n / 2) off -= n;
+        const near = off === 0 || (!single && Math.abs(off) === 1);
+        card.style.setProperty('--x', `${off * gap}px`);
+        card.style.setProperty('--s', off === 0 ? 1 : .9);
+        card.style.setProperty('--o', off === 0 ? 1 : near ? .85 : 0);
+        card.classList.toggle('active', off === 0);
+        card.classList.toggle('hidden', !near);
+        card.querySelector('.wcard-link').tabIndex = off === 0 ? 0 : -1;
+      });
+      [...whyDots.children].forEach((d, i) => d.classList.toggle('on', i === whyIndex));
+    };
+    const goWhy = i => { whyIndex = (i + whyCards.length) % whyCards.length; renderWhy(); };
+    const setWhyAuto = on => {
+      whyAuto = on; clearInterval(whyTimer);
+      if (on) whyTimer = setInterval(() => goWhy(whyIndex + 1), 4500);
+      whyPlay.innerHTML = on ? pauseIcon : playIcon;
+      whyPlay.setAttribute('aria-label', on ? 'Pause autoplay' : 'Play autoplay');
+    };
+    const restartWhy = () => { if (whyAuto) setWhyAuto(true); };
+
+    document.getElementById('whyPrev').addEventListener('click', () => { goWhy(whyIndex - 1); restartWhy(); });
+    document.getElementById('whyNext').addEventListener('click', () => { goWhy(whyIndex + 1); restartWhy(); });
+    whyStage.addEventListener('click', e => {
+      const card = e.target.closest('.wcard');
+      if (card && !card.classList.contains('active')) { goWhy(+card.dataset.i); restartWhy(); }
+    });
+    whyDots.addEventListener('click', e => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      if (b === whyPlay) setWhyAuto(!whyAuto);
+      else { goWhy(+b.dataset.i); restartWhy(); }
+    });
+    window.addEventListener('resize', renderWhy);
+    renderWhy();
+    setWhyAuto(whyAuto);
+
     /* ---------- Hiring companies ---------- */
     const companies = [
       ['Google', 'logos/google-icon'], ['Microsoft', 'logos/microsoft-icon'], ['Amazon', 'simple-icons/amazon.svg?color=%23FF9900'],
@@ -843,10 +1093,27 @@
       ['Cognizant', 'simple-icons/cognizant.svg?color=%230033A0'], ['Infosys', 'simple-icons/infosys.svg?color=%23007CC3'],
       ['TCS', 'simple-icons/tcs.svg?color=%23005A9C'], ['Wipro', 'simple-icons/wipro.svg?color=%23341C53'],
       ['Zoho', 'simple-icons/zoho.svg?color=%23E42527'], ['Cisco', 'simple-icons/cisco.svg?color=%231BA0D7'],
-      ['Dell', 'simple-icons/dell.svg?color=%23007DB8'], ['Salesforce', 'logos/salesforce'], ['PayPal', 'logos/paypal']
+      ['Dell', 'simple-icons/dell.svg?color=%23007DB8'], ['Salesforce', 'logos/salesforce'], ['PayPal', 'logos/paypal'],
+      ['Capgemini', '@capgemini.com'], ['HCL', 'simple-icons/hcl.svg?color=%230075BF'],
+      ['HP', 'simple-icons/hp.svg?color=%230096D6'], ['Verizon', 'simple-icons/verizon.svg?color=%23CD040B'],
+      ['Freshworks', '@freshworks.com'], ['Chargebee', '@chargebee.com'],
+      ['ChargePoint', '@chargepoint.com'], ['Volvo', 'simple-icons/volvo.svg?color=%23003057'],
+      ['Hexaware', '@hexaware.com'], ['Virtusa', '@virtusa.com'], ['Tech Mahindra', '@techmahindra.com'], ['NTT Data', '@nttdata.com'],
+      ['L&T Infotech', 'https://icons.duckduckgo.com/ip3/ltimindtree.com.ico'], ['Firstsource', '@firstsource.com'],
+      ['Unisys', '@unisys.com'], ['InfiniX', '@infinx.com'],
+      ['Sutherland', '@sutherlandglobal.com'], ['Prodapt', '@www.prodapt.com'], ['Polaris', '@polarisft.com'], ['Guardian', '@guardianlife.com'],
+      ['Ignitho', '@ignitho.com'], ['iNautix', null], ['Preludesys', '@preludesys.com'], ['qBotica', '@qbotica.com'],
+      ['Xerago', '@xerago.com'], ['Autointelli', null], ['VenPep', '@venpep.com'], ['Credo Health', '@credohealth.com'],
+      ['Srinsoft', '@srinsofttech.com'], ['TabTree', '@tabtree.in'], ['RSalesArm', '@rsalesarm.com'], ['NewAge', '@newagesys.com'],
+      ['InDemand', '@idemand.in'], ['Infotel', '@infotel.com'], ['Jeevan Technologies', '@jeevantechnologies.com'], ['InfoWave', '@infowavesolutions.com']
     ];
+    // '@domain' → company favicon via Google's favicon service; full URLs are used as-is
+    const logoSrc = path => path.startsWith('@') ? `https://www.google.com/s2/favicons?domain=${path.slice(1)}&sz=64`
+      : path.startsWith('http') ? path
+      : 'https://api.iconify.design/' + (path.includes('.svg') ? path : path + '.svg');
     document.getElementById('companyGrid').innerHTML = companies.map(([name, path]) => {
-      const src = 'https://api.iconify.design/' + (path.includes('.svg') ? path : path + '.svg');
+      if (!path) return `<div class="company"><span>${name}</span></div>`;
+      const src = logoSrc(path);
       return `<div class="company"><img src="${src}" alt="${name} logo" loading="lazy" onerror="this.style.display='none'" /><span>${name}</span></div>`;
     }).join('');
 
@@ -890,7 +1157,7 @@
       const showing = toggleBtn.dataset.open === '1';
       document.querySelectorAll('.branch-card.extra').forEach(el => el.classList.toggle('hidden', showing));
       toggleBtn.dataset.open = showing ? '0' : '1';
-      toggleBtn.textContent = showing ? 'View All 22 Branches' : 'Show Fewer Branches';
+      toggleBtn.textContent = showing ? 'View All Branches' : 'Show Fewer Branches';
       if (showing) document.getElementById('branches').scrollIntoView({ behavior: 'smooth' });
     });
 
