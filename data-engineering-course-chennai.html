@@ -2719,6 +2719,25 @@
       box-sizing: border-box;
     }
 
+    /* Cards in a row share one height, and every logo box is the same size */
+    .cert-pathways-grid {
+      align-items: stretch;
+    }
+
+    .cert-pathway-body {
+      flex: 1;
+    }
+
+    .cert-pathway-logo {
+      width: 56px;
+      height: 56px;
+    }
+
+    .cert-pathway-logo:not(.is-badge) img {
+      width: 30px;
+      height: 30px;
+    }
+
     @media (min-width: 1024px) {
       .cert-pathway-head {
         min-height: 86px;
@@ -11336,9 +11355,10 @@
       }, 4000);
     }
 
-    // Send every form submission to the leads inbox via FormSubmit (free, no account needed).
-    // The very first submission triggers a one-time activation email to this inbox; click "Activate" in it.
-    const LEADS_ENDPOINT = 'https://formsubmit.co/ajax/greensadsmanager@gmail.com';
+    // Send every form submission to the leads inbox (greensadsmanager@gmail.com) via Web3Forms.
+    // The access key only allows sending to that inbox, so it is safe to keep in the page.
+    const LEADS_ENDPOINT = 'https://api.web3forms.com/submit';
+    const WEB3FORMS_KEY = 'c2a04e56-f565-4839-8c7b-88136322df4a';
 
     function sendLead(form, purpose) {
       const data = {};
@@ -11353,9 +11373,9 @@
       data['Course Page'] = course;
       data['Page URL'] = window.location.href;
       data['Submitted At'] = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-      data._subject = `New Lead: ${purpose} | ${course}`;
-      data._template = 'table';
-      data._captcha = 'false';
+      data.access_key = WEB3FORMS_KEY;
+      data.subject = `New Lead: ${purpose} | ${course}`;
+      data.from_name = 'Greens Technologies Website';
 
       return fetch(LEADS_ENDPOINT, {
         method: 'POST',
@@ -11365,9 +11385,9 @@
       })
         .then(res => res.json())
         .then(res => {
-          if (String(res.success) !== 'true') console.warn('FormSubmit did not accept the lead:', res.message);
+          if (String(res.success) !== 'true') console.warn('Web3Forms did not accept the lead:', res.message);
         })
-        .catch(err => console.warn('FormSubmit request failed (the page must be opened from a web server, not as a file):', err));
+        .catch(err => console.warn('Web3Forms request failed:', err));
     }
 
     // Form Handlers
@@ -11399,10 +11419,17 @@
     }
 
     // Certification Pathway Expand / Collapse
+    // On multi-column layouts the whole row opens and closes together, so the cards stay the same size
     function togglePathway(btn) {
       const card = btn.parentElement;
-      const open = card.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const grid = card.parentElement;
+      const open = !card.classList.contains('open');
+      const multiColumn = getComputedStyle(grid).gridTemplateColumns.split(' ').length > 1;
+      const cards = multiColumn ? grid.querySelectorAll('.cert-pathway-card') : [card];
+      cards.forEach(c => {
+        c.classList.toggle('open', open);
+        c.querySelector('.cert-pathway-head').setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
     }
 
     // Review Expanded View with Joining Letter

@@ -2717,6 +2717,25 @@
       box-sizing: border-box;
     }
 
+    /* Cards in a row share one height, and every logo box is the same size */
+    .cert-pathways-grid {
+      align-items: stretch;
+    }
+
+    .cert-pathway-body {
+      flex: 1;
+    }
+
+    .cert-pathway-logo {
+      width: 56px;
+      height: 56px;
+    }
+
+    .cert-pathway-logo:not(.is-badge) img {
+      width: 30px;
+      height: 30px;
+    }
+
     @media (min-width: 1024px) {
       .cert-pathway-head {
         min-height: 86px;
@@ -6208,6 +6227,216 @@
     </section>
 
     <!-- ============================================================
+         STUDENT REVIEWS & TESTIMONIALS (5 REVIEWS SCROLLABLE)
+         ============================================================ -->
+    <section class="section-spacing reviews-section" id="reviews">
+      <div class="container">
+        <!-- Section Top Bar: title left, counter + arrows right (arrows on laptop only) -->
+        <div class="reviews-top-bar">
+          <div class="section-header">
+            <h2 class="section-title">Placement Success Stories</h2>
+            <p class="section-subtitle">Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
+          </div>
+          <div class="rv-top-nav">
+            <span class="rv-counter" id="rvCounter">01 / 05</span>
+            <button type="button" class="carousel-arrow-btn" onclick="scrollReviews('prev')" aria-label="Previous story"><svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <button type="button" class="carousel-arrow-btn rv-next" onclick="scrollReviews('next')" aria-label="Next story"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          </div>
+        </div>
+
+        <div class="rv-stage">
+        <!-- Scrollable Carousel Track with 5 Reviews (laptop: one featured story at a time) -->
+        <div class="reviews-carousel-track" id="reviewsCarousel">
+          <!-- Review 1 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">CM</div>
+              <div class="rv-id">
+                <h4 class="rv-name">C Malarvizhi</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Tech Lead &bull; Bengaluru</p>
+                <p class="rv-placed">Placed at Tech Mahindra</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
+              <span class="rv-package">Package: &#8377;14 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Tech Lead at Tech Mahindra</h5>
+            <blockquote class="rv-comment">&ldquo;I had spent years working with data in bits and pieces without a clear path forward. The course gave me that path: SQL and Python first, then AWS pipelines, PySpark and Snowflake, all tied together in one capstone I could walk interviewers through. The mock interviews prepared me for exactly the kind of architecture questions a Tech Lead round asks. I cleared the Tech Mahindra process and stepped into a Tech Lead role at 14 LPA.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-c-malarvizhi-tech-mahindra.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-c-malarvizhi-tech-mahindra.jpg" alt="C Malarvizhi's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+
+          <!-- Review 2 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">JB</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Jithin B</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Senior Data Engineer I &bull; Cuddalore</p>
+                <p class="rv-placed">Placed at Photon Interactive</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
+              <span class="rv-package">Package: &#8377;10 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Senior Data Engineer at Photon</h5>
+            <blockquote class="rv-comment">&ldquo;Coming from Cuddalore, I joined the online batch hoping for any entry into data. What I got was a full stack: from Linux and SQL basics all the way to Airflow orchestration and Power BI dashboards. My end-to-end pipeline project was the centrepiece of every interview I attended. Photon offered me a Senior Data Engineer I role before I had even fully wrapped up my placement interviews.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-jithin-b-photon.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-jithin-b-photon.jpg" alt="Jithin B's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+
+          <!-- Review 3 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">PK</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Praveen Kumar</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Consultant &bull; Chennai</p>
+                <p class="rv-placed">Placed at Capgemini</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
+              <span class="rv-package">Package: &#8377;14 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Consultant at Capgemini</h5>
+            <blockquote class="rv-comment">&ldquo;I was doing reporting work and watching data engineering job posts ask for tools I had never touched. In three months I went from basic SQL to building an S3 data lake, transforming it with PySpark and modelling it in Snowflake with dbt. The trainers answered doubts until late in the evening, and the placement team kept scheduling interviews until the right one clicked. Capgemini&#x27;s Consultant offer at 14 LPA made the weekends worth it.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-praveen-kumar-capgemini.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-praveen-kumar-capgemini.jpg" alt="Praveen Kumar's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+
+          <!-- Review 4 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">RT</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Rahul T</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Manager &bull; Chennai</p>
+                <p class="rv-placed">Placed at Capgemini</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
+              <span class="rv-package">Package: &#8377;19 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Manager at Capgemini</h5>
+            <blockquote class="rv-comment">&ldquo;As a working professional, I needed depth, not another overview course. The modules on lakehouse design, Glue and Athena workflows, and pipeline orchestration matched what senior data roles actually test. I could discuss medallion architecture and partitioning trade-offs from real lab work, not slides. That made the difference in the Manager interviews, and I moved to 19 LPA.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-rahul-t-capgemini.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-rahul-t-capgemini.jpg" alt="Rahul T's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+
+          <!-- Review 5 -->
+          <article class="review-card">
+            <div class="rv-head">
+              <div class="rv-avatar" aria-hidden="true">SJ</div>
+              <div class="rv-id">
+                <h4 class="rv-name">Shreyash Jain</h4>
+                <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
+                <p class="rv-role">Systems Engineer &bull; Durg</p>
+                <p class="rv-placed">Placed at Tata Consultancy Services</p>
+              </div>
+            </div>
+            <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
+              <span class="rv-package">Package: &#8377;10 LPA</span>
+            </div>
+            <h5 class="rv-headline">Now a Systems Engineer at TCS</h5>
+            <blockquote class="rv-comment">&ldquo;I joined the online batch from Durg with no industry connections and a lot of doubt. The course assumed nothing and built everything: SQL, Python, AWS, Snowflake, then a capstone that gave me something real to talk about. The resume and LinkedIn sessions changed how recruiters saw my profile. TCS Chennai made me an offer, and my family watched me become the first engineer among us.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-shreyash-jain-tcs.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-shreyash-jain-tcs.jpg" alt="Shreyash Jain's offer letter, first page (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
+          </article>
+        </div>
+
+        <!-- Carousel Controls: arrows either side of the dots -->
+        <div class="reviews-controls">
+          <button
+            class="carousel-arrow-btn"
+            id="reviewPrevBtn"
+            onclick="scrollReviews('prev')"
+            aria-label="Previous Review"
+            title="Previous Review"
+          >
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg>
+          </button>
+          <div class="carousel-dots-wrap" id="carouselDots">
+            <span class="carousel-dot active" onclick="scrollToReviewCard(0)" title="Review 1"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(1)" title="Review 2"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(2)" title="Review 3"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(3)" title="Review 4"></span>
+            <span class="carousel-dot" onclick="scrollToReviewCard(4)" title="Review 5"></span>
+          </div>
+          <button
+            class="carousel-arrow-btn"
+            id="reviewNextBtn"
+            onclick="scrollReviews('next')"
+            aria-label="Next Review"
+            title="Next Review"
+          >
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
+        </div>
+
+        <!-- Story picker (laptop only, built from the cards by script) -->
+        <div class="rv-picker">
+          <div class="rv-picker-head"><span>Select a Student Story</span><b id="rvStoryCount"></b></div>
+          <div class="rv-picker-list" id="rvPicker"></div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          CERTIFICATION SECTION
          ============================================================ -->
     <section class="section-spacing certification-section" id="certifications">
@@ -8382,9 +8611,10 @@
       }, 4000);
     }
 
-    // Send every form submission to the leads inbox via FormSubmit (free, no account needed).
-    // The very first submission triggers a one-time activation email to this inbox; click "Activate" in it.
-    const LEADS_ENDPOINT = 'https://formsubmit.co/ajax/greensadsmanager@gmail.com';
+    // Send every form submission to the leads inbox (greensadsmanager@gmail.com) via Web3Forms.
+    // The access key only allows sending to that inbox, so it is safe to keep in the page.
+    const LEADS_ENDPOINT = 'https://api.web3forms.com/submit';
+    const WEB3FORMS_KEY = 'c2a04e56-f565-4839-8c7b-88136322df4a';
 
     function sendLead(form, purpose) {
       const data = {};
@@ -8399,9 +8629,9 @@
       data['Course Page'] = course;
       data['Page URL'] = window.location.href;
       data['Submitted At'] = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
-      data._subject = `New Lead: ${purpose} | ${course}`;
-      data._template = 'table';
-      data._captcha = 'false';
+      data.access_key = WEB3FORMS_KEY;
+      data.subject = `New Lead: ${purpose} | ${course}`;
+      data.from_name = 'Greens Technologies Website';
 
       return fetch(LEADS_ENDPOINT, {
         method: 'POST',
@@ -8411,9 +8641,9 @@
       })
         .then(res => res.json())
         .then(res => {
-          if (String(res.success) !== 'true') console.warn('FormSubmit did not accept the lead:', res.message);
+          if (String(res.success) !== 'true') console.warn('Web3Forms did not accept the lead:', res.message);
         })
-        .catch(err => console.warn('FormSubmit request failed (the page must be opened from a web server, not as a file):', err));
+        .catch(err => console.warn('Web3Forms request failed:', err));
     }
 
     // Form Handlers
@@ -8445,10 +8675,17 @@
     }
 
     // Certification Pathway Expand / Collapse
+    // On multi-column layouts the whole row opens and closes together, so the cards stay the same size
     function togglePathway(btn) {
       const card = btn.parentElement;
-      const open = card.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const grid = card.parentElement;
+      const open = !card.classList.contains('open');
+      const multiColumn = getComputedStyle(grid).gridTemplateColumns.split(' ').length > 1;
+      const cards = multiColumn ? grid.querySelectorAll('.cert-pathway-card') : [card];
+      cards.forEach(c => {
+        c.classList.toggle('open', open);
+        c.querySelector('.cert-pathway-head').setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
     }
 
     // Review Expanded View with Joining Letter
