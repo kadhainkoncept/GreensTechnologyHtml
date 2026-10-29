@@ -1791,7 +1791,7 @@
        STUDENT REVIEWS / TESTIMONIALS
        ============================================================ */
     .reviews-section {
-      background: #FFFFFF;
+      background: var(--cream-bg);
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       overflow: hidden;
@@ -1806,9 +1806,63 @@
       flex-wrap: wrap;
     }
 
-    .reviews-top-bar .section-title {
-      margin-bottom: 0;
-      text-align: left;
+    .reviews-top-bar .section-header {
+      margin: 0 auto;
+    }
+
+    .rv-top-nav {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .rv-counter {
+      padding: 9px 16px;
+      border-radius: 12px;
+      background: #E4EED8;
+      border: 1px solid #C9D9B5;
+      color: var(--brand-forest);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .rv-top-nav .carousel-arrow-btn {
+      width: 54px;
+      height: 54px;
+      background: #FFFFFF;
+    }
+
+    .rv-top-nav .rv-next {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: var(--brand-lime);
+    }
+
+    .rv-stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: #F5B301;
+    }
+
+    .rv-stars .ico {
+      fill: currentColor;
+    }
+
+    .rv-stars b {
+      margin-left: 8px;
+      color: var(--brand-dark);
+      font-size: 0.88rem;
+    }
+
+    .rv-stage {
+      position: relative;
+    }
+
+    .rv-picker {
+      display: none;
     }
 
     .reviews-controls {
@@ -1823,15 +1877,270 @@
       margin-top: 0;
     }
 
-    @media (max-width: 767px) {
+    /* Phones & tablets: arrows sit on the left and right edges of the cards */
+    @media (max-width: 1023px) {
+      .reviews-controls .carousel-arrow-btn {
+        position: absolute;
+        top: calc(50% - 40px);
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        background: #FFFFFF;
+        box-shadow: var(--shadow-md);
+      }
+
+      #reviewPrevBtn {
+        left: -12px;
+      }
+
+      #reviewNextBtn {
+        right: -12px;
+      }
+
+      .reviews-section .review-card .rv-meta {
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    /* Laptop: one featured story with a story picker underneath */
+    @media (min-width: 1024px) {
+      .reviews-top-bar {
+        align-items: flex-end;
+        flex-wrap: nowrap;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .reviews-top-bar .section-header {
+        margin: 0;
+        text-align: left;
+        max-width: 760px;
+      }
+
+      .rv-top-nav {
+        display: flex;
+      }
+
       .reviews-controls {
+        display: none;
+      }
+
+      .rv-stage {
+        background: #FFFFFF;
+        border: 2px solid #DDE6D2;
+        border-radius: 28px;
+        padding: 40px 44px 36px;
+        box-shadow: var(--shadow-md);
+      }
+
+      .reviews-section .reviews-carousel-track {
+        display: block;
+        overflow: visible;
+        padding: 0;
+      }
+
+      .reviews-section .reviews-carousel-track .review-card {
+        display: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        gap: 22px;
+      }
+
+      .reviews-section .reviews-carousel-track .review-card.is-active {
+        display: flex;
+        animation: rvFade 0.35s ease;
+      }
+
+      .reviews-section .reviews-carousel-track .review-card:hover {
+        transform: none;
+        box-shadow: none;
+        background: #FFFFFF;
+      }
+
+      .reviews-section .review-card .rv-head {
+        gap: 22px;
+        padding: 0 260px 24px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .reviews-section .review-card .rv-avatar {
+        width: 76px;
+        height: 76px;
+        border-radius: 18px;
+        font-size: 1.6rem;
+      }
+
+      .reviews-section .review-card .rv-id {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 14px;
+        row-gap: 6px;
+      }
+
+      .reviews-section .review-card .rv-name { order: 1; font-size: 2rem; }
+      .reviews-section .review-card .rv-verified { order: 2; }
+      .reviews-section .review-card .rv-id::after { content: ""; order: 3; flex-basis: 100%; }
+      .reviews-section .review-card .rv-role { order: 4; font-size: 1rem; }
+      .reviews-section .review-card .rv-placed { order: 5; font-size: 1rem; }
+
+      .reviews-section .review-card .rv-role::after {
+        content: "\2022";
+        margin-left: 14px;
+        color: var(--text-light);
+      }
+
+      .reviews-section .review-card .rv-meta {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        padding: 0;
+        border: 0;
+      }
+
+      .reviews-section .review-card .rv-package {
+        padding: 8px 18px;
+        font-size: 1.05rem;
+      }
+
+      .reviews-section .review-card .rv-headline {
+        font-size: 1.6rem;
+      }
+
+      .reviews-section .review-card .rv-comment {
+        padding: 26px 32px;
+        font-size: 1.1rem;
+      }
+
+      .reviews-section .review-card .rv-letter-btn {
+        width: auto;
+        align-self: flex-start;
+        margin-top: 0;
+      }
+
+      .reviews-section .review-card .rv-letter img {
+        max-width: 520px;
+      }
+
+      .rv-picker {
+        display: block;
+        margin-top: 30px;
+        padding-top: 26px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .rv-picker-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .rv-picker-head b {
+        color: var(--brand-forest);
+        font-size: 0.95rem;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .rv-picker-list {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
         gap: 14px;
       }
 
-      .reviews-controls .carousel-arrow-btn {
-        width: 40px;
-        height: 40px;
+      .rv-pick {
+        padding: 16px 18px;
+        border-radius: 18px;
+        border: 1.5px solid var(--border-color);
+        background: var(--cream-surface);
+        text-align: left;
+        font: inherit;
+        cursor: pointer;
+        transition: var(--transition);
       }
+
+      .rv-pick:hover {
+        border-color: var(--brand-forest);
+        transform: translateY(-2px);
+      }
+
+      .rv-pick-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .rv-pick-av {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--brand-primary);
+        color: var(--brand-lime);
+        font-family: var(--font-heading);
+        font-weight: 800;
+      }
+
+      .rv-pick-pkg {
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: #E4EED8;
+        border: 1px solid #C9D9B5;
+        color: var(--brand-forest);
+        font-size: 0.75rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .rv-pick b {
+        display: block;
+        color: var(--brand-dark);
+        font-size: 1rem;
+      }
+
+      .rv-pick small {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .rv-pick.is-active {
+        background: var(--brand-primary);
+        border-color: var(--brand-primary);
+        box-shadow: var(--shadow-md);
+      }
+
+      .rv-pick.is-active b { color: #FFFFFF; }
+      .rv-pick.is-active small { color: var(--brand-lime); }
+      .rv-pick.is-active .rv-pick-av { background: var(--brand-forest); }
+
+      .rv-pick.is-active .rv-pick-pkg {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: transparent;
+        color: var(--brand-lime);
+      }
+    }
+
+    @keyframes rvFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: none; }
     }
 
     .carousel-arrow-btn {
@@ -3791,6 +4100,147 @@
       display: none;
     }
 
+    /* Privacy policy summary card */
+    #privacyPanel {
+      max-width: 1100px;
+    }
+
+    #privacyPanel .privacy-full {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    .privacy-card {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      background: #FFFFFF;
+      border: 1.5px solid #C9D9B5;
+      border-radius: 28px;
+      padding: 30px 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .privacy-card-icon {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: var(--brand-primary);
+      color: var(--brand-lime);
+      font-size: 1.8rem;
+    }
+
+    .privacy-card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .privacy-card-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .privacy-card-eyebrow {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-forest);
+    }
+
+    .privacy-card-date {
+      padding: 3px 12px;
+      border-radius: 8px;
+      background: #E4EED8;
+      border: 1px solid #C9D9B5;
+      color: var(--brand-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .privacy-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--brand-forest);
+      margin-bottom: 8px;
+    }
+
+    .privacy-card-text {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .privacy-card-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .privacy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 14px;
+      border: 1.5px solid #C9D9B5;
+      background: var(--cream-surface);
+      color: var(--brand-dark);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .privacy-btn:hover {
+      border-color: var(--brand-forest);
+    }
+
+    .privacy-btn.primary {
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-forest));
+      border-color: transparent;
+      color: var(--brand-lime);
+    }
+
+    .privacy-btn.primary:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .privacy-full {
+      margin-top: 22px;
+    }
+
+    @media (max-width: 860px) {
+      .privacy-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px 20px;
+        border-radius: 22px;
+      }
+
+      .privacy-card-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .privacy-btn {
+        width: 100%;
+      }
+    }
+
     .privacy-updated {
       text-align: center;
       font-size: 0.78rem;
@@ -5441,7 +5891,7 @@
             <blockquote class="founder-quote">"Our mission is simple: make quality software education accessible, practical and 100% job-oriented."</blockquote>
             <p class="founder-text">What began as a single training center in Adyar has grown to <strong>25 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
             <div class="founder-stats">
-              <div><b>10+ Years</b><span>In IT Industry</span></div>
+              <div><b>15+ Years</b><span>In IT Industry</span></div>
               <div><b>1,00,000+</b><span>Students Placed</span></div>
               <div><b>25</b><span>Branches</span></div>
             </div>
@@ -5621,13 +6071,21 @@
          ============================================================ -->
     <section class="section-spacing reviews-section" id="reviews">
       <div class="container">
-        <!-- Section Top Bar -->
-        <div class="section-header">
-          <h2 class="section-title">Placement Success Stories</h2>
-          <p class="section-subtitle">Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
+        <!-- Section Top Bar: title left, counter + arrows right (arrows on laptop only) -->
+        <div class="reviews-top-bar">
+          <div class="section-header">
+            <h2 class="section-title">Placement Success Stories</h2>
+            <p class="section-subtitle">Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
+          </div>
+          <div class="rv-top-nav">
+            <span class="rv-counter" id="rvCounter">01 / 05</span>
+            <button type="button" class="carousel-arrow-btn" onclick="scrollReviews('prev')" aria-label="Previous story"><svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
+            <button type="button" class="carousel-arrow-btn rv-next" onclick="scrollReviews('next')" aria-label="Next story"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+          </div>
         </div>
 
-        <!-- Scrollable Carousel Track with 5 Reviews -->
+        <div class="rv-stage">
+        <!-- Scrollable Carousel Track with 5 Reviews (laptop: one featured story at a time) -->
         <div class="reviews-carousel-track" id="reviewsCarousel">
           <!-- Review 1 -->
           <article class="review-card">
@@ -5641,6 +6099,7 @@
               </div>
             </div>
             <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
               <span class="rv-package">Package: &#8377;14 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Tech Lead at Tech Mahindra</h5>
@@ -5670,6 +6129,7 @@
               </div>
             </div>
             <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
               <span class="rv-package">Package: &#8377;10 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Senior Data Engineer at Photon</h5>
@@ -5699,6 +6159,7 @@
               </div>
             </div>
             <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
               <span class="rv-package">Package: &#8377;14 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Consultant at Capgemini</h5>
@@ -5728,6 +6189,7 @@
               </div>
             </div>
             <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
               <span class="rv-package">Package: &#8377;19 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Manager at Capgemini</h5>
@@ -5757,6 +6219,7 @@
               </div>
             </div>
             <div class="rv-meta">
+              <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
               <span class="rv-package">Package: &#8377;10 LPA</span>
             </div>
             <h5 class="rv-headline">Now a Systems Engineer at TCS</h5>
@@ -5803,6 +6266,13 @@
             <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
           </button>
         </div>
+
+        <!-- Story picker (laptop only, built from the cards by script) -->
+        <div class="rv-picker">
+          <div class="rv-picker-head"><span>Select a Student Story</span><b id="rvStoryCount"></b></div>
+          <div class="rv-picker-list" id="rvPicker"></div>
+        </div>
+        </div>
       </div>
     </section>
 
@@ -5816,7 +6286,7 @@
           <div class="cert-copy">
             <h2 class="cert-title">Get Industry Recognized Certification</h2>
             <p class="cert-lead">
-              Greens Technologies' Data Engineering certification is recognised by 500+ hiring partners across product and service companies. It showcases your hands-on skills in SQL, Python, PySpark, AWS, Snowflake, DBT, Airflow and Power BI, backed by real-time project execution.
+              Earn a Data Engineering certification from Greens Technologies, recognised by leading multinational companies worldwide. Showcase your practical expertise in SQL, Python, PySpark, AWS, Snowflake, DBT, Airflow and Power BI, backed by hands-on training and real-world project experience.
             </p>
             <h3 class="cert-benefits-title">Benefits of Data Engineering Certification</h3>
             <ul class="cert-benefits">
@@ -9262,12 +9732,12 @@
     <section class="enrol-banner-section">
       <div class="container">
         <div class="enrol-banner-content">
-          <h2 class="enrol-banner-title">READY TO START? ENROL TODAY</h2>
+          <h2 class="enrol-banner-title">READY TO START? ENROLL TODAY</h2>
           <p class="enrol-banner-subtitle">
-            Reserve Your Seat for Chennai, Bengaluru, Coimbatore, Trichy, Salem Classroom or Online Batches
+            Reserve your seat in our classroom batches in Chennai, Bengaluru, Coimbatore, Trichy and Salem, or join a live online batch.
           </p>
           <p class="enrol-banner-highlight">
-            Flexible 1-1 Batches - Portfolio project at the end of the course. Talk directly to our Trainer.
+            Flexible 1-on-1 batches, a portfolio project at the end of the course, and the chance to talk directly to our trainer.
           </p>
           <div class="enrol-banner-actions">
             <a href="tel:+918939915577" class="btn btn-accent">
@@ -9800,8 +10270,8 @@
               <p class="related-course-desc">
                 Master machine learning, deep learning, Generative AI, LLMs, and autonomous agentic systems. Classroom &amp; Live Online.
               </p>
-              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Get Syllabus - AI Training')">
-                Get Syllabus
+              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Know More - AI Training')">
+                Know More
               </button>
             </div>
           </div>
@@ -9817,8 +10287,8 @@
               <p class="related-course-desc">
                 Advanced statistical modeling, predictive machine learning, exploratory data analytics, Power BI &amp; SQL for data scientists.
               </p>
-              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Get Syllabus - Data Science')">
-                Get Syllabus
+              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Know More - Data Science')">
+                Know More
               </button>
             </div>
           </div>
@@ -9834,8 +10304,8 @@
               <p class="related-course-desc">
                 Docker containerization, Kubernetes orchestration, Infrastructure as Code (Terraform), AWS, and continuous CI/CD pipelines.
               </p>
-              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Get Syllabus - DevOps')">
-                Get Syllabus
+              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Know More - DevOps')">
+                Know More
               </button>
             </div>
           </div>
@@ -9849,8 +10319,8 @@
     <section class="section-spacing faqs-section" id="faqs">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Course FAQs</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" id="faqTitle">Course FAQs</h2>
+          <p class="section-subtitle" id="faqSub">
             Everything you need to know about the Data Engineering programme, certification, placements and how we handle your data.
           </p>
         </div>
@@ -9859,7 +10329,7 @@
           <button class="faq-tab active" role="tab" aria-selected="true" data-panel="faqPanel" onclick="switchFaqTab(this)">
             <svg class="ico" aria-hidden="true"><use href="#i-help"/></svg> Course FAQs
           </button>
-          <button class="faq-tab" role="tab" aria-selected="false" data-panel="privacyPanel" id="privacyTab" onclick="switchFaqTab(this)">
+          <button class="faq-tab" role="tab" aria-selected="false" data-panel="privacyPanel" id="privacyTab" data-title="Privacy Policy &amp; Data Security" data-sub="Our official commitment to student data confidentiality, secure admissions, placement records, and transparent policies." onclick="switchFaqTab(this)">
             <svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg> Privacy Policy
           </button>
         </div>
@@ -9955,6 +10425,27 @@
         </div>
 
         <div class="faqs-accordion" id="privacyPanel" role="tabpanel" hidden>
+          <div class="privacy-card" data-course="Data Engineering Course in Chennai">
+            <div class="privacy-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <div class="privacy-card-body">
+              <div class="privacy-card-meta">
+                <span class="privacy-card-eyebrow">Data Protection &amp; Governance</span>
+                <span class="privacy-card-date">Updated 17 October 2026</span>
+              </div>
+              <h3 class="privacy-card-title">Privacy Policy &ndash; Greens Technologies</h3>
+              <p class="privacy-card-text">How Greens Technologies handles the personal data of Data Engineering students: enquiries and admissions, classroom &amp; online training (Zoom/Teams), LMS access, fee payment security, placement assistance for data engineering roles, safeguards for students under 18, and your data privacy rights.</p>
+            </div>
+            <div class="privacy-card-actions">
+              <button type="button" class="privacy-btn" aria-expanded="false" aria-controls="privacyFull" onclick="togglePrivacyPolicy(this)">
+                <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> <span>Read Policy</span>
+              </button>
+              <button type="button" class="privacy-btn primary" onclick="downloadPrivacyPdf()">
+                <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download PDF
+              </button>
+            </div>
+          </div>
+
+          <div class="privacy-full" id="privacyFull" hidden>
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
               <span>1. Information We Collect</span>
@@ -10036,6 +10527,7 @@
           </div>
 
           <p class="privacy-updated">Last updated: 17 October 2026 &bull; Greens Technologies Privacy Policy</p>
+          </div>
         </div>
       </div>
     </section>
@@ -10333,18 +10825,18 @@
     <section class="final-cta-section">
       <div class="container">
         <div class="final-cta-content">
-          <h2 class="final-cta-title">Ready to Accelerate Your Career in Data Engineering?</h2>
+          <h2 class="final-cta-title">Your Dream Job in Data Engineering Starts with the Right Training.</h2>
           <p class="final-cta-text">
-            Join over 1,00,000+ successful engineers placed through Greens Technologies since 2008. Get live hands-on guidance, global certification preparation, and placement assurance with interview coordination.
+            Get the skills, practical experience and interview preparation you need to pursue better job opportunities. Start your training with Greens Technologies and benefit from dedicated placement assistance along the way.
           </p>
 
           <div class="final-cta-buttons">
-            <button class="btn btn-accent" onclick="openLeadModal('Book a Free Demo Class')">
-              <svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg> Book a Free Demo Class
+            <button class="btn btn-accent" onclick="openLeadModal('Enquire Now')">
+              <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg> Enquire Now
             </button>
-            <a href="tel:+918939915577" class="btn btn-outline-white">
-              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939915577
-            </a>
+            <button class="btn btn-outline-white" onclick="openLeadModal('Book a Free Demo Class')">
+              <svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg> Book a Free Demo
+            </button>
           </div>
 
           <!-- Email Subscription Box -->
@@ -10734,6 +11226,40 @@
         t.setAttribute('aria-selected', active ? 'true' : 'false');
         document.getElementById(t.dataset.panel).hidden = !active;
       });
+      faqHeading.title.innerHTML = tab.dataset.title || faqHeading.default.title;
+      faqHeading.sub.innerHTML = tab.dataset.sub || faqHeading.default.sub;
+    }
+
+    // Privacy tab: swap the section heading and expand/print the full policy
+    const faqHeading = {
+      title: document.getElementById('faqTitle'),
+      sub: document.getElementById('faqSub'),
+    };
+    faqHeading.default = { title: faqHeading.title.innerHTML, sub: faqHeading.sub.innerHTML };
+
+    function togglePrivacyPolicy(btn) {
+      const full = document.getElementById('privacyFull');
+      full.hidden = !full.hidden;
+      btn.setAttribute('aria-expanded', full.hidden ? 'false' : 'true');
+      btn.querySelector('span').textContent = full.hidden ? 'Read Policy' : 'Hide Policy';
+      if (!full.hidden) full.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Opens a clean printable copy of the policy; choose "Save as PDF" in the print dialog
+    function downloadPrivacyPdf() {
+      const sections = [...document.querySelectorAll('#privacyFull .faq-item')].map(item =>
+        `<h2>${item.querySelector('.faq-question span').textContent}</h2><p>${item.querySelector('.faq-answer').innerHTML.trim()}</p>`
+      ).join('');
+      const updated = document.querySelector('#privacyFull .privacy-updated').textContent;
+      const win = window.open('', '_blank');
+      if (!win) return;
+      win.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Privacy Policy - Greens Technologies</title>
+        <style>body{font-family:Arial,sans-serif;color:#1d2a1d;max-width:760px;margin:40px auto;padding:0 24px;line-height:1.6}
+        h1{color:#0b3d2e;margin-bottom:4px}h2{font-size:17px;color:#1e5631;margin:24px 0 6px}a{color:#1e5631}.muted{color:#5b6b5b;font-size:13px}</style>
+        <\/head><body><h1>Privacy Policy &ndash; Greens Technologies</h1><p class="muted">${document.querySelector('.privacy-card').dataset.course} &bull; ${updated}</p>${sections}<\/body><\/html>`);
+      win.document.close();
+      win.focus();
+      win.print();
     }
 
     function showPrivacyTab() {
@@ -10833,8 +11359,44 @@
       grid.scrollTo({ left: target, behavior: 'smooth' });
     }
 
+    // Laptop: one featured story at a time, picked from the arrows, counter or story picker
+    const reviewsDesktop = window.matchMedia('(min-width: 1024px)');
+    let activeReview = 0;
+
+    function setActiveReview(index) {
+      const cards = document.querySelectorAll('#reviewsCarousel .review-card');
+      if (!cards.length) return;
+      activeReview = (index + cards.length) % cards.length;
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === activeReview));
+      document.querySelectorAll('#rvPicker .rv-pick').forEach((pick, i) => {
+        pick.classList.toggle('is-active', i === activeReview);
+        pick.setAttribute('aria-pressed', i === activeReview ? 'true' : 'false');
+      });
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('rvCounter').textContent = `${pad(activeReview + 1)} / ${pad(cards.length)}`;
+    }
+
+    (function buildReviewPicker() {
+      const cards = document.querySelectorAll('#reviewsCarousel .review-card');
+      const picker = document.getElementById('rvPicker');
+      if (!picker || !cards.length) return;
+      picker.innerHTML = [...cards].map((card, i) => {
+        const text = sel => (card.querySelector(sel)?.textContent || '').trim();
+        return `<button type="button" class="rv-pick" onclick="setActiveReview(${i})">
+            <span class="rv-pick-top"><span class="rv-pick-av">${text('.rv-avatar')}</span><span class="rv-pick-pkg">${text('.rv-package').replace(/^Package:\s*/, '')}</span></span>
+            <b>${text('.rv-name')}</b><small>${text('.rv-placed').replace(/^Placed at\s*/, '')}</small>
+          </button>`;
+      }).join('');
+      document.getElementById('rvStoryCount').textContent = `${cards.length} Stories`;
+      setActiveReview(0);
+    })();
+
     // Reviews Carousel Arrow Navigation & Dot Sync
     function scrollReviews(direction) {
+      if (reviewsDesktop.matches) {
+        setActiveReview(activeReview + (direction === 'prev' ? -1 : 1));
+        return;
+      }
       const carousel = document.getElementById('reviewsCarousel');
       if (!carousel) return;
       const card = carousel.querySelector('.review-card');

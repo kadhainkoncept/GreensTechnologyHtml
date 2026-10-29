@@ -3748,6 +3748,147 @@
       display: none;
     }
 
+    /* Privacy policy summary card */
+    #privacyPanel {
+      max-width: 1100px;
+    }
+
+    #privacyPanel .privacy-full {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
+
+    .privacy-card {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      background: #FFFFFF;
+      border: 1.5px solid #C9D9B5;
+      border-radius: 28px;
+      padding: 30px 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .privacy-card-icon {
+      width: 64px;
+      height: 64px;
+      flex-shrink: 0;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: var(--brand-primary);
+      color: var(--brand-lime);
+      font-size: 1.8rem;
+    }
+
+    .privacy-card-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .privacy-card-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 6px;
+    }
+
+    .privacy-card-eyebrow {
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brand-forest);
+    }
+
+    .privacy-card-date {
+      padding: 3px 12px;
+      border-radius: 8px;
+      background: #E4EED8;
+      border: 1px solid #C9D9B5;
+      color: var(--brand-dark);
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .privacy-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--brand-forest);
+      margin-bottom: 8px;
+    }
+
+    .privacy-card-text {
+      color: var(--text-muted);
+      font-size: 0.98rem;
+      line-height: 1.65;
+    }
+
+    .privacy-card-actions {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .privacy-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 14px;
+      border: 1.5px solid #C9D9B5;
+      background: var(--cream-surface);
+      color: var(--brand-dark);
+      font: inherit;
+      font-size: 0.95rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .privacy-btn:hover {
+      border-color: var(--brand-forest);
+    }
+
+    .privacy-btn.primary {
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-forest));
+      border-color: transparent;
+      color: var(--brand-lime);
+    }
+
+    .privacy-btn.primary:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+    }
+
+    .privacy-full {
+      margin-top: 22px;
+    }
+
+    @media (max-width: 860px) {
+      .privacy-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        padding: 24px 20px;
+        border-radius: 22px;
+      }
+
+      .privacy-card-actions {
+        width: 100%;
+        flex-direction: column;
+      }
+
+      .privacy-btn {
+        width: 100%;
+      }
+    }
+
     .privacy-updated {
       text-align: center;
       font-size: 0.78rem;
@@ -5529,7 +5670,7 @@
             <blockquote class="founder-quote">"Our mission is simple: make quality software education accessible, practical and 100% job-oriented."</blockquote>
             <p class="founder-text">What began as a single training center in Adyar has grown to <strong>25 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
             <div class="founder-stats">
-              <div><b>10+ Years</b><span>In IT Industry</span></div>
+              <div><b>15+ Years</b><span>In IT Industry</span></div>
               <div><b>1,00,000+</b><span>Students Placed</span></div>
               <div><b>25</b><span>Branches</span></div>
             </div>
@@ -6261,12 +6402,12 @@
     <section class="enrol-banner-section">
       <div class="container">
         <div class="enrol-banner-content">
-          <h2 class="enrol-banner-title">READY TO START? ENROL TODAY</h2>
+          <h2 class="enrol-banner-title">READY TO START? ENROLL TODAY</h2>
           <p class="enrol-banner-subtitle">
-            Reserve Your Seat for Chennai, Bengaluru, Coimbatore, Trichy, Salem Classroom or Online Batches
+            Reserve your seat in our classroom batches in Chennai, Bengaluru, Coimbatore, Trichy and Salem, or join a live online batch.
           </p>
           <p class="enrol-banner-highlight">
-            Flexible 1-1 Batches - Portfolio project at the end of the course. Talk directly to our Trainer.
+            Flexible 1-on-1 batches, a portfolio project at the end of the course, and the chance to talk directly to our trainer.
           </p>
           <div class="enrol-banner-actions">
             <a href="tel:+918939915577" class="btn btn-accent">
@@ -6835,8 +6976,8 @@
     <section class="section-spacing faqs-section" id="faqs">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Course FAQs</h2>
-          <p class="section-subtitle">
+          <h2 class="section-title" id="faqTitle">Course FAQs</h2>
+          <p class="section-subtitle" id="faqSub">
             Everything you need to know about the CCNA programme, certification and how to get started.
           </p>
         </div>
@@ -6845,7 +6986,7 @@
           <button class="faq-tab active" role="tab" aria-selected="true" data-panel="faqPanel" onclick="switchFaqTab(this)">
             <svg class="ico" aria-hidden="true"><use href="#i-help"/></svg> Course FAQs
           </button>
-          <button class="faq-tab" role="tab" aria-selected="false" data-panel="privacyPanel" id="privacyTab" onclick="switchFaqTab(this)">
+          <button class="faq-tab" role="tab" aria-selected="false" data-panel="privacyPanel" id="privacyTab" data-title="Privacy Policy &amp; Data Security" data-sub="Our official commitment to student data confidentiality, secure admissions, placement records, and transparent policies." onclick="switchFaqTab(this)">
             <svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg> Privacy Policy
           </button>
         </div>
@@ -6941,6 +7082,27 @@
         </div>
 
         <div class="faqs-accordion" id="privacyPanel" role="tabpanel" hidden>
+          <div class="privacy-card" data-course="CCNA Course in Chennai">
+            <div class="privacy-card-icon"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg></div>
+            <div class="privacy-card-body">
+              <div class="privacy-card-meta">
+                <span class="privacy-card-eyebrow">Data Protection &amp; Governance</span>
+                <span class="privacy-card-date">Updated 17 October 2026</span>
+              </div>
+              <h3 class="privacy-card-title">Privacy Policy &ndash; Greens Technologies</h3>
+              <p class="privacy-card-text">How Greens Technologies handles the personal data of CCNA students: enquiries and admissions, classroom &amp; online training (Zoom/Teams), LMS access, fee payment security, placement assistance for networking roles, safeguards for students under 18, and your data privacy rights.</p>
+            </div>
+            <div class="privacy-card-actions">
+              <button type="button" class="privacy-btn" aria-expanded="false" aria-controls="privacyFull" onclick="togglePrivacyPolicy(this)">
+                <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg> <span>Read Policy</span>
+              </button>
+              <button type="button" class="privacy-btn primary" onclick="downloadPrivacyPdf()">
+                <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download PDF
+              </button>
+            </div>
+          </div>
+
+          <div class="privacy-full" id="privacyFull" hidden>
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
               <span>1. Information We Collect</span>
@@ -7022,6 +7184,7 @@
           </div>
 
           <p class="privacy-updated">Last updated: 17 October 2026 &bull; Greens Technologies Privacy Policy</p>
+          </div>
         </div>
       </div>
     </section>
@@ -7723,6 +7886,40 @@
         t.setAttribute('aria-selected', active ? 'true' : 'false');
         document.getElementById(t.dataset.panel).hidden = !active;
       });
+      faqHeading.title.innerHTML = tab.dataset.title || faqHeading.default.title;
+      faqHeading.sub.innerHTML = tab.dataset.sub || faqHeading.default.sub;
+    }
+
+    // Privacy tab: swap the section heading and expand/print the full policy
+    const faqHeading = {
+      title: document.getElementById('faqTitle'),
+      sub: document.getElementById('faqSub'),
+    };
+    faqHeading.default = { title: faqHeading.title.innerHTML, sub: faqHeading.sub.innerHTML };
+
+    function togglePrivacyPolicy(btn) {
+      const full = document.getElementById('privacyFull');
+      full.hidden = !full.hidden;
+      btn.setAttribute('aria-expanded', full.hidden ? 'false' : 'true');
+      btn.querySelector('span').textContent = full.hidden ? 'Read Policy' : 'Hide Policy';
+      if (!full.hidden) full.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Opens a clean printable copy of the policy; choose "Save as PDF" in the print dialog
+    function downloadPrivacyPdf() {
+      const sections = [...document.querySelectorAll('#privacyFull .faq-item')].map(item =>
+        `<h2>${item.querySelector('.faq-question span').textContent}</h2><p>${item.querySelector('.faq-answer').innerHTML.trim()}</p>`
+      ).join('');
+      const updated = document.querySelector('#privacyFull .privacy-updated').textContent;
+      const win = window.open('', '_blank');
+      if (!win) return;
+      win.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Privacy Policy - Greens Technologies</title>
+        <style>body{font-family:Arial,sans-serif;color:#1d2a1d;max-width:760px;margin:40px auto;padding:0 24px;line-height:1.6}
+        h1{color:#0b3d2e;margin-bottom:4px}h2{font-size:17px;color:#1e5631;margin:24px 0 6px}a{color:#1e5631}.muted{color:#5b6b5b;font-size:13px}</style>
+        <\/head><body><h1>Privacy Policy &ndash; Greens Technologies</h1><p class="muted">${document.querySelector('.privacy-card').dataset.course} &bull; ${updated}</p>${sections}<\/body><\/html>`);
+      win.document.close();
+      win.focus();
+      win.print();
     }
 
     function showPrivacyTab() {
