@@ -1159,6 +1159,34 @@
       margin-bottom: 4px;
     }
 
+    .hero-form-points {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin: 0 0 6px;
+      padding: 0;
+    }
+
+    .hero-form-points li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--brand-dark);
+    }
+
+    .hero-form-points .ico {
+      flex-shrink: 0;
+      width: 18px;
+      height: 18px;
+      padding: 3px;
+      border-radius: 50%;
+      background: var(--brand-lime);
+      color: var(--brand-dark);
+    }
+
     .hero-form-btn {
       width: 100%;
       justify-content: center;
@@ -1712,16 +1740,29 @@
     }
 
     @media (max-width: 767px) {
+      .faculty-carousel {
+        position: relative;
+      }
+
+      /* Arrows sit on the left and right edges, vertically centred on the cards */
       .faculty-controls {
         display: flex;
-        justify-content: center;
-        gap: 14px;
-        margin: 6px 0 20px;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        bottom: 12px;
+        left: -12px;
+        right: -12px;
+        pointer-events: none;
       }
 
       .faculty-controls .carousel-arrow-btn {
         width: 40px;
         height: 40px;
+        background: #FFFFFF;
+        box-shadow: var(--shadow-md);
+        pointer-events: auto;
       }
     }
 
@@ -1748,7 +1789,7 @@
        STUDENT REVIEWS / TESTIMONIALS
        ============================================================ */
     .reviews-section {
-      background: #FFFFFF;
+      background: var(--cream-bg);
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
       overflow: hidden;
@@ -1763,9 +1804,63 @@
       flex-wrap: wrap;
     }
 
-    .reviews-top-bar .section-title {
-      margin-bottom: 0;
-      text-align: left;
+    .reviews-top-bar .section-header {
+      margin: 0 auto;
+    }
+
+    .rv-top-nav {
+      display: none;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .rv-counter {
+      padding: 9px 16px;
+      border-radius: 12px;
+      background: #E4EED8;
+      border: 1px solid #C9D9B5;
+      color: var(--brand-forest);
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .rv-top-nav .carousel-arrow-btn {
+      width: 54px;
+      height: 54px;
+      background: #FFFFFF;
+    }
+
+    .rv-top-nav .rv-next {
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      color: var(--brand-lime);
+    }
+
+    .rv-stars {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      color: #F5B301;
+    }
+
+    .rv-stars .ico {
+      fill: currentColor;
+    }
+
+    .rv-stars b {
+      margin-left: 8px;
+      color: var(--brand-dark);
+      font-size: 0.88rem;
+    }
+
+    .rv-stage {
+      position: relative;
+    }
+
+    .rv-picker {
+      display: none;
     }
 
     .reviews-controls {
@@ -1780,15 +1875,270 @@
       margin-top: 0;
     }
 
-    @media (max-width: 767px) {
+    /* Phones & tablets: arrows sit on the left and right edges of the cards */
+    @media (max-width: 1023px) {
+      .reviews-controls .carousel-arrow-btn {
+        position: absolute;
+        top: calc(50% - 40px);
+        z-index: 2;
+        width: 40px;
+        height: 40px;
+        background: #FFFFFF;
+        box-shadow: var(--shadow-md);
+      }
+
+      #reviewPrevBtn {
+        left: -12px;
+      }
+
+      #reviewNextBtn {
+        right: -12px;
+      }
+
+      .reviews-section .review-card .rv-meta {
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+    }
+
+    /* Laptop: one featured story with a story picker underneath */
+    @media (min-width: 1024px) {
+      .reviews-top-bar {
+        align-items: flex-end;
+        flex-wrap: nowrap;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+
+      .reviews-top-bar .section-header {
+        margin: 0;
+        text-align: left;
+        max-width: 760px;
+      }
+
+      .rv-top-nav {
+        display: flex;
+      }
+
       .reviews-controls {
+        display: none;
+      }
+
+      .rv-stage {
+        background: #FFFFFF;
+        border: 2px solid #DDE6D2;
+        border-radius: 28px;
+        padding: 40px 44px 36px;
+        box-shadow: var(--shadow-md);
+      }
+
+      .reviews-section .reviews-carousel-track {
+        display: block;
+        overflow: visible;
+        padding: 0;
+      }
+
+      .reviews-section .reviews-carousel-track .review-card {
+        display: none;
+        border: 0;
+        border-radius: 0;
+        padding: 0;
+        gap: 22px;
+      }
+
+      .reviews-section .reviews-carousel-track .review-card.is-active {
+        display: flex;
+        animation: rvFade 0.35s ease;
+      }
+
+      .reviews-section .reviews-carousel-track .review-card:hover {
+        transform: none;
+        box-shadow: none;
+        background: #FFFFFF;
+      }
+
+      .reviews-section .review-card .rv-head {
+        gap: 22px;
+        padding: 0 260px 24px 0;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .reviews-section .review-card .rv-avatar {
+        width: 76px;
+        height: 76px;
+        border-radius: 18px;
+        font-size: 1.6rem;
+      }
+
+      .reviews-section .review-card .rv-id {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        column-gap: 14px;
+        row-gap: 6px;
+      }
+
+      .reviews-section .review-card .rv-name { order: 1; font-size: 2rem; }
+      .reviews-section .review-card .rv-verified { order: 2; }
+      .reviews-section .review-card .rv-id::after { content: ""; order: 3; flex-basis: 100%; }
+      .reviews-section .review-card .rv-role { order: 4; font-size: 1rem; }
+      .reviews-section .review-card .rv-placed { order: 5; font-size: 1rem; }
+
+      .reviews-section .review-card .rv-role::after {
+        content: "\2022";
+        margin-left: 14px;
+        color: var(--text-light);
+      }
+
+      .reviews-section .review-card .rv-meta {
+        position: absolute;
+        top: 6px;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 12px;
+        padding: 0;
+        border: 0;
+      }
+
+      .reviews-section .review-card .rv-package {
+        padding: 8px 18px;
+        font-size: 1.05rem;
+      }
+
+      .reviews-section .review-card .rv-headline {
+        font-size: 1.6rem;
+      }
+
+      .reviews-section .review-card .rv-comment {
+        padding: 26px 32px;
+        font-size: 1.1rem;
+      }
+
+      .reviews-section .review-card .rv-letter-btn {
+        width: auto;
+        align-self: flex-start;
+        margin-top: 0;
+      }
+
+      .reviews-section .review-card .rv-letter img {
+        max-width: 520px;
+      }
+
+      .rv-picker {
+        display: block;
+        margin-top: 30px;
+        padding-top: 26px;
+        border-top: 1px solid var(--border-color);
+      }
+
+      .rv-picker-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 16px;
+        font-size: 0.85rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+      }
+
+      .rv-picker-head b {
+        color: var(--brand-forest);
+        font-size: 0.95rem;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .rv-picker-list {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(0, 1fr);
         gap: 14px;
       }
 
-      .reviews-controls .carousel-arrow-btn {
-        width: 40px;
-        height: 40px;
+      .rv-pick {
+        padding: 16px 18px;
+        border-radius: 18px;
+        border: 1.5px solid var(--border-color);
+        background: var(--cream-surface);
+        text-align: left;
+        font: inherit;
+        cursor: pointer;
+        transition: var(--transition);
       }
+
+      .rv-pick:hover {
+        border-color: var(--brand-forest);
+        transform: translateY(-2px);
+      }
+
+      .rv-pick-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .rv-pick-av {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: var(--brand-primary);
+        color: var(--brand-lime);
+        font-family: var(--font-heading);
+        font-weight: 800;
+      }
+
+      .rv-pick-pkg {
+        padding: 4px 8px;
+        border-radius: 6px;
+        background: #E4EED8;
+        border: 1px solid #C9D9B5;
+        color: var(--brand-forest);
+        font-size: 0.75rem;
+        font-weight: 800;
+        white-space: nowrap;
+      }
+
+      .rv-pick b {
+        display: block;
+        color: var(--brand-dark);
+        font-size: 1rem;
+      }
+
+      .rv-pick small {
+        display: block;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+      }
+
+      .rv-pick.is-active {
+        background: var(--brand-primary);
+        border-color: var(--brand-primary);
+        box-shadow: var(--shadow-md);
+      }
+
+      .rv-pick.is-active b { color: #FFFFFF; }
+      .rv-pick.is-active small { color: var(--brand-lime); }
+      .rv-pick.is-active .rv-pick-av { background: var(--brand-forest); }
+
+      .rv-pick.is-active .rv-pick-pkg {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: transparent;
+        color: var(--brand-lime);
+      }
+    }
+
+    @keyframes rvFade {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: none; }
     }
 
     .carousel-arrow-btn {
@@ -4010,6 +4360,11 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
       }
+
+      /* Centre a 2-card last row (cols 2–3) */
+      .branch-card:nth-child(4n+1):nth-last-child(2) {
+        grid-column: 2;
+      }
     }
 
     .branch-card {
@@ -4116,6 +4471,11 @@
       .branches-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
+      }
+
+      /* Centre a lone last tile in the middle column */
+      .branch-card:nth-child(3n+1):last-child {
+        grid-column: 2;
       }
 
       .branch-card {
@@ -4574,12 +4934,6 @@
       height: 26px;
     }
 
-    .float-call {
-      background: var(--brand-forest);
-      border-color: #6F9A4B;
-      color: var(--brand-lime);
-    }
-
     .float-wa {
       background: #25D366;
       border-color: rgba(37, 211, 102, 0.35);
@@ -4609,16 +4963,12 @@
       display: none;
     }
 
-    /* Mobile/tablet: call lives in the bottom bar, so float only WhatsApp + chat above it */
+    /* Mobile/tablet: float WhatsApp + chat above the bottom bar */
     @media (max-width: 1023px) {
       .float-actions {
         right: 14px;
         bottom: 84px;
         gap: 12px;
-      }
-
-      .float-call {
-        display: none;
       }
 
       .float-btn {
@@ -4805,6 +5155,38 @@
       display: grid;
       place-items: center;
       cursor: pointer;
+    }
+
+    /* Toast Notification */
+    .toast-notice {
+      position: fixed;
+      bottom: 24px;
+      right: 100px;
+      background: var(--brand-dark);
+      color: #FFFFFF;
+      border: 1px solid var(--brand-lime);
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: none;
+      z-index: 3000;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .toast-notice.show {
+      display: flex;
+      animation: modalFadeIn 0.3s ease;
+    }
+
+    @media (max-width: 1023px) {
+      .toast-notice {
+        left: 12px;
+        right: 12px;
+        bottom: 84px;
+      }
     }
 
     /* ============================================================
@@ -5542,8 +5924,12 @@
             </div>
 
             <form class="hero-form" onsubmit="handleModalSubmit(event)">
-              <h3 class="hero-form-title">Book Free Counselling</h3>
-              <p class="hero-form-sub">Talk to our career counsellor about the course, batch timings and placements.</p>
+              <h3 class="hero-form-title">Build Your Future in AWS DevOps</h3>
+              <p class="hero-form-sub">Speak with our training team to explore the skills, certifications and support you need to get started.</p>
+              <ul class="hero-form-points">
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Real-Time Projects &amp; Hands-On Training</li>
+                <li><svg class="ico" aria-hidden="true"><use href="#i-check"/></svg> Dedicated Mock Interviews &amp; Resume Building</li>
+              </ul>
               <input type="text" class="modal-input" placeholder="Full Name *" aria-label="Full Name" required />
               <input type="tel" class="modal-input" placeholder="Mobile Number (WhatsApp) *" aria-label="Mobile Number" required />
               <input type="email" class="modal-input" placeholder="Email Address *" aria-label="Email Address" required />
@@ -5555,24 +5941,17 @@
         <!-- Key Stats Card -->
         <div class="hero-stats-card">
           <div class="hero-stat">
-            <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-cloud"/></svg></span>
+            <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-award"/></svg></span>
             <div>
-              <div class="hero-stat-value">25+</div>
-              <div class="hero-stat-label">AWS Services</div>
+              <div class="hero-stat-value">&#8377;70+ LPA</div>
+              <div class="hero-stat-label">Highest Salary Potential</div>
             </div>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+            <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-trending-up"/></svg></span>
             <div>
-              <div class="hero-stat-value">10+</div>
-              <div class="hero-stat-label">DevOps Tools</div>
-            </div>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-rocket"/></svg></span>
-            <div>
-              <div class="hero-stat-value">3</div>
-              <div class="hero-stat-label">Capstone Projects</div>
+              <div class="hero-stat-value">100%*</div>
+              <div class="hero-stat-label">Placement Assurance</div>
             </div>
           </div>
           <div class="hero-stat">
@@ -5580,6 +5959,13 @@
             <div>
               <div class="hero-stat-value">1,00,000+</div>
               <div class="hero-stat-label">Careers Launched</div>
+            </div>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-icon"><svg class="ico" aria-hidden="true"><use href="#i-monitor"/></svg></span>
+            <div>
+              <div class="hero-stat-value">4</div>
+              <div class="hero-stat-label">Flexible Training Modes</div>
             </div>
           </div>
         </div>
@@ -5682,12 +6068,13 @@
     <section class="section-spacing faculty-section" id="faculty">
       <div class="container">
         <div class="section-header">
-          <h2 class="section-title">Meet Our Certified Instructors</h2>
+          <h2 class="section-title">Meet Our Certified Senior Instructors</h2>
           <p class="section-subtitle">
             Learn under the direct mentorship of Greens Technologies leadership and battle-tested industry practitioners. Direct 1-on-1 practical lab guidance with senior practitioners from top product and service companies.
           </p>
         </div>
 
+        <div class="faculty-carousel">
         <div class="faculty-grid">
           <!-- Trainer 1 -->
           <div class="faculty-card">
@@ -5830,6 +6217,7 @@
           <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(1)" aria-label="Next instructor" title="Next instructor">
             <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
           </button>
+        </div>
         </div>
 
         <div class="faculty-bottom-banner">
@@ -7987,7 +8375,7 @@
               <p class="related-course-desc">
                 Build data pipelines with SQL, Python, PySpark and AWS or Azure, with placement support.
               </p>
-              <a class="btn btn-outline btn-sm" href="data-engineering-course-chennai.html">View Course</a>
+              <a class="btn btn-outline btn-sm" href="data-engineering-course-chennai.html">Know More</a>
             </div>
           </div>
 
@@ -8002,8 +8390,8 @@
               <p class="related-course-desc">
                 Master machine learning, deep learning, Generative AI, LLMs, and autonomous agentic systems. Classroom &amp; Live Online.
               </p>
-              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Get Syllabus - Artificial Intelligence Training in Chennai')">
-                Get Syllabus
+              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Know More - Artificial Intelligence Training in Chennai')">
+                Know More
               </button>
             </div>
           </div>
@@ -8019,8 +8407,8 @@
               <p class="related-course-desc">
                 Programming and automation with Python, the scripting language used across DevOps and cloud teams.
               </p>
-              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Get Syllabus - Python Training in Chennai')">
-                Get Syllabus
+              <button class="btn btn-outline btn-sm" onclick="openLeadModal('Know More - Python Training in Chennai')">
+                Know More
               </button>
             </div>
           </div>
@@ -8540,18 +8928,18 @@
     <section class="final-cta-section">
       <div class="container">
         <div class="final-cta-content">
-          <h2 class="final-cta-title">Ready to Accelerate Your Career in AWS DevOps?</h2>
+          <h2 class="final-cta-title">Your Dream Job in AWS DevOps Starts with the Right Training.</h2>
           <p class="final-cta-text">
-            Join 1,00,000+ careers launched through Greens Technologies since 2008. Get hands-on guidance and global certification preparation.
+            Get the skills, practical experience and interview preparation you need to pursue better job opportunities. Start your training with Greens Technologies and benefit from dedicated placement assistance along the way.
           </p>
 
           <div class="final-cta-buttons">
-            <button class="btn btn-accent" onclick="openLeadModal('Book a Free Demo Class')">
-              <svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg> Book a Free Demo Class
+            <button class="btn btn-accent" onclick="openLeadModal('Enquire Now')">
+              <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg> Enquire Now
             </button>
-            <a href="tel:+918939915577" class="btn btn-outline-white">
-              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939915577
-            </a>
+            <button class="btn btn-outline-white" onclick="openLeadModal('Book a Free Demo Class')">
+              <svg class="ico" aria-hidden="true"><use href="#i-calendar"/></svg> Book a Free Demo
+            </button>
           </div>
 
           <!-- Email Subscription Box -->
@@ -8676,9 +9064,6 @@
        FLOATING CALL / WHATSAPP / CHAT
        ============================================================ -->
   <div class="float-actions">
-    <a href="tel:+918939915577" class="float-btn float-call" aria-label="Call +91 8939915577" title="Call us">
-      <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg>
-    </a>
     <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies,%20I%20would%20like%20to%20know%20more%20about%20the%20AWS%20DevOps%20Course%20in%20Chennai." class="float-btn float-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp us">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
@@ -9153,8 +9538,44 @@
       grid.scrollTo({ left: target, behavior: 'smooth' });
     }
 
+    // Laptop: one featured story at a time, picked from the arrows, counter or story picker
+    const reviewsDesktop = window.matchMedia('(min-width: 1024px)');
+    let activeReview = 0;
+
+    function setActiveReview(index) {
+      const cards = document.querySelectorAll('#reviewsCarousel .review-card');
+      if (!cards.length) return;
+      activeReview = (index + cards.length) % cards.length;
+      cards.forEach((card, i) => card.classList.toggle('is-active', i === activeReview));
+      document.querySelectorAll('#rvPicker .rv-pick').forEach((pick, i) => {
+        pick.classList.toggle('is-active', i === activeReview);
+        pick.setAttribute('aria-pressed', i === activeReview ? 'true' : 'false');
+      });
+      const pad = n => String(n).padStart(2, '0');
+      document.getElementById('rvCounter').textContent = `${pad(activeReview + 1)} / ${pad(cards.length)}`;
+    }
+
+    (function buildReviewPicker() {
+      const cards = document.querySelectorAll('#reviewsCarousel .review-card');
+      const picker = document.getElementById('rvPicker');
+      if (!picker || !cards.length) return;
+      picker.innerHTML = [...cards].map((card, i) => {
+        const text = sel => (card.querySelector(sel)?.textContent || '').trim();
+        return `<button type="button" class="rv-pick" onclick="setActiveReview(${i})">
+            <span class="rv-pick-top"><span class="rv-pick-av">${text('.rv-avatar')}</span><span class="rv-pick-pkg">${text('.rv-package').replace(/^Package:\s*/, '')}</span></span>
+            <b>${text('.rv-name')}</b><small>${text('.rv-placed').replace(/^Placed at\s*/, '')}</small>
+          </button>`;
+      }).join('');
+      document.getElementById('rvStoryCount').textContent = `${cards.length} Stories`;
+      setActiveReview(0);
+    })();
+
     // Reviews Carousel Arrow Navigation & Dot Sync
     function scrollReviews(direction) {
+      if (reviewsDesktop.matches) {
+        setActiveReview(activeReview + (direction === 'prev' ? -1 : 1));
+        return;
+      }
       const carousel = document.getElementById('reviewsCarousel');
       if (!carousel) return;
       const card = carousel.querySelector('.review-card');
