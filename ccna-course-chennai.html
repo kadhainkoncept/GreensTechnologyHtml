@@ -2647,6 +2647,19 @@
       object-fit: contain;
     }
 
+    /* Official certification badges are larger than plain vendor logos */
+    .cert-pathway-logo.is-badge {
+      width: 56px;
+      height: 56px;
+      border: 0;
+      background: transparent;
+    }
+
+    .cert-pathway-logo.is-badge img {
+      width: 56px;
+      height: 56px;
+    }
+
     .cert-pathway-text {
       display: flex;
       flex-direction: column;
@@ -4360,11 +4373,6 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
       }
-
-      /* Centre a 2-card last row (cols 2–3) */
-      .branch-card:nth-child(4n+1):nth-last-child(2) {
-        grid-column: 2;
-      }
     }
 
     .branch-card {
@@ -4471,11 +4479,6 @@
       .branches-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-      }
-
-      /* Centre a lone last tile in the middle column */
-      .branch-card:nth-child(3n+1):last-child {
-        grid-column: 2;
       }
 
       .branch-card {
@@ -6252,7 +6255,7 @@
           <div class="cert-pathways-grid">
             <div class="cert-pathway-card">
               <button class="cert-pathway-head" onclick="togglePathway(this)" aria-expanded="false">
-                <span class="cert-pathway-logo"><img src="https://api.iconify.design/logos/cisco.svg" alt="Cisco logo" loading="lazy" /></span>
+                <span class="cert-pathway-logo is-badge"><img src="https://images.credly.com/size/160x160/images/57d88bab-75be-4400-a2fd-dbfa8e2b056e/image.png" alt="Cisco Certified Support Technician Networking badge" loading="lazy" /></span>
                 <span class="cert-pathway-text">
                   <span class="cert-vendor">Cisco</span>
                   <span class="cert-pathway-title">CCST Networking: 100-150</span>
@@ -6265,7 +6268,7 @@
             </div>
             <div class="cert-pathway-card">
               <button class="cert-pathway-head" onclick="togglePathway(this)" aria-expanded="false">
-                <span class="cert-pathway-logo"><img src="https://api.iconify.design/logos/cisco.svg" alt="Cisco logo" loading="lazy" /></span>
+                <span class="cert-pathway-logo is-badge"><img src="https://images.credly.com/images/683783d8-eaac-4c37-a14d-11bd8a36321d/ccna_600.png" alt="Cisco CCNA badge" loading="lazy" /></span>
                 <span class="cert-pathway-text">
                   <span class="cert-vendor">Cisco</span>
                   <span class="cert-pathway-title">Cisco Certified Network Associate: 200-301</span>
@@ -6278,7 +6281,7 @@
             </div>
             <div class="cert-pathway-card">
               <button class="cert-pathway-head" onclick="togglePathway(this)" aria-expanded="false">
-                <span class="cert-pathway-logo"><img src="https://api.iconify.design/logos/cisco.svg" alt="Cisco logo" loading="lazy" /></span>
+                <span class="cert-pathway-logo is-badge"><img src="https://images.credly.com/size/160x160/images/e544ac8f-cd4e-4262-9de1-1174680b3bb4/blob" alt="Cisco Certified Specialist - Enterprise Core (350-401 ENCOR) badge" loading="lazy" /></span>
                 <span class="cert-pathway-text">
                   <span class="cert-vendor">Cisco</span>
                   <span class="cert-pathway-title">CCNP Enterprise: 350-401 ENCOR</span>
@@ -8616,6 +8619,43 @@
 
       mobileQuery.addEventListener('change', startReviewAutoplay);
     }
+
+    // Centre an incomplete last row in card grids.
+    // The grid temporarily gets twice as many columns and every card spans two of them,
+    // so cards keep their width and the leftover cards can start half a column in.
+    const CENTRED_GRIDS = '.features-grid, .faculty-grid, .cert-pathways-grid, .projects-grid, .mini-grid, ' +
+      '.batch-cards-grid, .related-courses-grid, .branches-grid, .company-tiles-grid';
+
+    function centreLastRows() {
+      document.querySelectorAll(CENTRED_GRIDS).forEach(grid => {
+        const items = [...grid.children];
+        grid.style.gridTemplateColumns = '';
+        items.forEach(item => { item.style.gridColumn = ''; });
+
+        const style = getComputedStyle(grid);
+        if (style.display !== 'grid' || style.gridAutoFlow.startsWith('column')) return;
+        const template = style.gridTemplateColumns;
+        const repeat = template.match(/repeat\((\d+)/);
+        const cols = repeat ? +repeat[1] : template.split(' ').filter(Boolean).length;
+        const visible = items.filter(item => getComputedStyle(item).display !== 'none');
+        const leftover = visible.length % cols;
+        if (cols < 2 || !leftover) return;
+
+        grid.style.gridTemplateColumns = `repeat(${cols * 2}, minmax(0, 1fr))`;
+        visible.forEach(item => { item.style.gridColumn = 'span 2'; });
+        visible[visible.length - leftover].style.gridColumn = `${cols - leftover + 1} / span 2`;
+      });
+    }
+
+    let centreQueued = false;
+    const queueCentre = () => {
+      if (centreQueued) return;
+      centreQueued = true;
+      requestAnimationFrame(() => { centreQueued = false; centreLastRows(); });
+    };
+    centreLastRows();
+    window.addEventListener('resize', queueCentre);
+    document.addEventListener('click', queueCentre);
   </script>
 </body>
 </html>

@@ -2649,6 +2649,19 @@
       object-fit: contain;
     }
 
+    /* Official certification badges are larger than plain vendor logos */
+    .cert-pathway-logo.is-badge {
+      width: 56px;
+      height: 56px;
+      border: 0;
+      background: transparent;
+    }
+
+    .cert-pathway-logo.is-badge img {
+      width: 56px;
+      height: 56px;
+    }
+
     .cert-pathway-text {
       display: flex;
       flex-direction: column;
@@ -4362,11 +4375,6 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
       }
-
-      /* Centre a 2-card last row (cols 2–3) */
-      .branch-card:nth-child(4n+1):nth-last-child(2) {
-        grid-column: 2;
-      }
     }
 
     .branch-card {
@@ -4473,11 +4481,6 @@
       .branches-grid {
         grid-template-columns: repeat(3, 1fr);
         gap: 8px;
-      }
-
-      /* Centre a lone last tile in the middle column */
-      .branch-card:nth-child(3n+1):last-child {
-        grid-column: 2;
       }
 
       .branch-card {
@@ -6325,7 +6328,7 @@
           <div class="cert-pathways-grid">
             <div class="cert-pathway-card">
               <button class="cert-pathway-head" onclick="togglePathway(this)" aria-expanded="false">
-                <span class="cert-pathway-logo"><img src="https://api.iconify.design/logos/aws.svg" alt="Amazon Web Services logo" loading="lazy" /></span>
+                <span class="cert-pathway-logo is-badge"><img src="https://images.credly.com/size/160x160/images/e5c85d7f-4e50-431e-b5af-fa9d9b0596e7/image.png" alt="AWS Certified Data Engineer - Associate badge" loading="lazy" /></span>
                 <span class="cert-pathway-text">
                   <span class="cert-vendor">Amazon Web Services</span>
                   <span class="cert-pathway-title">AWS Data Engineer Associate: DEA-C01</span>
@@ -6351,7 +6354,7 @@
             </div>
             <div class="cert-pathway-card">
               <button class="cert-pathway-head" onclick="togglePathway(this)" aria-expanded="false">
-                <span class="cert-pathway-logo"><img src="https://api.iconify.design/logos/microsoft-power-bi.svg" alt="Microsoft logo" loading="lazy" /></span>
+                <span class="cert-pathway-logo is-badge"><img src="https://learn.microsoft.com/en-us/media/learn/certification/badges/microsoft-certified-associate-badge.svg" alt="Microsoft Certified: Associate badge" loading="lazy" /></span>
                 <span class="cert-pathway-text">
                   <span class="cert-vendor">Microsoft</span>
                   <span class="cert-pathway-title">Microsoft Power BI Data Analyst: PL-300</span>
@@ -11570,6 +11573,43 @@
 
       mobileQuery.addEventListener('change', startReviewAutoplay);
     }
+
+    // Centre an incomplete last row in card grids.
+    // The grid temporarily gets twice as many columns and every card spans two of them,
+    // so cards keep their width and the leftover cards can start half a column in.
+    const CENTRED_GRIDS = '.features-grid, .faculty-grid, .cert-pathways-grid, .projects-grid, .mini-grid, ' +
+      '.batch-cards-grid, .related-courses-grid, .branches-grid, .company-tiles-grid';
+
+    function centreLastRows() {
+      document.querySelectorAll(CENTRED_GRIDS).forEach(grid => {
+        const items = [...grid.children];
+        grid.style.gridTemplateColumns = '';
+        items.forEach(item => { item.style.gridColumn = ''; });
+
+        const style = getComputedStyle(grid);
+        if (style.display !== 'grid' || style.gridAutoFlow.startsWith('column')) return;
+        const template = style.gridTemplateColumns;
+        const repeat = template.match(/repeat\((\d+)/);
+        const cols = repeat ? +repeat[1] : template.split(' ').filter(Boolean).length;
+        const visible = items.filter(item => getComputedStyle(item).display !== 'none');
+        const leftover = visible.length % cols;
+        if (cols < 2 || !leftover) return;
+
+        grid.style.gridTemplateColumns = `repeat(${cols * 2}, minmax(0, 1fr))`;
+        visible.forEach(item => { item.style.gridColumn = 'span 2'; });
+        visible[visible.length - leftover].style.gridColumn = `${cols - leftover + 1} / span 2`;
+      });
+    }
+
+    let centreQueued = false;
+    const queueCentre = () => {
+      if (centreQueued) return;
+      centreQueued = true;
+      requestAnimationFrame(() => { centreQueued = false; centreLastRows(); });
+    };
+    centreLastRows();
+    window.addEventListener('resize', queueCentre);
+    document.addEventListener('click', queueCentre);
   </script>
 </body>
 </html>
