@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXRHZCZW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+  <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Greens Technologys – No 1 Software Training Institute in Chennai with Placements</title>
@@ -140,7 +148,7 @@
     @media (prefers-reduced-motion: reduce) { .orbit-row { animation: none; } }
 
     /* Highlights row: two aligned cards */
-    .hl-card { height: 300px; display: flex; flex-direction: column; justify-content: center; text-align: left; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 22px 20px; box-shadow: 0 14px 34px rgba(27,58,28,.07); }
+    .hl-card { height: 330px; display: flex; flex-direction: column; justify-content: center; text-align: left; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 22px 20px; box-shadow: 0 14px 34px rgba(27,58,28,.07); }
     .hero-facts { list-style: none; display: grid; gap: 16px; }
     .hero-fact { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); }
     .hero-fact .fi { flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--green-tint); color: var(--green); font-size: 15px; }
@@ -157,7 +165,8 @@
     .hero-proof .avatars img { width: 30px; height: 30px; }
     .proof-hired { padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: #8a958b; }
     .hired-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
-    .hired-logos span { padding: 3px 9px; border-radius: 999px; background: var(--green-tint); border: 1px solid var(--border); font-size: 11.5px; font-weight: 600; color: var(--green); }
+    .hired-logos span { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px 2px 5px; border-radius: 999px; background: var(--green-tint); border: 1px solid var(--border); font-size: 11px; font-weight: 600; color: var(--green); }
+    .hired-logos img { width: 14px; height: 14px; object-fit: contain; }
     .hired-logos a { font-size: 12px; font-weight: 600; color: var(--green); }
     .avatars { display: flex; }
     .avatars img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); margin-left: -9px; }
@@ -182,7 +191,15 @@
     .hl-item p { margin-top: 14px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
 
     /* ============ 2. COURSES ============ */
-    .course-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+    .course-carousel { position: relative; }
+    .course-grid {
+      display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 66px) / 4); gap: 22px;
+      overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 6px 2px 14px; scrollbar-width: none;
+    }
+    .course-grid::-webkit-scrollbar { display: none; }
+    .course-card { scroll-snap-align: start; }
+    .course-carousel .slider-btn { position: absolute; top: calc(50% - 30px); z-index: 2; }
+    .course-prev { left: -24px; } .course-next { right: -24px; }
     .course-card {
       background: var(--white); border: 1px solid var(--border); border-radius: 20px;
       overflow: hidden; transition: all .3s ease; display: flex; flex-direction: column;
@@ -210,19 +227,43 @@
     .link-arrow { font-weight: 800; font-size: 14px; color: var(--green); display: inline-flex; align-items: center; gap: 4px; transition: gap .2s; }
     .link-arrow:hover { gap: 8px; }
 
-    /* ============ 3. REVIEWS (slider with arrows) ============ */
+    /* ============ 3. PLACEMENT SUCCESS STORIES (featured story + picker) ============ */
     .reviews { background: var(--green-tint); border-block: 1px solid var(--border); }
-    .review-track {
-      display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth;
-      padding: 6px 2px 10px; scrollbar-width: none;
-    }
-    .review-track::-webkit-scrollbar { display: none; }
-    .review-track:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; border-radius: 20px; }
-    .review-card {
-      flex: 0 0 calc((100% - 48px) / 3); scroll-snap-align: start; background: var(--white); border-radius: 20px; padding: 26px;
-      border: 1px solid var(--border); display: flex; flex-direction: column; transition: box-shadow .3s;
-    }
-    .slider-nav { display: flex; justify-content: center; gap: 12px; margin-top: 28px; }
+    .stories-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-bottom: 36px; }
+    .stories-head h2 { font-size: clamp(28px, 4vw, 42px); font-weight: 800; margin-bottom: 10px; }
+    .stories-head p { color: var(--muted); max-width: 680px; }
+    .stories-nav { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .stories-count { padding: 9px 16px; border-radius: 12px; background: var(--green-soft); border: 1px solid var(--border); color: var(--green-mid); font-weight: 800; }
+    .stories-nav .story-next { background: var(--green); color: var(--white); border-color: var(--green); }
+    .story-stage { background: var(--white); border: 1px solid var(--border); border-radius: 28px; padding: 36px 40px 32px; box-shadow: var(--shadow); }
+    .story { animation: storyIn .35s ease; }
+    @keyframes storyIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .story-who { display: flex; align-items: center; gap: 18px; }
+    .story-av { width: 72px; height: 72px; border-radius: 18px; flex-shrink: 0; display: grid; place-items: center; background: var(--green); color: var(--accent); font-family: "Plus Jakarta Sans"; font-weight: 800; font-size: 24px; }
+    .story-who h3 { font-size: 26px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .verified { font-family: "Inter", sans-serif; font-size: 12px; font-weight: 700; color: var(--green-mid); background: var(--green-soft); border: 1px solid var(--border); padding: 3px 10px; border-radius: 999px; }
+    .story-who p { color: var(--muted); font-weight: 600; margin-top: 4px; }
+    .story-who p b { color: var(--green); }
+    .story-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .story-meta .pkg { font-size: 15px; padding: 7px 16px; }
+    .story h4.headline { font-size: 22px; color: var(--green-mid); margin: 22px 0 14px; }
+    .story blockquote { margin: 0; background: var(--green-tint); border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 16px; padding: 22px 26px; font-size: 16.5px; font-style: italic; color: var(--text); }
+    .story-picker { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
+    .story-picker-head { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+    .story-picker-head b { color: var(--green-mid); letter-spacing: 0; text-transform: none; }
+    .story-picks { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+    .story-pick { text-align: left; padding: 14px; border-radius: 16px; border: 1px solid var(--border); background: var(--green-tint); cursor: pointer; font: inherit; transition: all .2s; }
+    .story-pick:hover { border-color: var(--green-mid); transform: translateY(-2px); }
+    .story-pick-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .story-pick .mini-av { width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; background: var(--green); color: var(--accent); font-weight: 800; font-size: 13px; }
+    .story-pick .mini-pkg { font-size: 11px; font-weight: 800; color: var(--green-mid); background: var(--green-soft); padding: 3px 7px; border-radius: 6px; }
+    .story-pick b { display: block; font-size: 14px; color: var(--green-dark); }
+    .story-pick small { display: block; font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .story-pick.on { background: var(--green); border-color: var(--green); }
+    .story-pick.on b { color: var(--white); } .story-pick.on small { color: var(--accent); }
+    .story-pick.on .mini-av { background: var(--green-mid); }
+    .story-pick.on .mini-pkg { background: rgba(255,255,255,.14); color: var(--accent); }
     .slider-btn {
       width: 50px; height: 50px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--green);
       display: grid; place-items: center; font-size: 20px; cursor: pointer; transition: all .2s; box-shadow: var(--shadow);
@@ -266,26 +307,9 @@
     .wcard.active { background: var(--white); box-shadow: var(--shadow-lg); cursor: default; z-index: 2; }
     .wcard.hidden { pointer-events: none; }
     .wcard-visual { height: 210px; border-radius: 16px; background: var(--green-tint); position: relative; overflow: hidden; margin-bottom: 22px; }
-    .mock {
-      position: absolute; top: 34px; left: 28px; right: -20px; padding: 18px; border-radius: 14px; background: var(--white);
-      border: 1px solid var(--border); text-align: left; box-shadow: var(--shadow);
-    }
-    .wcard.active .mock { background: var(--green); border-color: var(--green); }
-    .mock-top { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .mock .icon-tile { width: 42px; height: 42px; font-size: 20px; }
-    .wcard.active .mock .icon-tile { background: var(--white); color: var(--green); }
-    .mock-top b { display: block; font-size: 14px; color: var(--green); }
-    .mock-top small { font-size: 12px; color: var(--muted); white-space: nowrap; }
-    .wcard.active .mock-top b { color: var(--white); }
-    .wcard.active .mock-top small { color: rgba(255,255,255,.75); }
-    .mock-line { height: 8px; border-radius: 4px; background: var(--green-soft); margin-bottom: 8px; }
-    .mock-line.short { width: 60%; }
-    .wcard.active .mock-line { background: rgba(255,255,255,.18); }
-    .mock-btn {
-      position: absolute; left: 22px; bottom: 26px; padding: 9px 18px; border-radius: 10px; font-size: 13.5px; font-weight: 700;
-      background: var(--green-mid); color: var(--white); box-shadow: 0 8px 18px rgba(27,58,28,.25);
-    }
-    .wcard.active .mock-btn { background: var(--accent); color: var(--green-dark); }
+    .wcard-visual { display: grid; place-items: center; background: radial-gradient(circle at 50% 45%, var(--white) 0%, var(--green-soft) 70%); }
+    .wcard-visual img { width: 150px; height: 150px; object-fit: contain; filter: drop-shadow(0 16px 20px rgba(27,58,28,.18)); transition: transform .4s; }
+    .wcard.active .wcard-visual img { transform: scale(1.06) rotate(-3deg); }
     .wcard h4 { font-size: 21px; margin-bottom: 8px; }
     .wcard p { font-size: 14.5px; color: var(--muted); max-width: 280px; margin: 0 auto; }
     .wcard:not(.active) h4, .wcard:not(.active) p { opacity: .7; }
@@ -330,6 +354,7 @@
     .companies { background: var(--green); }
     .companies .section-head h2 { color: var(--white); }
     .companies .section-head p { color: rgba(255,255,255,.8); }
+    .company-more { text-align: center; margin-top: 22px; color: var(--accent); font-family: "Plus Jakarta Sans", sans-serif; font-size: 20px; font-weight: 800; }
     .company-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
     .company {
       background: var(--white); border-radius: 14px; padding: 18px; display: flex; align-items: center; justify-content: center; gap: 12px;
@@ -376,24 +401,25 @@
     .branches { background: var(--green-tint); border-top: 1px solid var(--border); }
     .branch-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .branch-card {
-      background: var(--white); border-radius: 18px; padding: 22px; border: 1px solid var(--border);
-      display: flex; flex-direction: column; transition: all .3s;
+      display: flex; flex-direction: column; background: var(--white); border: 1px solid var(--border); border-radius: 18px;
+      padding: 20px; transition: all .25s;
     }
-    .branch-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
-    .branch-card h3 { font-size: 17px; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .branch-card h3 svg { color: var(--green-mid); }
-    .ho-badge { font-size: 10px; font-weight: 800; background: var(--green-soft); color: var(--green); padding: 2px 8px; border-radius: 6px; text-transform: uppercase; }
-    .branch-card p { font-size: 13px; color: var(--muted); margin-bottom: 14px; flex: 1; }
-    .branch-actions { display: flex; gap: 8px; padding-top: 14px; border-top: 1px solid var(--border); }
+    .branch-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--green-mid); }
+    .branch-card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .branch-pin { width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; background: var(--green-soft); color: var(--green); font-size: 16px; flex-shrink: 0; }
+    .branch-name { font-size: 17px; }
+    .branch-name a { color: var(--green-dark); }
+    .branch-address { font-style: normal; font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .branch-landmark { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+    .branch-landmark strong { color: var(--green-mid); }
+    .branch-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: auto; padding-top: 14px; }
     .branch-actions a {
-      flex: 1; font-size: 12.5px; font-weight: 800; padding: 9px 6px; border-radius: 10px;
-      display: inline-flex; align-items: center; justify-content: center; gap: 6px; transition: all .2s;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 10px; border-radius: 10px;
+      font-size: 13px; font-weight: 700; border: 1px solid var(--border); color: var(--green); transition: all .2s;
     }
-    .b-map { background: var(--green-soft); color: var(--green); }
-    .b-map:hover { background: var(--green); color: var(--white); }
-    .b-wa { background: #25d366; color: #fff; }
-    .b-wa:hover { background: #1ebe5a; }
-    .branch-card.hidden { display: none; }
+    .branch-actions a:hover { border-color: var(--green); }
+    .branch-actions a.primary { background: var(--green); border-color: var(--green); color: var(--white); }
+    .branch-address { margin-bottom: 4px; }
     .center-btn { text-align: center; margin-top: 36px; }
 
     /* CTA strip */
@@ -449,7 +475,7 @@
     /* ============ RESPONSIVE ============ */
     @media (max-width: 1100px) {
       .nav-links a { padding: 8px 8px; font-size: 13.5px; }
-      .course-grid { grid-template-columns: repeat(3, 1fr); }
+      .course-grid { grid-auto-columns: calc((100% - 44px) / 3); }
     }
     @media (max-width: 1100px) {
       .hero-main { grid-template-columns: 1fr 1fr; gap: 18px; }
@@ -464,7 +490,7 @@
       .hl-item:nth-child(3) { padding-left: 0; }
       .hl-item:nth-child(n+3) { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--border); }
       .company-grid { grid-template-columns: repeat(4, 1fr); }
-      .review-card { flex-basis: calc((100% - 24px) / 2); }
+      .story-picks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .branch-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
       .founder-card { grid-template-columns: 1fr; padding: 28px; }
@@ -490,7 +516,8 @@
       .support-grid { gap: 36px; }
       .support-intro { text-align: center; }
       .why-head { gap: 14px; margin-bottom: 36px; text-align: center; }
-      .course-grid { grid-template-columns: repeat(2, 1fr); }
+      .course-grid { grid-auto-columns: calc((100% - 22px) / 2); }
+      .course-prev { left: -8px; } .course-next { right: -8px; }
       .cta-box { flex-direction: column; text-align: center; padding: 34px 24px; }
       .cta-btns { justify-content: center; }
       .branch-grid { grid-template-columns: repeat(2, 1fr); }
@@ -516,7 +543,16 @@
       .hero-main { grid-template-columns: 1fr; }
       .hero-facts { grid-template-columns: 1fr; }
       .highlights { margin-top: 0; padding: 28px 0; }
-      .course-grid, .branch-grid, .footer-grid, .support-cards { grid-template-columns: 1fr; }
+      .course-grid { grid-auto-columns: 86%; }
+      .course-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
+      .footer-grid, .support-cards { grid-template-columns: 1fr; }
+      .branch-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .branch-card { position: relative; padding: 12px 6px; align-items: center; justify-content: center; text-align: center; border-radius: 12px; }
+      .branch-card-head { flex-direction: column; gap: 4px; margin: 0; }
+      .branch-pin { width: 26px; height: 26px; font-size: 13px; }
+      .branch-name { font-size: 12px; line-height: 1.25; }
+      .branch-name a::after { content: ""; position: absolute; inset: 0; }
+      .branch-address, .branch-landmark, .branch-actions { display: none; }
       .support-card:nth-child(even) { transform: none; }
       .support-intro .btn { width: 100%; }
       .highlights { padding: 48px 0; }
@@ -526,10 +562,19 @@
       .hl-item:nth-child(n+3) { padding-top: 22px; margin-top: 22px; }
       .hl-item h3 { font-size: 30px; }
       .hl-item p { font-size: 13px; margin-top: 10px; }
-      .review-card { flex-basis: 100%; padding: 22px; }
+      .stories-head { flex-direction: column; align-items: flex-start; gap: 18px; }
+      .story-stage { padding: 22px 18px; border-radius: 20px; }
+      .story-top { flex-direction: column; }
+      .story-meta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .story-av { width: 56px; height: 56px; font-size: 19px; }
+      .story-who h3 { font-size: 20px; }
+      .story h4.headline { font-size: 18px; }
+      .story blockquote { padding: 16px 18px; font-size: 15px; }
+      .story-picks { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 44%; overflow-x: auto; scrollbar-width: none; }
       .why-carousel { height: 470px; }
       .wcard { width: min(300px, calc(100vw - 110px)); }
       .wcard-visual { height: 180px; }
+      .wcard-visual img { width: 120px; height: 120px; }
       .why-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
       .company-grid { grid-template-columns: repeat(2, 1fr); }
       .company { padding: 14px 10px; font-size: 13px; }
@@ -548,7 +593,9 @@
   </style>
 </head>
 <body>
-
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KXRHZCZW" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
   <!-- Reusable icons -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
@@ -650,7 +697,7 @@
           <div class="proof-hired">
             <span>Our students work at</span>
             <div class="hired-logos">
-              <span>Zoho</span><span>TCS</span><span>Accenture</span><span>Cognizant</span><a href="#placements">+ more</a>
+              <span><img src="https://api.iconify.design/simple-icons/zoho.svg?color=%23E42527" alt="" />Zoho</span><span><img src="https://api.iconify.design/simple-icons/tcs.svg?color=%23005A9C" alt="" />TCS</span><span><img src="https://api.iconify.design/simple-icons/accenture.svg?color=%23A100FF" alt="" />Accenture</span><span><img src="https://api.iconify.design/simple-icons/cognizant.svg?color=%230033A0" alt="" />Cognizant</span><a href="#placements">+ more</a>
             </div>
           </div>
         </div>
@@ -735,21 +782,34 @@
         <h2>Most Popular Courses</h2>
         <p>Find the right course for your career goals. Greens Technologies offers practical training programs to help you learn new skills, improve your qualifications and explore better career opportunities.</p>
       </div>
-      <div class="course-grid" id="courseGrid"><!-- rendered by script --></div>
+      <div class="course-carousel">
+        <button type="button" class="slider-btn course-prev" id="coursePrev" aria-label="Previous courses"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+        <div class="course-grid" id="courseGrid"><!-- rendered by script --></div>
+        <button type="button" class="slider-btn course-next" id="courseNext" aria-label="Next courses"><svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
     </div>
   </section>
 
   <!-- ================= 3. STUDENT REVIEWS ================= -->
   <section class="reviews" id="reviews">
     <div class="container">
-      <div class="section-head reveal">
-        <h2>Placement Success Stories</h2>
-        <p>Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
+      <div class="stories-head reveal">
+        <div>
+          <h2>Placement Success Stories</h2>
+          <p>Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
+        </div>
+        <div class="stories-nav">
+          <span class="stories-count" id="storyCount">01 / 06</span>
+          <button type="button" class="slider-btn" id="reviewPrev" aria-label="Previous story"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+          <button type="button" class="slider-btn story-next" id="reviewNext" aria-label="Next story"><svg class="i"><use href="#i-arrow"/></svg></button>
+        </div>
       </div>
-      <div class="review-track" id="reviewTrack" tabindex="0" aria-label="Student reviews"><!-- rendered by script --></div>
-      <div class="slider-nav">
-        <button type="button" class="slider-btn" id="reviewPrev" aria-label="Previous review"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
-        <button type="button" class="slider-btn" id="reviewNext" aria-label="Next review"><svg class="i"><use href="#i-arrow"/></svg></button>
+      <div class="story-stage reveal">
+        <div id="storyFeature" aria-live="polite"><!-- rendered by script --></div>
+        <div class="story-picker">
+          <div class="story-picker-head"><span>Select a Student Story</span><b id="storyTotal"></b></div>
+          <div class="story-picks" id="storyPicks"><!-- rendered by script --></div>
+        </div>
       </div>
     </div>
   </section>
@@ -820,6 +880,7 @@
       </div>
 
       <div class="company-grid reveal" id="companyGrid"><!-- rendered by script --></div>
+      <p class="company-more reveal">&amp; 500+ more global companies</p>
 
       <div class="placement-stats reveal">
         <div><b>500+</b><span>Hiring Partners</span></div>
@@ -873,8 +934,257 @@
         <p>Walk in for free counselling and a demo class at any of our branches in Chennai, Bengaluru, Coimbatore, Salem and Trichy. Online live batches are open to learners across India.</p>
       </div>
 
-      <div class="branch-grid" id="branchGrid"><!-- rendered by script --></div>
-      <div class="center-btn"><button class="btn btn-green" id="toggleBranches">View All Branches</button></div>
+      <div class="branch-grid" id="branchGrid">
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener">Adyar</a></h3>
+            </div>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/8oWecnVgKQJA5nOYW" target="_blank" rel="noopener">OMR (Thoraipakkam)</a></h3>
+            </div>
+            <address class="branch-address">19, Balamurugan Garden, Rajiv Gandhi Salai<br />Thoraipakkam, Chennai - 600097</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Opp. to Geetham Restaurant</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/8oWecnVgKQJA5nOYW" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/TbZAIGuiIaxMOLgEr" target="_blank" rel="noopener">Tambaram Sanatorium</a></h3>
+            </div>
+            <address class="branch-address">No. 1, Appa Rao Colony<br />Tambaram Sanatorium, Chennai - 600047</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Opp. Sri Rama Anjaneyar Temple, near HP Petrol Bunk</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/TbZAIGuiIaxMOLgEr" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/EDr8HiWDCKGBcfWu8" target="_blank" rel="noopener">Navalur</a></h3>
+            </div>
+            <address class="branch-address">No. 12, Rajiv Gandhi Salai (OMR), Egattur Village<br />Navalur (just before Navalur Tollgate), Chennai - 600035</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/EDr8HiWDCKGBcfWu8" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/PCT3sKhhUAtNq5iad" target="_blank" rel="noopener">Porur</a></h3>
+            </div>
+            <address class="branch-address">149, 1C/1D, 1st Floor, Opp. to DLF IT Park<br />Ramapuram, Chennai - 600089</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/PCT3sKhhUAtNq5iad" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/JrdDMVCqQmcdn6J7q" target="_blank" rel="noopener">Perumbakkam</a></h3>
+            </div>
+            <address class="branch-address">1st Floor, Plot No. 19 &amp; 20, American Advent Christian Layout<br />Sholinganallur to Medavakkam Main Road, Perumbakkam, Chennai - 600100</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Next to OMR Food Street</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/JrdDMVCqQmcdn6J7q" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/2EjHCxXg20uET0OLQ" target="_blank" rel="noopener">Anna Nagar</a></h3>
+            </div>
+            <address class="branch-address">Ground Floor, New No. W125, Old No. W42, 3rd Avenue, W Block<br />Anna Nagar, Chennai - 600040</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Near Parambriym Hotel, opp. HP Petrol Bunk</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/2EjHCxXg20uET0OLQ" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/eRmf7qPqqklN17San" target="_blank" rel="noopener">West Tambaram</a></h3>
+            </div>
+            <address class="branch-address">No. 05, Bakthavachalam Street<br />West Tambaram, Chennai - 600045</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/eRmf7qPqqklN17San" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/ZyOh1xcZ3z6wmFa2A" target="_blank" rel="noopener">Velachery</a></h3>
+            </div>
+            <address class="branch-address">51-A, 2nd Floor, Velachery Road, Dhadeswaram Nagar<br />Velachery, Chennai - 600042</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/ZyOh1xcZ3z6wmFa2A" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/D0SoO9Or2nO36cPE9" target="_blank" rel="noopener">Vadapalani</a></h3>
+            </div>
+            <address class="branch-address">79, 100 Feet Road, Thiru Nagar Colony, NGO Colony<br />Vadapalani, Chennai - 600026</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/D0SoO9Or2nO36cPE9" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/niX88xLf9ZFhIkqOM" target="_blank" rel="noopener">Avadi</a></h3>
+            </div>
+            <address class="branch-address">New No. 398, Old No. 577, CTH Road, Avadi Checkpost<br />Avadi, Chennai - 600054</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/niX88xLf9ZFhIkqOM" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/np21kIy6Dtu5m3RSp" target="_blank" rel="noopener">Mugalivakkam</a></h3>
+            </div>
+            <address class="branch-address">No. 01, Adithi Colony, Mugalivakkam Main Road<br />Mugalivakkam, Porur, Chennai - 600116</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/np21kIy6Dtu5m3RSp" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/nmxVbGgRqixWtjyMW" target="_blank" rel="noopener">Mount Road</a></h3>
+            </div>
+            <address class="branch-address">162, Second Floor, Anna Salai, Express Estate<br />Triplicane, Chennai - 600002</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/nmxVbGgRqixWtjyMW" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/V8w2mcjSHm6wk3wQ2" target="_blank" rel="noopener">Kolathur</a></h3>
+            </div>
+            <address class="branch-address">No. 7, 2nd Floor, Perambur Paper Mills Road<br />Kolathur, Chennai - 600099</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Near Everwin Vidhyasram School, above Axis Bank</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/V8w2mcjSHm6wk3wQ2" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/75PLx9DJorttvTKck" target="_blank" rel="noopener">T. Nagar</a></h3>
+            </div>
+            <address class="branch-address">160, North Usman Road<br />T. Nagar, Chennai - 600017</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/75PLx9DJorttvTKck" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/M6XB1gHSmK8ubrV3z" target="_blank" rel="noopener">Ambattur</a></h3>
+            </div>
+            <address class="branch-address">3rd Floor, No. 27/A, North Park Street, Secretariat Colony, Venkatapuram<br />Ambattur, Chennai - 600053</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/M6XB1gHSmK8ubrV3z" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/wb9oSEAuI86mIHyQr" target="_blank" rel="noopener">Guduvancheri</a></h3>
+            </div>
+            <address class="branch-address">162, Grand Southern Trunk Road, near Guduvancheri Railway Station<br />Nandivaram, Guduvancheri - 603202</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/wb9oSEAuI86mIHyQr" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/94HqgHo8IRJXZV4XX" target="_blank" rel="noopener">Trichy</a></h3>
+            </div>
+            <address class="branch-address">75/E-3, Sri Krishna Enclave, 2nd Floor, Salai Road<br />Thillai Nagar, Tiruchirappalli - 620018</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/94HqgHo8IRJXZV4XX" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/4sytYY1jtRZtJVurw" target="_blank" rel="noopener">Salem</a></h3>
+            </div>
+            <address class="branch-address">2nd Floor, Sri Sai Kamatchi Complex, Vincent<br />Salem - 636007</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Opp. to Government Arts College</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/4sytYY1jtRZtJVurw" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/SJ6foQBR851yqvEoX" target="_blank" rel="noopener">Gowriwakkam</a></h3>
+            </div>
+            <address class="branch-address">No. 280 K, Saranya Complex, Velachery Road, Shanthi Nagar<br />New Kunagkurichi, Gowriwakkam, Sembakkam, Chennai - 600073</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/SJ6foQBR851yqvEoX" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/CxF1GLMPJwzGtTDeo" target="_blank" rel="noopener">Tiruvottiyur</a></h3>
+            </div>
+            <address class="branch-address">No. 1050, 2nd Floor, Tiruvottiyur High Road, Thangal<br />Near Kaladipet, Rajakadai Metro, Chennai - 600019</address>
+            <p class="branch-landmark"><strong>Landmark:</strong> Above KFC</p>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/CxF1GLMPJwzGtTDeo" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name"><a href="https://share.google/kVZMYJx1huDLxTzK2" target="_blank" rel="noopener">Poonamallee</a></h3>
+            </div>
+            <address class="branch-address">Om Sakthi Plaza, First Floor, Old No. 1, New No. 126, Avadi Road<br />Karayanchavadi, Poonamallee, Chennai - 600056</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://share.google/kVZMYJx1huDLxTzK2" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
+            </div>
+          </div>
+      </div>
     </div>
   </section>
 
@@ -975,7 +1285,7 @@
         meta: 'Master Program · Classroom & Online', desc: 'SEO, social media, Google Ads, content and analytics — hands-on campaigns.' }
     ];
     document.getElementById('courseGrid').innerHTML = courses.map(c => `
-      <article class="course-card reveal">
+      <article class="course-card">
         <div class="course-thumb"><img src="${c.img}" alt="${c.title} course" loading="lazy" /><span class="tag">${c.tag}</span></div>
         <div class="course-body">
           <div class="course-meta">${c.meta}</div>
@@ -988,6 +1298,20 @@
           </div>
         </div>
       </article>`).join('');
+
+    /* ---------- Courses carousel: arrows move one full view (4 cards on laptops) ---------- */
+    const courseGrid = document.getElementById('courseGrid');
+    const coursePrev = document.getElementById('coursePrev');
+    const courseNext = document.getElementById('courseNext');
+    const updateCourseNav = () => {
+      coursePrev.disabled = courseGrid.scrollLeft <= 2;
+      courseNext.disabled = courseGrid.scrollLeft + courseGrid.clientWidth >= courseGrid.scrollWidth - 2;
+    };
+    coursePrev.addEventListener('click', () => courseGrid.scrollBy({ left: -(courseGrid.clientWidth + 22) }));
+    courseNext.addEventListener('click', () => courseGrid.scrollBy({ left: courseGrid.clientWidth + 22 }));
+    courseGrid.addEventListener('scroll', updateCourseNav, { passive: true });
+    window.addEventListener('resize', updateCourseNav);
+    updateCourseNav();
 
     /* ---------- Student reviews (arrow slider) ---------- */
     const reviews = [
@@ -1011,55 +1335,60 @@
         quote: 'Weekend doubt-clearing sessions and portfolio mentorship gave me the confidence to crack technical rounds.' }
     ];
     const initials = n => n.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
-    const reviewTrack = document.getElementById('reviewTrack');
-    reviewTrack.innerHTML = reviews.map(r => `
-      <div class="review-card">
-        <div class="review-top"><span class="stars">★★★★★</span><span class="pkg">${r.pkg}</span></div>
-        <h4 class="headline">"${r.headline}"</h4>
-        <p>${r.quote}</p>
-        <div class="reviewer">
-          <div class="avatar">${initials(r.name)}</div>
-          <div><h4>${r.name}</h4><span>${r.role} · <b>${r.company}</b></span></div>
-        </div>
-      </div>`).join('');
-    const reviewPrev = document.getElementById('reviewPrev');
-    const reviewNext = document.getElementById('reviewNext');
-    const reviewStep = () => reviewTrack.querySelector('.review-card').offsetWidth + 24;
-    const updateReviewNav = () => {
-      reviewPrev.disabled = reviewTrack.scrollLeft <= 2;
-      reviewNext.disabled = reviewTrack.scrollLeft + reviewTrack.clientWidth >= reviewTrack.scrollWidth - 2;
+    const pad2 = n => String(n).padStart(2, '0');
+    const storyFeature = document.getElementById('storyFeature');
+    const storyPicks = document.getElementById('storyPicks');
+    let storyIndex = 0;
+    storyPicks.innerHTML = reviews.map((r, i) => `
+      <button type="button" class="story-pick" data-i="${i}" aria-label="Show ${r.name}'s story">
+        <span class="story-pick-top"><span class="mini-av">${initials(r.name)}</span><span class="mini-pkg">${r.pkg}</span></span>
+        <b>${r.name}</b><small>${r.company}</small>
+      </button>`).join('');
+    document.getElementById('storyTotal').textContent = `${reviews.length} Stories`;
+    const showStory = i => {
+      storyIndex = (i + reviews.length) % reviews.length;
+      const r = reviews[storyIndex];
+      storyFeature.innerHTML = `
+        <article class="story">
+          <div class="story-top">
+            <div class="story-who">
+              <div class="story-av">${initials(r.name)}</div>
+              <div><h3>${r.name}<span class="verified">✓ Verified Student</span></h3><p>${r.role} · <b>Placed at ${r.company}</b></p></div>
+            </div>
+            <div class="story-meta"><span class="stars">★★★★★</span><span class="pkg">Package: ${r.pkg}</span></div>
+          </div>
+          <h4 class="headline">${r.headline}</h4>
+          <blockquote>&ldquo;${r.quote}&rdquo;</blockquote>
+        </article>`;
+      [...storyPicks.children].forEach((b, k) => { b.classList.toggle('on', k === storyIndex); b.setAttribute('aria-pressed', k === storyIndex); });
+      document.getElementById('storyCount').textContent = `${pad2(storyIndex + 1)} / ${pad2(reviews.length)}`;
     };
-    reviewPrev.addEventListener('click', () => reviewTrack.scrollBy({ left: -reviewStep() }));
-    reviewNext.addEventListener('click', () => reviewTrack.scrollBy({ left: reviewStep() }));
-    reviewTrack.addEventListener('scroll', updateReviewNav, { passive: true });
-    window.addEventListener('resize', updateReviewNav);
-    updateReviewNav();
+    storyPicks.addEventListener('click', e => { const b = e.target.closest('.story-pick'); if (b) showStory(+b.dataset.i); });
+    document.getElementById('reviewPrev').addEventListener('click', () => showStory(storyIndex - 1));
+    document.getElementById('reviewNext').addEventListener('click', () => showStory(storyIndex + 1));
+    showStory(0);
 
     /* ---------- Why choose us carousel ---------- */
     const whyFeatures = [
       { icon: 'users', title: 'Trainers from MNCs', text: 'Learn from working professionals and get real corporate exposure.',
-        mock: ['Your Mentor', '10+ yrs at a top MNC', 'Book a demo'] },
+        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Man%20teacher/Default/3D/man_teacher_3d_default.png' },
       { icon: 'code', title: 'Real-Time Projects', text: 'Lab handouts, case studies and live projects for every course.',
-        mock: ['Live Project', 'E-commerce app · Sprint 2', 'Open lab'] },
+        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Laptop/3D/laptop_3d.png' },
       { icon: 'monitor', title: 'Flexible Training Modes', text: 'Classroom, online, video-based and corporate training on current versions.',
-        mock: ['Choose your mode', 'Classroom · Online · Video', 'Switch mode'] },
+        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Globe%20with%20meridians/3D/globe_with_meridians_3d.png' },
       { icon: 'chat', title: 'Interactive Sessions', text: 'Ask questions during and after class — doubts cleared every day.',
-        mock: ['Doubt cleared ✓', 'Ask anything, any time', 'Ask a question'] },
+        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Speech%20balloon/3D/speech_balloon_3d.png' },
       { icon: 'calendar', title: 'Clear Course Plan', text: 'A day-by-day course plan is shared with you before you register.',
-        mock: ['Day 12 of 45', 'Today: REST APIs', 'View plan'] },
+        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Spiral%20calendar/3D/spiral_calendar_3d.png' },
       { icon: 'briefcase', title: 'Placement Support', text: 'Resume building, mock interviews and job openings for freshers & professionals.',
-        mock: ['Mock Interview', 'Scheduled · Friday 4 PM', 'View openings'] }
+        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Briefcase/3D/briefcase_3d.png' }
     ];
     const whyStage = document.getElementById('whyStage');
     const whyDots = document.getElementById('whyDots');
     whyStage.innerHTML = whyFeatures.map((f, i) => `
       <article class="wcard" data-i="${i}" aria-label="${i + 1} of ${whyFeatures.length}: ${f.title}">
         <div class="wcard-visual" aria-hidden="true">
-          <div class="mock">
-            <div class="mock-top"><div class="icon-tile"><svg class="i"><use href="#i-${f.icon}"/></svg></div><div><b>${f.mock[0]}</b><small>${f.mock[1]}</small></div></div>
-            <div class="mock-line"></div><div class="mock-line short"></div>
-          </div>
-          <span class="mock-btn">${f.mock[2]}</span>
+          <img src="${f.art}" alt="" loading="lazy" />
         </div>
         <h4>${f.title}</h4>
         <p>${f.text}</p>
@@ -1144,49 +1473,21 @@
       return `<div class="company"><img src="${src}" alt="${name} logo" loading="lazy" onerror="this.style.display='none'" /><span>${name}</span></div>`;
     }).join('');
 
-    /* ---------- Branches (addresses from greenstechnologys.com) ---------- */
-    const branches = [
-      ['OMR – Thoraipakkam', '19, Balamurugan Garden, Rajiv Gandhi Salai, Thoraipakkam, Chennai – 600097', 'https://share.google/8oWecnVgKQJA5nOYW', true],
-      ['Adyar', '11 First Street, Padmanabha Nagar, Adyar, Chennai', 'https://share.google/a6orw7BDvFhW0e0Ly'],
-      ['Anna Nagar', 'New No. W125, 3rd Avenue, W Block, Anna Nagar, Chennai – 600040', 'https://share.google/2EjHCxXg20uET0OLQ'],
-      ['Velachery', '51-A, 2nd Floor, Velachery Road, Dhadeswaram Nagar, Chennai – 600042', 'https://share.google/ZyOh1xcZ3z6wmFa2A'],
-      ['T Nagar', '160, North Usman Road, T Nagar, Chennai – 600017', 'https://share.google/75PLx9DJorttvTKck'],
-      ['Navalur', 'No. 12, Rajiv Gandhi Salai (OMR), Egattur Village, Navalur, Chennai – 600035', 'https://share.google/EDr8HiWDCKGBcfWu8'],
-      ['Porur', '149, 1C/1D, 1st Floor, Opp. DLF IT Park, Ramapuram, Chennai – 600089', 'https://share.google/PCT3sKhhUAtNq5iad'],
-      ['Tambaram (Sanatorium)', 'No. 1, Appa Rao Colony, Tambaram Sanatorium, Chennai – 600047', 'https://share.google/TbZAIGuiIaxMOLgEr'],
-      ['Vadapalani', '79, 100 Feet Road, Thiru Nagar Colony, NGO Colony, Vadapalani, Chennai – 600026', 'https://share.google/D0SoO9Or2nO36cPE9'],
-      ['Perumbakkam', 'Plot 19 & 20, American Advent Christian Layout, Perumbakkam, Chennai – 600100', 'https://share.google/JrdDMVCqQmcdn6J7q'],
-      ['West Tambaram', 'No. 05, Bakthavachalam Street, West Tambaram, Chennai – 600045', 'https://share.google/eRmf7qPqqklN17San'],
-      ['Avadi', 'New No. 398, Old No. 577, CTH Road, Avadi Checkpost, Avadi – 600054', 'https://share.google/niX88xLf9ZFhIkqOM'],
-      ['Mugalivakkam', 'No. 01, Adithi Colony, Mugalivakkam Main Road, Porur, Chennai – 600116', 'https://share.google/np21kIy6Dtu5m3RSp'],
-      ['Mount Road', '162, 2nd Floor, Anna Salai, Express Estate, Triplicane, Chennai – 600002', 'https://share.google/nmxVbGgRqixWtjyMW'],
-      ['Kolathur', 'No. 7, 2nd Floor, Perambur Paper Mills Road, Kolathur, Chennai – 600099', 'https://share.google/V8w2mcjSHm6wk3wQ2'],
-      ['Ambattur', '3rd Floor, No. 27/A, North Park Street, Venkatapuram, Ambattur, Chennai – 600053', 'https://share.google/M6XB1gHSmK8ubrV3z'],
-      ['Guduvancheri', '162, Grand Southern Trunk Road, Nandivaram, Guduvancheri – 603202', 'https://share.google/wb9oSEAuI86mIHyQr'],
-      ['Gowriwakkam', 'No. 280 K, Saranya Complex, Velachery Road, Gowriwakkam, Chennai – 600073', 'https://share.google/SJ6foQBR851yqvEoX'],
-      ['Tiruvottiyur', 'No. 1050, 2nd Floor, Tiruvottiyur High Road, above KFC, Chennai – 600019', 'https://share.google/CxF1GLMPJwzGtTDeo'],
-      ['Poonamallee', 'Om Sakthi Plaza, 1st Floor, Avadi Road, Karayanchavadi, Poonamallee, Chennai – 600056', 'https://share.google/kVZMYJx1huDLxTzK2'],
-      ['Trichy', '75/E-3, Sri Krishna Enclave, Salai Road, Thillai Nagar, Tiruchirappalli – 620018', 'https://share.google/94HqgHo8IRJXZV4XX'],
-      ['Salem', '2nd Floor, Sri Sai Kamatchi Complex, Vincent, Salem – 636007', 'https://share.google/4sytYY1jtRZtJVurw']
-    ];
-    const VISIBLE = 8;
-    document.getElementById('branchGrid').innerHTML = branches.map(([name, addr, map, ho], i) => `
-      <div class="branch-card${i >= VISIBLE ? ' hidden extra' : ''}">
-        <h3><svg class="i"><use href="#i-pin"/></svg>${name}${ho ? '<span class="ho-badge">Head Office</span>' : ''}</h3>
-        <p>${addr}</p>
-        <div class="branch-actions">
-          <a href="${map}" target="_blank" rel="noopener" class="b-map">Directions</a>
-          <a href="${waLink('Hi Greens Technologys, I would like to book a free demo class at your ' + name + ' branch.')}" target="_blank" rel="noopener" class="b-wa"><svg class="i"><use href="#i-wa"/></svg> Demo</a>
-        </div>
-      </div>`).join('');
-    const toggleBtn = document.getElementById('toggleBranches');
-    toggleBtn.addEventListener('click', () => {
-      const showing = toggleBtn.dataset.open === '1';
-      document.querySelectorAll('.branch-card.extra').forEach(el => el.classList.toggle('hidden', showing));
-      toggleBtn.dataset.open = showing ? '0' : '1';
-      toggleBtn.textContent = showing ? 'View All Branches' : 'Show Fewer Branches';
-      if (showing) document.getElementById('branches').scrollIntoView({ behavior: 'smooth' });
-    });
+    /* ---------- Branches: centre an incomplete last row ---------- */
+    const centreBranchRow = () => {
+      const grid = document.getElementById('branchGrid');
+      const cardsB = [...grid.children];
+      grid.style.gridTemplateColumns = '';
+      cardsB.forEach(c => { c.style.gridColumn = ''; });
+      const cols = getComputedStyle(grid).gridTemplateColumns.split(' ').length;
+      const left = cardsB.length % cols;
+      if (cols < 2 || !left) return;
+      grid.style.gridTemplateColumns = `repeat(${cols * 2}, minmax(0, 1fr))`;
+      cardsB.forEach(c => { c.style.gridColumn = 'span 2'; });
+      cardsB[cardsB.length - left].style.gridColumn = `${cols - left + 1} / span 2`;
+    };
+    centreBranchRow();
+    window.addEventListener('resize', centreBranchRow);
 
     /* ---------- Founder video (loads on click) ---------- */
     document.getElementById('playVideo').addEventListener('click', () => {
