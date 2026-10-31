@@ -307,9 +307,53 @@
     .wcard.active { background: var(--white); box-shadow: var(--shadow-lg); cursor: default; z-index: 2; }
     .wcard.hidden { pointer-events: none; }
     .wcard-visual { height: 210px; border-radius: 16px; background: var(--green-tint); position: relative; overflow: hidden; margin-bottom: 22px; }
-    .wcard-visual { display: grid; place-items: center; background: radial-gradient(circle at 50% 45%, var(--white) 0%, var(--green-soft) 70%); }
-    .wcard-visual img { width: 150px; height: 150px; object-fit: contain; filter: drop-shadow(0 16px 20px rgba(27,58,28,.18)); transition: transform .4s; }
-    .wcard.active .wcard-visual img { transform: scale(1.06) rotate(-3deg); }
+    .wcard-visual { display: grid; place-items: center; background: linear-gradient(160deg, var(--green-tint), var(--green-soft)); }
+    /* Content elements inside the "why" cards */
+    .wcard-visual i { display: block; height: 7px; border-radius: 4px; background: var(--border); }
+    .wcard-visual i.dark { background: var(--green); opacity: .8; }
+    .w35{width:35%}.w40{width:40%}.w45{width:45%}.w50{width:50%}.w55{width:55%}.w60{width:60%}.w65{width:65%}.w70{width:70%}.w80{width:80%}
+    .el-card { width: 78%; background: var(--white); border: 1px solid var(--border); border-radius: 14px; padding: 14px; box-shadow: 0 10px 24px rgba(27,58,28,.1); text-align: left; transition: transform .4s; }
+    .wcard.active .el-card { transform: translateY(-4px); }
+    .el-float { position: absolute; display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; background: var(--white); box-shadow: 0 8px 18px rgba(27,58,28,.14); font-size: 12px; font-weight: 700; color: var(--green); }
+    .el-pill { display: inline-block; padding: 3px 9px; border-radius: 999px; background: var(--green-soft); color: var(--green); font-size: 10.5px; font-weight: 800; }
+    .el-av { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--green); color: var(--accent); font-size: 18px; flex-shrink: 0; }
+    .el-av.sm { width: 32px; height: 32px; font-size: 15px; border-radius: 10px; }
+    .el-lines { flex: 1; display: grid; gap: 6px; }
+    .el-profile { display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 8px 10px; }
+    .el-profile .el-pill { grid-column: 2; justify-self: start; }
+    .el-chips { position: absolute; bottom: 22px; display: flex; gap: 6px; }
+    .el-chips i { width: 44px; height: 18px; border-radius: 6px; background: var(--white); border: 1px solid var(--border); }
+    .el-stars { top: 16px; right: 16px; color: #f5b301; letter-spacing: 1px; }
+    .el-editor { padding: 0; overflow: hidden; background: #17301a; border-color: #17301a; }
+    .el-bar { display: flex; gap: 5px; padding: 9px 12px; background: rgba(255,255,255,.06); }
+    .el-bar b { width: 8px; height: 8px; border-radius: 50%; background: #ff6b5e; } .el-bar b+b { background: #ffbd2e; } .el-bar b+b+b { background: #27c93f; }
+    .el-code { display: grid; gap: 8px; padding: 14px; }
+    .el-code i.in { margin-left: 18px; }
+    .el-code i.c1 { background: var(--accent); } .el-code i.c2 { background: rgba(255,255,255,.35); } .el-code i.c3 { background: #7cc6ff; }
+    .el-live { right: 18px; bottom: 22px; }
+    .el-modes { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 78%; }
+    .el-modes span { display: grid; justify-items: center; gap: 5px; padding: 12px 6px; border-radius: 12px; background: var(--white); border: 1px solid var(--border); color: var(--green); font-size: 18px; transition: all .3s; }
+    .el-modes small { font-size: 10.5px; font-weight: 700; color: var(--muted); }
+    .el-modes span.on { background: var(--green); border-color: var(--green); color: var(--accent); }
+    .el-modes span.on small { color: rgba(255,255,255,.85); }
+    .el-chat { width: 80%; display: grid; gap: 10px; }
+    .el-chat span { display: grid; gap: 6px; padding: 12px; border-radius: 14px; box-shadow: 0 6px 16px rgba(27,58,28,.08); }
+    .el-chat .q { width: 62%; background: var(--white); border-bottom-left-radius: 4px; }
+    .el-chat .a { width: 72%; justify-self: end; background: var(--green); border-bottom-right-radius: 4px; }
+    .el-chat .a i { background: rgba(255,255,255,.35); }
+    .el-done { left: 18px; bottom: 16px; }
+    .el-cal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .el-cal-head i { width: 40%; }
+    .el-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+    .el-days b { aspect-ratio: 1; border-radius: 5px; background: var(--green-tint); border: 1px solid var(--border); }
+    .el-days b.done { background: var(--green-soft); border-color: transparent; }
+    .el-days b.today { background: var(--accent); border-color: var(--accent); }
+    .el-progress { margin-top: 10px; height: 6px; border-radius: 4px; background: var(--green-tint); overflow: hidden; }
+    .el-progress i { width: 45%; height: 100%; background: var(--green); }
+    .el-res-top { display: flex; align-items: center; gap: 10px; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .el-resume ul { list-style: none; display: grid; gap: 8px; }
+    .el-resume li { display: flex; align-items: center; gap: 8px; color: var(--accent-dark); font-size: 12px; font-weight: 800; }
+    .el-offer { right: 16px; top: 16px; }
     .wcard h4 { font-size: 21px; margin-bottom: 8px; }
     .wcard p { font-size: 14.5px; color: var(--muted); max-width: 280px; margin: 0 auto; }
     .wcard:not(.active) h4, .wcard:not(.active) p { opacity: .7; }
@@ -490,6 +534,7 @@
       .hl-item:nth-child(3) { padding-left: 0; }
       .hl-item:nth-child(n+3) { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--border); }
       .company-grid { grid-template-columns: repeat(4, 1fr); }
+      .company:nth-child(n+17) { display: none; }
       .story-picks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .branch-grid { grid-template-columns: repeat(3, 1fr); }
       .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -574,9 +619,9 @@
       .why-carousel { height: 470px; }
       .wcard { width: min(300px, calc(100vw - 110px)); }
       .wcard-visual { height: 180px; }
-      .wcard-visual img { width: 120px; height: 120px; }
       .why-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
       .company-grid { grid-template-columns: repeat(2, 1fr); }
+      .company:nth-child(n+9) { display: none; }
       .company { padding: 14px 10px; font-size: 13px; }
       .placement-stats { margin-top: 28px; gap: 10px; }
       .founder-card { padding: 20px; border-radius: 20px; gap: 26px; }
@@ -1316,23 +1361,23 @@
     /* ---------- Student reviews (arrow slider) ---------- */
     const reviews = [
       { name: 'Surya Prakash', role: 'AI Software Engineer', company: 'Jaikrishna Technology', pkg: '₹14.5 LPA',
-        headline: 'Building end-to-end AI systems',
-        quote: 'Deep Learning, Python and TensorFlow training with real-time projects and 1-on-1 mentor guidance helped me move into an enterprise AI engineering role.' },
+        headline: 'From classroom labs to an AI engineering role',
+        quote: 'Before joining Greens, I knew a little Python but had never built a real model. The trainer started from the basics and took us step by step into machine learning and deep learning with TensorFlow. Every week we built something, and my final project, an image classifier, became the main talking point in my interviews. The mock interviews were tough, but they prepared me well for the actual rounds at Jaikrishna Technology.' },
       { name: 'Priyanka M', role: 'NLP & Python Specialist', company: 'BCC Martech', pkg: '₹12.0 LPA',
-        headline: 'From an uncertain start to a developer career',
-        quote: 'I mastered Python, Keras and NLP workflows. The faculty guidance helped me turn theory into production-ready work.' },
+        headline: 'I finally found a clear direction for my career',
+        quote: 'After college I was confused about which technology to choose. The counsellor suggested Python with NLP, and it was the right decision. The classes were practical, the trainer explained every doubt patiently in Tamil and English, and the text-classification projects gave me real work to show. The placement team helped me rewrite my resume, and I joined BCC Martech as an NLP & Python Specialist.' },
       { name: 'Maheshwaran R', role: 'Computer Vision Associate', company: 'Zoho Corporation', pkg: '₹16.0 LPA',
-        headline: 'Practical labs made the difference',
-        quote: 'The hands-on lab exercises and intensive technical mock interviews helped me secure a high-impact role.' },
+        headline: 'The practical labs made all the difference',
+        quote: 'I learn best by doing, and that is exactly how Greens teaches. We practised computer vision with OpenCV and CNNs on real datasets in the lab, not just slides. My trainer reviewed my project code personally and showed me how to explain it like a professional. That confidence helped me clear the technical rounds at Zoho Corporation.' },
       { name: 'Ananya Sundaram', role: 'Azure AI Associate', company: 'Cognizant', pkg: '₹11.5 LPA',
-        headline: 'Career switch from manual QA to cloud',
-        quote: 'With zero coding background, daily lab tasks and resume workshops gave me the confidence and skills for a top-tier placement.' },
+        headline: 'From manual testing to a cloud AI role',
+        quote: 'I worked in manual testing for two years and had almost no coding experience. The weekend batch fitted my job, and the trainers started from zero without making me feel left behind. I learned Python, machine learning and Azure AI services with hands-on labs every week. The resume workshop and mock interviews helped me make the switch, and I joined Cognizant as an Azure AI Associate.' },
       { name: 'Karthik Raja', role: 'ML Developer', company: 'TCS Digital', pkg: '₹9.5 LPA',
-        headline: 'Fresher to developer in 4 months',
-        quote: 'Fresh out of college, my capstone project directly impressed the interviewers during the recruitment drive.' },
+        headline: 'Fresher to ML developer in four months',
+        quote: 'I joined right after college with no work experience. The course had a clear day-by-day plan, so I always knew what to practise next. By the end I had a complete machine learning project on GitHub, and the interviewers at TCS Digital asked me about it in detail. The placement support until my offer letter was really helpful.' },
       { name: 'Divya Lakshmi', role: 'Analytics Specialist', company: 'Accenture', pkg: '₹13.2 LPA',
-        headline: 'Non-IT graduate to a high-growth role',
-        quote: 'Weekend doubt-clearing sessions and portfolio mentorship gave me the confidence to crack technical rounds.' }
+        headline: 'A non-IT graduate in a growing data role',
+        quote: 'I have a commerce degree and was nervous about learning technology. The trainers explained everything from the basics, and the daily doubt-clearing sessions made a big difference. I built dashboards and analysis projects that I could proudly show in interviews. Today I work at Accenture as an Analytics Specialist, which I never imagined was possible for me.' }
     ];
     const initials = n => n.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
     const pad2 = n => String(n).padStart(2, '0');
@@ -1371,25 +1416,23 @@
     /* ---------- Why choose us carousel ---------- */
     const whyFeatures = [
       { icon: 'users', title: 'Trainers from MNCs', text: 'Learn from working professionals and get real corporate exposure.',
-        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Man%20teacher/Default/3D/man_teacher_3d_default.png' },
+        el: `<div class="el-card el-profile"><span class="el-av"><svg class="i"><use href="#i-users"/></svg></span><div class="el-lines"><i class="w70 dark"></i><i class="w45"></i></div><span class="el-pill">MNC Trainer</span></div><div class="el-chips"><i></i><i></i><i></i></div><span class="el-float el-stars">★★★★★</span>` },
       { icon: 'code', title: 'Real-Time Projects', text: 'Lab handouts, case studies and live projects for every course.',
-        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Laptop/3D/laptop_3d.png' },
+        el: `<div class="el-card el-editor"><div class="el-bar"><b></b><b></b><b></b></div><div class="el-code"><i class="w55 c1"></i><i class="w80 in c2"></i><i class="w65 in c3"></i><i class="w40 c1"></i></div></div><span class="el-float el-live"><svg class="i"><use href="#i-code"/></svg> Live Project</span>` },
       { icon: 'monitor', title: 'Flexible Training Modes', text: 'Classroom, online, video-based and corporate training on current versions.',
-        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Globe%20with%20meridians/3D/globe_with_meridians_3d.png' },
+        el: `<div class="el-modes"><span class="on"><svg class="i"><use href="#i-building"/></svg><small>Classroom</small></span><span><svg class="i"><use href="#i-monitor"/></svg><small>Online</small></span><span><svg class="i"><use href="#i-play"/></svg><small>Video</small></span><span><svg class="i"><use href="#i-briefcase"/></svg><small>Corporate</small></span></div>` },
       { icon: 'chat', title: 'Interactive Sessions', text: 'Ask questions during and after class — doubts cleared every day.',
-        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Speech%20balloon/3D/speech_balloon_3d.png' },
+        el: `<div class="el-chat"><span class="q"><i class="w80"></i><i class="w50"></i></span><span class="a"><i class="w70"></i><i class="w60"></i><i class="w35"></i></span></div><span class="el-float el-done">✓ Doubt cleared</span>` },
       { icon: 'calendar', title: 'Clear Course Plan', text: 'A day-by-day course plan is shared with you before you register.',
-        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Spiral%20calendar/3D/spiral_calendar_3d.png' },
+        el: `<div class="el-card el-cal"><div class="el-cal-head"><i class="w40 dark"></i><span class="el-pill">Day-by-day</span></div><div class="el-days"><b class="done"></b><b class="done"></b><b class="done"></b><b class="done"></b><b class="done"></b><b class="done"></b><b class="done"></b><b class="done"></b><b class="done"></b><b class="today"></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b><b class=""></b></div><div class="el-progress"><i></i></div></div>` },
       { icon: 'briefcase', title: 'Placement Support', text: 'Resume building, mock interviews and job openings for freshers & professionals.',
-        art: 'https://cdn.jsdelivr.net/gh/microsoft/fluentui-emoji@main/assets/Briefcase/3D/briefcase_3d.png' }
+        el: `<div class="el-card el-resume"><div class="el-res-top"><span class="el-av sm"><svg class="i"><use href="#i-users"/></svg></span><div class="el-lines"><i class="w70 dark"></i><i class="w45"></i></div></div><ul><li>✓ <i class="w60"></i></li><li>✓ <i class="w45"></i></li><li>✓ <i class="w55"></i></li></ul></div><span class="el-float el-offer"><svg class="i"><use href="#i-briefcase"/></svg> Job Ready</span>` }
     ];
     const whyStage = document.getElementById('whyStage');
     const whyDots = document.getElementById('whyDots');
     whyStage.innerHTML = whyFeatures.map((f, i) => `
       <article class="wcard" data-i="${i}" aria-label="${i + 1} of ${whyFeatures.length}: ${f.title}">
-        <div class="wcard-visual" aria-hidden="true">
-          <img src="${f.art}" alt="" loading="lazy" />
-        </div>
+        <div class="wcard-visual" aria-hidden="true">${f.el}</div>
         <h4>${f.title}</h4>
         <p>${f.text}</p>
         <a class="wcard-link" href="#branches" tabindex="-1">Talk to a counsellor</a>
@@ -1467,7 +1510,8 @@
     const logoSrc = path => path.startsWith('@') ? `https://www.google.com/s2/favicons?domain=${path.slice(1)}&sz=64`
       : path.startsWith('http') ? path
       : 'https://api.iconify.design/' + (path.includes('.svg') ? path : path + '.svg');
-    document.getElementById('companyGrid').innerHTML = companies.map(([name, path]) => {
+    // Show four rows of companies; the rest are summed up as "& 500+ more global companies"
+    document.getElementById('companyGrid').innerHTML = companies.slice(0, 20).map(([name, path]) => {
       if (!path) return `<div class="company"><span>${name}</span></div>`;
       const src = logoSrc(path);
       return `<div class="company"><img src="${src}" alt="${name} logo" loading="lazy" onerror="this.style.display='none'" /><span>${name}</span></div>`;
