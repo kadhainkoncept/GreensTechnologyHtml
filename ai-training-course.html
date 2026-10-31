@@ -5420,6 +5420,21 @@
     .chat-contact { display: grid; gap: 8px; padding: 12px; margin: 4px 0; border-radius: 14px; background: var(--cream-surface); border: 1px solid var(--border-color); }
     .chat-contact input { width: 100%; padding: 9px 11px; border-radius: 10px; border: 1px solid var(--border-color); font: inherit; font-size: .88rem; }
     .chat-contact button { padding: 9px 12px; border: 0; border-radius: 10px; background: var(--brand-primary); color: var(--brand-lime); font: inherit; font-weight: 700; cursor: pointer; }
+    #currTracks > .tracks-head:first-child { margin-top: 0; }
+
+    /* Placement Success Stories: tidy alignment for long roles, names and package labels */
+    @media (min-width: 1024px) {
+      .reviews-section .review-card .rv-head { align-items: center; }
+      .reviews-section .review-card .rv-role::after { content: none; }
+      .reviews-section .review-card .rv-role,
+      .reviews-section .review-card .rv-placed { flex-basis: 100%; line-height: 1.4; }
+      .reviews-section .review-card .rv-id { row-gap: 4px; }
+      .rv-pick { display: flex; flex-direction: column; min-width: 0; }
+      .rv-pick-top { gap: 8px; }
+      .rv-pick-pkg { max-width: 62%; overflow: hidden; text-overflow: ellipsis; }
+      .rv-pick b { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.3; min-height: 2.6em; }
+      .rv-pick small { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    }
   </style>
 </head>
 <body>
@@ -6392,115 +6407,181 @@
           <!-- Review 1 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">SP</div>
+              <div class="rv-avatar" aria-hidden="true">PS</div>
               <div class="rv-id">
-                <h4 class="rv-name">Surya Prakash</h4>
+                <h4 class="rv-name">Praveenkumar S</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">AI Software Engineer</p>
-                <p class="rv-placed">Placed at Jaikrishna Technology</p>
+                <p class="rv-role">Product Technical Analyst - Emerging Tech &bull; Chennai</p>
+                <p class="rv-placed">Placed at EdgeVerve (an Infosys company)</p>
               </div>
             </div>
             <div class="rv-meta">
               <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
-              <span class="rv-package">Package: ₹14.5 LPA</span>
+              <span class="rv-package">Package: &#8377;27.2 LPA</span>
             </div>
-            <h5 class="rv-headline">Building End-to-End AI &amp; Deep Learning Systems</h5>
-            <blockquote class="rv-comment">&ldquo;I joined Greens Technologies to build real deep learning skills, not just theory. The course took me from Python and machine learning to neural networks in TensorFlow, and every concept had a hands-on lab. My mentor guided me one-on-one through the capstone project, and walking interviewers through that project helped me join Jaikrishna Technology as an AI Software Engineer.&rdquo;</blockquote>
+            <h5 class="rv-headline">Now a Product Technical Analyst at EdgeVerve</h5>
+            <blockquote class="rv-comment">&ldquo;I wanted to move into emerging technology, and the AI programme gave me a clear, step-by-step path from Python and machine learning to Generative AI and LLM applications. Building real projects every week gave me confidence, and the mock interviews prepared me for the technical rounds. I joined EdgeVerve as a Product Technical Analyst in their Emerging Tech team.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer-letter-5.jpeg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer-letter-5.jpeg" alt="Praveenkumar S's offer letter from EdgeVerve (an Infosys company) (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
           </article>
 
           <!-- Review 2 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">PM</div>
+              <div class="rv-avatar" aria-hidden="true">TE</div>
               <div class="rv-id">
-                <h4 class="rv-name">Priyanka M</h4>
+                <h4 class="rv-name">Tenesh</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">NLP &amp; Python Specialist</p>
-                <p class="rv-placed">Placed at BCC Martech</p>
+                <p class="rv-role">Senior Data Scientist &bull; Chennai</p>
+                <p class="rv-placed">Placed at MITS Global Consulting</p>
               </div>
             </div>
             <div class="rv-meta">
               <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
-              <span class="rv-package">Package: ₹12.0 LPA</span>
+              <span class="rv-package">Verified offer</span>
             </div>
-            <h5 class="rv-headline">From Uncertain Career Start to NLP Developer Path</h5>
-            <blockquote class="rv-comment">&ldquo;I was unsure where to start my career, and the AI programme gave me a clear path. I mastered Python, Keras and NLP step by step, working on text classification and chatbot projects with real data. The mock interviews prepared me for exactly the questions I faced, and I joined BCC Martech as an NLP & Python Specialist.&rdquo;</blockquote>
+            <h5 class="rv-headline">Now a Senior Data Scientist working with BNP Paribas</h5>
+            <blockquote class="rv-comment">&ldquo;The course covered exactly what my role needs today: machine learning, MLOps, Docker and Kubernetes, and production GenAI, RAG and agentic AI solutions. The trainers explained how these are used in real companies, not just in theory. I now work as a Senior Data Scientist with MITS Global Consulting for their client BNP Paribas in Chennai.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer+letter-3.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer+letter-3.jpg" alt="Tenesh's offer letter from MITS Global Consulting (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
           </article>
 
           <!-- Review 3 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">MR</div>
+              <div class="rv-avatar" aria-hidden="true">AK</div>
               <div class="rv-id">
-                <h4 class="rv-name">Maheshwaran R</h4>
+                <h4 class="rv-name">Aravinth Kumar K S</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">Computer Vision Associate</p>
-                <p class="rv-placed">Placed at Zoho Corporation</p>
+                <p class="rv-role">I.T. Analyst &bull; Chennai</p>
+                <p class="rv-placed">Placed at Tata Consultancy Services</p>
               </div>
             </div>
             <div class="rv-meta">
               <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
-              <span class="rv-package">Package: ₹16.0 LPA</span>
+              <span class="rv-package">Package: &#8377;14.4 LPA</span>
             </div>
-            <h5 class="rv-headline">Rising Through the Power of Real-World Computer Vision</h5>
-            <blockquote class="rv-comment">&ldquo;Computer vision was my goal, and the practical labs made all the difference. I learned CNN architectures, transfer learning and OpenCV by building an image recognition and object detection project end to end. That project became the centre of my interviews, and I joined Zoho Corporation as a Computer Vision Associate.&rdquo;</blockquote>
+            <h5 class="rv-headline">Now an I.T. Analyst at TCS</h5>
+            <blockquote class="rv-comment">&ldquo;Greens helped me build strong Python and machine learning skills with hands-on labs in every class. The capstone projects gave me real work to discuss in interviews, and the placement team guided me through every step of the selection process. I was selected by TCS as an I.T. Analyst in Chennai.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer-letter-6.jpeg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer-letter-6.jpeg" alt="Aravinth Kumar K S's offer letter from Tata Consultancy Services (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
           </article>
 
           <!-- Review 4 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">AS</div>
+              <div class="rv-avatar" aria-hidden="true">DK</div>
               <div class="rv-id">
-                <h4 class="rv-name">Ananya Sundaram</h4>
+                <h4 class="rv-name">D Kamaiakkannan</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">Azure AI Associate</p>
-                <p class="rv-placed">Placed at Cognizant AI Labs</p>
+                <p class="rv-role">Tech Specialist &bull; Chennai</p>
+                <p class="rv-placed">Placed at Tech Mahindra</p>
               </div>
             </div>
             <div class="rv-meta">
               <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
-              <span class="rv-package">Package: ₹11.5 LPA</span>
+              <span class="rv-package">Verified offer</span>
             </div>
-            <h5 class="rv-headline">Career Pivot from Manual QA to Azure AI Specialist</h5>
-            <blockquote class="rv-comment">&ldquo;I moved from manual testing with no coding background. The trainers started from Python basics and patiently took me through machine learning and Azure AI services. The weekend batches fitted my job, and the placement team helped me prepare a strong profile. I joined Cognizant AI Labs as an Azure AI Associate.&rdquo;</blockquote>
+            <h5 class="rv-headline">Now a Tech Specialist at Tech Mahindra</h5>
+            <blockquote class="rv-comment">&ldquo;I joined the AI course to upgrade my career with in-demand skills. The structured levels took me from data foundations to machine learning and deep learning, and the trainers were always available to clear my doubts. The interview preparation made a big difference, and I joined Tech Mahindra as a Tech Specialist in Chennai.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer+letter-1.png" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer+letter-1.png" alt="D Kamaiakkannan's offer letter from Tech Mahindra (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
           </article>
 
           <!-- Review 5 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">KR</div>
+              <div class="rv-avatar" aria-hidden="true">SY</div>
               <div class="rv-id">
-                <h4 class="rv-name">Karthik Raja</h4>
+                <h4 class="rv-name">Syed</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">ML Developer</p>
-                <p class="rv-placed">Placed at TCS Digital</p>
+                <p class="rv-role">AI Course Graduate</p>
+                <p class="rv-placed">Placed at Accenture</p>
               </div>
             </div>
             <div class="rv-meta">
               <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
-              <span class="rv-package">Package: ₹9.5 LPA</span>
+              <span class="rv-package">Verified offer</span>
             </div>
-            <h5 class="rv-headline">Fresher to Machine Learning Engineer in 4 Months</h5>
-            <blockquote class="rv-comment">&ldquo;Fresh out of college, I enrolled in the AI programme and went from Python to machine learning models in about four months. The structured levels kept me focused, and the hands-on projects gave me real work to show recruiters. With the interview practice and support from the placement team, I joined TCS Digital as an ML Developer.&rdquo;</blockquote>
+            <h5 class="rv-headline">Placed at Accenture</h5>
+            <blockquote class="rv-comment">&ldquo;The practical approach at Greens Technologies made AI easy to understand. I learned Python, machine learning and Generative AI through real projects, and the mock interviews helped me answer confidently. With the support of the trainers and the placement team, I received my offer from Accenture.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer+letter-2.png" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer+letter-2.png" alt="Syed's offer letter from Accenture (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
           </article>
 
           <!-- Review 6 -->
           <article class="review-card">
             <div class="rv-head">
-              <div class="rv-avatar" aria-hidden="true">DL</div>
+              <div class="rv-avatar" aria-hidden="true">JC</div>
               <div class="rv-id">
-                <h4 class="rv-name">Divya Lakshmi</h4>
+                <h4 class="rv-name">Jaswanth Singh Caldwell</h4>
                 <span class="rv-verified"><svg class="ico" aria-hidden="true"><use href="#i-check-circle"/></svg> Verified Student</span>
-                <p class="rv-role">AI Analytics Specialist</p>
-                <p class="rv-placed">Placed at Accenture Tech</p>
+                <p class="rv-role">AI Course Graduate</p>
+                <p class="rv-placed">Placed at Mastek</p>
               </div>
             </div>
             <div class="rv-meta">
               <span class="rv-stars" aria-label="Rated 5 out of 5"><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><svg class="ico" aria-hidden="true"><use href="#i-star"/></svg><b>5.0 / 5.0</b></span>
-              <span class="rv-package">Package: ₹13.2 LPA</span>
+              <span class="rv-package">Verified offer</span>
             </div>
-            <h5 class="rv-headline">Non-IT Graduate to High-Growth Data &amp; AI Role</h5>
-            <blockquote class="rv-comment">&ldquo;I come from a non-IT degree, so I was nervous about AI. The course explained every topic from the basics, with continuous practice in Python, data analysis and machine learning. The trainers cleared my doubts every day, and the placement support helped me land a role at Accenture Tech as an AI Analytics Specialist.&rdquo;</blockquote>
+            <h5 class="rv-headline">Placed at Mastek</h5>
+            <blockquote class="rv-comment">&ldquo;I came to Greens to learn AI properly, from the basics to real applications. The weekly projects, regular doubt-clearing sessions and resume guidance prepared me well for my interviews. I am happy to have joined Mastek after completing my training.&rdquo;</blockquote>
+            <button type="button" class="rv-letter-btn" aria-expanded="false" onclick="toggleOfferLetter(this)">
+              <svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg>
+              <span>View Offer Letter</span>
+              <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+            </button>
+            <div class="rv-letter" hidden>
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer-letter-4.jpeg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AI/offer-letter-4.jpeg" alt="Jaswanth Singh Caldwell's offer letter from Mastek (personal details hidden)" loading="lazy" />
+              </a>
+              <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
+            </div>
           </article>
         </div>
 
@@ -6658,7 +6739,13 @@
           </p>
         </div>
 
-        <div class="curriculum-panel" id="currAi">
+        <!-- Curriculum tabs -->
+        <div class="curriculum-tabs" role="tablist">
+          <button class="curriculum-tab active" role="tab" aria-selected="true" data-panel="currAi" onclick="switchAiTab(this)">Course Curriculum</button>
+          <button class="curriculum-tab" role="tab" aria-selected="false" data-panel="currTracks" onclick="switchAiTab(this)">Career Tracks</button>
+        </div>
+
+        <div class="curriculum-panel" id="currAi" role="tabpanel">
           <div class="phase-accordion">
             <div class="phase-item active">
               <button class="phase-header" onclick="togglePhase(this)">
@@ -7490,28 +7577,8 @@
           </div>
         </div>
 
-        <!-- Add-ons -->
-        <div class="tracks-head">
-          <h3>Add-ons</h3>
-        </div>
-        <div class="addons-grid">
-          <div class="project-card">
-            <span class="project-number">Included Free</span>
-            <h3 class="project-title">Level 1 Python — FREE</h3>
-            <p class="project-desc">The full 5-week Python Foundation level is included free with every track from Level 2 upwards.</p>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Interview Preparation</span>
-            <h3 class="project-title">Interview Care Unit (ICU)</h3>
-            <p class="project-desc">8 intensive sessions — resume building, LinkedIn/Naukri profile optimization, mock interviews, and AI system design practice.</p>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Weekend Workshop</span>
-            <h3 class="project-title">GenAI for Professionals</h3>
-            <p class="project-desc">2-day non-coding weekend workshop on prompt engineering, practical AI tools, and n8n workflow automation.</p>
-          </div>
-        </div>
-
+        <!-- Career Tracks tab -->
+        <div class="curriculum-panel" id="currTracks" role="tabpanel" hidden>
         <!-- Career tracks & fees -->
         <div class="tracks-head">
           <h3>Career Tracks</h3>
@@ -7616,6 +7683,29 @@
               <span class="project-tag-pill">No prerequisites — Python taught from scratch</span>
             </div>
           </div>
+        </div>
+
+        <!-- Add-ons -->
+        <div class="tracks-head">
+          <h3>Add-ons</h3>
+        </div>
+        <div class="addons-grid">
+          <div class="project-card">
+            <span class="project-number">Included Free</span>
+            <h3 class="project-title">Level 1 Python — FREE</h3>
+            <p class="project-desc">The full 5-week Python Foundation level is included free with every track from Level 2 upwards.</p>
+          </div>
+          <div class="project-card">
+            <span class="project-number">Interview Preparation</span>
+            <h3 class="project-title">Interview Care Unit (ICU)</h3>
+            <p class="project-desc">8 intensive sessions — resume building, LinkedIn/Naukri profile optimization, mock interviews, and AI system design practice.</p>
+          </div>
+          <div class="project-card">
+            <span class="project-number">Weekend Workshop</span>
+            <h3 class="project-title">GenAI for Professionals</h3>
+            <p class="project-desc">2-day non-coding weekend workshop on prompt engineering, practical AI tools, and n8n workflow automation.</p>
+          </div>
+        </div>
         </div>
 
         <!-- Curriculum CTAs -->
@@ -9211,6 +9301,16 @@
     });
 
     // Curriculum Tabs
+    // AI curriculum tabs: Course Curriculum / Career Tracks
+    function switchAiTab(tab) {
+      document.querySelectorAll('#curriculum .curriculum-tab').forEach(t => {
+        const active = t === tab;
+        t.classList.toggle('active', active);
+        t.setAttribute('aria-selected', active ? 'true' : 'false');
+        document.getElementById(t.dataset.panel).hidden = !active;
+      });
+    }
+
     function switchCurriculumTab(tab) {
       document.querySelectorAll('.curriculum-tab').forEach(t => {
         const active = t === tab;
@@ -9640,7 +9740,7 @@
       picker.innerHTML = [...cards].map((card, i) => {
         const text = sel => (card.querySelector(sel)?.textContent || '').trim();
         return `<button type="button" class="rv-pick" onclick="setActiveReview(${i})">
-            <span class="rv-pick-top"><span class="rv-pick-av">${text('.rv-avatar')}</span><span class="rv-pick-pkg">${text('.rv-package').replace(/^Package:\s*/, '')}</span></span>
+            <span class="rv-pick-top"><span class="rv-pick-av">${text('.rv-avatar')}</span><span class="rv-pick-pkg">${text('.rv-package').replace(/^Package:\s*/, '').replace(/^Verified offer$/, '✓ Verified')}</span></span>
             <b>${text('.rv-name')}</b><small>${text('.rv-placed').replace(/^Placed at\s*/, '')}</small>
           </button>`;
       }).join('');
