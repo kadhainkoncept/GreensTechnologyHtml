@@ -5220,6 +5220,23 @@
         bottom: 84px;
       }
     }
+
+    /* Thank-you greeting */
+    .thanks-overlay { position: fixed; inset: 0; z-index: 1300; display: none; align-items: center; justify-content: center; padding: 20px; background: rgba(2, 38, 27, .55); backdrop-filter: blur(4px); }
+    .thanks-overlay.open { display: flex; animation: thanksFade .25s ease; }
+    .thanks-card { width: 100%; max-width: 420px; padding: 34px 28px 28px; border-radius: 24px; background: #FFFFFF; text-align: center; box-shadow: 0 30px 60px rgba(0,0,0,.25); animation: thanksPop .35s cubic-bezier(.2,.8,.3,1.2); }
+    .thanks-check { width: 72px; height: 72px; margin: 0 auto 18px; border-radius: 50%; display: grid; place-items: center; background: var(--brand-primary); color: var(--brand-lime); box-shadow: 0 0 0 10px rgba(200, 241, 105, .25); }
+    .thanks-check svg { width: 36px; height: 36px; }
+    .thanks-card h3 { font-family: var(--font-heading); font-size: 1.6rem; color: var(--brand-dark); margin-bottom: 8px; }
+    .thanks-card p { color: var(--text-muted); margin-bottom: 22px; }
+    .thanks-actions { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    @keyframes thanksFade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes thanksPop { from { opacity: 0; transform: scale(.9) translateY(10px); } to { opacity: 1; transform: none; } }
+
+    /* Chat: contact capture so questions reach the team by email */
+    .chat-contact { display: grid; gap: 8px; padding: 12px; margin: 4px 0; border-radius: 14px; background: var(--cream-surface); border: 1px solid var(--border-color); }
+    .chat-contact input { width: 100%; padding: 9px 11px; border-radius: 10px; border: 1px solid var(--border-color); font: inherit; font-size: .88rem; }
+    .chat-contact button { padding: 9px 12px; border: 0; border-radius: 10px; background: var(--brand-primary); color: var(--brand-lime); font: inherit; font-weight: 700; cursor: pointer; }
   </style>
 </head>
 <body>
@@ -11042,6 +11059,19 @@
     </div>
   </div>
 
+  <!-- Thank-you greeting shown after any form is submitted -->
+  <div class="thanks-overlay" id="thanksModal" role="dialog" aria-modal="true" aria-labelledby="thanksTitle" onclick="if (event.target === this) closeThanks()">
+    <div class="thanks-card">
+      <div class="thanks-check"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6 9 17l-5-5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <h3 id="thanksTitle">Thank you!</h3>
+      <p id="thanksText">Our counsellor will contact you shortly.</p>
+      <div class="thanks-actions">
+        <button type="button" class="btn btn-accent" onclick="closeThanks()">Done</button>
+        <a class="btn btn-outline" href="https://wa.me/918939915577" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
   <!-- Toast Notification -->
   <div class="toast-notice" id="toastNotice">
     <svg class="ico ico-lime" aria-hidden="true"><use href="#i-check-circle"/></svg>
@@ -11171,7 +11201,7 @@
         '<iframe src="https://www.youtube.com/embed/ytqbpfoqGSA?autoplay=1&rel=0&modestbranding=1" title="Greens Technologies founder video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     }
 
-    // Chat assistant: canned answers from this page; free text goes to an advisor on WhatsApp
+    // Chat assistant: canned answers from this page; typed questions are emailed to an advisor
     const CHAT_TOPICS = {
       'Upcoming batches': 'New batches start every Monday and Friday. Weekday slots run between 6:00 AM and 8:30 PM, and weekend batches are also available, in classroom or online live. <a href="#batches" onclick="toggleChat(false)">See batch timings</a>',
       'Course curriculum': 'Choose the AWS or Azure Data Engineering track. Each has 19 modules organised into phases, with a hands-on lab in every module. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
@@ -11226,6 +11256,40 @@
       }
     }
 
+    // Chat questions are emailed to the leads inbox; the visitor's name and mobile are asked once
+    const chatLead = { name: '', phone: '', pending: [] };
+
+    function emailChat(questions) {
+      const fake = document.createElement('form');
+      fake.innerHTML = `<input aria-label="Full Name" value=""><input aria-label="Mobile Number" value=""><textarea aria-label="Chat Question"></textarea>`;
+      const [n, ph, q] = fake.querySelectorAll('input, textarea');
+      n.value = chatLead.name; ph.value = chatLead.phone; q.value = questions.join('\n');
+      return sendLead(fake, 'Chat Assistant Question');
+    }
+
+    function askChatContact() {
+      const body = document.getElementById('chatBody');
+      if (body.querySelector('.chat-contact')) return;
+      const form = document.createElement('form');
+      form.className = 'chat-contact';
+      form.innerHTML = `<input type="text" placeholder="Your name *" aria-label="Your name" required>
+        <input type="tel" placeholder="Mobile number (WhatsApp) *" aria-label="Mobile number" required>
+        <button type="submit">Send to our advisor</button>`;
+      form.onsubmit = ev => {
+        ev.preventDefault();
+        const [n, ph] = form.querySelectorAll('input');
+        chatLead.name = n.value.trim();
+        chatLead.phone = ph.value.trim();
+        emailChat(chatLead.pending);
+        chatLead.pending = [];
+        form.remove();
+        addChatMsg(`Thank you, ${chatLead.name.split(' ')[0]}! Your question has been sent to our advisor, who will call or WhatsApp you shortly.`, 'bot');
+      };
+      body.appendChild(form);
+      body.scrollTop = body.scrollHeight;
+      form.querySelector('input').focus();
+    }
+
     function sendChat(e) {
       e.preventDefault();
       const input = document.getElementById('chatInput');
@@ -11233,8 +11297,16 @@
       if (!text) return;
       addChatMsg(text, 'user');
       input.value = '';
-      const wa = 'https://wa.me/918939915577?text=' + encodeURIComponent('Hi Greens Technologies, about the Data Engineering Course: ' + text);
-      setTimeout(() => addChatMsg('Thanks! Our advisor can answer that right away. <a href="' + wa + '" target="_blank" rel="noopener noreferrer">Send this question on WhatsApp</a> or call <a href="tel:+918939915577">+91 89399 15577</a>.', 'bot'), 300);
+      if (chatLead.phone) {
+        emailChat([text]);
+        setTimeout(() => addChatMsg('Got it! I have passed this to our advisor as well.', 'bot'), 300);
+        return;
+      }
+      chatLead.pending.push(text);
+      setTimeout(() => {
+        addChatMsg('Thanks for your question! Share your name and mobile number and our advisor will reply to you directly.', 'bot');
+        askChatContact();
+      }, 300);
     }
 
     // FAQ Accordion Toggle
@@ -11401,6 +11473,21 @@
     }
 
     // Form Handlers
+
+    // Thank-you greeting after a form submit
+    function showThanks(name, message) {
+      const first = (name || '').trim().split(/\s+/)[0];
+      document.getElementById('thanksTitle').textContent = first ? `Thank you, ${first}!` : 'Thank you!';
+      document.getElementById('thanksText').textContent = message;
+      document.getElementById('thanksModal').classList.add('open');
+    }
+
+    function closeThanks() {
+      document.getElementById('thanksModal').classList.remove('open');
+    }
+
+    const formName = form => (form.querySelector('input[type="text"]') || {}).value || '';
+
     function handleModalSubmit(e) {
       e.preventDefault();
       const deliver = e.target.closest('#leadModal') ? pendingDownload : null;
@@ -11412,11 +11499,11 @@
       closeLeadModal();
       if (deliver) {
         deliver();
-        showToast('Thank you! Your download has started.');
+        showThanks(formName(e.target), 'Your download has started. Our counsellor will also reach out to help you with the next steps.');
       } else if (inModal && /^Download/.test(purpose)) {
-        showToast('Thank you! We will share the PDF with you on WhatsApp and email shortly.');
+        showThanks(formName(e.target), 'We have received your request and will share the PDF with you on WhatsApp and email shortly.');
       } else {
-        showToast('Request submitted! Our counselor will call you within 15 minutes.');
+        showThanks(formName(e.target), 'Your request has been received. Our counsellor will call you within 15 minutes.');
       }
       e.target.reset();
     }
@@ -11424,7 +11511,7 @@
     function handleSubscribe(e) {
       e.preventDefault();
       sendLead(e.target, 'Batch Alerts Subscription');
-      showToast('Subscribed successfully! You will receive batch notifications.');
+      showThanks('', 'You are subscribed. We will email you whenever a new batch opens.');
       e.target.reset();
     }
 
@@ -11460,6 +11547,7 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         closeLeadModal();
+        closeThanks();
       }
     });
 

@@ -191,7 +191,7 @@
     .hl-item p { margin-top: 14px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
 
     /* ============ 2. COURSES ============ */
-    .course-carousel { position: relative; }
+    .course-carousel { position: relative; padding: 0 58px; }
     .course-grid {
       display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 66px) / 4); gap: 22px;
       overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; padding: 6px 2px 14px; scrollbar-width: none;
@@ -199,7 +199,11 @@
     .course-grid::-webkit-scrollbar { display: none; }
     .course-card { scroll-snap-align: start; }
     .course-carousel .slider-btn { position: absolute; top: calc(50% - 30px); z-index: 2; }
-    .course-prev { left: -24px; } .course-next { right: -24px; }
+    .course-prev { left: 0; } .course-next { right: 0; }
+    @media (min-width: 1360px) {
+      .course-carousel { padding: 0; }
+      .course-prev { left: -68px; } .course-next { right: -68px; }
+    }
     .course-card {
       background: var(--white); border: 1px solid var(--border); border-radius: 20px;
       overflow: hidden; transition: all .3s ease; display: flex; flex-direction: column;
@@ -213,9 +217,18 @@
       font-size: 11px; font-weight: 800; padding: 5px 11px; border-radius: 50px; text-transform: uppercase; letter-spacing: .4px;
     }
     .course-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-    .course-meta { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 8px; }
-    .course-body h3 { font-size: 18px; margin-bottom: 8px; }
-    .course-body .desc { font-size: 13.5px; color: var(--muted); margin-bottom: 12px; }
+    /* Fixed text blocks so every card's rating and footer line up across the row */
+    .course-meta { font-size: 12px; color: var(--muted); font-weight: 600; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .course-body h3 { font-size: 18px; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .course-body .desc {
+      font-size: 13.5px; line-height: 1.55; color: var(--muted); margin-bottom: 14px;
+      height: calc(13.5px * 1.55 * 3); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .course-rating { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .cr-badge { padding: 4px 10px; border-radius: 999px; background: #fff7e0; color: #a16207; font-size: 12.5px; font-weight: 800; }
+    .cr-bar { flex: 1; max-width: 90px; height: 6px; border-radius: 4px; background: var(--green-soft); overflow: hidden; }
+    .cr-bar i { display: block; height: 100%; background: linear-gradient(90deg, var(--accent), var(--green-mid)); }
+    .course-rating small { font-size: 12px; color: var(--muted); }
     .rating { display: flex; align-items: center; gap: 6px; font-size: 13.5px; margin-bottom: 14px; }
     .stars { color: var(--accent-dark); letter-spacing: 1px; }
     .rating small { color: var(--muted); }
@@ -223,8 +236,8 @@
       margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px;
       padding-top: 14px; border-top: 1px solid var(--border);
     }
-    .fees { font-size: 12.5px; font-weight: 700; color: var(--green-mid); }
-    .link-arrow { font-weight: 800; font-size: 14px; color: var(--green); display: inline-flex; align-items: center; gap: 4px; transition: gap .2s; }
+    .fees { font-size: 12px; line-height: 1.3; font-weight: 700; color: var(--green-mid); }
+    .link-arrow { white-space: nowrap; flex-shrink: 0; font-weight: 800; font-size: 14px; color: var(--green); display: inline-flex; align-items: center; gap: 4px; transition: gap .2s; }
     .link-arrow:hover { gap: 8px; }
 
     /* ============ 3. PLACEMENT SUCCESS STORIES (featured story + picker) ============ */
@@ -249,6 +262,11 @@
     .story-meta .pkg { font-size: 15px; padding: 7px 16px; }
     .story h4.headline { font-size: 22px; color: var(--green-mid); margin: 22px 0 14px; }
     .story blockquote { margin: 0; background: var(--green-tint); border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 16px; padding: 22px 26px; font-size: 16.5px; font-style: italic; color: var(--text); }
+    .letter-btn { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 12px; border: 1.5px solid var(--green-mid); background: var(--white); color: var(--green); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; transition: all .2s; }
+    .letter-btn:hover, .letter-btn[aria-expanded="true"] { background: var(--green); color: var(--accent); border-color: var(--green); }
+    .story-letter { margin-top: 14px; }
+    .story-letter img { display: block; width: 100%; max-width: 520px; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
+    .story-letter small { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
     .story-picker { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--border); }
     .story-picker-head { display: flex; justify-content: space-between; margin-bottom: 14px; font-size: 13px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
     .story-picker-head b { color: var(--green-mid); letter-spacing: 0; text-transform: none; }
@@ -562,7 +580,7 @@
       .support-intro { text-align: center; }
       .why-head { gap: 14px; margin-bottom: 36px; text-align: center; }
       .course-grid { grid-auto-columns: calc((100% - 22px) / 2); }
-      .course-prev { left: -8px; } .course-next { right: -8px; }
+      .course-carousel { padding: 0 46px; }
       .cta-box { flex-direction: column; text-align: center; padding: 34px 24px; }
       .cta-btns { justify-content: center; }
       .branch-grid { grid-template-columns: repeat(2, 1fr); }
@@ -588,7 +606,9 @@
       .hero-main { grid-template-columns: 1fr; }
       .hero-facts { grid-template-columns: 1fr; }
       .highlights { margin-top: 0; padding: 28px 0; }
-      .course-grid { grid-auto-columns: 86%; }
+      .course-grid { grid-auto-columns: 100%; }
+      .course-carousel { padding: 0 34px; }
+      .course-card:nth-child(n+9) { display: none; }
       .course-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
       .footer-grid, .support-cards { grid-template-columns: 1fr; }
       .branch-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
@@ -634,6 +654,44 @@
       .footer-grid { gap: 30px; }
       .footer-bottom { justify-content: center; text-align: center; }
       .wa-float { width: 50px; height: 50px; font-size: 24px; right: 14px; bottom: 14px; }
+    }
+
+    /* ============ CHAT ASSISTANT ============ */
+    .chat-fab {
+      position: fixed; right: 20px; bottom: 88px; z-index: 119; width: 56px; height: 56px; border-radius: 50%; border: 0; cursor: pointer;
+      display: grid; place-items: center; background: var(--green); color: var(--accent); font-size: 24px; box-shadow: 0 10px 26px rgba(27,58,28,.35); transition: transform .2s;
+    }
+    .chat-fab:hover { transform: scale(1.08); }
+    .chat-fab .dot { position: absolute; top: 2px; right: 2px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--green); }
+    .chat-fab.opened .dot { display: none; }
+    .chat-panel {
+      position: fixed; right: 20px; bottom: 156px; z-index: 120; width: 360px; max-height: min(520px, calc(100vh - 260px)); display: none; flex-direction: column;
+      background: var(--white); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 24px 60px rgba(16,37,18,.25); overflow: hidden;
+    }
+    .chat-panel.open { display: flex; animation: chatIn .25s ease; }
+    @keyframes chatIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .chat-head { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--green); color: var(--white); }
+    .chat-head .ava { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.12); color: var(--accent); font-size: 18px; }
+    .chat-head strong { display: block; font-size: 15px; }
+    .chat-head span { font-size: 12px; color: rgba(255,255,255,.75); }
+    .chat-head button { margin-left: auto; width: 32px; height: 32px; border: 0; border-radius: 10px; background: rgba(255,255,255,.12); color: var(--white); font-size: 18px; cursor: pointer; }
+    .chat-body { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; background: var(--green-tint); }
+    .chat-msg { max-width: 85%; padding: 10px 13px; border-radius: 14px; font-size: 14px; line-height: 1.5; }
+    .chat-msg.bot { background: var(--white); border: 1px solid var(--border); border-bottom-left-radius: 4px; color: var(--text); }
+    .chat-msg.bot a { color: var(--green-mid); font-weight: 700; text-decoration: underline; }
+    .chat-msg.user { align-self: flex-end; background: var(--green); color: var(--white); border-bottom-right-radius: 4px; }
+    .chat-quick { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chat-quick button { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--green-mid); background: var(--white); color: var(--green); font: inherit; font-size: 12.5px; font-weight: 700; cursor: pointer; }
+    .chat-quick button:hover { background: var(--green); color: var(--white); }
+    .chat-contact { display: grid; gap: 8px; padding: 12px; border-radius: 14px; background: var(--white); border: 1px solid var(--border); }
+    .chat-contact input { padding: 9px 11px; border-radius: 10px; border: 1px solid var(--border); font: inherit; font-size: 14px; }
+    .chat-contact button { padding: 10px; border: 0; border-radius: 10px; background: var(--green); color: var(--accent); font: inherit; font-weight: 800; cursor: pointer; }
+    .chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--border); background: var(--white); }
+    .chat-form input { flex: 1; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); font: inherit; font-size: 14px; }
+    .chat-form button { width: 42px; border: 0; border-radius: 12px; background: var(--green); color: var(--accent); font-size: 16px; cursor: pointer; }
+    @media (max-width: 600px) {
+      .chat-fab { width: 50px; height: 50px; right: 14px; bottom: 74px; font-size: 21px; }
+      .chat-panel { right: 10px; left: 10px; width: auto; bottom: 134px; }
     }
   </style>
 </head>
@@ -1304,6 +1362,23 @@
     </div>
   </footer>
 
+  <!-- Chat assistant: quick answers; typed questions are emailed to the leads inbox -->
+  <button type="button" class="chat-fab" id="chatToggle" onclick="toggleChat()" aria-label="Open chat assistant" aria-controls="chatPanel" aria-expanded="false">
+    <svg class="i"><use href="#i-chat"/></svg><span class="dot" aria-hidden="true"></span>
+  </button>
+  <div class="chat-panel" id="chatPanel" role="dialog" aria-label="Greens course assistant">
+    <div class="chat-head">
+      <span class="ava"><svg class="i"><use href="#i-chat"/></svg></span>
+      <div><strong>Greens Course Assistant</strong><span>Usually replies within minutes</span></div>
+      <button type="button" onclick="toggleChat(false)" aria-label="Close chat">×</button>
+    </div>
+    <div class="chat-body" id="chatBody"></div>
+    <form class="chat-form" onsubmit="sendChat(event)">
+      <input type="text" id="chatInput" placeholder="Type your question..." aria-label="Type your question" autocomplete="off" />
+      <button type="submit" aria-label="Send"><svg class="i"><use href="#i-arrow"/></svg></button>
+    </form>
+  </div>
+
   <a class="wa-float" href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20am%20interested%20in%20your%20courses." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
 
   <script>
@@ -1327,19 +1402,31 @@
       { title: 'Power BI & Tableau', tag: 'Analytics', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80',
         meta: 'Business Intelligence · Classroom & Online', desc: 'Dashboards, data modelling and reporting for business analytics roles.' },
       { title: 'Digital Marketing', tag: '100% Placement', img: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80',
-        meta: 'Master Program · Classroom & Online', desc: 'SEO, social media, Google Ads, content and analytics — hands-on campaigns.' }
+        meta: 'Master Program · Classroom & Online', desc: 'SEO, social media, Google Ads, content and analytics — hands-on campaigns.' },
+      { title: 'Data Engineering', tag: 'High Package', img: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=700&q=80', link: 'data-engineering-course-chennai.html',
+        meta: 'Data Engineer · Classroom & Online', desc: 'Python, SQL, PySpark, AWS or Azure, Snowflake, dbt and Airflow pipelines.' },
+      { title: 'Data Analytics', tag: 'Job Oriented', img: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=700&q=80', link: 'data-analytics-course-chennai.html',
+        meta: 'Data Analyst · Classroom & Online', desc: 'SQL Server, Power BI, Python, Excel and Tableau with healthcare projects.' },
+      { title: 'Artificial Intelligence', tag: 'Trending', img: 'https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/AI%20Neural%20Network%20Infographic.png', link: 'ai-training-course.html',
+        meta: 'AI Engineer · Classroom & Online', desc: 'Machine learning, deep learning, Generative AI and Agentic AI in 7 levels.' },
+      { title: 'CCNA Networking', tag: 'Cisco Certified', img: 'assets/courses/ccna-hero.jpg', link: 'ccna-course-chennai.html',
+        meta: 'Network Engineer · Classroom & Online', desc: 'Cisco CCNA 200-301: subnetting, routing, switching, VLANs and security.' }
     ];
-    document.getElementById('courseGrid').innerHTML = courses.map(c => `
+    // Per-course rating shown on each card (update with your real course ratings)
+    const courseRatings = [4.9, 4.8, 4.9, 4.7, 4.8, 4.9, 4.7, 4.8, 4.9, 4.8, 4.9, 4.7];
+    document.getElementById('courseGrid').innerHTML = courses.map((c, i) => `
       <article class="course-card">
         <div class="course-thumb"><img src="${c.img}" alt="${c.title} course" loading="lazy" /><span class="tag">${c.tag}</span></div>
         <div class="course-body">
           <div class="course-meta">${c.meta}</div>
           <h3>${c.title}</h3>
           <p class="desc">${c.desc}</p>
-          <div class="rating"><span class="stars">★★★★★</span><b>4.9</b><small>student rating</small></div>
+          <div class="course-rating"><span class="cr-badge">★ ${courseRatings[i].toFixed(1)}</span><span class="cr-bar"><i style="width:${courseRatings[i] / 5 * 100}%"></i></span><small>Student rating</small></div>
           <div class="course-foot">
             <span class="fees">Call for fees & offers</span>
-            <a href="${waLink('Hi Greens Technologys, I am interested in the ' + c.title + ' course. Please share the fees and batch details.')}" target="_blank" rel="noopener" class="link-arrow">Enquire <svg class="i"><use href="#i-arrow"/></svg></a>
+            ${c.link
+              ? `<a href="${c.link}" class="link-arrow">View Course <svg class="i"><use href="#i-arrow"/></svg></a>`
+              : `<a href="${waLink('Hi Greens Technologys, I am interested in the ' + c.title + ' course. Please share the fees and batch details.')}" target="_blank" rel="noopener" class="link-arrow">Enquire <svg class="i"><use href="#i-arrow"/></svg></a>`}
           </div>
         </div>
       </article>`).join('');
@@ -1348,36 +1435,37 @@
     const courseGrid = document.getElementById('courseGrid');
     const coursePrev = document.getElementById('coursePrev');
     const courseNext = document.getElementById('courseNext');
-    const updateCourseNav = () => {
-      coursePrev.disabled = courseGrid.scrollLeft <= 2;
-      courseNext.disabled = courseGrid.scrollLeft + courseGrid.clientWidth >= courseGrid.scrollWidth - 2;
-    };
-    coursePrev.addEventListener('click', () => courseGrid.scrollBy({ left: -(courseGrid.clientWidth + 22) }));
-    courseNext.addEventListener('click', () => courseGrid.scrollBy({ left: courseGrid.clientWidth + 22 }));
-    courseGrid.addEventListener('scroll', updateCourseNav, { passive: true });
-    window.addEventListener('resize', updateCourseNav);
-    updateCourseNav();
+    // Arrows never switch off: past the last set they wrap back to the first, and vice versa
+    const courseStep = () => courseGrid.clientWidth + 22;
+    const courseMax = () => courseGrid.scrollWidth - courseGrid.clientWidth;
+    coursePrev.addEventListener('click', () => {
+      courseGrid.scrollTo({ left: courseGrid.scrollLeft <= 2 ? courseMax() : courseGrid.scrollLeft - courseStep() });
+    });
+    courseNext.addEventListener('click', () => {
+      courseGrid.scrollTo({ left: courseGrid.scrollLeft >= courseMax() - 2 ? 0 : courseGrid.scrollLeft + courseStep() });
+    });
 
     /* ---------- Student reviews (arrow slider) ---------- */
+    // Real placements from the course pages, each with the student's offer letter
     const reviews = [
-      { name: 'Surya Prakash', role: 'AI Software Engineer', company: 'Jaikrishna Technology', pkg: '₹14.5 LPA',
-        headline: 'From classroom labs to an AI engineering role',
-        quote: 'Before joining Greens, I knew a little Python but had never built a real model. The trainer started from the basics and took us step by step into machine learning and deep learning with TensorFlow. Every week we built something, and my final project, an image classifier, became the main talking point in my interviews. The mock interviews were tough, but they prepared me well for the actual rounds at Jaikrishna Technology.' },
-      { name: 'Priyanka M', role: 'NLP & Python Specialist', company: 'BCC Martech', pkg: '₹12.0 LPA',
-        headline: 'I finally found a clear direction for my career',
-        quote: 'After college I was confused about which technology to choose. The counsellor suggested Python with NLP, and it was the right decision. The classes were practical, the trainer explained every doubt patiently in Tamil and English, and the text-classification projects gave me real work to show. The placement team helped me rewrite my resume, and I joined BCC Martech as an NLP & Python Specialist.' },
-      { name: 'Maheshwaran R', role: 'Computer Vision Associate', company: 'Zoho Corporation', pkg: '₹16.0 LPA',
-        headline: 'The practical labs made all the difference',
-        quote: 'I learn best by doing, and that is exactly how Greens teaches. We practised computer vision with OpenCV and CNNs on real datasets in the lab, not just slides. My trainer reviewed my project code personally and showed me how to explain it like a professional. That confidence helped me clear the technical rounds at Zoho Corporation.' },
-      { name: 'Ananya Sundaram', role: 'Azure AI Associate', company: 'Cognizant', pkg: '₹11.5 LPA',
-        headline: 'From manual testing to a cloud AI role',
-        quote: 'I worked in manual testing for two years and had almost no coding experience. The weekend batch fitted my job, and the trainers started from zero without making me feel left behind. I learned Python, machine learning and Azure AI services with hands-on labs every week. The resume workshop and mock interviews helped me make the switch, and I joined Cognizant as an Azure AI Associate.' },
-      { name: 'Karthik Raja', role: 'ML Developer', company: 'TCS Digital', pkg: '₹9.5 LPA',
-        headline: 'Fresher to ML developer in four months',
-        quote: 'I joined right after college with no work experience. The course had a clear day-by-day plan, so I always knew what to practise next. By the end I had a complete machine learning project on GitHub, and the interviewers at TCS Digital asked me about it in detail. The placement support until my offer letter was really helpful.' },
-      { name: 'Divya Lakshmi', role: 'Analytics Specialist', company: 'Accenture', pkg: '₹13.2 LPA',
-        headline: 'A non-IT graduate in a growing data role',
-        quote: 'I have a commerce degree and was nervous about learning technology. The trainers explained everything from the basics, and the daily doubt-clearing sessions made a big difference. I built dashboards and analysis projects that I could proudly show in interviews. Today I work at Accenture as an Analytics Specialist, which I never imagined was possible for me.' }
+      { name: 'C Malarvizhi', course: 'Data Engineering', role: 'Tech Lead · Bengaluru', company: 'Tech Mahindra', pkg: '₹14 LPA',
+        headline: 'Now a Tech Lead at Tech Mahindra', letter: 'assets/offer-letters/c-malarvizhi-tech-mahindra.jpg',
+        quote: 'I had spent years working with data in bits and pieces without a clear path forward. The course gave me that path: SQL and Python first, then AWS pipelines, PySpark and Snowflake, all tied together in one capstone I could walk interviewers through. The mock interviews prepared me for exactly the kind of architecture questions a Tech Lead round asks. I cleared the Tech Mahindra process and stepped into a Tech Lead role at 14 LPA.' },
+      { name: 'Manish V', course: 'AWS DevOps', role: 'Lead Cloud Engineer · Chennai', company: 'Bounteous x Accolite', pkg: '₹20 LPA',
+        headline: 'Now a Lead Cloud Engineer at Bounteous x Accolite', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AWS/aws-manish-v-bounteous.jpg',
+        quote: 'I already worked in IT, but I wanted to lead cloud projects. The course gave me a strong base in AWS architecture, networking and security, along with infrastructure as code using Terraform. The real-world projects taught me how to design and automate a complete environment, which helped me confidently clear the interviews for the Lead Cloud Engineer role at Bounteous x Accolite.' },
+      { name: 'Yuvashree V', course: 'Data Analytics', role: 'Senior Data Engineer · Bangalore', company: 'Tiger Analytics', pkg: '₹23 LPA',
+        headline: 'Now a Senior Data Engineer at Tiger Analytics', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data+Analystics/da-yuvashree-v-tiger-analytics.jpg',
+        quote: 'I wanted to work on large data and business intelligence projects. The course gave me strong SQL and Python skills, along with Power BI and Tableau for reporting, and the projects showed me how data teams work in real companies. The trainers and placement team guided me at every step, and I joined Tiger Analytics as a Senior Data Engineer in the Business Intelligence team.' },
+      { name: 'Rahul T', course: 'Data Engineering', role: 'Manager · Chennai', company: 'Capgemini', pkg: '₹19 LPA',
+        headline: 'Now a Manager at Capgemini', letter: 'assets/offer-letters/rahul-t-capgemini.jpg',
+        quote: 'As a working professional, I needed depth, not another overview course. The modules on lakehouse design, Glue and Athena workflows, and pipeline orchestration matched what senior data roles actually test. I could discuss medallion architecture and partitioning trade-offs from real lab work, not slides. That made the difference in the Manager interviews, and I moved to 19 LPA.' },
+      { name: 'Mohammed Hakeem', course: 'AWS DevOps', role: 'DevOps Engineer · Bangalore', company: 'Verint', pkg: '₹15 LPA',
+        headline: 'Now a DevOps Engineer at Verint', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AWS/aws-mohammed-hakeem-verint.jpg',
+        quote: 'My goal was a proper DevOps Engineer role, and this course covered exactly what interviewers ask: Git, Jenkins pipelines, Docker images, Kubernetes deployments and monitoring on AWS. Every topic had a lab, so I learned by doing, not just watching. The resume review and interview practice helped me present my projects clearly, and I joined Verint as a DevOps Engineer in Bangalore.' },
+      { name: 'Jeevitha Mohan', course: 'Data Analytics', role: 'Tech Lead · Chennai', company: 'Tech Mahindra', pkg: '₹18 LPA',
+        headline: 'Now a Tech Lead at Tech Mahindra', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data+Analystics/da-jeevitha-mohan-tech-mahindra.jpg',
+        quote: 'I wanted to strengthen my data skills to take on a leadership role. The course covered SQL Server, Power BI and Excel analytics in a clear sequence, with real business scenarios in every class. Building dashboards in the healthcare project showed me how to turn raw data into decisions, and that experience helped me secure the Tech Lead role at Tech Mahindra.' }
     ];
     const initials = n => n.split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
     const pad2 = n => String(n).padStart(2, '0');
@@ -1398,12 +1486,19 @@
           <div class="story-top">
             <div class="story-who">
               <div class="story-av">${initials(r.name)}</div>
-              <div><h3>${r.name}<span class="verified">✓ Verified Student</span></h3><p>${r.role} · <b>Placed at ${r.company}</b></p></div>
+              <div><h3>${r.name}<span class="verified">✓ Verified Student</span></h3><p>${r.course} Student · ${r.role} · <b>Placed at ${r.company}</b></p></div>
             </div>
             <div class="story-meta"><span class="stars">★★★★★</span><span class="pkg">Package: ${r.pkg}</span></div>
           </div>
           <h4 class="headline">${r.headline}</h4>
           <blockquote>&ldquo;${r.quote}&rdquo;</blockquote>
+          <button type="button" class="letter-btn" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.hidden); this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'View Offer Letter' : 'Hide Offer Letter';">
+            <svg class="i"><use href="#i-book"/></svg> <span>View Offer Letter</span>
+          </button>
+          <div class="story-letter" hidden>
+            <a href="${r.letter}" target="_blank" rel="noopener"><img src="${r.letter}" alt="${r.name}'s offer letter from ${r.company} (personal details hidden)" loading="lazy" /></a>
+            <small>Personal details hidden for privacy · Tap to enlarge</small>
+          </div>
         </article>`;
       [...storyPicks.children].forEach((b, k) => { b.classList.toggle('on', k === storyIndex); b.setAttribute('aria-pressed', k === storyIndex); });
       document.getElementById('storyCount').textContent = `${pad2(storyIndex + 1)} / ${pad2(reviews.length)}`;
@@ -1592,6 +1687,115 @@
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- Chat assistant (typed questions are emailed via Web3Forms) ---------- */
+    const LEADS_ENDPOINT = 'https://api.web3forms.com/submit';
+    const WEB3FORMS_KEY = 'c2a04e56-f565-4839-8c7b-88136322df4a';
+    const sendLead = (fields, purpose) => fetch(LEADS_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3FORMS_KEY,
+        subject: `New Lead: ${purpose} | Landing Page`,
+        from_name: 'Greens Technologies Website',
+        ...fields,
+        'Enquiry Type': purpose,
+        'Course Page': 'Landing Page',
+        'Page URL': window.location.href,
+        'Submitted At': new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' })
+      }),
+      keepalive: true
+    }).then(r => r.json()).then(r => { if (String(r.success) !== 'true') console.warn('Web3Forms did not accept the lead:', r.message); })
+      .catch(err => console.warn('Web3Forms request failed:', err));
+
+    const CHAT_TOPICS = {
+      'Courses': 'We offer 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more. <a href="#courses" onclick="toggleChat(false)">See popular courses</a>',
+      'Placements': 'Our placement cell helps with resume building, mock interviews and job openings, with 500+ hiring partners. <a href="#placements" onclick="toggleChat(false)">See where our students work</a>',
+      'Nearest branch': 'We have 25 centres across Chennai, Bengaluru, Coimbatore, Salem and Trichy. <a href="#branches" onclick="toggleChat(false)">Find your nearest branch</a>',
+      'Course fees': 'Fees depend on the course and batch. Type your course name below and our advisor will send you the current fees and offers.',
+      'Book a free demo': 'Great! Type the course you are interested in below and our advisor will confirm your free demo class.'
+    };
+    const chatLead = { name: '', phone: '', pending: [] };
+
+    function addChatMsg(html, who) {
+      const body = document.getElementById('chatBody');
+      const msg = document.createElement('div');
+      msg.className = 'chat-msg ' + who;
+      if (who === 'user') msg.textContent = html; else msg.innerHTML = html;
+      body.appendChild(msg);
+      body.scrollTop = body.scrollHeight;
+    }
+
+    function toggleChat(force) {
+      const panel = document.getElementById('chatPanel');
+      const btn = document.getElementById('chatToggle');
+      const open = typeof force === 'boolean' ? force : !panel.classList.contains('open');
+      panel.classList.toggle('open', open);
+      btn.classList.add('opened');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      const body = document.getElementById('chatBody');
+      if (open && !body.children.length) {
+        addChatMsg('Hi! I am the Greens course assistant. How can I help you today?', 'bot');
+        const wrap = document.createElement('div');
+        wrap.className = 'chat-quick';
+        Object.keys(CHAT_TOPICS).forEach(topic => {
+          const b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = topic;
+          b.onclick = () => { addChatMsg(topic, 'user'); setTimeout(() => addChatMsg(CHAT_TOPICS[topic], 'bot'), 300); };
+          wrap.appendChild(b);
+        });
+        body.appendChild(wrap);
+      }
+      if (open) document.getElementById('chatInput').focus({ preventScroll: true });
+    }
+
+    function emailChat(questions) {
+      sendLead({ 'Full Name': chatLead.name, 'Mobile Number': chatLead.phone, 'Chat Question': questions.join('\n') }, 'Chat Assistant Question');
+    }
+
+    function askChatContact() {
+      const body = document.getElementById('chatBody');
+      if (body.querySelector('.chat-contact')) return;
+      const form = document.createElement('form');
+      form.className = 'chat-contact';
+      form.innerHTML = `<input type="text" placeholder="Your name *" aria-label="Your name" required>
+        <input type="tel" placeholder="Mobile number (WhatsApp) *" aria-label="Mobile number" required>
+        <button type="submit">Send to our advisor</button>`;
+      form.onsubmit = ev => {
+        ev.preventDefault();
+        const [n, ph] = form.querySelectorAll('input');
+        chatLead.name = n.value.trim();
+        chatLead.phone = ph.value.trim();
+        emailChat(chatLead.pending);
+        chatLead.pending = [];
+        form.remove();
+        addChatMsg(`Thank you, ${chatLead.name.split(' ')[0]}! 🎉 Your question has been sent to our advisor, who will call or WhatsApp you shortly.`, 'bot');
+      };
+      body.appendChild(form);
+      body.scrollTop = body.scrollHeight;
+      form.querySelector('input').focus();
+    }
+
+    function sendChat(e) {
+      e.preventDefault();
+      const input = document.getElementById('chatInput');
+      const text = input.value.trim();
+      if (!text) return;
+      addChatMsg(text, 'user');
+      input.value = '';
+      if (chatLead.phone) {
+        emailChat([text]);
+        setTimeout(() => addChatMsg('Got it! I have passed this to our advisor as well.', 'bot'), 300);
+        return;
+      }
+      chatLead.pending.push(text);
+      setTimeout(() => {
+        addChatMsg('Thanks for your question! Share your name and mobile number and our advisor will reply to you directly.', 'bot');
+        askChatContact();
+      }, 300);
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleChat(false); });
   </script>
 </body>
 </html>
