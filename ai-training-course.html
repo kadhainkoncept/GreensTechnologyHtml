@@ -5300,6 +5300,109 @@
       color: var(--text-light);
       font-size: 0.9rem;
     }
+
+    .addons-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .addons-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    /* Career Tracks - List UI */
+    .career-tracks-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .career-track-item {
+      background: #FFFFFF;
+      border: 1.5px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .career-track-item:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--brand-forest);
+    }
+
+    .career-track-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .career-track-title-wrap {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .career-track-item .project-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--brand-dark);
+      margin: 0;
+    }
+
+    .career-track-item .project-platform {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--brand-forest);
+      background: var(--cream-surface);
+      border: 1px solid var(--border-subtle);
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    .career-track-item .project-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .career-track-item .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-subtle);
+      margin-top: 0;
+    }
+
+    @media (max-width: 640px) {
+      .career-track-item {
+        padding: 18px 16px;
+      }
+
+      .career-track-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -5867,8 +5970,8 @@
           <div class="hero-enquiry">
             <div class="hero-media">
               <img
-                src="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/AI%20Neural%20Network%20Infographic.png"
-                alt="AI neural network infographic"
+                src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=900&amp;q=75&amp;auto=format&amp;fit=crop"
+                alt="Artificial intelligence neural network and machine learning visualization"
                 fetchpriority="high"
               />
             </div>
@@ -7370,88 +7473,11 @@
           </div>
         </div>
 
-        <!-- Career tracks & fees -->
-        <div class="tracks-head">
-          <h3>Career Tracks</h3>
-          <p>Pick the track that matches your goal. Level 1 Python is included free with every track from Level 2 upwards.</p>
-        </div>
-        <div class="projects-grid">
-          <div class="project-card">
-            <span class="project-number">Levels 1 + 2</span>
-            <h3 class="project-title">Data Analyst</h3>
-            <div class="project-platform">Duration: ~12 weeks / ~3 months</div>
-            <p class="project-desc">Python, SQL, statistics, and Power BI. The fastest route into a data role, with a complete enterprise dashboard suite as your portfolio.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: Data Analyst, MIS &amp; Reporting Analyst</span>
-              <span class="project-tag-pill">No prerequisites</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Levels 1 + 2 + 3</span>
-            <h3 class="project-title">Analytical Engineer</h3>
-            <div class="project-platform">Duration: ~20 weeks / ~4.5 months</div>
-            <p class="project-desc">Data Engineer and Data Analyst as one role. Everything above plus Git, PySpark, AWS, and a full production ETL pipeline from source to dashboard.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: Analytical Engineer, Data Engineer</span>
-              <span class="project-tag-pill">No prerequisites</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Levels 1 + 2 + 4</span>
-            <h3 class="project-title">Data Scientist</h3>
-            <div class="project-platform">Duration: ~20 weeks / ~4.5 months</div>
-            <p class="project-desc">Everything from the analyst track plus machine learning, NLP, deep learning, and computer vision. The classic full data science path.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: Data Scientist, ML Engineer</span>
-              <span class="project-tag-pill">No prerequisites</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Levels 1 + 2 + 4 + 5 + 6</span>
-            <h3 class="project-title">AI Engineer</h3>
-            <div class="project-platform">Duration: ~33 weeks / ~7.5 months</div>
-            <p class="project-desc">The most in-demand track of 2026. Data and machine learning foundations, then LLMs, RAG, and production AI agents.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: AI Engineer, GenAI Developer, Agentic AI Engineer</span>
-              <span class="project-tag-pill">No prerequisites</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Levels 5 + 6</span>
-            <h3 class="project-title">GenAI Engineer</h3>
-            <div class="project-platform">Duration: ~13 weeks / ~3 months</div>
-            <p class="project-desc">For working professionals who already know Python and basic ML. Straight into LLMs, RAG, agents, and MCP.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: GenAI Developer, RAG Engineer, Agentic AI Engineer</span>
-              <span class="project-tag-pill">Requires Python + ML basics</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <span class="project-number">Levels 5 + 7</span>
-            <h3 class="project-title">LLMOps Engineer</h3>
-            <div class="project-platform">Duration: ~13 weeks / ~3 months</div>
-            <p class="project-desc">For cloud and DevOps engineers. Learn what LLM applications are, then deploy, scale, secure, and monitor them in production.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: LLMOps Engineer, AI Platform Engineer</span>
-              <span class="project-tag-pill">Requires cloud or DevOps experience</span>
-            </div>
-          </div>
-          <div class="project-card">
-            <span class="project-number">All 7 Levels (L1 to L7)</span>
-            <h3 class="project-title">The Complete AI Programme</h3>
-            <div class="project-platform">Duration: ~47 weeks / ~11 months</div>
-            <p class="project-desc">The full ladder from your first line of Python to production AI platforms — every level, every project. Certificate at every stage.</p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Roles: Full-Stack Production AI Engineer</span>
-              <span class="project-tag-pill">No prerequisites — Python taught from scratch</span>
-            </div>
-          </div>
-        </div>
-
+        <!-- Add-ons -->
         <div class="tracks-head">
           <h3>Add-ons</h3>
         </div>
-        <div class="projects-grid">
+        <div class="addons-grid">
           <div class="project-card">
             <span class="project-number">Included Free</span>
             <h3 class="project-title">Level 1 Python — FREE</h3>
@@ -7466,6 +7492,112 @@
             <span class="project-number">Weekend Workshop</span>
             <h3 class="project-title">GenAI for Professionals</h3>
             <p class="project-desc">2-day non-coding weekend workshop on prompt engineering, practical AI tools, and n8n workflow automation.</p>
+          </div>
+        </div>
+
+        <!-- Career tracks & fees -->
+        <div class="tracks-head">
+          <h3>Career Tracks</h3>
+          <p>Pick the track that matches your goal. Level 1 Python is included free with every track from Level 2 upwards.</p>
+        </div>
+        <div class="career-tracks-list">
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">Levels 1 + 2</span>
+                <h3 class="project-title">Data Analyst</h3>
+              </div>
+              <div class="project-platform">Duration: ~12 weeks / ~3 months</div>
+            </div>
+            <p class="project-desc">Python, SQL, statistics, and Power BI. The fastest route into a data role, with a complete enterprise dashboard suite as your portfolio.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: Data Analyst, MIS &amp; Reporting Analyst</span>
+              <span class="project-tag-pill">No prerequisites</span>
+            </div>
+          </div>
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">Levels 1 + 2 + 3</span>
+                <h3 class="project-title">Analytical Engineer</h3>
+              </div>
+              <div class="project-platform">Duration: ~20 weeks / ~4.5 months</div>
+            </div>
+            <p class="project-desc">Data Engineer and Data Analyst as one role. Everything above plus Git, PySpark, AWS, and a full production ETL pipeline from source to dashboard.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: Analytical Engineer, Data Engineer</span>
+              <span class="project-tag-pill">No prerequisites</span>
+            </div>
+          </div>
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">Levels 1 + 2 + 4</span>
+                <h3 class="project-title">Data Scientist</h3>
+              </div>
+              <div class="project-platform">Duration: ~20 weeks / ~4.5 months</div>
+            </div>
+            <p class="project-desc">Everything from the analyst track plus machine learning, NLP, deep learning, and computer vision. The classic full data science path.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: Data Scientist, ML Engineer</span>
+              <span class="project-tag-pill">No prerequisites</span>
+            </div>
+          </div>
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">Levels 1 + 2 + 4 + 5 + 6</span>
+                <h3 class="project-title">AI Engineer</h3>
+              </div>
+              <div class="project-platform">Duration: ~33 weeks / ~7.5 months</div>
+            </div>
+            <p class="project-desc">The most in-demand track of 2026. Data and machine learning foundations, then LLMs, RAG, and production AI agents.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: AI Engineer, GenAI Developer, Agentic AI Engineer</span>
+              <span class="project-tag-pill">No prerequisites</span>
+            </div>
+          </div>
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">Levels 5 + 6</span>
+                <h3 class="project-title">GenAI Engineer</h3>
+              </div>
+              <div class="project-platform">Duration: ~13 weeks / ~3 months</div>
+            </div>
+            <p class="project-desc">For working professionals who already know Python and basic ML. Straight into LLMs, RAG, agents, and MCP.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: GenAI Developer, RAG Engineer, Agentic AI Engineer</span>
+              <span class="project-tag-pill">Requires Python + ML basics</span>
+            </div>
+          </div>
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">Levels 5 + 7</span>
+                <h3 class="project-title">LLMOps Engineer</h3>
+              </div>
+              <div class="project-platform">Duration: ~13 weeks / ~3 months</div>
+            </div>
+            <p class="project-desc">For cloud and DevOps engineers. Learn what LLM applications are, then deploy, scale, secure, and monitor them in production.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: LLMOps Engineer, AI Platform Engineer</span>
+              <span class="project-tag-pill">Requires cloud or DevOps experience</span>
+            </div>
+          </div>
+          <div class="career-track-item">
+            <div class="career-track-header">
+              <div class="career-track-title-wrap">
+                <span class="project-number">All 7 Levels (L1 to L7)</span>
+                <h3 class="project-title">The Complete AI Programme</h3>
+              </div>
+              <div class="project-platform">Duration: ~47 weeks / ~11 months</div>
+            </div>
+            <p class="project-desc">The full ladder from your first line of Python to production AI platforms — every level, every project. Certificate at every stage.</p>
+            <div class="project-tags">
+              <span class="project-tag-pill">Roles: Full-Stack Production AI Engineer</span>
+              <span class="project-tag-pill">No prerequisites — Python taught from scratch</span>
+            </div>
           </div>
         </div>
 
@@ -8955,7 +9087,7 @@
   <!-- Toast Notification -->
   <div class="toast-notice" id="toastNotice">
     <svg class="ico ico-lime" aria-hidden="true"><use href="#i-check-circle"/></svg>
-    <span id="toastMsg">Thank you! Our career counsellor will contact you shortly.</span>
+    <span id="toastMsg">Thank you! We will be in contact with you shortly.</span>
   </div>
 
   <!-- ============================================================
@@ -9320,13 +9452,23 @@
         : (e.target.querySelector('.hero-form-title')?.textContent || 'Hero Enquiry Form');
       sendLead(e.target, purpose);
       closeLeadModal();
+
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      if (submitBtn) {
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = 'Thank you! We will be in contact';
+        submitBtn.disabled = true;
+        setTimeout(() => {
+          submitBtn.innerHTML = originalText;
+          submitBtn.disabled = false;
+        }, 4000);
+      }
+
       if (deliver) {
         deliver();
         showToast('Thank you! Your download has started.');
-      } else if (inModal && /^Download/.test(purpose)) {
-        showToast('Thank you! We will share the PDF with you on WhatsApp and email shortly.');
       } else {
-        showToast('Request submitted! Our counselor will call you within 15 minutes.');
+        showToast('Thank you! We will be in contact with you shortly.');
       }
       e.target.reset();
     }

@@ -10,7 +10,7 @@
   <link rel="apple-touch-icon" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* ============ THEME – greens from the Greens Technologys logo ============ */
@@ -95,97 +95,91 @@
     .nav-links .btn:hover { background: var(--green-mid); }
     .menu-toggle { display: none; background: var(--green); border: 0; border-radius: 12px; padding: 8px; cursor: pointer; color: var(--white); }
 
-    /* ============ 1. HERO ============ */
-    .hero {
-      position: relative; padding: 56px 0 150px; overflow: hidden; text-align: center;
-      background:
-        radial-gradient(circle at 12% 30%, rgba(140,198,63,.22), transparent 30%),
-        radial-gradient(circle at 90% 55%, rgba(140,198,63,.2), transparent 32%),
-        linear-gradient(180deg, var(--green-tint) 0%, var(--green-soft) 100%);
+    /* ============ 1. HERO (centred, course orbit + class preview) ============ */
+    .hero { position: relative; padding: 40px 0 28px; overflow: hidden; text-align: center; background: linear-gradient(180deg, #f6f8f4 0%, var(--white) 70%); }
+    .hero-main { display: grid; grid-template-columns: 236px minmax(0, 1fr) 236px; align-items: center; gap: 24px; }
+    .hero-center { max-width: 640px; margin: 0 auto; }
+    .hero .hero-eyebrow { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin: 0 auto 22px; font-size: 12px; font-weight: 600; letter-spacing: .22em; text-transform: uppercase; color: #8a958b; }
+    .hero-eyebrow > * { opacity: 0; transform: translateY(8px); animation: eyebrowIn .6s ease forwards; }
+    .hero-eyebrow i { font-style: normal; color: #c3cbc3; }
+    .hero-eyebrow > :nth-child(2) { animation-delay: .25s; } .hero-eyebrow > :nth-child(3) { animation-delay: .45s; }
+    .hero-eyebrow > :nth-child(4) { animation-delay: .7s; } .hero-eyebrow > :nth-child(5) { animation-delay: .9s; }
+    @keyframes eyebrowIn { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .hero-eyebrow > * { animation: none; opacity: 1; transform: none; } }
+    .hero h1 { font-size: clamp(32px, 4vw, 56px); font-weight: 600; letter-spacing: -0.035em; line-height: 1.06; margin-bottom: 18px; color: var(--green-dark); }
+    .hero h1 .hl { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -0.01em; color: var(--accent-dark); font-size: 1.08em; }
+    .hero .hero-sub { font-size: 16px; font-weight: 600; color: var(--green); margin-bottom: 6px; }
+    .hero p { font-size: 15.5px; color: var(--muted); max-width: 600px; margin: 0 auto 26px; }
+    .hero-btns { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+    .hero-btns .btn { border-radius: 999px; padding: 12px 24px; }
+    .btn-lime { background: var(--green-dark); color: var(--white); }
+    .btn-lime:hover { background: var(--green); transform: translateY(-2px); }
+    .btn-line { background: var(--green-soft); color: var(--green); border-color: transparent; }
+    .btn-line:hover { background: var(--border); }
+
+    /* Course orbit: auto-scrolling course icons with connector lines */
+    .orbit { position: relative; margin: 26px auto 0; max-width: 1000px; height: 138px; }
+    .orbit-lines { position: absolute; left: 8%; right: 8%; top: 0; height: 46px; border: 1px solid var(--border); border-bottom: 0; border-radius: 16px 16px 0 0; }
+    .orbit-lines::before, .orbit-lines::after {
+      content: ""; position: absolute; top: -1px; width: 1px; height: 46px; background: var(--border);
     }
-    .hero::before {
-      content: ""; position: absolute; inset: 0;
-      background-image: radial-gradient(rgba(27,58,28,.07) 1px, transparent 1px);
-      background-size: 26px 26px;
-      mask-image: linear-gradient(180deg, #000 0%, transparent 85%);
+    .orbit-lines::before { left: 30%; } .orbit-lines::after { right: 30%; }
+    .orbit-track {
+      position: absolute; left: 0; right: 0; top: 46px; height: 104px; display: flex; align-items: center; overflow: hidden;
+      mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
     }
-    .hero-wrap { position: relative; min-height: 560px; }
-    .hero-center { position: relative; z-index: 2; max-width: 660px; margin: 0 auto; padding-top: 24px; }
-    .hero-badge {
-      display: inline-block; padding: 6px 16px; border-radius: 999px; margin-bottom: 22px;
-      background: rgba(140,198,63,.2); border: 1px solid rgba(140,198,63,.55); color: var(--accent-dark);
-      font-size: 12.5px; font-weight: 800; letter-spacing: 1.4px; text-transform: uppercase;
+    .orbit-row { display: flex; gap: 26px; width: max-content; animation: orbitScroll 38s linear infinite; }
+    .orbit:hover .orbit-row { animation-play-state: paused; }
+    @keyframes orbitScroll { to { transform: translateX(-50%); } }
+    .orbit-item {
+      flex-shrink: 0; width: 68px; height: 68px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--white); border: 1px solid var(--border); box-shadow: 0 6px 18px rgba(27,58,28,.07);
     }
-    .hero h1 { font-size: clamp(34px, 5.4vw, 64px); font-weight: 800; letter-spacing: -0.035em; line-height: 1.08; margin-bottom: 26px; }
-    .hero h1 .hl {
-      position: relative; display: inline-block;
-      background: linear-gradient(90deg, var(--accent-dark), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent;
-    }
-    .hero h1 .hl svg { position: absolute; left: 6%; bottom: -16px; width: 52%; height: 16px; color: var(--accent-dark); }
-    .hero .hero-sub { font-family: "Plus Jakarta Sans", sans-serif; font-size: clamp(18px, 2vw, 22px); font-weight: 800; color: var(--green); margin-bottom: 14px; }
-    .hero p { font-size: 16.5px; color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
-    .btn-lime { background: var(--accent); color: var(--green-dark); box-shadow: 0 10px 22px rgba(140,198,63,.35); }
-    .btn-lime:hover { background: #9dd44e; transform: translateY(-2px); }
-    .btn-line { background: var(--white); border-color: var(--green); color: var(--green); }
-    .btn-line:hover { background: var(--green); color: var(--white); }
-    .hero-proof { display: inline-flex; align-items: center; gap: 12px; margin-top: 26px; text-align: left; font-size: 13px; color: var(--muted); }
-    .hero-proof b { display: block; color: var(--green); font-size: 14px; }
+    .orbit-item img { width: 34px; height: 34px; object-fit: contain; }
+    @media (prefers-reduced-motion: reduce) { .orbit-row { animation: none; } }
+
+    /* Highlights row: two aligned cards */
+    .hl-card { height: 300px; display: flex; flex-direction: column; justify-content: center; text-align: left; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 22px 20px; box-shadow: 0 14px 34px rgba(27,58,28,.07); }
+    .hero-facts { list-style: none; display: grid; gap: 16px; }
+    .hero-fact { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); }
+    .hero-fact .fi { flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--green-tint); color: var(--green); font-size: 15px; }
+    .hero-fact b { color: var(--green); font-size: 13px; }
+    .hero-proof { gap: 16px; font-size: 13px; color: var(--muted); }
+    .hero-proof b { display: block; color: var(--green); font-size: 13.5px; }
+    .hero-proof .rating { display: flex; align-items: center; gap: 12px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+    .hero-proof .g-logo { width: 34px; height: 34px; flex-shrink: 0; }
+    .hero-proof .rating b { font-size: 16px; display: flex; align-items: center; gap: 2px; }
+    .hero-proof .rating .star { color: #f5b301; font-size: 13px; }
+    .hero-proof .rating small { display: block; font-size: 12px; color: #8a958b; }
+    .hero-proof .proof-row { display: flex; align-items: center; gap: 12px; }
+    .hero-proof .proof-row b { white-space: nowrap; }
+    .hero-proof .avatars img { width: 30px; height: 30px; }
+    .proof-hired { padding-top: 14px; border-top: 1px solid var(--border); font-size: 12px; color: #8a958b; }
+    .hired-logos { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 8px; }
+    .hired-logos span { padding: 3px 9px; border-radius: 999px; background: var(--green-tint); border: 1px solid var(--border); font-size: 11.5px; font-weight: 600; color: var(--green); }
+    .hired-logos a { font-size: 12px; font-weight: 600; color: var(--green); }
     .avatars { display: flex; }
-    .avatars img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; border: 3px solid var(--white); margin-left: -10px; }
+    .avatars img { width: 32px; height: 32px; border-radius: 50%; object-fit: cover; border: 2px solid var(--white); margin-left: -9px; }
     .avatars img:first-child { margin-left: 0; }
-
-    /* Floating chips + photos around the headline */
-    .hero-chip {
-      position: absolute; z-index: 3; display: flex; align-items: center; gap: 12px; padding: 12px 16px; text-align: left;
-      background: var(--white); border-radius: 16px; box-shadow: var(--shadow-lg); border: 1px solid var(--border);
-      color: var(--green); font-size: 13.5px; font-weight: 700; line-height: 1.3; animation: float 6s ease-in-out infinite;
-    }
-    .hero-chip small { display: block; font-size: 12px; color: var(--muted); font-weight: 500; }
-    .hero-chip .chip-ic { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--green-soft); font-size: 19px; flex-shrink: 0; }
-    .hero-chip .chev { color: var(--muted); font-size: 18px; margin-left: 4px; }
-    .hero-chip strong { font-family: "Plus Jakarta Sans"; font-size: 20px; font-weight: 800; }
-    .hero-chip .star { color: #f5b301; font-size: 15px; vertical-align: -1px; }
-    .chip-rating { top: 10px; left: 0; animation-delay: 0s; }
-    .chip-partners { top: 120px; left: 10px; animation-delay: -1.5s; }
-    .chip-lang { top: 455px; left: 0; animation-delay: -3s; }
-    .chip-support { top: 10px; right: 0; animation-delay: -2s; }
-    .chip-courses { top: 455px; right: 0; animation-delay: -4s; }
-    @keyframes float { 50% { transform: translateY(-8px); } }
-
-    .hero-photo { position: absolute; z-index: 1; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .photo-left { left: 30px; top: 205px; width: 250px; height: 280px; }
-    .photo-left::before {
-      content: ""; position: absolute; inset: 18px -26px -14px 30px; border-radius: 40px; background: var(--accent); opacity: .35; transform: rotate(-8deg);
-    }
-    .photo-left img { position: relative; border-radius: 32px 32px 32px 110px; box-shadow: var(--shadow-lg); }
-    .photo-right { right: 40px; top: 105px; width: 230px; height: 300px; transform: rotate(5deg); }
-    .photo-right img { border-radius: 28px; border: 6px solid var(--white); box-shadow: var(--shadow-lg); }
-    .photo-tag {
-      position: absolute; right: -28px; bottom: 26px; transform: rotate(-5deg); display: flex; align-items: center; gap: 10px;
-      padding: 10px 12px; border-radius: 14px; background: var(--white); box-shadow: var(--shadow-lg);
-      font-size: 12.5px; font-weight: 800; color: var(--green); text-align: left; line-height: 1.25;
-    }
-    .photo-tag span { width: 28px; height: 28px; border-radius: 50%; background: var(--green); color: var(--white); display: grid; place-items: center; font-size: 13px; transform: rotate(-45deg); }
     .icon-tile {
       flex-shrink: 0; display: grid; place-items: center; border-radius: 12px;
       background: var(--green); color: var(--white);
     }
 
-    /* Highlights (below header) */
-    .highlights { position: relative; z-index: 5; margin-top: -80px; padding: 0; }
-    .hl-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      background: var(--white); border-radius: 22px; box-shadow: var(--shadow-lg); overflow: hidden;
-      border: 1px solid var(--border);
-    }
-    .hl-item { padding: 28px 24px; display: flex; gap: 16px; align-items: center; border-right: 1px solid var(--border); transition: background .25s; }
+    /* Highlights / Stats: minimal, typographic */
+    .highlights { padding: 72px 0; background: var(--white); border-bottom: 1px solid var(--border); }
+    .hl-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--green); }
+    .hl-item { padding: 28px 28px 0 0; border-right: 1px solid var(--border); }
+    .hl-item + .hl-item { padding-left: 28px; }
     .hl-item:last-child { border-right: 0; }
-    .hl-item:hover { background: var(--green-tint); }
-    .hl-item .icon-tile { width: 56px; height: 56px; font-size: 25px; border-radius: 50%; background: var(--green-soft); color: var(--green); }
-    .hl-item h3 { font-size: 26px; font-weight: 800; }
-    .hl-item p { font-size: 14px; color: var(--muted); font-weight: 500; }
+    .hl-item h3 {
+      font-size: clamp(34px, 4vw, 52px); font-weight: 600; letter-spacing: -0.04em; line-height: 1;
+      color: var(--green);
+    }
+    .hl-item { transition: opacity .6s ease, transform .6s ease; }
+    .hl-item.hl-wait { opacity: 0; transform: translateY(18px); }
+    .hl-item p { margin-top: 14px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
 
     /* ============ 2. COURSES ============ */
     .course-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
@@ -457,17 +451,18 @@
       .nav-links a { padding: 8px 8px; font-size: 13.5px; }
       .course-grid { grid-template-columns: repeat(3, 1fr); }
     }
-    @media (max-width: 1240px) {
-      .hero-wrap { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; min-height: 0; }
-      .hero-center { order: -1; flex-basis: 100%; margin-bottom: 26px; }
-      .hero-chip { position: static; animation: none; box-shadow: var(--shadow); }
-      .hero-chip .chev, .hero-photo { display: none; }
-      .chip-lang br { display: none; }
+    @media (max-width: 1100px) {
+      .hero-main { grid-template-columns: 1fr 1fr; gap: 18px; }
+      .hl-card { height: auto; }
+      .hero-center { grid-column: 1 / -1; grid-row: 1; margin-bottom: 14px; }
+      .hero-facts { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 1024px) {
       .hl-grid { grid-template-columns: repeat(2, 1fr); }
+      .hl-grid { row-gap: 0; }
       .hl-item:nth-child(2) { border-right: 0; }
-      .hl-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .hl-item:nth-child(3) { padding-left: 0; }
+      .hl-item:nth-child(n+3) { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--border); }
       .company-grid { grid-template-columns: repeat(4, 1fr); }
       .review-card { flex-basis: calc((100% - 24px) / 2); }
       .branch-grid { grid-template-columns: repeat(3, 1fr); }
@@ -490,7 +485,7 @@
       .nav-links.open { right: 0; }
       .nav-links a { font-size: 15px; padding: 12px 14px; }
       .nav-links .btn { margin: 12px 0 0; }
-      .hero { padding: 44px 0 130px; }
+      .hero { padding: 48px 0 56px; }
       .why-head, .support-grid { grid-template-columns: 1fr; }
       .support-grid { gap: 36px; }
       .support-intro { text-align: center; }
@@ -510,23 +505,27 @@
       .topbar .container { justify-content: center; }
       .topbar-left { display: none; }
       .nav-links { width: 82%; }
-      .hero { padding: 32px 0 110px; }
+      .hero { padding: 32px 0 40px; }
       .hero p { font-size: 15.5px; }
       .hero h1 br { display: none; }
       .hero-btns .btn { width: 100%; }
-      .hero-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-      .hero-center { grid-column: 1 / -1; }
-      .hero-chip { padding: 10px 12px; gap: 10px; font-size: 12.5px; }
-      .hero-chip .chip-ic { width: 34px; height: 34px; font-size: 16px; }
-      .hero-chip strong { font-size: 17px; }
-      .chip-rating { grid-column: 1 / -1; }
-      .highlights { margin-top: -70px; }
-      .hl-grid, .course-grid, .branch-grid, .footer-grid, .support-cards { grid-template-columns: 1fr; }
+      .orbit { height: 160px; margin-top: 36px; }
+      .orbit-lines { left: 4%; right: 4%; }
+      .orbit-item { width: 56px; height: 56px; } .orbit-item img { width: 28px; height: 28px; }
+      .orbit-row { gap: 18px; }
+      .hero-main { grid-template-columns: 1fr; }
+      .hero-facts { grid-template-columns: 1fr; }
+      .highlights { margin-top: 0; padding: 28px 0; }
+      .course-grid, .branch-grid, .footer-grid, .support-cards { grid-template-columns: 1fr; }
       .support-card:nth-child(even) { transform: none; }
       .support-intro .btn { width: 100%; }
-      .hl-item { padding: 18px 20px; border-right: 0 !important; border-bottom: 1px solid var(--border); }
-      .hl-item:last-child { border-bottom: 0; }
-      .hl-item h3 { font-size: 22px; }
+      .highlights { padding: 48px 0; }
+      .hl-item { padding: 22px 14px 0 0; }
+      .hl-item + .hl-item { padding-left: 14px; }
+      .hl-item:nth-child(3) { padding-left: 0; }
+      .hl-item:nth-child(n+3) { padding-top: 22px; margin-top: 22px; }
+      .hl-item h3 { font-size: 30px; }
+      .hl-item p { font-size: 13px; margin-top: 10px; }
       .review-card { flex-basis: 100%; padding: 22px; }
       .why-carousel { height: 470px; }
       .wcard { width: min(300px, calc(100vw - 110px)); }
@@ -613,49 +612,18 @@
   <!-- ================= 1. HERO ================= -->
   <section class="hero" id="home">
     <div class="container hero-wrap">
-      <!-- Floating chips (left) -->
-      <div class="hero-chip chip-rating">
-        <span class="chip-ic" style="background:#fff;border:1px solid var(--border)">
-          <svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-        </span>
-        <div><strong>4.8</strong> <svg class="i star"><use href="#i-star"/></svg> Google Rating<small>10,132 Ratings</small></div>
-        <span class="chev">›</span>
-      </div>
-      <div class="hero-chip chip-partners">
-        <span class="chip-ic"><svg class="i"><use href="#i-building"/></svg></span>
-        <div><strong>500+</strong><small>Hiring Partners</small></div>
-        <span class="chev">›</span>
-      </div>
-      <div class="hero-chip chip-lang">
-        <span class="chip-ic"><svg class="i"><use href="#i-lang"/></svg></span>
-        <div>Tamil &amp; English <br />Training</div>
-        <span class="chev">›</span>
-      </div>
-
-      <!-- Floating chips (right) -->
-      <div class="hero-chip chip-support">
-        <span class="chip-ic"><svg class="i"><use href="#i-headset"/></svg></span>
-        <div>100% Lifetime Support</div>
-        <span class="chev">›</span>
-      </div>
-      <div class="hero-chip chip-courses">
-        <span class="chip-ic"><svg class="i"><use href="#i-book"/></svg></span>
-        <div>200+ Courses<small>Trainers from MNCs</small></div>
-        <span class="chev">›</span>
-      </div>
-
-      <!-- Photos -->
-      <div class="hero-photo photo-left">
-        <img src="https://images.unsplash.com/photo-1615109398623-88346a601842?w=600&q=80" alt="Smiling Greens Technologys student" />
-      </div>
-      <div class="hero-photo photo-right">
-        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" alt="Greens Technologys student placed in an IT job" />
-        <div class="photo-tag">From Learning<br />to a Great Career <span><svg class="i"><use href="#i-arrow"/></svg></span></div>
-      </div>
-
+      <div class="hero-main">
+        <div class="hl-card hl-facts">
+          <ul class="hero-facts">
+            <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-building"/></svg></span><span><b>500+</b> Hiring Partners</span></li>
+            <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-book"/></svg></span><span><b>200+ Courses</b> · Trainers from MNCs</span></li>
+            <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-headset"/></svg></span><span><b>100%</b> Lifetime Support</span></li>
+            <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-lang"/></svg></span><span><b>Tamil &amp; English</b> Training</span></li>
+          </ul>
+        </div>
       <div class="hero-center">
-        <span class="hero-badge">IT Training in Chennai · OMR</span>
-        <h1>No 1 Software Training<br /><span class="hl">Institute in Chennai<svg viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12C50 3 120 2 198 8" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/></svg></span></h1>
+        <p class="hero-eyebrow"><span>Industry Skills</span><i>/</i><span>Expert Trainers</span><i>/</i><span>Placement Support</span></p>
+        <h1>No 1 Software Training <br /><span class="hl">Institute in Chennai</span></h1>
         <p class="hero-sub">Practical training. Focused on getting you placed.</p>
         <p>Real-time training from trainers who work in MNCs. Choose from 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more — for freshers and working professionals.</p>
         <div class="hero-btns">
@@ -664,38 +632,97 @@
             <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Book a Free Demo
           </a>
         </div>
-        <div class="hero-proof">
-          <span class="avatars">
-            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=70" alt="" />
-            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&q=70" alt="" />
-            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&q=70" alt="" />
-            <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&q=70" alt="" />
-          </span>
-          <span><b>1 Lakh+ Students</b>Trained &amp; Placed</span>
+      </div>
+
+        <div class="hl-card hero-proof">
+          <div class="rating">
+            <svg class="g-logo" viewBox="0 0 48 48" aria-label="Google"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+            <div><b>4.8 <svg class="i star"><use href="#i-star"/></svg><svg class="i star"><use href="#i-star"/></svg><svg class="i star"><use href="#i-star"/></svg><svg class="i star"><use href="#i-star"/></svg><svg class="i star"><use href="#i-star"/></svg></b>Google Rating<small>10,132 Ratings</small></div>
+          </div>
+          <div class="proof-row">
+            <span class="avatars">
+              <img src="https://images.unsplash.com/photo-1595152772835-219674b2a8a6?w=96&h=96&fit=crop&crop=faces&q=70" alt="" />
+              <img src="https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?w=96&h=96&fit=crop&crop=faces&q=70" alt="" />
+              <img src="https://images.unsplash.com/photo-1557862921-37829c790f19?w=96&h=96&fit=crop&crop=faces&q=70" alt="" />
+            </span>
+            <span><b>1 Lakh+ Students</b>Trained &amp; Placed</span>
+          </div>
+          <div class="proof-hired">
+            <span>Our students work at</span>
+            <div class="hired-logos">
+              <span>Zoho</span><span>TCS</span><span>Accenture</span><span>Cognizant</span><a href="#placements">+ more</a>
+            </div>
+          </div>
         </div>
       </div>
+
+      <!-- Auto-scrolling course icons -->
+      <div class="orbit" aria-label="Courses we teach">
+        <div class="orbit-lines" aria-hidden="true"></div>
+        <div class="orbit-track">
+          <div class="orbit-row">
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="Python" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="Java" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" alt="Azure" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="React" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/selenium/selenium-original.svg" alt="Selenium" /></span>
+            <span class="orbit-item"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="Power BI" /></span>
+            <span class="orbit-item"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="SAP" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/oracle/oracle-original.svg" alt="Oracle" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="Docker" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/kubernetes/kubernetes-original.svg" alt="Kubernetes" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/tableau.svg" alt="Tableau" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/salesforce/salesforce-original.svg" alt="Salesforce" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/angular/angular-original.svg" alt="Angular" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="Node.js" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/googlecloud/googlecloud-original.svg" alt="Google Cloud" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jenkins/jenkins-original.svg" alt="Jenkins" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" /></span>
+            <span class="orbit-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/terraform/terraform-original.svg" alt="Terraform" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/python/python-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/java/java-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/azure/azure-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/selenium/selenium-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://upload.wikimedia.org/wikipedia/commons/5/59/SAP_2011_logo.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/oracle/oracle-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/docker/docker-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/kubernetes/kubernetes-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/npm/simple-icons@11.0.0/icons/tableau.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/salesforce/salesforce-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/angular/angular-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/googlecloud/googlecloud-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/jenkins/jenkins-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/tensorflow/tensorflow-original.svg" alt="" /></span>
+            <span class="orbit-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/terraform/terraform-original.svg" alt="" /></span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Highlights below header -->
-  <section class="highlights">
+  <!-- ================= KEY STATS SECTION ================= -->
+  <section class="highlights" id="key-stats">
     <div class="container">
       <div class="hl-grid">
         <div class="hl-item">
-          <div class="icon-tile"><svg class="i"><use href="#i-award"/></svg></div>
-          <div><h3 data-count="70" data-prefix="₹" data-suffix=" LPA">₹0 LPA</h3><p>Highest Package Offered</p></div>
+          <div><h3 data-count="70" data-prefix="₹" data-suffix=" LPA">₹70 LPA</h3><p>Highest Package Offered</p></div>
         </div>
         <div class="hl-item">
-          <div class="icon-tile"><svg class="i"><use href="#i-trend"/></svg></div>
-          <div><h3 data-count="95" data-suffix="%">0%</h3><p>Placement Success Rate</p></div>
+          <div><h3 data-count="95" data-suffix="%">95%</h3><p>Placement Success Rate</p></div>
         </div>
         <div class="hl-item">
-          <div class="icon-tile"><svg class="i"><use href="#i-cap"/></svg></div>
-          <div><h3>1 Lakh+</h3><p>Students Placed</p></div>
+          <div><h3 data-count="100000" data-suffix="+">1,00,000+</h3><p>Students Placed</p></div>
         </div>
         <div class="hl-item">
-          <div class="icon-tile"><svg class="i"><use href="#i-monitor"/></svg></div>
-          <div><h3>4</h3><p>Flexible Training Modes</p></div>
+          <div><h3 data-count="4">4</h3><p>Flexible Training Modes</p></div>
         </div>
       </div>
     </div>
@@ -1193,22 +1220,31 @@
     }, { threshold: 0.12 });
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    /* ---------- Count-up highlights ---------- */
-    const countObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (!e.isIntersecting) return;
-        const el = e.target, target = +el.dataset.count, prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
-        const start = performance.now(), duration = 1600;
-        const tick = now => {
-          const p = Math.min((now - start) / duration, 1);
-          el.textContent = prefix + Math.floor(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN') + suffix;
-          if (p < 1) requestAnimationFrame(tick);
-        };
-        requestAnimationFrame(tick);
-        countObserver.unobserve(el);
-      });
-    }, { threshold: 0.5 });
-    document.querySelectorAll('[data-count]').forEach(el => countObserver.observe(el));
+    /* ---------- Count-up highlights (stats appear and count one by one) ---------- */
+    const countUp = el => {
+      const target = +el.dataset.count, prefix = el.dataset.prefix || '', suffix = el.dataset.suffix || '';
+      const start = performance.now(), duration = 1400;
+      const tick = now => {
+        const p = Math.min((now - start) / duration, 1);
+        el.textContent = prefix + Math.floor(target * (1 - Math.pow(1 - p, 3))).toLocaleString('en-IN') + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+    const statsGrid = document.querySelector('.hl-grid');
+    if (statsGrid) {
+      const items = [...statsGrid.querySelectorAll('.hl-item')];
+      items.forEach(item => item.classList.add('hl-wait'));
+      new IntersectionObserver((entries, obs) => {
+        if (!entries[0].isIntersecting) return;
+        obs.disconnect();
+        items.forEach((item, i) => setTimeout(() => {
+          item.classList.remove('hl-wait');
+          const num = item.querySelector('[data-count]');
+          if (num) countUp(num);
+        }, i * 450));
+      }, { threshold: 0.4 }).observe(statsGrid);
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
