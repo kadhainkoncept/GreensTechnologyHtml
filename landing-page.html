@@ -83,6 +83,16 @@
     .topbar-left, .topbar-right { display: flex; gap: 18px; align-items: center; font-weight: 600; }
     .topbar-right a { display: inline-flex; align-items: center; gap: 6px; }
     .topbar a:hover { color: var(--accent); }
+    .top-hire { display: none; align-items: center; gap: 6px; flex-shrink: 0; }
+    .top-pill {
+      display: inline-flex; align-items: center; gap: 5px; padding: 4px 11px; border-radius: 999px; white-space: nowrap;
+      font-size: 12px; font-weight: 800; line-height: 1.5; box-shadow: 0 1px 3px rgba(0,0,0,.08); transition: all .2s;
+    }
+    .top-pill.white { background: var(--white); color: var(--green); border: 1px solid rgba(255,255,255,.9); }
+    .top-pill.lime { background: #c8f169; color: var(--green-dark); border: 1px solid rgba(200,241,105,.85); }
+    .topbar .top-pill:hover { color: var(--green-dark); transform: translateY(-1px); }
+    .topbar .top-pill.white:hover { background: #c8f169; }
+    .topbar .top-pill.lime:hover { background: var(--white); }
 
     /* ============ NAVBAR ============ */
     .navbar {
@@ -392,25 +402,67 @@
     }
 
     /* ============ PLACEMENT ASSISTANCE ============ */
-    .support { background: var(--white); }
-    .support-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 56px; align-items: center; }
-    .support-eyebrow {
+    .support { background: var(--green-tint); border-top: 1px solid var(--border); }
+    .support-eyebrow, .faq-eyebrow {
       display: inline-block; padding: 6px 14px; border-radius: 999px; margin-bottom: 16px;
       background: rgba(140,198,63,.2); color: var(--accent-dark); font-size: 12.5px; font-weight: 800; letter-spacing: 1.2px; text-transform: uppercase;
     }
-    .support-intro h2 { font-size: clamp(28px, 3.8vw, 40px); font-weight: 800; margin-bottom: 16px; }
-    .support-intro p { color: var(--muted); font-size: 16.5px; margin-bottom: 28px; }
-    .support-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .support-card {
-      padding: 24px; border-radius: 20px; background: var(--green-tint); border: 1px solid var(--border); transition: all .25s;
+    .support .section-head { max-width: 760px; }
+    /* Career journey: 4 connected steps */
+    .journey { list-style: none; position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; counter-reset: step; }
+    .journey::before {
+      content: ""; position: absolute; top: 27px; left: 12.5%; right: 12.5%; height: 2px;
+      background: repeating-linear-gradient(90deg, var(--accent-dark) 0 8px, transparent 8px 16px); opacity: .55;
     }
-    .support-card:nth-child(even) { transform: translateY(28px); }
-    .support-card:hover { background: var(--white); border-color: var(--accent); box-shadow: var(--shadow-lg); }
-    .support-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; }
-    .support-card .icon-tile { width: 48px; height: 48px; font-size: 22px; }
-    .support-num { font-family: "Plus Jakarta Sans"; font-size: 30px; font-weight: 800; color: rgba(27,58,28,.12); }
-    .support-card h4 { font-size: 17px; margin-bottom: 8px; }
-    .support-card p { font-size: 14px; color: var(--muted); }
+    .step { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .step-node {
+      position: relative; z-index: 1; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; margin-bottom: 18px;
+      background: var(--green); color: var(--accent); font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: 17px;
+      box-shadow: 0 0 0 6px var(--green-tint), 0 0 0 7px var(--border); transition: transform .25s;
+    }
+    .step-card {
+      flex: 1; width: 100%; padding: 24px 20px; border-radius: 20px; background: var(--white); border: 1px solid var(--border);
+      transition: all .25s; display: flex; flex-direction: column; align-items: center;
+    }
+    .step:hover .step-card { border-color: var(--accent); box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .step:hover .step-node { transform: scale(1.08); }
+    .step-card .icon-tile { width: 46px; height: 46px; font-size: 21px; margin-bottom: 14px; background: var(--green-soft); color: var(--green); }
+    .step-card h4 { font-size: 16.5px; margin-bottom: 8px; }
+    .step-card p { font-size: 14px; color: var(--muted); }
+    .support-banner {
+      margin-top: 44px; padding: 28px 34px; border-radius: 22px; background: var(--green); color: rgba(255,255,255,.85);
+      display: flex; align-items: center; justify-content: space-between; gap: 24px;
+    }
+    .support-banner h3 { color: var(--white); font-size: clamp(19px, 2.4vw, 23px); margin-bottom: 6px; }
+    .support-banner p { font-size: 14.5px; max-width: 560px; }
+    .support-banner .cta-btns .btn { padding: 12px 22px; }
+
+    /* ============ FAQ ============ */
+    .faq { background: var(--white); }
+    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: start; }
+    .faq-intro { position: sticky; top: 110px; }
+    .faq-intro h2 { font-size: clamp(28px, 3.8vw, 40px); font-weight: 800; margin-bottom: 14px; }
+    .faq-intro > p { color: var(--muted); font-size: 16px; margin-bottom: 24px; }
+    .faq-help { padding: 22px; border-radius: 18px; background: var(--green-tint); border: 1px solid var(--border); }
+    .faq-help strong { display: block; color: var(--green); font-size: 16px; margin-bottom: 4px; }
+    .faq-help p { color: var(--muted); font-size: 14px; margin-bottom: 14px; }
+    .faq-help .cta-btns .btn { padding: 11px 18px; font-size: 14px; }
+    .faq-list { display: grid; gap: 12px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 16px; background: var(--white); transition: border-color .2s, box-shadow .2s; }
+    .faq-item[open] { border-color: var(--green-mid); box-shadow: var(--shadow); }
+    .faq-item summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 18px 20px; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 700; font-size: 16px; color: var(--green);
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 2px; border-radius: 16px; }
+    .faq-icon {
+      flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--green-soft); color: var(--green); font-size: 18px; font-weight: 700; line-height: 1; transition: all .25s;
+    }
+    .faq-item[open] .faq-icon { transform: rotate(45deg); background: var(--green); color: var(--accent); }
+    .faq-answer { padding: 0 20px 18px; color: var(--muted); font-size: 15px; }
+    .faq-answer a { color: var(--green-mid); font-weight: 700; text-decoration: underline; }
 
     /* ============ 5. HIRING COMPANIES ============ */
     .companies { background: var(--green); }
@@ -485,7 +537,7 @@
     .center-btn { text-align: center; margin-top: 36px; }
 
     /* CTA strip */
-    .cta { padding: 0; position: relative; z-index: 2; margin-bottom: -70px; background: var(--green-tint); }
+    .cta { padding: 0; position: relative; z-index: 2; margin-bottom: -70px; background: var(--white); }
     .cta-box {
       background: var(--white); border: 1px solid var(--border); border-radius: 24px; padding: 40px 46px;
       display: flex; align-items: center; justify-content: space-between; gap: 30px; box-shadow: var(--shadow-lg);
@@ -528,10 +580,49 @@
     .reveal { opacity: 0; transform: translateY(30px); transition: all .7s ease; }
     .reveal.show { opacity: 1; transform: none; }
 
-    /* Mobile menu backdrop */
-    .nav-overlay { display: none; position: fixed; inset: 0; background: rgba(16,37,18,.5); z-index: 100; }
-    .nav-overlay.show { display: block; }
+    /* ============ MOBILE MENU (top drop-down drawer, same as course pages) ============ */
+    .nav-cta-m { display: none; white-space: nowrap; }
     body.menu-open { overflow: hidden; }
+    .m-drawer { display: none; position: fixed; inset: 0; z-index: 1100; background: rgba(16,37,18,.72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
+    .m-drawer.active { display: block; }
+    .m-drawer-box {
+      background: var(--white); border-bottom-left-radius: 24px; border-bottom-right-radius: 24px; border-bottom: 3px solid var(--green-mid);
+      box-shadow: var(--shadow-lg); max-height: 88vh; overflow-y: auto; animation: drawerIn .25s ease-out;
+    }
+    @keyframes drawerIn { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+    .m-drawer-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 18px; background: var(--green); }
+    .m-drawer-head .logo img { height: 42px; width: 42px; }
+    .m-drawer-head .brand b { color: var(--white); font-size: 16px; letter-spacing: 2.4px; }
+    .m-drawer-head .brand small { color: rgba(255,255,255,.7); font-size: 8.5px; }
+    .m-close {
+      width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; cursor: pointer;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.2); color: var(--white);
+    }
+    .m-drawer-body { padding: 18px 20px 22px; }
+    .m-nav-title { font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; color: var(--accent-dark); margin-bottom: 6px; }
+    .m-nav-links { display: flex; flex-direction: column; margin-bottom: 18px; }
+    .m-nav-links a {
+      display: flex; align-items: center; justify-content: space-between; padding: 12px 10px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; color: var(--green-dark); border-bottom: 1px solid var(--border); transition: all .2s;
+    }
+    .m-nav-links a svg { color: var(--green-mid); }
+    .m-nav-links a:hover { background: var(--green-tint); }
+    .m-drawer-actions { display: grid; gap: 10px; }
+    .m-drawer-actions .btn { width: 100%; padding: 12px; }
+
+    /* ============ MOBILE STICKY ACTION BAR ============ */
+    .m-sticky-bar {
+      display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 95; gap: 10px; padding: 10px 16px;
+      padding-bottom: calc(10px + env(safe-area-inset-bottom)); background: var(--white); border-top: 1px solid var(--border);
+      box-shadow: 0 -4px 16px rgba(27,58,28,.1);
+    }
+    .m-sticky-bar a {
+      flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; height: 48px; border-radius: 12px;
+      font-size: 15px; font-weight: 700;
+    }
+    .m-sticky-call { background: var(--green-soft); border: 1.5px solid #c9d6bc; color: var(--green-dark); }
+    .m-sticky-call svg { color: var(--green-mid); }
+    .m-sticky-demo { background: linear-gradient(90deg, var(--green-dark), var(--green-mid)); color: var(--accent); box-shadow: 0 6px 16px rgba(27,58,28,.25); }
 
 
     /* ============ RESPONSIVE ============ */
@@ -561,23 +652,33 @@
     @media (max-width: 900px) {
       section { padding: 70px 0; }
       .topbar .hide-sm { display: none; }
-      .menu-toggle { display: block; position: relative; z-index: 102; }
-      .nav-inner { height: 68px; }
+      .menu-toggle { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; }
+      .nav-inner { height: 68px; gap: 10px; }
+      .logo { margin-right: auto; }
       .logo img { height: 48px; width: 48px; }
       .brand b { font-size: 17px; letter-spacing: 2.5px; }
       .brand small { font-size: 9px; letter-spacing: 2px; }
-      .nav-links {
-        position: fixed; top: 0; right: -100%; height: 100vh; width: 290px;
-        background: var(--white); flex-direction: column; align-items: stretch;
-        padding: 90px 22px; gap: 4px; transition: right .35s ease; box-shadow: -10px 0 30px rgba(0,0,0,.2); z-index: 101;
-      }
-      .nav-links.open { right: 0; }
-      .nav-links a { font-size: 15px; padding: 12px 14px; }
-      .nav-links .btn { margin: 12px 0 0; }
+      .nav-links { display: none; }
+      .nav-cta-m { display: inline-flex; padding: 10px 16px; font-size: 13.5px; border-radius: 12px; }
+      body { padding-bottom: 70px; }
+      .m-sticky-bar { display: flex; }
+      .wa-float { bottom: 84px; }
       .hero { padding: 48px 0 56px; }
-      .why-head, .support-grid { grid-template-columns: 1fr; }
-      .support-grid { gap: 36px; }
-      .support-intro { text-align: center; }
+      .why-head { grid-template-columns: 1fr; }
+      .journey { grid-template-columns: 1fr; gap: 16px; max-width: 560px; margin: 0 auto; }
+      .journey::before { display: none; }
+      .step:not(:last-child)::before {
+        content: ""; position: absolute; left: 27px; top: 56px; bottom: -16px; width: 2px; opacity: .55;
+        background: repeating-linear-gradient(180deg, var(--accent-dark) 0 8px, transparent 8px 16px);
+      }
+      .step { flex-direction: row; align-items: flex-start; text-align: left; gap: 16px; }
+      .step-node { margin-bottom: 0; flex-shrink: 0; }
+      .step-card { align-items: flex-start; padding: 20px; }
+      .support-banner { flex-direction: column; text-align: center; padding: 28px 22px; }
+      .support-banner .cta-btns { justify-content: center; }
+      .faq-grid { grid-template-columns: 1fr; gap: 32px; }
+      .faq-intro { position: static; text-align: center; }
+      .faq-help .cta-btns { justify-content: center; }
       .why-head { gap: 14px; margin-bottom: 36px; text-align: center; }
       .course-grid { grid-auto-columns: calc((100% - 22px) / 2); }
       .course-carousel { padding: 0 46px; }
@@ -591,10 +692,15 @@
       .container { padding: 0 16px; }
       .section-head { margin-bottom: 32px; }
       .section-head p { font-size: 15px; }
-      .topbar { font-size: 12px; }
-      .topbar .container { justify-content: center; }
+      .topbar { font-size: 12px; padding: 7px 0; background: linear-gradient(90deg, #0e5c43 0%, #146e52 50%, #0e5c43 100%); }
+      .topbar .container { justify-content: space-between; gap: 6px; padding: 0 12px; }
       .topbar-left { display: none; }
-      .nav-links { width: 82%; }
+      .top-hire { display: flex; }
+      .top-phone {
+        padding: 4px 10px; border-radius: 999px; background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.2);
+        color: var(--white); font-weight: 800; font-size: 12px; white-space: nowrap; line-height: 1.5;
+      }
+      .top-phone svg { color: #fbbf24; }
       .hero { padding: 32px 0 40px; }
       .hero p { font-size: 15.5px; }
       .hero h1 br { display: none; }
@@ -610,7 +716,7 @@
       .course-carousel { padding: 0 34px; }
       .course-card:nth-child(n+9) { display: none; }
       .course-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
-      .footer-grid, .support-cards { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
       .branch-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
       .branch-card { position: relative; padding: 12px 6px; align-items: center; justify-content: center; text-align: center; border-radius: 12px; }
       .branch-card-head { flex-direction: column; gap: 4px; margin: 0; }
@@ -618,8 +724,13 @@
       .branch-name { font-size: 12px; line-height: 1.25; }
       .branch-name a::after { content: ""; position: absolute; inset: 0; }
       .branch-address, .branch-landmark, .branch-actions { display: none; }
-      .support-card:nth-child(even) { transform: none; }
-      .support-intro .btn { width: 100%; }
+      .step-node { width: 48px; height: 48px; font-size: 15px; }
+      .step:not(:last-child)::before { left: 23px; top: 48px; }
+      .step { gap: 12px; }
+      .step-card { padding: 18px 16px; }
+      .support-banner .cta-btns .btn, .faq-help .cta-btns .btn { width: 100%; }
+      .faq-item summary { padding: 16px; font-size: 15px; }
+      .faq-answer { padding: 0 16px 16px; font-size: 14.5px; }
       .highlights { padding: 48px 0; }
       .hl-item { padding: 22px 14px 0 0; }
       .hl-item + .hl-item { padding-left: 14px; }
@@ -653,8 +764,19 @@
       footer { padding-top: 120px; }
       .footer-grid { gap: 30px; }
       .footer-bottom { justify-content: center; text-align: center; }
-      .wa-float { width: 50px; height: 50px; font-size: 24px; right: 14px; bottom: 14px; }
+      .wa-float { width: 50px; height: 50px; font-size: 24px; right: 14px; bottom: 82px; }
+      .nav-cta-m { padding: 9px 12px; font-size: 12.5px; }
+      .brand b { font-size: 15px; letter-spacing: 2px; }
+      .logo img { height: 42px; width: 42px; }
+      .logo { gap: 8px; }
     }
+
+    @media (max-width: 400px) {
+      .top-pill, .top-phone { font-size: 11px; padding: 3px 8px; gap: 4px; }
+      .topbar .container { padding: 0 8px; gap: 4px; }
+      .top-hire { gap: 4px; }
+    }
+    @media (max-width: 374px) { .top-pill svg { display: none; } .nav-cta-m { display: none; } }
 
     /* ============ CHAT ASSISTANT ============ */
     .chat-fab {
@@ -689,9 +811,13 @@
     .chat-form { display: flex; gap: 8px; padding: 12px; border-top: 1px solid var(--border); background: var(--white); }
     .chat-form input { flex: 1; padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border); font: inherit; font-size: 14px; }
     .chat-form button { width: 42px; border: 0; border-radius: 12px; background: var(--green); color: var(--accent); font-size: 16px; cursor: pointer; }
+    @media (max-width: 900px) {
+      .chat-fab { bottom: 152px; }
+      .chat-panel { bottom: 220px; max-height: min(520px, calc(100vh - 300px)); }
+    }
     @media (max-width: 600px) {
-      .chat-fab { width: 50px; height: 50px; right: 14px; bottom: 74px; font-size: 21px; }
-      .chat-panel { right: 10px; left: 10px; width: auto; bottom: 134px; }
+      .chat-fab { width: 50px; height: 50px; right: 14px; bottom: 142px; font-size: 21px; }
+      .chat-panel { right: 10px; left: 10px; width: auto; bottom: 202px; max-height: calc(100vh - 280px); }
     }
   </style>
 </head>
@@ -729,8 +855,13 @@
       <div class="topbar-left">
         <span>Call us for course fees & attractive discounts</span>
       </div>
+      <!-- Mobile only: same pills as the course pages -->
+      <div class="top-hire">
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20hire%20from%20Greens%20Technologies." target="_blank" rel="noopener" class="top-pill white"><svg class="i"><use href="#i-building"/></svg><span>Hire from Us</span></a>
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20know%20about%20job%20openings%20at%20Greens%20Technologies." target="_blank" rel="noopener" class="top-pill lime"><svg class="i"><use href="#i-briefcase"/></svg><span>We Are Hiring</span></a>
+      </div>
       <div class="topbar-right">
-        <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
+        <a href="tel:+918939915577" class="top-phone"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
         <a href="mailto:contact@greenstechnologys.com" class="hide-sm">contact@greenstechnologys.com</a>
       </div>
     </div>
@@ -750,14 +881,47 @@
         <a href="#placements">Placements</a>
         <a href="#founder">About</a>
         <a href="#branches">Branches</a>
+        <a href="#faq">FAQs</a>
         <a href="#contact" class="btn btn-green">Book Free Demo</a>
       </nav>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <a href="#contact" class="btn btn-green nav-cta-m">Free Demo</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-controls="mDrawer" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
     </div>
   </header>
-  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- Mobile navigation drawer (drops from the top, same as the course pages) -->
+  <div class="m-drawer" id="mDrawer" aria-hidden="true">
+    <div class="m-drawer-box" role="dialog" aria-modal="true" aria-label="Navigation menu">
+      <div class="m-drawer-head">
+        <a href="#home" class="logo" aria-label="Greens Technologies home">
+          <img src="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" alt="Greens Technologies logo" />
+          <span class="brand"><b>GREENS</b><small>TECHNOLOGIES</small></span>
+        </a>
+        <button type="button" class="m-close" id="menuClose" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="m-drawer-body">
+        <div class="m-nav-title">Navigation Menu</div>
+        <nav class="m-nav-links" aria-label="Mobile">
+          <a href="#courses"><span>Courses</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#reviews"><span>Reviews</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#why"><span>Why Us</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#career-support"><span>Placement Support</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#placements"><span>Placements</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#founder"><span>About</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#branches"><span>Branches</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="#faq"><span>FAQs</span><svg class="i"><use href="#i-arrow"/></svg></a>
+        </nav>
+        <div class="m-drawer-actions">
+          <a href="tel:+918939915577" class="btn btn-line"><svg class="i"><use href="#i-phone"/></svg> Call +91 89399 15577</a>
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-green">Book Free Demo Class <svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- ================= 1. HERO ================= -->
   <section class="hero" id="home">
@@ -939,36 +1103,58 @@
 
   <!-- ================= PLACEMENT ASSISTANCE ================= -->
   <section class="support" id="career-support">
-    <div class="container support-grid">
-      <div class="support-intro reveal">
+    <div class="container">
+      <div class="section-head reveal">
         <span class="support-eyebrow">Career Support</span>
         <h2>Placement Assistance &amp; Career Support</h2>
         <p>Your career preparation goes beyond completing the syllabus. Greens Technologies provides placement assistance to help students improve their interview readiness, communicate their skills effectively and pursue relevant employment opportunities.</p>
-        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20know%20about%20placement%20assistance." target="_blank" rel="noopener" class="btn btn-green">
-          <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Talk to a Placement Advisor
-        </a>
       </div>
 
-      <div class="support-cards reveal">
-        <div class="support-card">
-          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-book"/></svg></div><span class="support-num">01</span></div>
-          <h4>Resume Building &amp; Profile Preparation</h4>
-          <p>Learn how to present your qualifications, projects and technical skills effectively to potential employers.</p>
+      <ol class="journey reveal">
+        <li class="step">
+          <span class="step-node">01</span>
+          <div class="step-card">
+            <div class="icon-tile"><svg class="i"><use href="#i-book"/></svg></div>
+            <h4>Resume Building &amp; Profile Preparation</h4>
+            <p>Learn how to present your qualifications, projects and technical skills effectively to potential employers.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-node">02</span>
+          <div class="step-card">
+            <div class="icon-tile"><svg class="i"><use href="#i-chat"/></svg></div>
+            <h4>Technical &amp; HR Interview Preparation</h4>
+            <p>Understand common interview expectations and practise answering technical, behavioural and HR questions with confidence.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-node">03</span>
+          <div class="step-card">
+            <div class="icon-tile"><svg class="i"><use href="#i-users"/></svg></div>
+            <h4>Mock Interviews &amp; Communication Skills</h4>
+            <p>Gain interview experience through practice sessions designed to improve your communication, confidence and preparation.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="step-node">04</span>
+          <div class="step-card">
+            <div class="icon-tile"><svg class="i"><use href="#i-briefcase"/></svg></div>
+            <h4>Job Opportunities &amp; Placement Guidance</h4>
+            <p>Receive placement-related guidance and support in identifying suitable opportunities based on your training, eligibility and career interests.</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="support-banner reveal">
+        <div>
+          <h3>Plan your career path with an advisor</h3>
+          <p>Tell us your background and goals. A placement advisor will help you choose the right course and explain how placement assistance works.</p>
         </div>
-        <div class="support-card">
-          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-chat"/></svg></div><span class="support-num">02</span></div>
-          <h4>Technical &amp; HR Interview Preparation</h4>
-          <p>Understand common interview expectations and practise answering technical, behavioural and HR questions with confidence.</p>
-        </div>
-        <div class="support-card">
-          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-users"/></svg></div><span class="support-num">03</span></div>
-          <h4>Mock Interviews &amp; Communication Skills</h4>
-          <p>Gain interview experience through practice sessions designed to improve your communication, confidence and preparation.</p>
-        </div>
-        <div class="support-card">
-          <div class="support-top"><div class="icon-tile"><svg class="i"><use href="#i-briefcase"/></svg></div><span class="support-num">04</span></div>
-          <h4>Job Opportunities &amp; Placement Guidance</h4>
-          <p>Receive placement-related guidance and support in identifying suitable opportunities based on your training, eligibility and career interests.</p>
+        <div class="cta-btns">
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20know%20about%20placement%20assistance." target="_blank" rel="noopener" class="btn btn-wa">
+            <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Talk to a Placement Advisor
+          </a>
+          <a href="tel:+918939915577" class="btn btn-light"><svg class="i"><use href="#i-phone"/></svg> Call Now</a>
         </div>
       </div>
     </div>
@@ -1291,6 +1477,60 @@
     </div>
   </section>
 
+  <!-- ================= FAQ ================= -->
+  <section class="faq" id="faq">
+    <div class="container faq-grid">
+      <div class="faq-intro reveal">
+        <span class="faq-eyebrow">FAQs</span>
+        <h2>Frequently Asked Questions</h2>
+        <p>Answers to the questions students ask most about our courses, training modes, demo classes and placement assistance.</p>
+        <div class="faq-help">
+          <strong>Still have a question?</strong>
+          <p>Our course advisors are happy to help you choose the right course.</p>
+          <div class="cta-btns">
+            <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> Call Us</a>
+            <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-list reveal">
+        <details class="faq-item" name="faq" open>
+          <summary>Which courses can I learn at Greens Technologies?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">We offer training in Full Stack Development, Data Science &amp; AI, Artificial Intelligence, Data Analytics, Data Engineering, AWS &amp; Cloud Computing, DevOps &amp; Kubernetes, Python, Selenium &amp; Software Testing, Power BI &amp; Tableau, Digital Marketing and CCNA Networking. See the <a href="#courses">courses section</a> for details.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Do you offer both classroom and online training?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">Yes. Our courses are available as classroom training at our centres and as live online training, so you can choose the mode that suits your schedule.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Do you provide placement assistance?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">Yes. Placement assistance includes resume building, technical and HR interview preparation, mock interviews and guidance on suitable job opportunities. Opportunities depend on your training, eligibility and career interests.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Can I attend a free demo class before joining?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">Yes. Message us on <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener">WhatsApp</a> or call <a href="tel:+918939915577">+91 89399 15577</a> and our team will schedule a free demo for the course you are interested in.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>I am a fresher. Can I join these courses?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">Yes. Our training is designed for both freshers and working professionals. A course advisor can recommend a course based on your background and career goals.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>How can I find out the course fees?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">Fees depend on the course and training mode. Call <a href="tel:+918939915577">+91 89399 15577</a> or message us on WhatsApp for the current fees and any available discounts.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>Where are your training centres located?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">We have centres across Chennai, including Adyar, OMR (Thoraipakkam), Velachery, Anna Nagar, T. Nagar, Porur and Tambaram, plus centres in Trichy and Salem. See <a href="#branches">our branches</a> for addresses and directions.</div>
+        </details>
+        <details class="faq-item" name="faq">
+          <summary>How do I enrol in a course?<span class="faq-icon" aria-hidden="true">+</span></summary>
+          <div class="faq-answer">Contact us by phone or WhatsApp, attend a free demo class, and then choose your batch and training mode with a course advisor.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA strip (overlaps footer) -->
   <section class="cta" id="contact">
     <div class="container">
@@ -1377,6 +1617,12 @@
       <input type="text" id="chatInput" placeholder="Type your question..." aria-label="Type your question" autocomplete="off" />
       <button type="submit" aria-label="Send"><svg class="i"><use href="#i-arrow"/></svg></button>
     </form>
+  </div>
+
+  <!-- Mobile sticky action bar (same as the course pages) -->
+  <div class="m-sticky-bar">
+    <a href="tel:+918939915577" class="m-sticky-call"><svg class="i"><use href="#i-phone"/></svg> Call Advisor</a>
+    <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="m-sticky-demo">Book Free Demo</a>
   </div>
 
   <a class="wa-float" href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20am%20interested%20in%20your%20courses." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
@@ -1637,21 +1883,20 @@
     /* ---------- Navbar + mobile menu ---------- */
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 40));
-    const navLinks = document.getElementById('navLinks');
     const menuToggle = document.getElementById('menuToggle');
-    const navOverlay = document.getElementById('navOverlay');
-    const ICON_MENU = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>';
-    const ICON_CLOSE = '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+    const mDrawer = document.getElementById('mDrawer');
     const setMenu = open => {
-      navLinks.classList.toggle('open', open);
-      navOverlay.classList.toggle('show', open);
+      mDrawer.classList.toggle('active', open);
+      mDrawer.setAttribute('aria-hidden', String(!open));
       document.body.classList.toggle('menu-open', open);
-      menuToggle.innerHTML = open ? ICON_CLOSE : ICON_MENU;
-      menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      menuToggle.setAttribute('aria-expanded', String(open));
+      if (open) document.getElementById('menuClose').focus();
     };
-    menuToggle.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
-    navOverlay.addEventListener('click', () => setMenu(false));
-    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    menuToggle.addEventListener('click', () => setMenu(true));
+    document.getElementById('menuClose').addEventListener('click', () => { setMenu(false); menuToggle.focus(); });
+    mDrawer.addEventListener('click', e => { if (e.target === mDrawer) setMenu(false); });
+    mDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && mDrawer.classList.contains('active')) setMenu(false); });
     window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
 
     /* ---------- Reveal on scroll ---------- */
