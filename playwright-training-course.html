@@ -6300,9 +6300,14 @@
             </p>
           </div>
         </div>
-        <div class="faculty-nav-row" aria-label="Faculty pagination">
-          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(-1)" aria-label="Previous faculty member"><svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg></button>
-          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(1)" aria-label="Next faculty member"><svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg></button>
+        <!-- Mobile carousel arrows (the grid scrolls sideways on phones) -->
+        <div class="faculty-controls">
+          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(-1)" aria-label="Previous instructor" title="Previous instructor">
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg>
+          </button>
+          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(1)" aria-label="Next instructor" title="Next instructor">
+            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+          </button>
         </div>
         </div>
 
@@ -6624,7 +6629,7 @@
             <!-- Pathway 4 -->
             <div class="cert-pathway-card">
               <button class="cert-pathway-head" onclick="togglePathway(this)" aria-expanded="false">
-                <span class="cert-pathway-logo is-badge"><img src="https://api.iconify.design/simple-icons/istqb.svg?color=%23253B80" alt="ISTQB logo" loading="lazy" /></span>
+                <span class="cert-pathway-logo is-badge"><img src="https://istqb.org/wp-content/uploads/2024/10/istqb-ctfl-4-logo-150x150.jpg" alt="ISTQB Certified Tester Foundation Level (CTFL) badge" loading="lazy" /></span>
                 <span class="cert-pathway-text">
                   <span class="cert-vendor">ISTQB</span>
                   <span class="cert-pathway-title">ISTQB Certified Tester - Foundation Level (CTFL)</span>

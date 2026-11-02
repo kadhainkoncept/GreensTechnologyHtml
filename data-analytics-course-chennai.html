@@ -457,6 +457,27 @@
       .top-pill-btn .ico {
         display: none;
       }
+
+      /* Smallest phones: keep the pills and phone number on one row */
+      .top-announcement .container {
+        padding-left: 8px;
+        padding-right: 8px;
+        gap: 4px;
+      }
+
+      .top-hire-actions {
+        gap: 4px;
+      }
+
+      .top-pill-btn,
+      .top-phone-chip {
+        font-size: 0.68rem;
+        padding: 3px 7px;
+      }
+
+      .top-phone-chip .ico {
+        display: none;
+      }
     }
 
     .top-centers-link {
@@ -3049,6 +3070,17 @@
         font-size: 0.98rem;
       }
 
+      /* Let the title and chapter count wrap as whole pieces instead of squeezing into thin columns */
+      .phase-header-left {
+        flex-wrap: wrap;
+        column-gap: 10px;
+        row-gap: 6px;
+      }
+
+      .phase-meta {
+        white-space: nowrap;
+      }
+
       .phase-body {
         padding: 0 10px 10px;
       }
@@ -3086,6 +3118,14 @@
         flex-direction: column;
         align-items: stretch;
         gap: 12px;
+      }
+
+      /* Long labels wrap instead of pushing the page wider than the phone */
+      .curriculum-cta-box .btn {
+        white-space: normal;
+        text-align: center;
+        padding-left: 18px;
+        padding-right: 18px;
       }
     }
 
@@ -4933,6 +4973,12 @@
     /* ============================================================
        FLOATING CALL / WHATSAPP / CHAT
        ============================================================ */
+    /* Floating buttons and the bottom bar step aside while the mobile menu is open */
+    body.menu-open .float-actions,
+    body.menu-open .mobile-sticky-bar {
+      display: none;
+    }
+
     .float-actions {
       position: fixed;
       right: 20px;
@@ -9172,7 +9218,9 @@
       const overlay = document.getElementById('mobileDrawerOverlay');
       if (overlay) {
         overlay.classList.toggle('active');
-        document.body.style.overflow = overlay.classList.contains('active') ? 'hidden' : '';
+        const open = overlay.classList.contains('active');
+        document.body.style.overflow = open ? 'hidden' : '';
+        document.body.classList.toggle('menu-open', open);
       }
     }
 
