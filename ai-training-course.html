@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXRHZCZW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KXRHZCZW');</script>
   <!-- End Google Tag Manager -->
   <!-- ============================================================
        GREENS TECHNOLOGIES — ARTIFICIAL INTELLIGENCE TRAINING IN CHENNAI
@@ -44,7 +43,7 @@
       "@type": "EducationalOrganization",
       "name": "Greens Technologies",
       "sameAs": "https://www.greenstechnologys.com",
-      "telephone": "+91 8939915577"
+      "telephone": "+91 8939982288"
     },
     "hasCourseInstance": {
       "@type": "CourseInstance",
@@ -5441,6 +5440,94 @@
     @media (max-width: 640px) {
       .company-tiles-grid .company-tile:nth-child(n+9) { display: none; }
     }
+  
+    /* Desktop: keep both header rows (top strip + main navbar) pinned while scrolling */
+    @media (min-width: 1024px) {
+      body > .top-announcement { position: sticky; top: 0; z-index: 1001; }
+      body > .navbar { top: var(--top-strip-h, 0px); }
+      html { scroll-padding-top: calc(var(--top-strip-h, 0px) + 90px); }
+    }
+  
+    /* Highlights under the stats card */
+    .hero-highlights-strip {
+      background: #FFFFFF;
+      padding: 28px 0 8px;
+    }
+
+    .hero-highlights-strip + .why-choose-section {
+      border-top: none;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .hero-highlight {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      background: #F1F8E6;
+      border: 1px solid #CFE6AE;
+      border-radius: 18px;
+    }
+
+    .hero-highlight-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #9BD23C;
+      color: var(--brand-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .hero-highlight-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--brand-dark);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .hero-highlight-sub {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 640px) {
+      .hero-highlights {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .hero-highlights-strip {
+        padding-top: 20px;
+      }
+
+      .hero-highlight {
+        padding: 14px 16px;
+      }
+
+      .hero-highlight-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+      }
+
+      .hero-highlight-title {
+        font-size: 1.05rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -5534,9 +5621,9 @@
 
       <!-- Right: Contact Helpline & Centers -->
       <div class="top-announcement-right">
-        <a href="tel:+918939915577" class="top-phone-chip">
+        <a href="tel:+918939982288" class="top-phone-chip">
           <svg class="ico ico-amber" aria-hidden="true"><use href="#i-phone"/></svg>
-          <span>+91 8939915577</span>
+          <span>+91 8939982288</span>
         </a>
         <a href="#branches" class="top-centers-link">
           <svg class="ico ico-lime" aria-hidden="true"><use href="#i-pin"/></svg>
@@ -5931,11 +6018,11 @@
           </div>
 
           <a
-            href="tel:+918939915577"
+            href="tel:+918939982288"
             class="btn btn-outline"
             style="width: 100%; margin-bottom: 10px; justify-content: center; padding: 11px;"
           >
-            <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939915577
+            <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939982288
           </a>
 
           <button
@@ -5995,7 +6082,7 @@
                 <span>Explore Curriculum</span>
                 <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
               </a>
-              <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies,%20I%20would%20like%20to%20book%20a%20Free%20Demo%20Class%20for%20the%20Artificial%20Intelligence%20Training%20in%20Chennai." target="_blank" rel="noopener noreferrer" class="btn-hero-outline" title="Book a Free Demo on WhatsApp">
+              <a href="https://wa.me/918939982288?text=Hi%20Greens%20Technologies,%20I%20would%20like%20to%20book%20a%20Free%20Demo%20Class%20for%20the%20Artificial%20Intelligence%20Training%20in%20Chennai." target="_blank" rel="noopener noreferrer" class="btn-hero-outline" title="Book a Free Demo on WhatsApp">
                 <svg class="whatsapp-btn-icon" viewBox="0 0 24 24" width="19" height="19" fill="currentColor">
                   <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
                 </svg>
@@ -6059,6 +6146,25 @@
               <div class="hero-stat-value">4</div>
               <div class="hero-stat-label">Flexible Training Modes</div>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Highlights: Pay After Placement / Leading IT Training Institute -->
+    <section class="hero-highlights-strip" aria-label="Highlights">
+      <div class="container">
+        <div class="hero-highlights">
+          <div class="hero-highlight">
+            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <div>
+              <h3 class="hero-highlight-title">Pay After Placement</h3>
+              <p class="hero-highlight-sub">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+            </div>
+          </div>
+          <div class="hero-highlight">
+            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg></span>
+            <h3 class="hero-highlight-title">Chennai&rsquo;s Leading IT Training Institute</h3>
           </div>
         </div>
       </div>
@@ -7722,7 +7828,7 @@
             class="btn btn-primary"
             id="brochureDownload"
             onclick="gateBrochureDownload(event)"
-            href="assets/Broucher/AI%20Training%20Syllabus.pdf"
+            href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/ai-training-syllabus.pdf"
             download="Greens-Technologies-AI-Training-Syllabus.pdf"
           >
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download AI Syllabus (PDF)</span>
@@ -7835,8 +7941,8 @@
             Flexible 1-on-1 batches, a portfolio project at the end of the course, and the chance to talk directly to our trainer.
           </p>
           <div class="enrol-banner-actions">
-            <a href="tel:+918939915577" class="btn btn-accent">
-              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939915577
+            <a href="tel:+918939982288" class="btn btn-accent">
+              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939982288
             </a>
             <button class="btn btn-outline-white" onclick="openLeadModal('Book Free AI Career Counselling')">
               Book Free AI Career Counselling
@@ -7984,8 +8090,8 @@
             <button class="btn btn-outline btn-sm" onclick="openLeadModal('Request Custom Timing')">
               Request Custom Timing
             </button>
-            <a href="tel:+918939915577" class="btn btn-primary btn-sm">
-              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939915577
+            <a href="tel:+918939982288" class="btn btn-primary btn-sm">
+              <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 8939982288
             </a>
           </div>
         </div>
@@ -8711,7 +8817,7 @@
               <span class="faq-toggle-icon"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span>
             </button>
             <div class="faq-answer">
-              Subject to applicable law, you may request access to, correction of, or deletion of your personal information, withdraw consent, or raise a grievance. Contact <a href="mailto:info@greenstechnologys.com">info@greenstechnologys.com</a>, call <a href="tel:+918939915577">8939915577</a>, or write to No.11, Padmanabhan Nagar 1st Street, Adyar, Chennai &#8211; 600020, Tamil Nadu, India.
+              Subject to applicable law, you may request access to, correction of, or deletion of your personal information, withdraw consent, or raise a grievance. Contact <a href="mailto:info@greenstechnologys.com">info@greenstechnologys.com</a>, call <a href="tel:+918939982288">8939982288</a>, or write to No.11, Padmanabhan Nagar 1st Street, Adyar, Chennai &#8211; 600020, Tamil Nadu, India.
             </div>
           </div>
 
@@ -8739,9 +8845,9 @@
               <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
               <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener noreferrer">Adyar</a></h3>
             </div>
-            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai - 600020</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Adyar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8754,7 +8860,7 @@
             <address class="branch-address">19, Balamurugan Garden, Rajiv Gandhi Salai<br />Thoraipakkam, Chennai - 600097</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Opp. to Geetham Restaurant</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/8oWecnVgKQJA5nOYW" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies OMR (Thoraipakkam) on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8767,7 +8873,7 @@
             <address class="branch-address">No. 1, Appa Rao Colony<br />Tambaram Sanatorium, Chennai - 600047</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Opp. Sri Rama Anjaneyar Temple, near HP Petrol Bunk</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/TbZAIGuiIaxMOLgEr" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Tambaram Sanatorium on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8779,7 +8885,7 @@
             </div>
             <address class="branch-address">No. 12, Rajiv Gandhi Salai (OMR), Egattur Village<br />Navalur (just before Navalur Tollgate), Chennai - 600035</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/EDr8HiWDCKGBcfWu8" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Navalur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8791,7 +8897,7 @@
             </div>
             <address class="branch-address">149, 1C/1D, 1st Floor, Opp. to DLF IT Park<br />Ramapuram, Chennai - 600089</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/PCT3sKhhUAtNq5iad" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Porur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8804,7 +8910,7 @@
             <address class="branch-address">1st Floor, Plot No. 19 &amp; 20, American Advent Christian Layout<br />Sholinganallur to Medavakkam Main Road, Perumbakkam, Chennai - 600100</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Next to OMR Food Street</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/JrdDMVCqQmcdn6J7q" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Perumbakkam on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8817,7 +8923,7 @@
             <address class="branch-address">Ground Floor, New No. W125, Old No. W42, 3rd Avenue, W Block<br />Anna Nagar, Chennai - 600040</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Near Parambriym Hotel, opp. HP Petrol Bunk</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/2EjHCxXg20uET0OLQ" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Anna Nagar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8829,7 +8935,7 @@
             </div>
             <address class="branch-address">No. 05, Bakthavachalam Street<br />West Tambaram, Chennai - 600045</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/eRmf7qPqqklN17San" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies West Tambaram on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8841,7 +8947,7 @@
             </div>
             <address class="branch-address">51-A, 2nd Floor, Velachery Road, Dhadeswaram Nagar<br />Velachery, Chennai - 600042</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/ZyOh1xcZ3z6wmFa2A" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Velachery on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8853,7 +8959,7 @@
             </div>
             <address class="branch-address">79, 100 Feet Road, Thiru Nagar Colony, NGO Colony<br />Vadapalani, Chennai - 600026</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/D0SoO9Or2nO36cPE9" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Vadapalani on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8865,7 +8971,7 @@
             </div>
             <address class="branch-address">New No. 398, Old No. 577, CTH Road, Avadi Checkpost<br />Avadi, Chennai - 600054</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/niX88xLf9ZFhIkqOM" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Avadi on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8877,7 +8983,7 @@
             </div>
             <address class="branch-address">No. 01, Adithi Colony, Mugalivakkam Main Road<br />Mugalivakkam, Porur, Chennai - 600116</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/np21kIy6Dtu5m3RSp" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Mugalivakkam on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8889,7 +8995,7 @@
             </div>
             <address class="branch-address">162, Second Floor, Anna Salai, Express Estate<br />Triplicane, Chennai - 600002</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/nmxVbGgRqixWtjyMW" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Mount Road on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8902,7 +9008,7 @@
             <address class="branch-address">No. 7, 2nd Floor, Perambur Paper Mills Road<br />Kolathur, Chennai - 600099</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Near Everwin Vidhyasram School, above Axis Bank</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/V8w2mcjSHm6wk3wQ2" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Kolathur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8914,7 +9020,7 @@
             </div>
             <address class="branch-address">160, North Usman Road<br />T. Nagar, Chennai - 600017</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/75PLx9DJorttvTKck" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies T. Nagar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8926,7 +9032,7 @@
             </div>
             <address class="branch-address">3rd Floor, No. 27/A, North Park Street, Secretariat Colony, Venkatapuram<br />Ambattur, Chennai - 600053</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/M6XB1gHSmK8ubrV3z" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Ambattur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8938,7 +9044,7 @@
             </div>
             <address class="branch-address">162, Grand Southern Trunk Road, near Guduvancheri Railway Station<br />Nandivaram, Guduvancheri - 603202</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/wb9oSEAuI86mIHyQr" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Guduvancheri on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8950,7 +9056,7 @@
             </div>
             <address class="branch-address">75/E-3, Sri Krishna Enclave, 2nd Floor, Salai Road<br />Thillai Nagar, Tiruchirappalli - 620018</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/94HqgHo8IRJXZV4XX" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Trichy on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8963,7 +9069,7 @@
             <address class="branch-address">2nd Floor, Sri Sai Kamatchi Complex, Vincent<br />Salem - 636007</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Opp. to Government Arts College</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/4sytYY1jtRZtJVurw" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Salem on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8975,7 +9081,7 @@
             </div>
             <address class="branch-address">No. 280 K, Saranya Complex, Velachery Road, Shanthi Nagar<br />New Kunagkurichi, Gowriwakkam, Sembakkam, Chennai - 600073</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/SJ6foQBR851yqvEoX" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Gowriwakkam on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -8988,7 +9094,7 @@
             <address class="branch-address">No. 1050, 2nd Floor, Tiruvottiyur High Road, Thangal<br />Near Kaladipet, Rajakadai Metro, Chennai - 600019</address>
             <p class="branch-landmark"><strong>Landmark:</strong> Above KFC</p>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/CxF1GLMPJwzGtTDeo" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Tiruvottiyur on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -9000,7 +9106,7 @@
             </div>
             <address class="branch-address">Om Sakthi Plaza, First Floor, Old No. 1, New No. 126, Avadi Road<br />Karayanchavadi, Poonamallee, Chennai - 600056</address>
             <div class="branch-actions">
-              <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
+              <a href="tel:+918939982288" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/kVZMYJx1huDLxTzK2" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Poonamallee on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
@@ -9066,7 +9172,7 @@
           <ul class="footer-contact-list">
             <li class="footer-contact-item">
               <span>Hotline:</span>
-              <a href="tel:+918939915577">+91 8939915577</a> / <a href="tel:+918939975577">+91 8939975577</a>
+              <a href="tel:+918939982288">+91 8939982288</a> / <a href="tel:+918939975577">+91 8939975577</a>
             </li>
             <li class="footer-contact-item">
               <span>Email:</span>
@@ -9094,23 +9200,23 @@
           <h4>Branch Contact Directory</h4>
           <div class="center-phone-item">
             <span>Chennai Centers:</span>
-            <a href="tel:+918939915577">8939915577 / 8939975577</a>
+            <a href="tel:+918939982288">8939982288 / 8939975577</a>
           </div>
           <div class="center-phone-item">
             <span>Bengaluru Centers:</span>
-            <a href="tel:+918939915577">8939915577 / 8939975577</a>
+            <a href="tel:+918939982288">8939982288 / 8939975577</a>
           </div>
           <div class="center-phone-item">
             <span>Salem Center:</span>
-            <a href="tel:+918939915577">8939915577 / 8939975577</a>
+            <a href="tel:+918939982288">8939982288 / 8939975577</a>
           </div>
           <div class="center-phone-item">
             <span>Trichy Center:</span>
-            <a href="tel:+918939915577">8939915577 / 8939975577</a>
+            <a href="tel:+918939982288">8939982288 / 8939975577</a>
           </div>
           <div class="center-phone-item">
             <span>Coimbatore Center:</span>
-            <a href="tel:+918939915577">8939915577 / 8939975577</a>
+            <a href="tel:+918939982288">8939982288 / 8939975577</a>
           </div>
         </div>
       </div>
@@ -9138,7 +9244,7 @@
        MOBILE STICKY ACTION BAR
        ============================================================ -->
   <div class="mobile-sticky-bar">
-    <a href="tel:+918939915577" class="sticky-call-btn">
+    <a href="tel:+918939982288" class="sticky-call-btn">
       <svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call Advisor
     </a>
     <button type="button" class="sticky-demo-btn" onclick="openLeadModal('Book a Free Demo Class')">
@@ -9150,7 +9256,7 @@
        FLOATING CALL / WHATSAPP / CHAT
        ============================================================ -->
   <div class="float-actions">
-    <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies,%20I%20would%20like%20to%20know%20more%20about%20the%20Data%20Engineering%20Course%20in%20Chennai." class="float-btn float-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp us">
+    <a href="https://wa.me/918939982288?text=Hi%20Greens%20Technologies,%20I%20would%20like%20to%20know%20more%20about%20the%20Artificial%20Intelligence%20Training%20in%20Chennai." class="float-btn float-wa" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" title="WhatsApp us">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
     <button type="button" class="float-btn float-chat" id="chatToggle" onclick="toggleChat()" aria-label="Open chat assistant" aria-controls="chatPanel" aria-expanded="false" title="Chat with us">
@@ -9206,7 +9312,7 @@
       <p id="thanksText">Our counsellor will contact you shortly.</p>
       <div class="thanks-actions">
         <button type="button" class="btn btn-accent" onclick="closeThanks()">Done</button>
-        <a class="btn btn-outline" href="https://wa.me/918939915577" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
+        <a class="btn btn-outline" href="https://wa.me/918939982288" target="_blank" rel="noopener noreferrer">Chat on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -9530,13 +9636,22 @@
       document.getElementById('modalSubmitBtn').textContent = 'Submit & Download';
     }
 
+    // Downloads work for files on this site and on S3. A browser ignores the "download" attribute for files
+    // on another site, so S3 files are fetched and saved as a file; if that is blocked, the PDF opens in a new tab.
     function downloadFile(url, filename) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename || '';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      const save = href => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.download = filename || '';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      };
+      if (new URL(url, location.href).origin === location.origin) return save(url);
+      fetch(url, { mode: 'cors' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(blob => { const obj = URL.createObjectURL(blob); save(obj); setTimeout(() => URL.revokeObjectURL(obj), 10000); })
+        .catch(() => window.open(url, '_blank', 'noopener'));
     }
 
     function gateBrochureDownload(e) {
@@ -9894,6 +10009,17 @@
     centreLastRows();
     window.addEventListener('resize', queueCentre);
     document.addEventListener('click', queueCentre);
+  </script>
+
+  <script>
+    /* Desktop: navbar sits right under the pinned top strip, whatever the strip's height */
+    (function () {
+      var strip = document.querySelector('body > .top-announcement');
+      if (!strip) return;
+      var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
+      set(); window.addEventListener('resize', set);
+      if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
   </script>
 </body>
 </html>

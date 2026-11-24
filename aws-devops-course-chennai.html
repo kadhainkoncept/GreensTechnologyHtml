@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXRHZCZW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KXRHZCZW');</script>
   <!-- End Google Tag Manager -->
   <!-- ============================================================
        GREENS TECHNOLOGIES — AWS DEVOPS COURSE IN CHENNAI
@@ -5421,6 +5420,13 @@
     @media (max-width: 640px) {
       .company-tiles-grid .company-tile:nth-child(n+9) { display: none; }
     }
+  
+    /* Desktop: keep both header rows (top strip + main navbar) pinned while scrolling */
+    @media (min-width: 1024px) {
+      body > .top-announcement { position: sticky; top: 0; z-index: 1001; }
+      body > .navbar { top: var(--top-strip-h, 0px); }
+      html { scroll-padding-top: calc(var(--top-strip-h, 0px) + 90px); }
+    }
   </style>
 </head>
 <body>
@@ -5986,7 +5992,7 @@
           <div class="hero-enquiry">
             <div class="hero-media">
               <img
-                src="assets/courses/aws-devops-hero.jpg"
+                src="https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=900&q=75&auto=format&fit=crop"
                 alt="Greens Technologies classroom training session"
                 fetchpriority="high"
               />
@@ -6174,7 +6180,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Karthik specialises in helping learners understand how cloud infrastructure works in real-world IT environments. His training covers AWS architecture, infrastructure provisioning, automation and CI/CD pipelines, with a strong focus on practical implementation. He breaks down complex cloud concepts into clear, step-by-step lessons, helping beginners and working professionals build the confidence to deploy, manage and troubleshoot AWS environments.
+              Karthik helps learners understand how cloud infrastructure works in real IT environments. His sessions cover AWS architecture, provisioning, automation and CI/CD, broken into clear step-by-step labs so beginners and working professionals can deploy, manage and troubleshoot AWS with confidence.
             </p>
           </div>
 
@@ -6207,7 +6213,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Shankar focuses on transforming traditional application deployment into automated, reliable delivery workflows. From containerising applications with Docker to orchestrating workloads with Kubernetes, he teaches the tools and techniques used by modern DevOps teams. His practical, project-oriented approach helps learners understand deployment pipelines, troubleshoot production-style scenarios and develop job-ready DevOps skills.
+              Shankar turns traditional deployments into automated, reliable delivery workflows. From containerising applications with Docker to running them on Kubernetes, his project-based sessions teach the pipelines, troubleshooting and tools modern DevOps teams use every day.
             </p>
           </div>
 
@@ -6240,7 +6246,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Mithran helps learners master the automation behind scalable cloud infrastructure. His sessions focus on provisioning AWS resources with Terraform, automating server configurations using Ansible and managing Linux environments efficiently. Through guided labs and real-world infrastructure scenarios, he makes Infrastructure as Code easier to understand and demonstrates how automation improves consistency, reduces manual effort and supports reliable cloud operations.
+              Mithran teaches the automation behind scalable cloud infrastructure: provisioning AWS with Terraform, configuring servers with Ansible and managing Linux efficiently. His guided labs make Infrastructure as Code easy to follow and show how automation keeps cloud operations consistent.
             </p>
           </div>
 
@@ -6273,7 +6279,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Shravanth specialises in cloud-native application deployment, Kubernetes orchestration and modern delivery practices. He guides learners through deploying applications on AWS EKS, managing releases with Helm, implementing GitOps using Argo CD and monitoring workloads with Prometheus and Grafana. His hands-on teaching approach connects individual tools into complete workflows, helping students understand how modern engineering teams deploy, observe and maintain applications in production environments.
+              Shravanth specialises in cloud-native deployment on AWS EKS, with Helm releases, GitOps using Argo CD and monitoring with Prometheus and Grafana. His hands-on sessions connect each tool into one complete workflow, showing how real teams deploy and run applications in production.
             </p>
           </div>
         </div>
@@ -8020,9 +8026,9 @@
 
         <!-- Curriculum CTAs -->
         <div class="curriculum-cta-box">
-          <button class="btn btn-primary" onclick="openLeadModal('Download Full Syllabus PDF')">
-            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download Syllabus (PDF)
-          </button>
+          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/aws-devops-syllabus.pdf" download="Greens-Technologies-AWS-DevOps-Syllabus.pdf">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download AWS DevOps Syllabus (PDF)</span>
+          </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
             <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg> Book Free Counselling
           </button>
@@ -8646,7 +8652,7 @@
           <!-- Course 1 -->
           <div class="related-course-card">
             <div class="related-course-media">
-              <img src="assets/courses/related-data-engineering.jpg" alt="Data engineering analytics dashboard" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=900&q=75&auto=format&fit=crop" alt="Data engineering analytics dashboard" loading="lazy" />
               <span class="related-course-badge">New</span>
             </div>
             <div class="related-course-body">
@@ -8661,7 +8667,7 @@
           <!-- Course 2 -->
           <div class="related-course-card">
             <div class="related-course-media">
-              <img src="assets/courses/related-ai.jpg" alt="Artificial intelligence illustration" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1697577418970-95d99b5a55cf?w=900&q=75&auto=format&fit=crop" alt="Artificial intelligence illustration" loading="lazy" />
               <span class="related-course-badge">Trending</span>
             </div>
             <div class="related-course-body">
@@ -8678,7 +8684,7 @@
           <!-- Course 3 -->
           <div class="related-course-card">
             <div class="related-course-media">
-              <img src="assets/courses/related-python.jpg" alt="Code on a laptop screen" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=900&q=75&auto=format&fit=crop" alt="Code on a laptop screen" loading="lazy" />
               <span class="related-course-badge">Popular</span>
             </div>
             <div class="related-course-body">
@@ -8932,7 +8938,7 @@
               <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
               <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener noreferrer">Adyar</a></h3>
             </div>
-            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai - 600020</address>
             <div class="branch-actions">
               <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Adyar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
@@ -9713,13 +9719,22 @@
       document.getElementById('modalSubmitBtn').textContent = 'Submit & Download';
     }
 
+    // Downloads work for files on this site and on S3. A browser ignores the "download" attribute for files
+    // on another site, so S3 files are fetched and saved as a file; if that is blocked, the PDF opens in a new tab.
     function downloadFile(url, filename) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename || '';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      const save = href => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.download = filename || '';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      };
+      if (new URL(url, location.href).origin === location.origin) return save(url);
+      fetch(url, { mode: 'cors' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(blob => { const obj = URL.createObjectURL(blob); save(obj); setTimeout(() => URL.revokeObjectURL(obj), 10000); })
+        .catch(() => window.open(url, '_blank', 'noopener'));
     }
 
     function gateBrochureDownload(e) {
@@ -10067,6 +10082,17 @@
     centreLastRows();
     window.addEventListener('resize', queueCentre);
     document.addEventListener('click', queueCentre);
+  </script>
+
+  <script>
+    /* Desktop: navbar sits right under the pinned top strip, whatever the strip's height */
+    (function () {
+      var strip = document.querySelector('body > .top-announcement');
+      if (!strip) return;
+      var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
+      set(); window.addEventListener('resize', set);
+      if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
   </script>
 </body>
 </html>

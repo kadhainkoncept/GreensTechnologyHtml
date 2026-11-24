@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXRHZCZW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KXRHZCZW');</script>
   <!-- End Google Tag Manager -->
   <!-- ============================================================
        GREENS TECHNOLOGIES — CCNA COURSE IN CHENNAI
@@ -5421,6 +5420,13 @@
     @media (max-width: 640px) {
       .company-tiles-grid .company-tile:nth-child(n+9) { display: none; }
     }
+  
+    /* Desktop: keep both header rows (top strip + main navbar) pinned while scrolling */
+    @media (min-width: 1024px) {
+      body > .top-announcement { position: sticky; top: 0; z-index: 1001; }
+      body > .navbar { top: var(--top-strip-h, 0px); }
+      html { scroll-padding-top: calc(var(--top-strip-h, 0px) + 90px); }
+    }
   </style>
 </head>
 <body>
@@ -5991,7 +5997,7 @@
           <div class="hero-enquiry">
             <div class="hero-media">
               <img
-                src="assets/courses/ccna-hero.jpg"
+                src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&q=75&auto=format&fit=crop"
                 alt="Computer network connecting people around the world"
                 fetchpriority="high"
               />
@@ -6179,7 +6185,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Santhosh specialises in building strong networking fundamentals and practical Cisco networking skills. His training covers IP addressing, subnetting, VLAN configuration, routing protocols and network troubleshooting using hands-on lab exercises. His step-by-step teaching approach helps beginners understand complex networking concepts and prepare confidently for CCNA certification and entry-level networking roles.
+              Santhosh builds strong networking fundamentals through hands-on Cisco labs: IP addressing, subnetting, VLANs, routing protocols and troubleshooting. His step-by-step approach helps beginners grasp complex concepts and prepare confidently for CCNA and entry-level networking roles.
             </p>
           </div>
 
@@ -6212,7 +6218,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Prem focuses on the practical side of network engineering, helping learners understand how routers and switches communicate in real-world environments. His sessions cover routing configuration, VLANs, trunking, access control and network fault diagnosis through structured lab practice. He connects theoretical concepts with real troubleshooting scenarios, helping students build the skills needed for network support and junior network engineer positions.
+              Prem focuses on the practical side of network engineering: how routers and switches communicate in real environments. His labs cover routing, VLANs, trunking, access control and fault diagnosis, preparing students for network support and junior network engineer roles.
             </p>
           </div>
 
@@ -6245,7 +6251,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Naveen teaches networking from an implementation and troubleshooting perspective, with a strong focus on secure and reliable network communication. Students learn IP connectivity, access control lists, NAT, DHCP, DNS and essential network security concepts through practical exercises. His structured approach helps learners gain confidence in identifying connectivity issues, applying configurations and understanding how enterprise networks are managed.
+              Naveen teaches networking from an implementation and troubleshooting angle, with a focus on secure, reliable communication. Students practise IP connectivity, ACLs, NAT, DHCP, DNS and security basics until they can diagnose connectivity issues with confidence.
             </p>
           </div>
         </div>
@@ -6961,9 +6967,9 @@
 
         <!-- Curriculum CTAs -->
         <div class="curriculum-cta-box">
-          <button class="btn btn-primary" onclick="openLeadModal('Download Full Syllabus PDF')">
-            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download Syllabus (PDF)
-          </button>
+          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/ccna-syllabus.pdf" download="Greens-Technologies-CCNA-Syllabus.pdf">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download CCNA Syllabus (PDF)</span>
+          </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
             <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg> Book Free Counselling
           </button>
@@ -7588,7 +7594,7 @@
           <!-- Course 1 -->
           <div class="related-course-card">
             <div class="related-course-media">
-              <img src="assets/courses/related-cyber-security.jpg" alt="Cyber security code on screen" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=900&q=75&auto=format&fit=crop" alt="Cyber security code on screen" loading="lazy" />
               <span class="related-course-badge">Trending</span>
             </div>
             <div class="related-course-body">
@@ -7605,7 +7611,7 @@
           <!-- Course 2 -->
           <div class="related-course-card">
             <div class="related-course-media">
-              <img src="assets/courses/related-azure-cloud.jpg" alt="Cloud computing illustration" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&q=75&auto=format&fit=crop" alt="Cloud computing illustration" loading="lazy" />
               <span class="related-course-badge">Cloud</span>
             </div>
             <div class="related-course-body">
@@ -7622,7 +7628,7 @@
           <!-- Course 3 -->
           <div class="related-course-card">
             <div class="related-course-media">
-              <img src="assets/courses/related-python.jpg" alt="Code on a laptop screen" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=900&q=75&auto=format&fit=crop" alt="Code on a laptop screen" loading="lazy" />
               <span class="related-course-badge">Popular</span>
             </div>
             <div class="related-course-body">
@@ -7876,7 +7882,7 @@
               <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
               <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener noreferrer">Adyar</a></h3>
             </div>
-            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai - 600020</address>
             <div class="branch-actions">
               <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Adyar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
@@ -8657,13 +8663,22 @@
       document.getElementById('modalSubmitBtn').textContent = 'Submit & Download';
     }
 
+    // Downloads work for files on this site and on S3. A browser ignores the "download" attribute for files
+    // on another site, so S3 files are fetched and saved as a file; if that is blocked, the PDF opens in a new tab.
     function downloadFile(url, filename) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename || '';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      const save = href => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.download = filename || '';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      };
+      if (new URL(url, location.href).origin === location.origin) return save(url);
+      fetch(url, { mode: 'cors' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(blob => { const obj = URL.createObjectURL(blob); save(obj); setTimeout(() => URL.revokeObjectURL(obj), 10000); })
+        .catch(() => window.open(url, '_blank', 'noopener'));
     }
 
     function gateBrochureDownload(e) {
@@ -9011,6 +9026,17 @@
     centreLastRows();
     window.addEventListener('resize', queueCentre);
     document.addEventListener('click', queueCentre);
+  </script>
+
+  <script>
+    /* Desktop: navbar sits right under the pinned top strip, whatever the strip's height */
+    (function () {
+      var strip = document.querySelector('body > .top-announcement');
+      if (!strip) return;
+      var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
+      set(); window.addEventListener('resize', set);
+      if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
   </script>
 </body>
 </html>

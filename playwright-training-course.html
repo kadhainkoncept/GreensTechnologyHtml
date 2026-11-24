@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXRHZCZW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KXRHZCZW');</script>
   <!-- End Google Tag Manager -->
   <!-- ============================================================
        GREENS TECHNOLOGIES — ARTIFICIAL INTELLIGENCE TRAINING IN CHENNAI
@@ -5441,6 +5440,94 @@
     @media (max-width: 640px) {
       .company-tiles-grid .company-tile:nth-child(n+9) { display: none; }
     }
+  
+    /* Desktop: keep both header rows (top strip + main navbar) pinned while scrolling */
+    @media (min-width: 1024px) {
+      body > .top-announcement { position: sticky; top: 0; z-index: 1001; }
+      body > .navbar { top: var(--top-strip-h, 0px); }
+      html { scroll-padding-top: calc(var(--top-strip-h, 0px) + 90px); }
+    }
+  
+    /* Highlights under the stats card */
+    .hero-highlights-strip {
+      background: #FFFFFF;
+      padding: 28px 0 8px;
+    }
+
+    .hero-highlights-strip + .why-choose-section {
+      border-top: none;
+    }
+
+    .hero-highlights {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .hero-highlight {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 22px;
+      background: #F1F8E6;
+      border: 1px solid #CFE6AE;
+      border-radius: 18px;
+    }
+
+    .hero-highlight-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: #9BD23C;
+      color: var(--brand-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+
+    .hero-highlight-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--brand-dark);
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+    }
+
+    .hero-highlight-sub {
+      margin: 4px 0 0;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--text-light);
+    }
+
+    @media (max-width: 640px) {
+      .hero-highlights {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .hero-highlights-strip {
+        padding-top: 20px;
+      }
+
+      .hero-highlight {
+        padding: 14px 16px;
+      }
+
+      .hero-highlight-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+      }
+
+      .hero-highlight-title {
+        font-size: 1.05rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -6063,6 +6150,25 @@
         </div>
       </div>
     </section>
+
+    <!-- Highlights: Pay After Placement / Leading IT Training Institute -->
+    <section class="hero-highlights-strip" aria-label="Highlights">
+      <div class="container">
+        <div class="hero-highlights">
+          <div class="hero-highlight">
+            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
+            <div>
+              <h3 class="hero-highlight-title">Pay After Placement</h3>
+              <p class="hero-highlight-sub">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+            </div>
+          </div>
+          <div class="hero-highlight">
+            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg></span>
+            <h3 class="hero-highlight-title">Chennai&rsquo;s Leading IT Training Institute</h3>
+          </div>
+        </div>
+      </div>
+    </section>
 <section class="section-spacing why-choose-section" id="why-choose">
       <div class="container">
         <div class="section-header">
@@ -6185,7 +6291,7 @@
             <div class="faculty-details-list">
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Playwright, TypeScript, JavaScript, Selenium, Automation Framework Development &amp; AI-Powered Test Automation</span>
+                <span class="faculty-detail-val">Playwright, TypeScript, Framework Design &amp; AI-Powered Testing</span>
               </div>
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Certifications:</span>
@@ -6197,7 +6303,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Velmurugan specialises in designing scalable automation frameworks for modern web applications. His training combines Playwright with TypeScript, advanced browser automation, API testing, and AI-assisted test case generation. Students work on real-time application testing scenarios, framework development, debugging, and automated execution using CI/CD pipelines. His practical approach helps learners develop the skills required for enterprise-level automation testing.
+              Velmurugan designs scalable automation frameworks for modern web applications. His sessions combine Playwright and TypeScript with API testing, AI-assisted test generation and CI/CD execution, preparing learners for enterprise automation roles.
             </p>
           </div>
 
@@ -6218,7 +6324,7 @@
             <div class="faculty-details-list">
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Playwright, JavaScript, TypeScript, Generative AI, AI-Based Test Case Generation &amp; Intelligent Test Automation</span>
+                <span class="faculty-detail-val">Playwright, TypeScript &amp; Generative AI Test Automation</span>
               </div>
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Certifications:</span>
@@ -6230,7 +6336,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Sabapathi focuses on the integration of Generative AI into modern software testing workflows. Her sessions cover Playwright automation, AI-generated test scenarios, intelligent locator strategies, automated test script creation, and test maintenance. Students learn how to use AI tools to improve test coverage, reduce repetitive manual effort, and build reliable automation solutions for real-world applications.
+              Sabapathi focuses on bringing Generative AI into testing workflows. Her sessions cover Playwright automation, AI-generated test scenarios, smart locators and test maintenance, helping students improve coverage and cut repetitive manual effort.
             </p>
           </div>
 
@@ -6251,7 +6357,7 @@
             <div class="faculty-details-list">
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Playwright, API Automation, Postman, TypeScript, Selenium, CI/CD Integration &amp; End-to-End Testing</span>
+                <span class="faculty-detail-val">Playwright, API Automation, Postman &amp; CI/CD Integration</span>
               </div>
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Certifications:</span>
@@ -6263,7 +6369,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Vignesh has extensive experience in automation testing and end-to-end quality engineering. His training focuses on building robust Playwright frameworks, automating REST APIs, handling authentication, managing test data, and integrating automated test suites with CI/CD pipelines. Students gain hands-on experience in testing complex web applications and implementing industry-standard automation practices.
+              Vignesh brings deep experience in automation and end-to-end quality engineering. He teaches robust Playwright frameworks, REST API automation, authentication, test data and CI/CD integration on real, complex web applications.
             </p>
           </div>
 
@@ -6284,7 +6390,7 @@
             <div class="faculty-details-list">
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Playwright, Python, Generative AI, AI Testing Agents, Prompt Engineering, Test Automation &amp; Framework Optimisation</span>
+                <span class="faculty-detail-val">Playwright, Python, Generative AI &amp; AI Testing Agents</span>
               </div>
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Certifications:</span>
@@ -6296,7 +6402,7 @@
               </div>
             </div>
             <p class="faculty-bio">
-              Ananya specialises in combining traditional automation testing with emerging Generative AI capabilities. Her sessions explore AI-assisted script development, test scenario generation, intelligent debugging, self-healing automation concepts, and AI-driven quality engineering workflows. Students work on practical projects that demonstrate how Playwright and Generative AI can improve testing efficiency, application reliability, and overall software delivery.
+              Ananya combines traditional automation with Generative AI. Her sessions cover AI-assisted scripting, scenario generation, intelligent debugging and self-healing automation, through projects that show how AI makes testing faster and more reliable.
             </p>
           </div>
         </div>
@@ -6364,8 +6470,8 @@
               <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/c-malarvizhi-tech-mahindra.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/c-malarvizhi-tech-mahindra.jpg" alt="C Malarvizhi's offer letter, first page (personal details hidden)" loading="lazy" />
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-c-malarvizhi-tech-mahindra.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-c-malarvizhi-tech-mahindra.jpg" alt="C Malarvizhi's offer letter, first page (personal details hidden)" loading="lazy" />
               </a>
               <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
             </div>
@@ -6394,8 +6500,8 @@
               <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/jithin-b-photon.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/jithin-b-photon.jpg" alt="Jithin B's offer letter, first page (personal details hidden)" loading="lazy" />
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-jithin-b-photon.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-jithin-b-photon.jpg" alt="Jithin B's offer letter, first page (personal details hidden)" loading="lazy" />
               </a>
               <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
             </div>
@@ -6424,8 +6530,8 @@
               <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/praveen-kumar-capgemini.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/praveen-kumar-capgemini.jpg" alt="Praveen Kumar's offer letter, first page (personal details hidden)" loading="lazy" />
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-praveen-kumar-capgemini.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-praveen-kumar-capgemini.jpg" alt="Praveen Kumar's offer letter, first page (personal details hidden)" loading="lazy" />
               </a>
               <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
             </div>
@@ -6454,8 +6560,8 @@
               <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/rahul-t-capgemini.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/rahul-t-capgemini.jpg" alt="Rahul T's offer letter, first page (personal details hidden)" loading="lazy" />
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-rahul-t-capgemini.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-rahul-t-capgemini.jpg" alt="Rahul T's offer letter, first page (personal details hidden)" loading="lazy" />
               </a>
               <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
             </div>
@@ -6484,8 +6590,8 @@
               <svg class="ico rv-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
             </button>
             <div class="rv-letter" hidden>
-              <a href="assets/offer-letters/shreyash-jain-tcs.jpg" target="_blank" rel="noopener">
-                <img src="assets/offer-letters/shreyash-jain-tcs.jpg" alt="Shreyash Jain's offer letter, first page (personal details hidden)" loading="lazy" />
+              <a href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-shreyash-jain-tcs.jpg" target="_blank" rel="noopener">
+                <img src="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-shreyash-jain-tcs.jpg" alt="Shreyash Jain's offer letter, first page (personal details hidden)" loading="lazy" />
               </a>
               <small>Personal details hidden for privacy &middot; Tap to enlarge</small>
             </div>
@@ -6671,13 +6777,13 @@
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/javascript.svg" width="16" height="16" alt="JavaScript" /> JavaScript</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/typescript-icon.svg" width="16" height="16" alt="TypeScript" /> TypeScript</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/cucumber.svg" width="16" height="16" alt="Cucumber" /> Cucumber</span>
-              <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/simple-icons/alluredotnet.svg?color=%2387B625" width="16" height="16" alt="Allure Report" /> Allure Report</span>
+              <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://allurereport.org/svg/logo-report-sign.svg" width="16" height="16" alt="Allure Report" /> Allure Report</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/git-icon.svg" width="16" height="16" alt="Git" /> Git</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/github-icon.svg" width="16" height="16" alt="GitHub" /> GitHub</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/jenkins.svg" width="16" height="16" alt="Jenkins" /> Jenkins</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/postman-icon.svg" width="16" height="16" alt="Postman" /> Postman</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/playwright.svg" width="16" height="16" alt="Playwright MCP" /> Playwright MCP</span>
-              <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/microsoft-copilot.svg" width="16" height="16" alt="Microsoft Copilot" /> Copilot</span>
+              <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/github-copilot.svg" width="16" height="16" alt="GitHub Copilot" /> Copilot</span>
               <span class="project-tag-pill" style="display: inline-flex; align-items: center; gap: 6px;"><img src="https://api.iconify.design/logos/openai-icon.svg" width="16" height="16" alt="OpenAI" /> OpenAI</span>
             </div>
           </div>
@@ -7626,7 +7732,7 @@
             class="btn btn-primary"
             id="brochureDownload"
             onclick="gateBrochureDownload(event)"
-            href="assets/Broucher/Playwright%20with%20Gen%20AI%20Syllabus.pdf"
+            href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/playwright-gen-ai-syllabus.pdf"
             download="Greens-Technologies-Playwright-with-Gen-AI-Syllabus.pdf"
           >
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download Playwright Brochure (PDF)</span>
@@ -8326,7 +8432,7 @@
               <p class="related-course-desc">
                 Full stack development with Java, modern frameworks and AI-assisted coding. Build end-to-end enterprise architectures.
               </p>
-              <a href="https://www.greenstechnologys.com/java-training-course-content.html" class="btn btn-outline btn-sm">
+              <a href="java-full-stack-course-chennai.html" class="btn btn-outline btn-sm">
                 Get Syllabus <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
               </a>
             </div>
@@ -8582,7 +8688,7 @@
               <span class="branch-pin-icon"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg></span>
               <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener noreferrer">Adyar</a></h3>
             </div>
-            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai - 600020</address>
             <div class="branch-actions">
               <a href="tel:+918939915577" class="branch-action"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="branch-action primary" target="_blank" rel="noopener noreferrer" title="Greens Technologies Adyar on Google Maps"><svg class="ico" aria-hidden="true"><use href="#i-pin"/></svg> Directions</a>
@@ -9362,13 +9468,22 @@
       document.getElementById('modalSubmitBtn').textContent = 'Submit & Download';
     }
 
+    // Downloads work for files on this site and on S3. A browser ignores the "download" attribute for files
+    // on another site, so S3 files are fetched and saved as a file; if that is blocked, the PDF opens in a new tab.
     function downloadFile(url, filename) {
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = filename || '';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
+      const save = href => {
+        const a = document.createElement('a');
+        a.href = href;
+        a.download = filename || '';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      };
+      if (new URL(url, location.href).origin === location.origin) return save(url);
+      fetch(url, { mode: 'cors' })
+        .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
+        .then(blob => { const obj = URL.createObjectURL(blob); save(obj); setTimeout(() => URL.revokeObjectURL(obj), 10000); })
+        .catch(() => window.open(url, '_blank', 'noopener'));
     }
 
     function gateBrochureDownload(e) {
@@ -9726,6 +9841,17 @@
     centreLastRows();
     window.addEventListener('resize', queueCentre);
     document.addEventListener('click', queueCentre);
+  </script>
+
+  <script>
+    /* Desktop: navbar sits right under the pinned top strip, whatever the strip's height */
+    (function () {
+      var strip = document.querySelector('body > .top-announcement');
+      if (!strip) return;
+      var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
+      set(); window.addEventListener('resize', set);
+      if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
   </script>
 </body>
 </html>

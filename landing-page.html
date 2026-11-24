@@ -2,17 +2,16 @@
 <html lang="en">
 <head>
   <!-- Google Tag Manager -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-KXRHZCZW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KXRHZCZW');</script>
   <!-- End Google Tag Manager -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Greens Technologys – No 1 Software Training Institute in Chennai with Placements</title>
-  <meta name="description" content="Greens Technologys – Chennai's leading software training and placement institute. 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more. Classroom & online training across 25 branches." />
+  <title>Greens Technologies – No 1 Software Training Institute in Chennai with Placements</title>
+  <meta name="description" content="Greens Technologies – Chennai's leading software training and placement institute. 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more. Classroom & online training across 25 branches." />
   <meta name="theme-color" content="#1b3a1c" />
   <link rel="icon" type="image/png" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
   <link rel="apple-touch-icon" href="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" />
@@ -21,7 +20,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Instrument+Serif:ital@1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ============ THEME – greens from the Greens Technologys logo ============ */
+    /* ============ THEME – greens from the Greens Technologies logo ============ */
     :root {
       --green:        #1b3a1c;   /* logo text green */
       --green-dark:   #102512;
@@ -160,6 +159,29 @@
     /* Highlights row: two aligned cards */
     .hl-card { height: 330px; display: flex; flex-direction: column; justify-content: center; text-align: left; background: var(--white); border: 1px solid var(--border); border-radius: 20px; padding: 22px 20px; box-shadow: 0 14px 34px rgba(27,58,28,.07); }
     .hero-facts { list-style: none; display: grid; gap: 16px; }
+    .hero .facts-head { max-width: none; text-align: left; line-height: 1.3; margin: 0 0 14px; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #8a958b; }
+    .hl-facts .hero-facts { gap: 12px; }
+    .facts-foot { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); font-size: 12px; color: var(--muted); text-decoration: none; }
+    .facts-foot b { color: var(--green); }
+    .facts-foot .i { flex-shrink: 0; color: var(--green-mid); transition: transform .2s; }
+    .facts-foot:hover .i { transform: translateX(3px); }
+    /* Desktop: hero runs edge to edge, side cards grow to fill the space beside the headline */
+    .hero-wrap { position: relative; z-index: 1; }
+    @media (min-width: 1101px) {
+      .hero > .hero-wrap { max-width: none; padding: 0 clamp(20px, 2.4vw, 48px); }
+      .hero-main { grid-template-columns: minmax(250px, 1fr) minmax(0, 680px) minmax(250px, 1fr); gap: clamp(20px, 2.4vw, 48px); }
+      .hl-card { padding: 24px clamp(20px, 2vw, 34px); }
+    }
+    @media (min-width: 1500px) {
+      .hl-card { justify-content: space-between; padding-top: 28px; padding-bottom: 28px; }
+      .hl-facts .hero-facts { grid-template-columns: 1fr 1fr; gap: 30px 20px; }
+      .hero-fact { font-size: 13.5px; gap: 12px; }
+      .hero-fact b { font-size: 14.5px; }
+      .hero-fact .fi { width: 40px; height: 40px; font-size: 18px; border-radius: 11px; }
+      .hero .facts-head { margin-bottom: 0; }
+      .facts-foot { margin-top: 0; font-size: 13px; }
+      .hero-proof .hired-logos { gap: 8px; }
+    }
     .hero-fact { display: flex; align-items: center; gap: 10px; font-size: 12.5px; color: var(--muted); }
     .hero-fact .fi { flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px; display: grid; place-items: center; background: var(--green-tint); color: var(--green); font-size: 15px; }
     .hero-fact b { color: var(--green); font-size: 13px; }
@@ -196,6 +218,13 @@
       font-size: clamp(34px, 4vw, 52px); font-weight: 600; letter-spacing: -0.04em; line-height: 1;
       color: var(--green);
     }
+    .lp-hl { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 44px; }
+    .lp-hl-item { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--green-tint); border: 1px solid var(--border); border-radius: 18px; }
+    .lp-hl-icon { width: 46px; height: 46px; flex-shrink: 0; border-radius: 12px; background: var(--accent); color: var(--green-dark); display: grid; place-items: center; }
+    .lp-hl-icon svg { width: 22px; height: 22px; }
+    .lp-hl-item h3 { font-family: "Plus Jakarta Sans", sans-serif; font-size: 19px; font-weight: 800; color: var(--green); line-height: 1.25; }
+    .lp-hl-item p { margin-top: 4px; font-size: 14px; line-height: 1.5; color: var(--muted); }
+    @media (max-width: 760px) { .lp-hl { grid-template-columns: 1fr; gap: 10px; margin-top: 32px; } .lp-hl-item { padding: 16px 18px; } .lp-hl-item h3 { font-size: 17px; } }
     .hl-item { transition: opacity .6s ease, transform .6s ease; }
     .hl-item.hl-wait { opacity: 0; transform: translateY(18px); }
     .hl-item p { margin-top: 14px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
@@ -243,9 +272,14 @@
     .stars { color: var(--accent-dark); letter-spacing: 1px; }
     .rating small { color: var(--muted); }
     .course-foot {
-      margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      margin-top: auto; display: flex; flex-direction: column; align-items: stretch; gap: 10px;
       padding-top: 14px; border-top: 1px solid var(--border);
     }
+    .course-links { display: flex; gap: 8px; }
+    .cl-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 10px; border-radius: 999px; font-size: 13px; font-weight: 700; white-space: nowrap; border: 1.5px solid var(--border); color: var(--green); transition: background .2s, border-color .2s, color .2s; }
+    .cl-btn:hover { border-color: var(--green-mid); }
+    .cl-btn.cl-main { background: var(--green); border-color: var(--green); color: var(--white); }
+    .cl-btn.cl-main:hover { background: var(--green-mid); border-color: var(--green-mid); }
     .fees { font-size: 12px; line-height: 1.3; font-weight: 700; color: var(--green-mid); }
     .link-arrow { white-space: nowrap; flex-shrink: 0; font-weight: 800; font-size: 14px; color: var(--green); display: inline-flex; align-items: center; gap: 4px; transition: gap .2s; }
     .link-arrow:hover { gap: 8px; }
@@ -260,6 +294,7 @@
     .stories-nav .story-next { background: var(--green); color: var(--white); border-color: var(--green); }
     .story-stage { background: var(--white); border: 1px solid var(--border); border-radius: 28px; padding: 36px 40px 32px; box-shadow: var(--shadow); }
     .story { animation: storyIn .35s ease; }
+    .gsap-on .story { animation: none; }
     @keyframes storyIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
     .story-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
     .story-who { display: flex; align-items: center; gap: 18px; }
@@ -271,9 +306,9 @@
     .story-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
     .story-meta .pkg { font-size: 15px; padding: 7px 16px; }
     .story h4.headline { font-size: 22px; color: var(--green-mid); margin: 22px 0 14px; }
-    .story blockquote { margin: 0; background: var(--green-tint); border: 1px solid var(--border); border-left: 5px solid var(--accent); border-radius: 16px; padding: 22px 26px; font-size: 16.5px; font-style: italic; color: var(--text); }
+    .story blockquote { margin: 0; background: var(--green-tint); border: 1px solid var(--border); border-radius: 16px; padding: 22px 26px; font-size: 16.5px; font-style: italic; color: var(--text); }
     .letter-btn { margin-top: 18px; display: inline-flex; align-items: center; gap: 8px; padding: 11px 18px; border-radius: 12px; border: 1.5px solid var(--green-mid); background: var(--white); color: var(--green); font: inherit; font-size: 14px; font-weight: 800; cursor: pointer; transition: all .2s; }
-    .letter-btn:hover, .letter-btn[aria-expanded="true"] { background: var(--green); color: var(--accent); border-color: var(--green); }
+    .letter-btn:hover { background: var(--green); color: var(--accent); border-color: var(--green); }
     .story-letter { margin-top: 14px; }
     .story-letter img { display: block; width: 100%; max-width: 520px; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
     .story-letter small { display: block; margin-top: 6px; font-size: 12px; color: var(--muted); }
@@ -457,25 +492,39 @@
     .faq-item summary::-webkit-details-marker { display: none; }
     .faq-item summary:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 2px; border-radius: 16px; }
     .faq-icon {
-      flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center;
-      background: var(--green-soft); color: var(--green); font-size: 18px; font-weight: 700; line-height: 1; transition: all .25s;
+      position: relative; flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--green-soft); color: var(--green); font-size: 0; line-height: 0; transition: all .25s;
     }
+    /* Plus sign drawn with two bars so it sits exactly in the centre of the circle */
+    .faq-icon::before, .faq-icon::after {
+      content: ""; position: absolute; top: 50%; left: 50%; width: 12px; height: 2px; border-radius: 2px;
+      background: currentColor; transform: translate(-50%, -50%);
+    }
+    .faq-icon::after { transform: translate(-50%, -50%) rotate(90deg); }
     .faq-item[open] .faq-icon { transform: rotate(45deg); background: var(--green); color: var(--accent); }
     .faq-answer { padding: 0 20px 18px; color: var(--muted); font-size: 15px; }
     .faq-answer a { color: var(--green-mid); font-weight: 700; text-decoration: underline; }
 
     /* ============ 5. HIRING COMPANIES ============ */
-    .companies { background: var(--green); }
+    .companies { background: var(--green); overflow-x: clip; }
     .companies .section-head h2 { color: var(--white); }
     .companies .section-head p { color: rgba(255,255,255,.8); }
     .company-more { text-align: center; margin-top: 22px; color: var(--accent); font-family: "Plus Jakarta Sans", sans-serif; font-size: 20px; font-weight: 800; }
-    .company-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+    .co-marquee { display: grid; gap: 14px; mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent); }
+    .co-line { overflow: hidden; padding: 6px 0; }
+    .co-row { display: flex; gap: 14px; width: max-content; animation: coLeft var(--dur, 50s) linear infinite; }
+    .co-row.rev { animation-name: coRight; }
+    .co-dup { display: contents; }
+    .co-marquee:hover .co-row { animation-play-state: paused; }
+    @keyframes coLeft { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 7px)); } }
+    @keyframes coRight { from { transform: translateX(calc(-50% - 7px)); } to { transform: translateX(0); } }
+    @media (prefers-reduced-motion: reduce) { .co-row { animation: none; flex-wrap: wrap; width: auto; justify-content: center; } .co-dup { display: none; } }
     .company {
-      background: var(--white); border-radius: 14px; padding: 18px; display: flex; align-items: center; justify-content: center; gap: 12px;
+      background: var(--white); border-radius: 14px; padding: 14px 22px; display: flex; align-items: center; justify-content: center; gap: 12px; flex-shrink: 0; white-space: nowrap;
       font-weight: 700; font-size: 14px; color: #1d293d; transition: all .3s;
     }
     .company img { width: 30px; height: 30px; object-fit: contain; }
-    .company:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,.25); }
+    .company:hover { box-shadow: 0 12px 24px rgba(0,0,0,.25); }
     .placement-stats { display: grid; grid-template-columns: repeat(4, 1fr); margin-top: 40px; text-align: center; gap: 16px; }
     .placement-stats div { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.15); border-radius: 18px; padding: 22px 10px; }
     .placement-stats b { font-family: "Plus Jakarta Sans"; font-size: clamp(22px, 3vw, 30px); color: var(--accent); display: block; }
@@ -545,6 +594,38 @@
     .cta-box h2 { font-size: clamp(22px, 3vw, 30px); font-weight: 800; margin-bottom: 10px; }
     .cta-box p { color: var(--muted); font-weight: 500; max-width: 640px; }
     .cta-btns { display: flex; gap: 12px; flex-wrap: wrap; flex-shrink: 0; }
+    .cta-box.enq { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 470px); align-items: start; gap: 44px; }
+    .enq-points { list-style: none; display: grid; gap: 10px; margin: 20px 0 24px; }
+    .enq-points li { display: flex; align-items: center; gap: 10px; font-weight: 600; color: var(--green); }
+    .enq-points .i { color: var(--accent-dark); font-size: 18px; }
+    .enq-form { background: var(--green-tint); border: 1px solid var(--border); border-radius: 20px; padding: 26px; }
+    .enq-form h3 { font-size: 20px; font-weight: 800; margin-bottom: 16px; }
+    .enq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .enq-wide { grid-column: 1 / -1; }
+    .enq-field { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 600; color: var(--green); }
+    .enq-field input, .enq-field select { font: inherit; font-size: 14.5px; font-weight: 500; color: var(--text); background: var(--white); border: 1px solid var(--border); border-radius: 12px; padding: 11px 13px; width: 100%; transition: border-color .2s, box-shadow .2s; }
+    .enq-field input:focus, .enq-field select:focus { outline: none; border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(79,138,38,.15); }
+    .enq-field .bad { border-color: #c0392b; }
+    .enq-submit { width: 100%; margin-top: 16px; }
+    .enq-submit[disabled] { opacity: .6; cursor: wait; }
+    .enq-note { font-size: 12.5px; color: var(--muted); margin-top: 10px; text-align: center; }
+    .enq-note.ok { color: var(--accent-dark); font-weight: 700; }
+    .enq-note.err { color: #c0392b; font-weight: 600; }
+    @media (max-width: 980px) { .cta-box.enq { grid-template-columns: 1fr; gap: 26px; } .enq-copy { text-align: center; } .enq-points { justify-items: center; } .enq-copy .cta-btns { justify-content: center; } }
+    @media (max-width: 520px) { .enq-grid { grid-template-columns: 1fr; } .enq-form { padding: 20px 16px; } }
+
+    /* Offer letter modal */
+    .lt-modal { position: fixed; inset: 0; z-index: 2000; background: rgba(16, 37, 18, .6); display: flex; align-items: center; justify-content: center; padding: 16px; }
+    .lt-modal[hidden] { display: none; }
+    .lt-sheet { background: var(--white); border-radius: 20px; width: min(720px, 100%); max-height: 100%; display: flex; flex-direction: column; overflow: hidden; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+    .lt-head { display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+    .lt-head h3 { flex: 1; min-width: 0; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .lt-close { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--border); background: var(--white); color: var(--green); font-size: 22px; line-height: 1; cursor: pointer; }
+    .lt-close:hover { border-color: var(--green-mid); }
+    .lt-body { overflow: auto; background: var(--green-tint); }
+    .lt-body img { display: block; width: 100%; height: auto; }
+    .lt-foot { font-size: 12.5px; color: var(--muted); padding: 10px 18px; border-top: 1px solid var(--border); }
+    body.lt-lock { overflow: hidden; }
 
     /* ============ 8. FOOTER ============ */
     footer { background: var(--green-dark); color: rgba(255,255,255,.78); padding: 140px 0 0; font-size: 14.5px; }
@@ -579,6 +660,7 @@
 
     .reveal { opacity: 0; transform: translateY(30px); transition: all .7s ease; }
     .reveal.show { opacity: 1; transform: none; }
+    .gsap-on .reveal { opacity: 1; transform: none; transition: none; }
 
     /* ============ MOBILE MENU (top drop-down drawer, same as course pages) ============ */
     .nav-cta-m { display: none; white-space: nowrap; }
@@ -642,7 +724,6 @@
       .hl-item:nth-child(2) { border-right: 0; }
       .hl-item:nth-child(3) { padding-left: 0; }
       .hl-item:nth-child(n+3) { padding-top: 28px; margin-top: 28px; border-top: 1px solid var(--border); }
-      .company-grid { grid-template-columns: repeat(4, 1fr); }
       .company:nth-child(n+17) { display: none; }
       .story-picks { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .branch-grid { grid-template-columns: repeat(3, 1fr); }
@@ -751,7 +832,6 @@
       .wcard { width: min(300px, calc(100vw - 110px)); }
       .wcard-visual { height: 180px; }
       .why-carousel .slider-btn { width: 40px; height: 40px; font-size: 16px; }
-      .company-grid { grid-template-columns: repeat(2, 1fr); }
       .company:nth-child(n+9) { display: none; }
       .company { padding: 14px 10px; font-size: 13px; }
       .placement-stats { margin-top: 28px; gap: 10px; }
@@ -819,6 +899,98 @@
       .chat-fab { width: 50px; height: 50px; right: 14px; bottom: 142px; font-size: 21px; }
       .chat-panel { right: 10px; left: 10px; width: auto; bottom: 202px; max-height: calc(100vh - 280px); }
     }
+
+    /* ============ COURSES MEGA MENU (header) ============ */
+    .nav-inner { position: relative; }
+    .nav-links { align-self: stretch; }
+    .nav-courses { display: flex; align-items: center; align-self: stretch; }
+    .nav-links .nav-courses-btn { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-caret { transition: transform .2s; }
+    .nav-courses:hover .nav-caret, .nav-courses:focus-within .nav-caret, .nav-courses.open .nav-caret { transform: rotate(180deg); }
+    .mega {
+      display: none; position: absolute; top: 100%; left: 20px; right: 20px; z-index: 120;
+      background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--green);
+      border-radius: 0 0 14px 14px; box-shadow: 0 24px 50px rgba(16,37,18,.18); padding: 14px 26px 18px;
+    }
+    .nav-courses:hover .mega, .nav-courses:focus-within .mega, .nav-courses.open .mega { display: block; }
+    .mega-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: 46px; }
+    .mega-col { list-style: none; }
+    .mega-col > li { position: relative; border-bottom: 1px solid var(--border); }
+    .mega-col > li:last-child { border-bottom: 0; }
+    .nav-links .mega a {
+      display: flex; align-items: center; justify-content: space-between; gap: 8px;
+      padding: 8px 4px; border-radius: 6px; color: #3d4a3e; font-weight: 500; font-size: 14.5px; white-space: nowrap;
+    }
+    .nav-links .mega a:hover, .nav-links .mega li:focus-within > a { background: var(--green-tint); color: var(--green); }
+    .mega-col > li.has-sub > a::after {
+      content: ""; flex-shrink: 0; border-left: 5px solid currentColor; border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+    }
+    .mega-sub {
+      display: none; position: absolute; top: -4px; left: 100%; z-index: 2; list-style: none; min-width: 260px;
+      max-height: min(440px, 62vh); overflow-y: auto; padding: 6px; background: var(--white);
+      border: 1px solid var(--border); border-radius: 10px; box-shadow: 0 18px 40px rgba(16,37,18,.16);
+    }
+    .mega-col > li.has-sub:hover > .mega-sub, .mega-col > li.has-sub:focus-within > .mega-sub, .mega-col > li.has-sub.open > .mega-sub { display: block; }
+    .nav-links .mega-sub a { font-size: 14px; padding: 7px 10px; }
+    @media (max-width: 1100px) {
+      .mega { padding: 12px 18px 16px; }
+      .mega-grid { column-gap: 24px; }
+      .nav-links .mega a { font-size: 13.5px; white-space: normal; }
+    }
+
+    /* Courses list inside the mobile drawer */
+    .m-courses > summary {
+      list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between;
+      padding: 12px 10px; font-size: 15px; font-weight: 700; color: var(--green-dark); border-bottom: 1px solid var(--border); border-radius: 8px;
+    }
+    .m-courses > summary::-webkit-details-marker, .m-sub > summary::-webkit-details-marker { display: none; }
+    .m-caret { color: var(--green-mid); transition: transform .2s; }
+    .m-courses[open] > summary .m-caret { transform: rotate(180deg); }
+    .m-courses[open] > summary { background: var(--green-tint); }
+    .m-course-list { list-style: none; padding: 4px 0 6px 10px; border-left: 2px solid var(--green-soft); margin: 6px 0 6px 10px; }
+    .m-course-list a, .m-sub > summary {
+      display: block; padding: 9px 10px; font-size: 14px; font-weight: 600; color: var(--text); border-bottom: 1px solid var(--green-soft);
+    }
+    .m-nav-links .m-course-list a { justify-content: flex-start; }
+    .m-sub > summary { list-style: none; cursor: pointer; position: relative; padding-right: 28px; }
+    .m-sub > summary::after {
+      content: ""; position: absolute; right: 12px; top: 50%; border-left: 5px solid var(--green-mid);
+      border-top: 5px solid transparent; border-bottom: 5px solid transparent; transform: translateY(-50%); transition: transform .2s;
+    }
+    .m-sub[open] > summary::after { transform: translateY(-50%) rotate(90deg); }
+    .m-sub[open] > summary { color: var(--green); background: var(--green-tint); }
+    .m-sub ul { list-style: none; padding: 2px 0 6px 14px; }
+    .m-sub ul a { font-weight: 500; font-size: 13.5px; color: var(--muted); }
+
+    /* ============ HEADER DROPDOWNS (FAQs, For Business) ============ */
+    .nav-drop { position: relative; display: flex; align-items: center; align-self: stretch; }
+    .nav-links .nav-drop-btn { display: inline-flex; align-items: center; gap: 6px; }
+    .nav-drop:hover .nav-caret, .nav-drop:focus-within .nav-caret, .nav-drop.open .nav-caret { transform: rotate(180deg); }
+    .drop-menu {
+      display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); z-index: 120; list-style: none;
+      min-width: 270px; padding: 8px; background: var(--white); border: 1px solid var(--border); border-top: 3px solid var(--green);
+      border-radius: 0 0 12px 12px; box-shadow: 0 20px 44px rgba(16,37,18,.16);
+    }
+    .nav-drop:hover .drop-menu, .nav-drop:focus-within .drop-menu, .nav-drop.open .drop-menu { display: block; }
+    .nav-links .drop-menu a {
+      display: flex; align-items: center; gap: 12px; padding: 11px 14px; border-radius: 8px;
+      color: #2f3a30; font-weight: 600; font-size: 15px; white-space: nowrap;
+    }
+    .nav-links .drop-menu a .i { font-size: 18px; color: var(--green); }
+    .nav-links .drop-menu a:hover, .nav-links .drop-menu a:focus-visible { background: var(--green-tint); color: var(--green); }
+    #navBiz .drop-menu { left: auto; right: 0; transform: none; }
+
+    /* Drawer groups (FAQs, For Business) */
+    .m-group-list { list-style: none; padding: 4px 0 6px 10px; border-left: 2px solid var(--green-soft); margin: 6px 0 6px 10px; }
+    .m-nav-links .m-group-list a { justify-content: flex-start; gap: 10px; font-size: 14px; font-weight: 600; padding: 10px; border-bottom: 1px solid var(--green-soft); }
+    .m-nav-links .m-group-list a .i { color: var(--green-mid); font-size: 16px; }
+  
+    /* Desktop: keep both header rows (top strip + main navbar) pinned while scrolling */
+    @media (min-width: 1024px) {
+      body > .topbar { position: sticky; top: 0; z-index: 101; }
+      body > .navbar { top: var(--top-strip-h, 0px); }
+      html { scroll-padding-top: calc(var(--top-strip-h, 0px) + 90px); }
+    }
   </style>
 </head>
 <body>
@@ -828,6 +1000,7 @@
   <!-- Reusable icons -->
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.18-1.41-.08-.13-.27-.2-.57-.35m-5.42 7.4h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.3-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89a11.82 11.82 0 0 0-3.48-8.41z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
     <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
     <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" d="M5 12h14M13 5l7 7-7 7"/></symbol>
@@ -840,8 +1013,12 @@
     <symbol id="i-cap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M22 10 12 5 2 10l10 5 10-5zM6 12v5c3 2 9 2 12 0v-5"/></symbol>
     <symbol id="i-book" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5zM4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></symbol>
     <symbol id="i-building" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M4 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16M16 9h2a2 2 0 0 1 2 2v10M2 21h20M8 7h4M8 11h4M8 15h4"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2z"/></symbol>
     <symbol id="i-award" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M12 15a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM8.2 13.9 7 22l5-3 5 3-1.2-8.1"/></symbol>
     <symbol id="i-briefcase" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20zM9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+    <symbol id="i-user-plus" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M8.5 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM20 8v6M23 11h-6"/></symbol>
     <symbol id="i-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
     <symbol id="i-code" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
     <symbol id="i-monitor" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M2 4h20v13H2zM8 21h8M12 17v4"/></symbol>
@@ -857,8 +1034,8 @@
       </div>
       <!-- Mobile only: same pills as the course pages -->
       <div class="top-hire">
-        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20hire%20from%20Greens%20Technologies." target="_blank" rel="noopener" class="top-pill white"><svg class="i"><use href="#i-building"/></svg><span>Hire from Us</span></a>
-        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20know%20about%20job%20openings%20at%20Greens%20Technologies." target="_blank" rel="noopener" class="top-pill lime"><svg class="i"><use href="#i-briefcase"/></svg><span>We Are Hiring</span></a>
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20hire%20from%20Greens%20Technologies." target="_blank" rel="noopener" class="top-pill white"><svg class="i"><use href="#i-building"/></svg><span>Hire from Us</span></a>
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20know%20about%20job%20openings%20at%20Greens%20Technologies." target="_blank" rel="noopener" class="top-pill lime"><svg class="i"><use href="#i-briefcase"/></svg><span>We Are Hiring</span></a>
       </div>
       <div class="topbar-right">
         <a href="tel:+918939915577" class="top-phone"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
@@ -875,13 +1052,77 @@
         <span class="brand"><b>GREENS</b><small>TECHNOLOGIES</small></span>
       </a>
       <nav class="nav-links" id="navLinks">
-        <a href="#courses">Courses</a>
-        <a href="#reviews">Reviews</a>
-        <a href="#why">Why Us</a>
-        <a href="#placements">Placements</a>
-        <a href="#founder">About</a>
-        <a href="#branches">Branches</a>
-        <a href="#faq">FAQs</a>
+        <div class="nav-courses" id="navCourses">
+          <a href="#courses" class="nav-courses-btn" aria-haspopup="true" aria-expanded="false" aria-controls="megaMenu">Courses <svg class="nav-caret" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></a>
+          <div class="mega" id="megaMenu">
+          <div class="mega-grid">
+            <ul class="mega-col">
+              <li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">Excel Training</a></li>
+              <li><a href="data-analytics-course-chennai.html">Data Analytics Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/powerbi-training-in-chennai.html" target="_blank" rel="noopener">Power BI Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/snowflake-training-in-chennai.html" target="_blank" rel="noopener">Snowflake Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Hadoop-training-institute-Chennai.html" target="_blank" rel="noopener">Bigdata Training</a></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/oracle-training.html" target="_blank" rel="noopener" aria-haspopup="true">Oracle Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/oracle-sql-plsql-training-in-chennai.html" target="_blank" rel="noopener">Oracle SQL and PLSQL Placement Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-sql-training-in-chennai.html" target="_blank" rel="noopener">SQL Certification</a></li><li><a href="https://www.greenstechnologys.com/plsql-course-content.html" target="_blank" rel="noopener">PLSQL Certification</a></li><li><a href="https://www.greenstechnologys.com/performance-tunning-course-content.html" target="_blank" rel="noopener">Performance Tuning</a></li><li><a href="https://www.greenstechnologys.com/oracle-dba-course-content.html" target="_blank" rel="noopener">Oracle DBA Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-rac-training-course-content.html" target="_blank" rel="noopener">Oracle RAC Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-apps-dba-training-in-chennai.html" target="_blank" rel="noopener">Oracle Apps DBA Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-apps-technical-training-in-chennai.html" target="_blank" rel="noopener">Oracle Apps Technical</a></li><li><a href="https://www.greenstechnologys.com/oracle-apps-financials-training-in-chennai.html" target="_blank" rel="noopener">Oracle Apps Finance Training</a></li><li><a href="https://www.greenstechnologys.com/Oracle-SCM-training-in-Chennai.html" target="_blank" rel="noopener">Oracle Apps SCM Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-hrms-training-in-chennai.html" target="_blank" rel="noopener">Oracle HRMS Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-fusion-hcm-training-in-chennai.html" target="_blank" rel="noopener">Oracle Fusion HCM Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-soa-training-in-chennai.html" target="_blank" rel="noopener">Oracle SOA Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-database-cloud-training.html" target="_blank" rel="noopener">Oracle Cloud Training</a></li><li><a href="https://www.greenstechnologys.com/forms-reports-course-content.html" target="_blank" rel="noopener">Oracle Forms and Reports</a></li><li><a href="https://www.greenstechnologys.com/oracle-apex-training-in-chennai.html" target="_blank" rel="noopener">Oracle APEX Training</a></li><li><a href="https://www.greenstechnologys.com/oracle12c.html" target="_blank" rel="noopener">Oracle 12 Certification Training</a></li></ul></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/Robotic-Process-Automation-training-in-chennai.html" target="_blank" rel="noopener" aria-haspopup="true">Robotic Process Automation</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/blue-prism-training.html" target="_blank" rel="noopener">Blue Prism Training</a></li><li><a href="https://www.greenstechnologys.com/automation-anywhere-training-in-chennai.html" target="_blank" rel="noopener">Automation Anywhere Training</a></li><li><a href="https://www.greenstechnologys.com/uipath-training-in-chennai.html" target="_blank" rel="noopener">UiPath Training</a></li><li><a href="https://www.greenstechnologys.com/openspan-training-in-chennai.html" target="_blank" rel="noopener">OpenSpan Training</a></li></ul></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/datascience-training-in-chennai.html" target="_blank" rel="noopener" aria-haspopup="true">Data Science Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/data-science-with-r-training-in-chennai.html" target="_blank" rel="noopener">Data Science with R Training</a></li><li><a href="https://www.greenstechnologys.com/data-science-with-python-training-in-chennai.html" target="_blank" rel="noopener">Data Science with Python Training</a></li><li><a href="https://www.greenstechnologys.com/machine-learning-training-in-chennai.html" target="_blank" rel="noopener">Machine Learning Training</a></li><li><a href="https://www.greenstechnologys.com/data-science-with-sas-training-in-chennai.html" target="_blank" rel="noopener">Data Science with SAS Training</a></li><li><a href="https://www.greenstechnologys.com/apache-spark-training-in-chennai.html" target="_blank" rel="noopener">Spark Training</a></li><li><a href="https://www.greenstechnologys.com/big-data-and-hadoop-training-in-chennai.html" target="_blank" rel="noopener">Big Data Hadoop Training</a></li><li><a href="https://www.greenstechnologys.com/ai-deep-learning-course-with-tensorflow.html" target="_blank" rel="noopener">AI &amp; Deep Learning with TensorFlow</a></li></ul></li>
+              <li><a href="https://www.greenstechnologys.com/devops-training-and-certification-in-chennai.html" target="_blank" rel="noopener">DevOps Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/windows-Azure-training-in-chennai.html" target="_blank" rel="noopener">Microsoft Azure Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/pega-training-in-chennai.html" target="_blank" rel="noopener">Pega Training</a></li>
+              <li><a href="ai-training-course.html">Artificial Intelligence</a></li>
+              <li><a href="https://www.greenstechnologys.com/ionic-training.html" target="_blank" rel="noopener">Ionic Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/togaf-training.html" target="_blank" rel="noopener">TOGAF Training</a></li>
+            </ul>
+            <ul class="mega-col">
+              <li><a href="workday-hcm-course-chennai.html">Workday Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/sql-dba-training-in-chennai.html" target="_blank" rel="noopener">MS SQL Server DBA Training</a></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/data-warehousing-course-content.html" target="_blank" rel="noopener" aria-haspopup="true">Data Warehousing Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/informatica-course-content.html" target="_blank" rel="noopener">Informatica Training</a></li><li><a href="https://www.greenstechnologys.com/talend-training-in-chennai.html" target="_blank" rel="noopener">Talend Training</a></li><li><a href="https://www.greenstechnologys.com/cognos-course-content.html" target="_blank" rel="noopener">COGNOS Training</a></li><li><a href="https://www.greenstechnologys.com/cognos-tm1-course-content.html" target="_blank" rel="noopener">COGNOS TM1 Training</a></li><li><a href="https://www.greenstechnologys.com/obiee-course-content.html" target="_blank" rel="noopener">OBIEE Training</a></li><li><a href="https://www.greenstechnologys.com/data-stage-course-content.html" target="_blank" rel="noopener">DataStage Training</a></li><li><a href="https://www.greenstechnologys.com/db2-training-in-chennai.html" target="_blank" rel="noopener">DB2 DBA Training</a></li><li><a href="https://www.greenstechnologys.com/teradata-training-in-chennai.html" target="_blank" rel="noopener">Teradata Training</a></li><li><a href="https://www.greenstechnologys.com/best-MicroStrategy-training-in-chennai.html" target="_blank" rel="noopener">Microstrategy Training</a></li><li><a href="https://www.greenstechnologys.com/abinitio-course-content.html" target="_blank" rel="noopener">Ab Initio Training</a></li><li><a href="https://www.greenstechnologys.com/hyperiontrainingchennai.html" target="_blank" rel="noopener">Hyperion Training</a></li><li><a href="https://www.greenstechnologys.com/Business%20Objects-course-content.html" target="_blank" rel="noopener">SAP BO</a></li><li><a href="https://www.greenstechnologys.com/jaspersoft-training-in-chennai.html" target="_blank" rel="noopener">Jaspersoft</a></li><li><a href="https://www.greenstechnologys.com/informatica-data-quality-training-in-chennai.html" target="_blank" rel="noopener">Informatica Data Quality</a></li><li><a href="https://www.greenstechnologys.com/tableau-training-in-chennai.html" target="_blank" rel="noopener">Tableau Training</a></li></ul></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/software-testing-course-content.html" target="_blank" rel="noopener" aria-haspopup="true">Software Testing Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/software-testing-course-content.html" target="_blank" rel="noopener">Software Testing Training</a></li><li><a href="https://www.greenstechnologys.com/istqb-certification-training-chennai.html" target="_blank" rel="noopener">ISTQB Certification</a></li><li><a href="https://www.greenstechnologys.com/qtp-course-content.html" target="_blank" rel="noopener">QTP / UFT</a></li><li><a href="https://www.greenstechnologys.com/etl-training-in-chennai.html" target="_blank" rel="noopener">ETL Testing</a></li><li><a href="https://www.greenstechnologys.com/LoadRunner-course-content.html" target="_blank" rel="noopener">LoadRunner</a></li><li><a href="https://www.greenstechnologys.com/selenium-course-content.html" target="_blank" rel="noopener">Selenium</a></li><li><a href="https://www.greenstechnologys.com/appium-training-in-chennai.html" target="_blank" rel="noopener">Appium Testing</a></li><li><a href="https://www.greenstechnologys.com/api-testing-training-in-chennai.html" target="_blank" rel="noopener">API Testing</a></li><li><a href="https://www.greenstechnologys.com/soapui-testing-training-in-chennai.html" target="_blank" rel="noopener">SoapUI API Testing Training</a></li><li><a href="https://www.greenstechnologys.com/Jmeter-course-content.html" target="_blank" rel="noopener">Jmeter</a></li><li><a href="https://www.greenstechnologys.com/mobile-application-testing-training-in-chennai.html" target="_blank" rel="noopener">Mobile Testing</a></li><li><a href="https://www.greenstechnologys.com/database-testing-training.html" target="_blank" rel="noopener">Database Testing</a></li><li><a href="https://www.greenstechnologys.com/soa-testing-training.html" target="_blank" rel="noopener">SOA Testing</a></li><li><a href="https://www.greenstechnologys.com/TestComplete-training.html" target="_blank" rel="noopener">TestComplete</a></li></ul></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/java-training-course-content.html" target="_blank" rel="noopener" aria-haspopup="true">Java Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/java-training-course-content.html" target="_blank" rel="noopener">Core Java Training</a></li><li><a href="https://www.greenstechnologys.com/J2EE-Training-in-Chennai.html" target="_blank" rel="noopener">J2EE Training</a></li><li><a href="https://www.greenstechnologys.com/angularjs-training-in-chennai.html" target="_blank" rel="noopener">AngularJS Training</a></li><li><a href="https://www.greenstechnologys.com/angular-2-training-in-chennai.html" target="_blank" rel="noopener">Angular 2 Training</a></li><li><a href="https://www.greenstechnologys.com/angular-5-training-in-chennai.html" target="_blank" rel="noopener">Angular 5 Training</a></li><li><a href="https://www.greenstechnologys.com/Struts-Training-In-Chennai.html" target="_blank" rel="noopener">Struts Training</a></li><li><a href="https://www.greenstechnologys.com/hibernate-training-institute-center-in-chennai.html" target="_blank" rel="noopener">Hibernate Training</a></li><li><a href="https://www.greenstechnologys.com/Spring-training-in-Chennai-Adyar.html" target="_blank" rel="noopener">Spring Training</a></li></ul></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/dot-net-training-in-chennai.html" target="_blank" rel="noopener" aria-haspopup="true">.NET Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/C-Net-training-in-chennai.html" target="_blank" rel="noopener">C Sharp .NET Training</a></li><li><a href="https://www.greenstechnologys.com/linq-entityframework-training-in-chennai.html" target="_blank" rel="noopener">LINQ Training</a></li><li><a href="https://www.greenstechnologys.com/Asp-Net-training-in-chennai.html" target="_blank" rel="noopener">ASP.NET Training</a></li><li><a href="https://www.greenstechnologys.com/wcf-training-in-chennai.html" target="_blank" rel="noopener">WCF Training</a></li><li><a href="https://www.greenstechnologys.com/wpf-training-in-chennai.html" target="_blank" rel="noopener">WPF Training</a></li><li><a href="https://www.greenstechnologys.com/aspnet-mvc-training-in-chennai.html" target="_blank" rel="noopener">MVC 4.0 Training</a></li><li><a href="https://www.greenstechnologys.com/silverlight-training.html" target="_blank" rel="noopener">Silverlight Training</a></li><li><a href="https://www.greenstechnologys.com/SharePoint-training-in-chennai.html" target="_blank" rel="noopener">SharePoint Training</a></li></ul></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener" aria-haspopup="true">Foreign Languages Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Japanese</a></li><li><a href="https://www.greenstechnologys.com/german-classes-in-chennai.html" target="_blank" rel="noopener">German</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">French</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">English</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Spanish</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Russian</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Latin</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Chinese</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Italian</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Arabic</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Portuguese</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Korean</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Mandarin Chinese</a></li></ul></li>
+              <li><a href="https://www.greenstechnologys.com/tableau-training-in-chennai.html" target="_blank" rel="noopener">Tableau Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/iot.html" target="_blank" rel="noopener">Internet of things Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/AWS-training-chennai.html" target="_blank" rel="noopener">AWS Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">PHP Training</a></li>
+            </ul>
+            <ul class="mega-col">
+              <li><a href="https://www.greenstechnologys.com/dell-boomi-training-chennai.html" target="_blank" rel="noopener">Dell Boomi Training</a></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/msbi-training-course-chennai.html" target="_blank" rel="noopener" aria-haspopup="true">MSBI Training Courses</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/SSAS-course-chennai.html" target="_blank" rel="noopener">SSAS Training</a></li><li><a href="https://www.greenstechnologys.com/SSIS-course-chennai.html" target="_blank" rel="noopener">SSIS Training</a></li><li><a href="https://www.greenstechnologys.com/SSRS-course-chennai.html" target="_blank" rel="noopener">SSRS Training</a></li><li><a href="https://www.greenstechnologys.com/powerbi-training-in-chennai.html" target="_blank" rel="noopener">Power BI Training</a></li></ul></li>
+              <li><a href="https://www.greenstechnologys.com/apple-ios-training-in-chennai.html" target="_blank" rel="noopener">Apple IOS Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Android-training-institute-Chennai.html" target="_blank" rel="noopener">Android Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Websphere_training_in_chennai.html" target="_blank" rel="noopener">Websphere Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/salesforce-training-in-chennai.html" target="_blank" rel="noopener">Salesforce Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/blockchain-training-in-chennai.html" target="_blank" rel="noopener">Blockchain Training</a></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener" aria-haspopup="true">SAP Training</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP ABAP Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP FICO Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP MM Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP Basis Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP HR Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP SD Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP PP Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP BO Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP BI Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP PM Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP IS-Retail Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP XI Training</a></li></ul></li>
+              <li><a href="https://www.greenstechnologys.com/python-training.html" target="_blank" rel="noopener">Python Training</a></li>
+              <li class="has-sub"><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener" aria-haspopup="true">Electronic Design Automation</a><ul class="mega-sub"><li><a href="https://www.greenstechnologys.com/matlab-training-in-chennai.html" target="_blank" rel="noopener">MATLAB</a></li><li><a href="https://www.greenstechnologys.com/embedded-systems-training-in-chennai.html" target="_blank" rel="noopener">Embedded Systems</a></li><li><a href="https://www.greenstechnologys.com/vlsi-training-institutes-in-chennai.html" target="_blank" rel="noopener">VLSI</a></li></ul></li>
+              <li><a href="https://www.greenstechnologys.com/websphere-datapower-training-in-chennai.html" target="_blank" rel="noopener">Websphere Datapower</a></li>
+            </ul>
+            <ul class="mega-col">
+              <li><a href="https://www.greenstechnologys.com/Cloud-Computing-course-content.html" target="_blank" rel="noopener">Cloud Computing</a></li>
+              <li><a href="https://www.greenstechnologys.com/weblogic-training-institutes-chennai.html" target="_blank" rel="noopener">Weblogic Server Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/R-language-training-in-chennai.html" target="_blank" rel="noopener">R Language Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/C-C++-best-training-institute-Chennai.html" target="_blank" rel="noopener">C C++ Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/linux-training-in-chennai.html" target="_blank" rel="noopener">Linux Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/unix-course-content.html" target="_blank" rel="noopener">UNIX SHELL Scripting Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/shell-perl-course-content.html" target="_blank" rel="noopener">PERL Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Sales-Force-CRM-training-institute-Chennai.html" target="_blank" rel="noopener">Salesforce Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/sqlserver_training_in_chennai.html" target="_blank" rel="noopener">SQL Server DBA Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/hybris-training-in-chennai.html" target="_blank" rel="noopener">Hybris Training</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+        <a href="https://www.greenstechnologys.com/about.html" target="_blank" rel="noopener">About Us</a>
+        <div class="nav-drop" id="navFaqs">
+          <a href="#faq" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">FAQs <svg class="nav-caret" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="drop-menu"><li><a href="#faq"><svg class="i"><use href="#i-help"/></svg><span>FAQs</span></a></li><li><a href="#reviews"><svg class="i"><use href="#i-star"/></svg><span>Alumni Stories</span></a></li><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20please%20share%20free%20learning%20resources%20and%20course%20syllabus%20details." target="_blank" rel="noopener"><svg class="i"><use href="#i-book"/></svg><span>Resources</span></a></li></ul>
+        </div>
+        <a href="https://www.greenstechnologys.com/corporate-training-in-chennai.html" target="_blank" rel="noopener">Corporate Training</a>
+        <div class="nav-drop" id="navBiz">
+          <a href="#contact" class="nav-drop-btn" aria-haspopup="true" aria-expanded="false">For Business <svg class="nav-caret" width="12" height="12" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></a>
+          <ul class="drop-menu"><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20hire%20from%20Greens%20Technologies." target="_blank" rel="noopener"><svg class="i"><use href="#i-users"/></svg><span>Hire From Greens Technologies</span></a></li><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20become%20an%20instructor%20at%20Greens%20Technologies." target="_blank" rel="noopener"><svg class="i"><use href="#i-cap"/></svg><span>Become an Instructor</span></a></li><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20know%20about%20job%20openings%20at%20Greens%20Technologies." target="_blank" rel="noopener"><svg class="i"><use href="#i-user-plus"/></svg><span>Careers</span></a></li><li><a href="https://www.greenstechnologys.com/franchise-opportunities-bangalore.html" target="_blank" rel="noopener"><svg class="i"><use href="#i-briefcase"/></svg><span>Business Opportunities</span></a></li></ul>
+        </div>
         <a href="#contact" class="btn btn-green">Book Free Demo</a>
       </nav>
       <a href="#contact" class="btn btn-green nav-cta-m">Free Demo</a>
@@ -906,18 +1147,71 @@
       <div class="m-drawer-body">
         <div class="m-nav-title">Navigation Menu</div>
         <nav class="m-nav-links" aria-label="Mobile">
-          <a href="#courses"><span>Courses</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#reviews"><span>Reviews</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#why"><span>Why Us</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#career-support"><span>Placement Support</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#placements"><span>Placements</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#founder"><span>About</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#branches"><span>Branches</span><svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="#faq"><span>FAQs</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <details class="m-courses">
+            <summary><span>Courses</span><svg class="i m-caret" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary>
+            <ul class="m-course-list">
+              <li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">Excel Training</a></li>
+              <li><a href="data-analytics-course-chennai.html">Data Analytics Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/powerbi-training-in-chennai.html" target="_blank" rel="noopener">Power BI Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/snowflake-training-in-chennai.html" target="_blank" rel="noopener">Snowflake Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Hadoop-training-institute-Chennai.html" target="_blank" rel="noopener">Bigdata Training</a></li>
+              <li><details class="m-sub"><summary>Oracle Training</summary><ul><li><a href="https://www.greenstechnologys.com/oracle-training.html" target="_blank" rel="noopener">All Oracle Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-sql-plsql-training-in-chennai.html" target="_blank" rel="noopener">Oracle SQL and PLSQL Placement Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-sql-training-in-chennai.html" target="_blank" rel="noopener">SQL Certification</a></li><li><a href="https://www.greenstechnologys.com/plsql-course-content.html" target="_blank" rel="noopener">PLSQL Certification</a></li><li><a href="https://www.greenstechnologys.com/performance-tunning-course-content.html" target="_blank" rel="noopener">Performance Tuning</a></li><li><a href="https://www.greenstechnologys.com/oracle-dba-course-content.html" target="_blank" rel="noopener">Oracle DBA Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-rac-training-course-content.html" target="_blank" rel="noopener">Oracle RAC Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-apps-dba-training-in-chennai.html" target="_blank" rel="noopener">Oracle Apps DBA Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-apps-technical-training-in-chennai.html" target="_blank" rel="noopener">Oracle Apps Technical</a></li><li><a href="https://www.greenstechnologys.com/oracle-apps-financials-training-in-chennai.html" target="_blank" rel="noopener">Oracle Apps Finance Training</a></li><li><a href="https://www.greenstechnologys.com/Oracle-SCM-training-in-Chennai.html" target="_blank" rel="noopener">Oracle Apps SCM Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-hrms-training-in-chennai.html" target="_blank" rel="noopener">Oracle HRMS Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-fusion-hcm-training-in-chennai.html" target="_blank" rel="noopener">Oracle Fusion HCM Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-soa-training-in-chennai.html" target="_blank" rel="noopener">Oracle SOA Training</a></li><li><a href="https://www.greenstechnologys.com/oracle-database-cloud-training.html" target="_blank" rel="noopener">Oracle Cloud Training</a></li><li><a href="https://www.greenstechnologys.com/forms-reports-course-content.html" target="_blank" rel="noopener">Oracle Forms and Reports</a></li><li><a href="https://www.greenstechnologys.com/oracle-apex-training-in-chennai.html" target="_blank" rel="noopener">Oracle APEX Training</a></li><li><a href="https://www.greenstechnologys.com/oracle12c.html" target="_blank" rel="noopener">Oracle 12 Certification Training</a></li></ul></details></li>
+              <li><details class="m-sub"><summary>Robotic Process Automation</summary><ul><li><a href="https://www.greenstechnologys.com/Robotic-Process-Automation-training-in-chennai.html" target="_blank" rel="noopener">All Robotic Process Automation</a></li><li><a href="https://www.greenstechnologys.com/blue-prism-training.html" target="_blank" rel="noopener">Blue Prism Training</a></li><li><a href="https://www.greenstechnologys.com/automation-anywhere-training-in-chennai.html" target="_blank" rel="noopener">Automation Anywhere Training</a></li><li><a href="https://www.greenstechnologys.com/uipath-training-in-chennai.html" target="_blank" rel="noopener">UiPath Training</a></li><li><a href="https://www.greenstechnologys.com/openspan-training-in-chennai.html" target="_blank" rel="noopener">OpenSpan Training</a></li></ul></details></li>
+              <li><details class="m-sub"><summary>Data Science Training</summary><ul><li><a href="https://www.greenstechnologys.com/datascience-training-in-chennai.html" target="_blank" rel="noopener">All Data Science Training</a></li><li><a href="https://www.greenstechnologys.com/data-science-with-r-training-in-chennai.html" target="_blank" rel="noopener">Data Science with R Training</a></li><li><a href="https://www.greenstechnologys.com/data-science-with-python-training-in-chennai.html" target="_blank" rel="noopener">Data Science with Python Training</a></li><li><a href="https://www.greenstechnologys.com/machine-learning-training-in-chennai.html" target="_blank" rel="noopener">Machine Learning Training</a></li><li><a href="https://www.greenstechnologys.com/data-science-with-sas-training-in-chennai.html" target="_blank" rel="noopener">Data Science with SAS Training</a></li><li><a href="https://www.greenstechnologys.com/apache-spark-training-in-chennai.html" target="_blank" rel="noopener">Spark Training</a></li><li><a href="https://www.greenstechnologys.com/big-data-and-hadoop-training-in-chennai.html" target="_blank" rel="noopener">Big Data Hadoop Training</a></li><li><a href="https://www.greenstechnologys.com/ai-deep-learning-course-with-tensorflow.html" target="_blank" rel="noopener">AI &amp; Deep Learning with TensorFlow</a></li></ul></details></li>
+              <li><a href="https://www.greenstechnologys.com/devops-training-and-certification-in-chennai.html" target="_blank" rel="noopener">DevOps Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/windows-Azure-training-in-chennai.html" target="_blank" rel="noopener">Microsoft Azure Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/pega-training-in-chennai.html" target="_blank" rel="noopener">Pega Training</a></li>
+              <li><a href="ai-training-course.html">Artificial Intelligence</a></li>
+              <li><a href="https://www.greenstechnologys.com/ionic-training.html" target="_blank" rel="noopener">Ionic Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/togaf-training.html" target="_blank" rel="noopener">TOGAF Training</a></li>
+              <li><a href="workday-hcm-course-chennai.html">Workday Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/sql-dba-training-in-chennai.html" target="_blank" rel="noopener">MS SQL Server DBA Training</a></li>
+              <li><details class="m-sub"><summary>Data Warehousing Training</summary><ul><li><a href="https://www.greenstechnologys.com/data-warehousing-course-content.html" target="_blank" rel="noopener">All Data Warehousing Training</a></li><li><a href="https://www.greenstechnologys.com/informatica-course-content.html" target="_blank" rel="noopener">Informatica Training</a></li><li><a href="https://www.greenstechnologys.com/talend-training-in-chennai.html" target="_blank" rel="noopener">Talend Training</a></li><li><a href="https://www.greenstechnologys.com/cognos-course-content.html" target="_blank" rel="noopener">COGNOS Training</a></li><li><a href="https://www.greenstechnologys.com/cognos-tm1-course-content.html" target="_blank" rel="noopener">COGNOS TM1 Training</a></li><li><a href="https://www.greenstechnologys.com/obiee-course-content.html" target="_blank" rel="noopener">OBIEE Training</a></li><li><a href="https://www.greenstechnologys.com/data-stage-course-content.html" target="_blank" rel="noopener">DataStage Training</a></li><li><a href="https://www.greenstechnologys.com/db2-training-in-chennai.html" target="_blank" rel="noopener">DB2 DBA Training</a></li><li><a href="https://www.greenstechnologys.com/teradata-training-in-chennai.html" target="_blank" rel="noopener">Teradata Training</a></li><li><a href="https://www.greenstechnologys.com/best-MicroStrategy-training-in-chennai.html" target="_blank" rel="noopener">Microstrategy Training</a></li><li><a href="https://www.greenstechnologys.com/abinitio-course-content.html" target="_blank" rel="noopener">Ab Initio Training</a></li><li><a href="https://www.greenstechnologys.com/hyperiontrainingchennai.html" target="_blank" rel="noopener">Hyperion Training</a></li><li><a href="https://www.greenstechnologys.com/Business%20Objects-course-content.html" target="_blank" rel="noopener">SAP BO</a></li><li><a href="https://www.greenstechnologys.com/jaspersoft-training-in-chennai.html" target="_blank" rel="noopener">Jaspersoft</a></li><li><a href="https://www.greenstechnologys.com/informatica-data-quality-training-in-chennai.html" target="_blank" rel="noopener">Informatica Data Quality</a></li><li><a href="https://www.greenstechnologys.com/tableau-training-in-chennai.html" target="_blank" rel="noopener">Tableau Training</a></li></ul></details></li>
+              <li><details class="m-sub"><summary>Software Testing Training</summary><ul><li><a href="https://www.greenstechnologys.com/software-testing-course-content.html" target="_blank" rel="noopener">All Software Testing Training</a></li><li><a href="https://www.greenstechnologys.com/software-testing-course-content.html" target="_blank" rel="noopener">Software Testing Training</a></li><li><a href="https://www.greenstechnologys.com/istqb-certification-training-chennai.html" target="_blank" rel="noopener">ISTQB Certification</a></li><li><a href="https://www.greenstechnologys.com/qtp-course-content.html" target="_blank" rel="noopener">QTP / UFT</a></li><li><a href="https://www.greenstechnologys.com/etl-training-in-chennai.html" target="_blank" rel="noopener">ETL Testing</a></li><li><a href="https://www.greenstechnologys.com/LoadRunner-course-content.html" target="_blank" rel="noopener">LoadRunner</a></li><li><a href="https://www.greenstechnologys.com/selenium-course-content.html" target="_blank" rel="noopener">Selenium</a></li><li><a href="https://www.greenstechnologys.com/appium-training-in-chennai.html" target="_blank" rel="noopener">Appium Testing</a></li><li><a href="https://www.greenstechnologys.com/api-testing-training-in-chennai.html" target="_blank" rel="noopener">API Testing</a></li><li><a href="https://www.greenstechnologys.com/soapui-testing-training-in-chennai.html" target="_blank" rel="noopener">SoapUI API Testing Training</a></li><li><a href="https://www.greenstechnologys.com/Jmeter-course-content.html" target="_blank" rel="noopener">Jmeter</a></li><li><a href="https://www.greenstechnologys.com/mobile-application-testing-training-in-chennai.html" target="_blank" rel="noopener">Mobile Testing</a></li><li><a href="https://www.greenstechnologys.com/database-testing-training.html" target="_blank" rel="noopener">Database Testing</a></li><li><a href="https://www.greenstechnologys.com/soa-testing-training.html" target="_blank" rel="noopener">SOA Testing</a></li><li><a href="https://www.greenstechnologys.com/TestComplete-training.html" target="_blank" rel="noopener">TestComplete</a></li></ul></details></li>
+              <li><details class="m-sub"><summary>Java Training</summary><ul><li><a href="https://www.greenstechnologys.com/java-training-course-content.html" target="_blank" rel="noopener">All Java Training</a></li><li><a href="https://www.greenstechnologys.com/java-training-course-content.html" target="_blank" rel="noopener">Core Java Training</a></li><li><a href="https://www.greenstechnologys.com/J2EE-Training-in-Chennai.html" target="_blank" rel="noopener">J2EE Training</a></li><li><a href="https://www.greenstechnologys.com/angularjs-training-in-chennai.html" target="_blank" rel="noopener">AngularJS Training</a></li><li><a href="https://www.greenstechnologys.com/angular-2-training-in-chennai.html" target="_blank" rel="noopener">Angular 2 Training</a></li><li><a href="https://www.greenstechnologys.com/angular-5-training-in-chennai.html" target="_blank" rel="noopener">Angular 5 Training</a></li><li><a href="https://www.greenstechnologys.com/Struts-Training-In-Chennai.html" target="_blank" rel="noopener">Struts Training</a></li><li><a href="https://www.greenstechnologys.com/hibernate-training-institute-center-in-chennai.html" target="_blank" rel="noopener">Hibernate Training</a></li><li><a href="https://www.greenstechnologys.com/Spring-training-in-Chennai-Adyar.html" target="_blank" rel="noopener">Spring Training</a></li></ul></details></li>
+              <li><details class="m-sub"><summary>.NET Training</summary><ul><li><a href="https://www.greenstechnologys.com/dot-net-training-in-chennai.html" target="_blank" rel="noopener">All .NET Training</a></li><li><a href="https://www.greenstechnologys.com/C-Net-training-in-chennai.html" target="_blank" rel="noopener">C Sharp .NET Training</a></li><li><a href="https://www.greenstechnologys.com/linq-entityframework-training-in-chennai.html" target="_blank" rel="noopener">LINQ Training</a></li><li><a href="https://www.greenstechnologys.com/Asp-Net-training-in-chennai.html" target="_blank" rel="noopener">ASP.NET Training</a></li><li><a href="https://www.greenstechnologys.com/wcf-training-in-chennai.html" target="_blank" rel="noopener">WCF Training</a></li><li><a href="https://www.greenstechnologys.com/wpf-training-in-chennai.html" target="_blank" rel="noopener">WPF Training</a></li><li><a href="https://www.greenstechnologys.com/aspnet-mvc-training-in-chennai.html" target="_blank" rel="noopener">MVC 4.0 Training</a></li><li><a href="https://www.greenstechnologys.com/silverlight-training.html" target="_blank" rel="noopener">Silverlight Training</a></li><li><a href="https://www.greenstechnologys.com/SharePoint-training-in-chennai.html" target="_blank" rel="noopener">SharePoint Training</a></li></ul></details></li>
+              <li><details class="m-sub"><summary>Foreign Languages Training</summary><ul><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">All Foreign Languages Training</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Japanese</a></li><li><a href="https://www.greenstechnologys.com/german-classes-in-chennai.html" target="_blank" rel="noopener">German</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">French</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">English</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Spanish</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Russian</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Latin</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Chinese</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Italian</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Arabic</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Portuguese</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Korean</a></li><li><a href="https://www.greenstechnologys.com/Foreign-Language-classes-in-Chennai.html" target="_blank" rel="noopener">Mandarin Chinese</a></li></ul></details></li>
+              <li><a href="https://www.greenstechnologys.com/tableau-training-in-chennai.html" target="_blank" rel="noopener">Tableau Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/iot.html" target="_blank" rel="noopener">Internet of things Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/AWS-training-chennai.html" target="_blank" rel="noopener">AWS Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">PHP Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/dell-boomi-training-chennai.html" target="_blank" rel="noopener">Dell Boomi Training</a></li>
+              <li><details class="m-sub"><summary>MSBI Training Courses</summary><ul><li><a href="https://www.greenstechnologys.com/msbi-training-course-chennai.html" target="_blank" rel="noopener">All MSBI Training Courses</a></li><li><a href="https://www.greenstechnologys.com/SSAS-course-chennai.html" target="_blank" rel="noopener">SSAS Training</a></li><li><a href="https://www.greenstechnologys.com/SSIS-course-chennai.html" target="_blank" rel="noopener">SSIS Training</a></li><li><a href="https://www.greenstechnologys.com/SSRS-course-chennai.html" target="_blank" rel="noopener">SSRS Training</a></li><li><a href="https://www.greenstechnologys.com/powerbi-training-in-chennai.html" target="_blank" rel="noopener">Power BI Training</a></li></ul></details></li>
+              <li><a href="https://www.greenstechnologys.com/apple-ios-training-in-chennai.html" target="_blank" rel="noopener">Apple IOS Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Android-training-institute-Chennai.html" target="_blank" rel="noopener">Android Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Websphere_training_in_chennai.html" target="_blank" rel="noopener">Websphere Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/salesforce-training-in-chennai.html" target="_blank" rel="noopener">Salesforce Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/blockchain-training-in-chennai.html" target="_blank" rel="noopener">Blockchain Training</a></li>
+              <li><details class="m-sub"><summary>SAP Training</summary><ul><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP ABAP Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP FICO Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP MM Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP Basis Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP HR Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP SD Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP PP Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP BO Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP BI Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP PM Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP IS-Retail Training</a></li><li><a href="https://www.greenstechnologys.com/courses.html" target="_blank" rel="noopener">SAP XI Training</a></li></ul></details></li>
+              <li><a href="https://www.greenstechnologys.com/python-training.html" target="_blank" rel="noopener">Python Training</a></li>
+              <li><details class="m-sub"><summary>Electronic Design Automation</summary><ul><li><a href="https://www.greenstechnologys.com/matlab-training-in-chennai.html" target="_blank" rel="noopener">MATLAB</a></li><li><a href="https://www.greenstechnologys.com/embedded-systems-training-in-chennai.html" target="_blank" rel="noopener">Embedded Systems</a></li><li><a href="https://www.greenstechnologys.com/vlsi-training-institutes-in-chennai.html" target="_blank" rel="noopener">VLSI</a></li></ul></details></li>
+              <li><a href="https://www.greenstechnologys.com/websphere-datapower-training-in-chennai.html" target="_blank" rel="noopener">Websphere Datapower</a></li>
+              <li><a href="https://www.greenstechnologys.com/Cloud-Computing-course-content.html" target="_blank" rel="noopener">Cloud Computing</a></li>
+              <li><a href="https://www.greenstechnologys.com/weblogic-training-institutes-chennai.html" target="_blank" rel="noopener">Weblogic Server Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/R-language-training-in-chennai.html" target="_blank" rel="noopener">R Language Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/C-C++-best-training-institute-Chennai.html" target="_blank" rel="noopener">C C++ Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/linux-training-in-chennai.html" target="_blank" rel="noopener">Linux Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/unix-course-content.html" target="_blank" rel="noopener">UNIX SHELL Scripting Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/shell-perl-course-content.html" target="_blank" rel="noopener">PERL Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/Sales-Force-CRM-training-institute-Chennai.html" target="_blank" rel="noopener">Salesforce Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/sqlserver_training_in_chennai.html" target="_blank" rel="noopener">SQL Server DBA Training</a></li>
+              <li><a href="https://www.greenstechnologys.com/hybris-training-in-chennai.html" target="_blank" rel="noopener">Hybris Training</a></li>
+            </ul>
+          </details>
+          <a href="https://www.greenstechnologys.com/about.html" target="_blank" rel="noopener"><span>About Us</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <details class="m-courses m-group">
+            <summary><span>FAQs</span><svg class="i m-caret" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary>
+            <ul class="m-group-list"><li><a href="#faq"><svg class="i"><use href="#i-help"/></svg><span>FAQs</span></a></li><li><a href="#reviews"><svg class="i"><use href="#i-star"/></svg><span>Alumni Stories</span></a></li><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20please%20share%20free%20learning%20resources%20and%20course%20syllabus%20details." target="_blank" rel="noopener"><svg class="i"><use href="#i-book"/></svg><span>Resources</span></a></li></ul>
+          </details>
+          <a href="https://www.greenstechnologys.com/corporate-training-in-chennai.html" target="_blank" rel="noopener"><span>Corporate Training</span><svg class="i"><use href="#i-arrow"/></svg></a>
+          <details class="m-courses m-group">
+            <summary><span>For Business</span><svg class="i m-caret" viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="m6 9 6 6 6-6"/></svg></summary>
+            <ul class="m-group-list"><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20hire%20from%20Greens%20Technologies." target="_blank" rel="noopener"><svg class="i"><use href="#i-users"/></svg><span>Hire From Greens Technologies</span></a></li><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20become%20an%20instructor%20at%20Greens%20Technologies." target="_blank" rel="noopener"><svg class="i"><use href="#i-cap"/></svg><span>Become an Instructor</span></a></li><li><a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20know%20about%20job%20openings%20at%20Greens%20Technologies." target="_blank" rel="noopener"><svg class="i"><use href="#i-user-plus"/></svg><span>Careers</span></a></li><li><a href="https://www.greenstechnologys.com/franchise-opportunities-bangalore.html" target="_blank" rel="noopener"><svg class="i"><use href="#i-briefcase"/></svg><span>Business Opportunities</span></a></li></ul>
+          </details>
         </nav>
         <div class="m-drawer-actions">
           <a href="tel:+918939915577" class="btn btn-line"><svg class="i"><use href="#i-phone"/></svg> Call +91 89399 15577</a>
-          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-green">Book Free Demo Class <svg class="i"><use href="#i-arrow"/></svg></a>
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-green">Book Free Demo Class <svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
     </div>
@@ -928,12 +1222,14 @@
     <div class="container hero-wrap">
       <div class="hero-main">
         <div class="hl-card hl-facts">
+          <p class="facts-head">Why Greens Technologies</p>
           <ul class="hero-facts">
             <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-building"/></svg></span><span><b>500+</b> Hiring Partners</span></li>
             <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-book"/></svg></span><span><b>200+ Courses</b> · Trainers from MNCs</span></li>
             <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-headset"/></svg></span><span><b>100%</b> Lifetime Support</span></li>
             <li class="hero-fact"><span class="fi"><svg class="i"><use href="#i-lang"/></svg></span><span><b>Tamil &amp; English</b> Training</span></li>
           </ul>
+          <a class="facts-foot" href="#branches"><span><b>25 Centres</b> near you</span><svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       <div class="hero-center">
         <p class="hero-eyebrow"><span>Industry Skills</span><i>/</i><span>Expert Trainers</span><i>/</i><span>Placement Support</span></p>
@@ -942,7 +1238,7 @@
         <p>Real-time training from trainers who work in MNCs. Choose from 200+ courses in Full Stack, Data Science, AI, Cloud, DevOps, Testing, Oracle, SAP and more — for freshers and working professionals.</p>
         <div class="hero-btns">
           <a href="#courses" class="btn btn-lime">Explore Courses <svg class="i"><use href="#i-arrow"/></svg></a>
-          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-line">
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-line">
             <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Book a Free Demo
           </a>
         </div>
@@ -1039,6 +1335,19 @@
           <div><h3 data-count="4">4</h3><p>Flexible Training Modes</p></div>
         </div>
       </div>
+      <div class="lp-hl">
+        <div class="lp-hl-item">
+          <span class="lp-hl-icon"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
+          <div>
+            <h3>Pay After Placement</h3>
+            <p>With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+          </div>
+        </div>
+        <div class="lp-hl-item">
+          <span class="lp-hl-icon"><svg aria-hidden="true"><use href="#i-trophy"/></svg></span>
+          <h3>Chennai&rsquo;s Leading IT Training Institute</h3>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1057,6 +1366,26 @@
     </div>
   </section>
 
+  <!-- ================= 4. WHY CHOOSE US ================= -->
+  <section class="why" id="why">
+    <div class="container">
+      <div class="why-head reveal">
+        <h2>Why Choose Greens Technologies</h2>
+        <div>
+          <p>Greens Technologies is a leading training and placement institute in Chennai, headquartered on OMR. We focus on practical, real-time learning — not just theory.</p>
+          <span class="exp-pill"><b>15+</b> Years in IT Industry</span>
+        </div>
+      </div>
+
+      <div class="why-carousel reveal" aria-roledescription="carousel" aria-label="Why choose Greens Technologies">
+        <div class="why-stage" id="whyStage"><!-- rendered by script --></div>
+        <button type="button" class="slider-btn why-prev" id="whyPrev" aria-label="Previous feature"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
+        <button type="button" class="slider-btn why-next" id="whyNext" aria-label="Next feature"><svg class="i"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="why-dots" id="whyDots"></div>
+    </div>
+  </section>
+
   <!-- ================= 3. STUDENT REVIEWS ================= -->
   <section class="reviews" id="reviews">
     <div class="container">
@@ -1066,7 +1395,6 @@
           <p>Hear from our students about their learning experiences, placement journeys and how Greens Technologies helped them prepare for the next step in their careers.</p>
         </div>
         <div class="stories-nav">
-          <span class="stories-count" id="storyCount">01 / 06</span>
           <button type="button" class="slider-btn" id="reviewPrev" aria-label="Previous story"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
           <button type="button" class="slider-btn story-next" id="reviewNext" aria-label="Next story"><svg class="i"><use href="#i-arrow"/></svg></button>
         </div>
@@ -1078,26 +1406,6 @@
           <div class="story-picks" id="storyPicks"><!-- rendered by script --></div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ================= 4. WHY CHOOSE US ================= -->
-  <section class="why" id="why">
-    <div class="container">
-      <div class="why-head reveal">
-        <h2>Practical Training That Gets You Hired</h2>
-        <div>
-          <p>Greens Technologys is a leading training and placement company in Chennai, headquartered on OMR. We focus on practical, real-time learning — not just theory.</p>
-          <span class="exp-pill"><b>10+</b> Years in IT Industry</span>
-        </div>
-      </div>
-
-      <div class="why-carousel reveal" aria-roledescription="carousel" aria-label="Why choose Greens Technologys">
-        <div class="why-stage" id="whyStage"><!-- rendered by script --></div>
-        <button type="button" class="slider-btn why-prev" id="whyPrev" aria-label="Previous feature"><svg class="i" style="transform:rotate(180deg)"><use href="#i-arrow"/></svg></button>
-        <button type="button" class="slider-btn why-next" id="whyNext" aria-label="Next feature"><svg class="i"><use href="#i-arrow"/></svg></button>
-      </div>
-      <div class="why-dots" id="whyDots"></div>
     </div>
   </section>
 
@@ -1151,7 +1459,7 @@
           <p>Tell us your background and goals. A placement advisor will help you choose the right course and explain how placement assistance works.</p>
         </div>
         <div class="cta-btns">
-          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20know%20about%20placement%20assistance." target="_blank" rel="noopener" class="btn btn-wa">
+          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20know%20about%20placement%20assistance." target="_blank" rel="noopener" class="btn btn-wa">
             <svg class="i" style="font-size:19px"><use href="#i-wa"/></svg> Talk to a Placement Advisor
           </a>
           <a href="tel:+918939915577" class="btn btn-light"><svg class="i"><use href="#i-phone"/></svg> Call Now</a>
@@ -1165,10 +1473,10 @@
     <div class="container">
       <div class="section-head reveal">
         <h2>Our Students Work at Top Companies</h2>
-        <p>Greens Technologys students are hired by global IT companies, consultancies and product firms.</p>
+        <p>Greens Technologies students are hired by global IT companies, consultancies and product firms.</p>
       </div>
 
-      <div class="company-grid reveal" id="companyGrid"><!-- rendered by script --></div>
+      <div class="co-marquee reveal" id="companyGrid" aria-label="Companies that hired our students"><!-- rendered by script --></div>
       <p class="company-more reveal">&amp; 500+ more global companies</p>
 
       <div class="placement-stats reveal">
@@ -1179,7 +1487,7 @@
       </div>
 
       <div class="center-btn reveal">
-        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20career%20consultation." target="_blank" rel="noopener" class="btn btn-light">Book Free Consultation <svg class="i"><use href="#i-arrow"/></svg></a>
+        <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20book%20a%20free%20career%20consultation." target="_blank" rel="noopener" class="btn btn-light">Book Free Consultation <svg class="i"><use href="#i-arrow"/></svg></a>
       </div>
     </div>
   </section>
@@ -1194,14 +1502,14 @@
       <div class="founder-card reveal">
         <div class="video-wrap" id="videoWrap">
           <button type="button" id="playVideo" aria-label="Play founder video">
-            <img src="https://img.youtube.com/vi/ytqbpfoqGSA/hqdefault.jpg" alt="Greens Technologys founder video" />
+            <img src="https://img.youtube.com/vi/ytqbpfoqGSA/hqdefault.jpg" alt="Greens Technologies founder video" />
             <span class="play"><svg class="i" style="font-size:30px;margin-left:4px"><use href="#i-play"/></svg></span>
           </button>
         </div>
 
         <div class="founder-content">
           <span class="role">Founder & Managing Director</span>
-          <h3>Greens Technologys Leadership</h3>
+          <h3>Greens Technologies Leadership</h3>
           <p class="sub">Building Chennai's leading software training & placement institute</p>
           <blockquote>"Our mission is simple — make quality software education accessible, practical and 100% job-oriented."</blockquote>
           <p>What began as a single training center in Adyar has grown to <strong>25 branches</strong> across Chennai, Trichy and Salem, offering training, consultancy and development services, with <strong>1,00,000+ students placed</strong> through <strong>500+ hiring partners</strong>.</p>
@@ -1220,7 +1528,7 @@
     <div class="container">
       <div class="section-head reveal">
         <h2>25 Centers — One Near You</h2>
-        <p>Walk in for free counselling and a demo class at any of our branches in Chennai, Bengaluru, Coimbatore, Salem and Trichy. Online live batches are open to learners across India.</p>
+        <p>Walk in for free counselling and a demo class at any of our centres in Chennai, Bengaluru, Coimbatore, Salem, Trichy and the USA. Online live batches are open to learners everywhere.</p>
       </div>
 
       <div class="branch-grid" id="branchGrid">
@@ -1229,7 +1537,7 @@
               <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
               <h3 class="branch-name"><a href="https://share.google/a6orw7BDvFhW0e0Ly" target="_blank" rel="noopener">Adyar</a></h3>
             </div>
-            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai</address>
+            <address class="branch-address">11 First Street, Padmanabha Nagar<br />Adyar, Chennai - 600020</address>
             <div class="branch-actions">
               <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
               <a href="https://share.google/a6orw7BDvFhW0e0Ly" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
@@ -1473,6 +1781,39 @@
               <a href="https://share.google/kVZMYJx1huDLxTzK2" class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-pin"/></svg> Directions</a>
             </div>
           </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name">Bengaluru</h3>
+            </div>
+            <address class="branch-address">Bengaluru, Karnataka<br />Address shared on call or WhatsApp</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20please%20share%20the%20address%20of%20your%20Bengaluru%20centre." class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg> Get Address</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name">Coimbatore</h3>
+            </div>
+            <address class="branch-address">Coimbatore, Tamil Nadu<br />Address shared on call or WhatsApp</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20please%20share%20the%20address%20of%20your%20Coimbatore%20centre." class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg> Get Address</a>
+            </div>
+          </div>
+          <div class="branch-card">
+            <div class="branch-card-head">
+              <span class="branch-pin"><svg class="i"><use href="#i-pin"/></svg></span>
+              <h3 class="branch-name">USA</h3>
+            </div>
+            <address class="branch-address">United States &middot; Online &amp; corporate training<br />Address shared on call or WhatsApp</address>
+            <div class="branch-actions">
+              <a href="tel:+918939915577"><svg class="i"><use href="#i-phone"/></svg> Call</a>
+              <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20please%20share%20details%20of%20your%20USA%20centre." class="primary" target="_blank" rel="noopener"><svg class="i"><use href="#i-wa"/></svg> Get Address</a>
+            </div>
+          </div>
       </div>
     </div>
   </section>
@@ -1489,7 +1830,7 @@
           <p>Our course advisors are happy to help you choose the right course.</p>
           <div class="cta-btns">
             <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> Call Us</a>
-            <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> WhatsApp</a>
+            <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20have%20a%20question%20about%20your%20courses." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> WhatsApp</a>
           </div>
         </div>
       </div>
@@ -1509,7 +1850,7 @@
         </details>
         <details class="faq-item" name="faq">
           <summary>Can I attend a free demo class before joining?<span class="faq-icon" aria-hidden="true">+</span></summary>
-          <div class="faq-answer">Yes. Message us on <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener">WhatsApp</a> or call <a href="tel:+918939915577">+91 89399 15577</a> and our team will schedule a free demo for the course you are interested in.</div>
+          <div class="faq-answer">Yes. Message us on <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener">WhatsApp</a> or call <a href="tel:+918939915577">+91 89399 15577</a> and our team will schedule a free demo for the course you are interested in.</div>
         </details>
         <details class="faq-item" name="faq">
           <summary>I am a fresher. Can I join these courses?<span class="faq-icon" aria-hidden="true">+</span></summary>
@@ -1534,15 +1875,33 @@
   <!-- CTA strip (overlaps footer) -->
   <section class="cta" id="contact">
     <div class="container">
-      <div class="cta-box reveal">
-        <div>
+      <div class="cta-box enq reveal">
+        <div class="enq-copy">
           <h2>Your Dream Job Starts with the Right Training.</h2>
-          <p>Get the skills, practical experience and interview preparation you need to pursue better job opportunities. Start your training with Greens Technologies and benefit from dedicated placement assistance along the way.</p>
+          <p>Tell us what you want to learn. An advisor will call you within one working day with course details, fees, batch timings and a free demo class.</p>
+          <ul class="enq-points">
+            <li><svg class="i"><use href="#i-check"/></svg> Free demo class and career counselling</li>
+            <li><svg class="i"><use href="#i-check"/></svg> Classroom at 25 centres or live online</li>
+            <li><svg class="i"><use href="#i-check"/></svg> Placement assistance with 500+ hiring partners</li>
+          </ul>
+          <div class="cta-btns">
+            <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> +91 89399 15577</a>
+            <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> WhatsApp</a>
+          </div>
         </div>
-        <div class="cta-btns">
-          <a href="tel:+918939915577" class="btn btn-green"><svg class="i"><use href="#i-phone"/></svg> Enquire Now</a>
-          <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="btn btn-wa"><svg class="i" style="font-size:18px"><use href="#i-wa"/></svg> Book a Free Demo</a>
-        </div>
+        <form class="enq-form" id="enqForm" novalidate>
+          <h3>Book a Free Demo Class</h3>
+          <div class="enq-grid">
+            <label class="enq-field"><span>Full name *</span><input name="name" autocomplete="name" required minlength="2" placeholder="Your name" /></label>
+            <label class="enq-field"><span>Mobile number *</span><input name="phone" type="tel" inputmode="numeric" autocomplete="tel" required pattern="[6-9][0-9]{9}" maxlength="10" placeholder="10-digit mobile" /></label>
+            <label class="enq-field enq-wide"><span>Email</span><input name="email" type="email" autocomplete="email" placeholder="you@example.com" /></label>
+            <label class="enq-field"><span>Course *</span><select name="course" required><option value="">Select a course</option><option>Java Full Stack</option><option>Data Engineering</option><option>Data Analytics</option><option>Data Science with ML &amp; MLOps</option><option>Artificial Intelligence</option><option>AWS DevOps</option><option>Azure DevOps</option><option>GCP &amp; DevOps</option><option>Cyber Security</option><option>CCNA Networking</option><option>Linux Administration</option><option>Production Support</option><option>APM Engineering</option><option>Playwright with Gen AI</option><option>Workday HCM</option><option>AutoCAD</option><option>Graphic Design</option><option>Interior Design</option><option>Video &amp; Audio Editing</option><option>Python Programming</option><option>Digital Marketing</option><option>Other / Not sure</option></select></label>
+            <label class="enq-field"><span>Training mode</span><select name="mode"><option>Classroom</option><option>Live Online</option><option>Not sure yet</option></select></label>
+            <label class="enq-field enq-wide"><span>Preferred centre</span><select name="branch" id="enqBranch"><option value="">Nearest to me</option></select></label>
+          </div>
+          <button type="submit" class="btn btn-green enq-submit">Request Free Demo <svg class="i"><use href="#i-arrow"/></svg></button>
+          <p class="enq-note" id="enqNote" aria-live="polite">We only use your details to contact you about this enquiry.</p>
+        </form>
       </div>
     </div>
   </section>
@@ -1553,7 +1912,7 @@
       <div class="footer-grid">
         <div>
           <a href="#home" class="logo f-logo" aria-label="Greens Technologies home"><img src="https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/GreensTechnologyLogo.png" alt="Greens Technologies logo" /><span class="brand"><b>GREENS</b><small>TECHNOLOGIES</small></span></a>
-          <p>Leading software training and placement company in Chennai, offering classroom, online and corporate training on the latest technologies for freshers and working professionals.</p>
+          <p>Leading software training and placement institute in Chennai, offering classroom, online and corporate training on the latest technologies for freshers and working professionals.</p>
           <div class="socials">
             <a href="https://www.facebook.com/pages/Greens-Technologys/137199446328133" target="_blank" rel="noopener" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
             <a href="https://twitter.com/greenstech" target="_blank" rel="noopener" aria-label="Twitter / X"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.9 2H22l-7.5 8.6L23.3 22h-6.9l-5.4-7-6.2 7H1.7l8-9.2L1.3 2h7l4.9 6.4L18.9 2zm-1.2 18h1.9L7.4 3.9H5.4L17.7 20z"/></svg></a>
@@ -1619,33 +1978,50 @@
     </form>
   </div>
 
+
+  <!-- Offer letter modal -->
+  <div class="lt-modal" id="ltModal" role="dialog" aria-modal="true" aria-labelledby="ltTitle" hidden>
+    <div class="lt-sheet">
+      <div class="lt-head">
+        <h3 id="ltTitle">Offer letter</h3>
+        <button type="button" class="lt-close" id="ltClose" aria-label="Close offer letter">&times;</button>
+      </div>
+      <div class="lt-body" tabindex="0"><img id="ltImg" alt="" /></div>
+      <p class="lt-foot">Verified offer letter &middot; personal details hidden for privacy</p>
+    </div>
+  </div>
+
   <!-- Mobile sticky action bar (same as the course pages) -->
   <div class="m-sticky-bar">
     <a href="tel:+918939915577" class="m-sticky-call"><svg class="i"><use href="#i-phone"/></svg> Call Advisor</a>
-    <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="m-sticky-demo">Book Free Demo</a>
+    <a href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20would%20like%20to%20book%20a%20free%20demo%20class." target="_blank" rel="noopener" class="m-sticky-demo">Book Free Demo</a>
   </div>
 
-  <a class="wa-float" href="https://wa.me/918939915577?text=Hi%20Greens%20Technologys%2C%20I%20am%20interested%20in%20your%20courses." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
+  <a class="wa-float" href="https://wa.me/918939915577?text=Hi%20Greens%20Technologies%2C%20I%20am%20interested%20in%20your%20courses." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg class="i"><use href="#i-wa"/></svg></a>
 
+  <!-- Animations: GSAP + ScrollTrigger for section transitions -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     const WA = 'https://wa.me/918939915577?text=';
+    const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
     const waLink = msg => WA + encodeURIComponent(msg);
 
     /* ---------- Trending courses (from greenstechnologys.com catalogue) ---------- */
     const courses = [
-      { title: 'Full Stack Developer', tag: '100% Placement', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&q=80',
+      { title: 'Full Stack Developer', tag: '100% Placement', img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=700&q=80', link: 'java-full-stack-course-chennai.html',
         meta: 'Master Program · Classroom & Online', desc: 'Front-end, back-end, databases and deployment — build complete web applications.' },
-      { title: 'Data Science & AI', tag: 'Trending', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80',
+      { title: 'Data Science & AI', tag: 'Trending', img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=700&q=80', link: 'data-science-mlops-course-chennai.html',
         meta: 'Master Program · Classroom & Online', desc: 'Python, R, SAS, Machine Learning and Deep Learning with TensorFlow.' },
-      { title: 'AWS & Cloud Computing', tag: 'High Demand', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&q=80',
+      { title: 'AWS & Cloud Computing', tag: 'High Demand', img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=700&q=80', link: 'aws-devops-course-chennai.html',
         meta: 'Cloud Architect · Classroom & Online', desc: 'AWS, Azure and Google Cloud Platform with hands-on labs.' },
-      { title: 'DevOps & Kubernetes', tag: 'Popular', img: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=700&q=80',
+      { title: 'DevOps & Kubernetes', tag: 'Popular', img: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=700&q=80', link: 'azure-devops-course-chennai.html',
         meta: 'DevOps Engineer · Classroom & Online', desc: 'CI/CD, Docker, Kubernetes and DevSecOps practices used in real teams.' },
       { title: 'Python Programming', tag: 'Beginner Friendly', img: 'https://images.unsplash.com/photo-1526379095098-d400fd0bf935?w=700&q=80',
         meta: 'Classroom & Online', desc: 'From basics to advanced Python — the foundation for data, AI and web.' },
-      { title: 'Selenium & Software Testing', tag: 'Job Oriented', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80',
+      { title: 'Selenium & Software Testing', tag: 'Job Oriented', img: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=700&q=80', link: 'java-selenium-course-chennai.html',
         meta: 'Test Automation Engineer · Classroom & Online', desc: 'Manual testing, Selenium, Playwright, API testing and automation frameworks.' },
-      { title: 'Power BI & Tableau', tag: 'Analytics', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80',
+      { title: 'Power BI & Tableau', tag: 'Analytics', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80', link: 'data-analytics-course-chennai.html',
         meta: 'Business Intelligence · Classroom & Online', desc: 'Dashboards, data modelling and reporting for business analytics roles.' },
       { title: 'Digital Marketing', tag: '100% Placement', img: 'https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=700&q=80',
         meta: 'Master Program · Classroom & Online', desc: 'SEO, social media, Google Ads, content and analytics — hands-on campaigns.' },
@@ -1655,7 +2031,7 @@
         meta: 'Data Analyst · Classroom & Online', desc: 'SQL Server, Power BI, Python, Excel and Tableau with healthcare projects.' },
       { title: 'Artificial Intelligence', tag: 'Trending', img: 'https://kjcpdxztddusodithjvh.supabase.co/storage/v1/object/public/Greens-technology/assets/AI%20Neural%20Network%20Infographic.png', link: 'ai-training-course.html',
         meta: 'AI Engineer · Classroom & Online', desc: 'Machine learning, deep learning, Generative AI and Agentic AI in 7 levels.' },
-      { title: 'CCNA Networking', tag: 'Cisco Certified', img: 'assets/courses/ccna-hero.jpg', link: 'ccna-course-chennai.html',
+      { title: 'CCNA Networking', tag: 'Cisco Certified', img: 'https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=700&q=80', link: 'ccna-course-chennai.html',
         meta: 'Network Engineer · Classroom & Online', desc: 'Cisco CCNA 200-301: subnetting, routing, switching, VLANs and security.' }
     ];
     // Per-course rating shown on each card (update with your real course ratings)
@@ -1669,10 +2045,11 @@
           <p class="desc">${c.desc}</p>
           <div class="course-rating"><span class="cr-badge">★ ${courseRatings[i].toFixed(1)}</span><span class="cr-bar"><i style="width:${courseRatings[i] / 5 * 100}%"></i></span><small>Student rating</small></div>
           <div class="course-foot">
-            <span class="fees">Call for fees & offers</span>
-            ${c.link
-              ? `<a href="${c.link}" class="link-arrow">View Course <svg class="i"><use href="#i-arrow"/></svg></a>`
-              : `<a href="${waLink('Hi Greens Technologys, I am interested in the ' + c.title + ' course. Please share the fees and batch details.')}" target="_blank" rel="noopener" class="link-arrow">Enquire <svg class="i"><use href="#i-arrow"/></svg></a>`}
+            <span class="fees">Call for fees &amp; offers</span>
+            <div class="course-links">
+              ${c.link ? `<a href="${c.link}" class="cl-btn cl-main">Course Details <svg class="i"><use href="#i-arrow"/></svg></a>` : ''}
+              <a href="${waLink('Hi Greens Technologies, I am interested in the ' + c.title + ' course. Please share the fees and batch details.')}" target="_blank" rel="noopener" class="cl-btn${c.link ? '' : ' cl-main'}">Enquire</a>
+            </div>
           </div>
         </div>
       </article>`).join('');
@@ -1695,7 +2072,7 @@
     // Real placements from the course pages, each with the student's offer letter
     const reviews = [
       { name: 'C Malarvizhi', course: 'Data Engineering', role: 'Tech Lead · Bengaluru', company: 'Tech Mahindra', pkg: '₹14 LPA',
-        headline: 'Now a Tech Lead at Tech Mahindra', letter: 'assets/offer-letters/c-malarvizhi-tech-mahindra.jpg',
+        headline: 'Now a Tech Lead at Tech Mahindra', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-c-malarvizhi-tech-mahindra.jpg',
         quote: 'I had spent years working with data in bits and pieces without a clear path forward. The course gave me that path: SQL and Python first, then AWS pipelines, PySpark and Snowflake, all tied together in one capstone I could walk interviewers through. The mock interviews prepared me for exactly the kind of architecture questions a Tech Lead round asks. I cleared the Tech Mahindra process and stepped into a Tech Lead role at 14 LPA.' },
       { name: 'Manish V', course: 'AWS DevOps', role: 'Lead Cloud Engineer · Chennai', company: 'Bounteous x Accolite', pkg: '₹20 LPA',
         headline: 'Now a Lead Cloud Engineer at Bounteous x Accolite', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AWS/aws-manish-v-bounteous.jpg',
@@ -1704,7 +2081,7 @@
         headline: 'Now a Senior Data Engineer at Tiger Analytics', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data+Analystics/da-yuvashree-v-tiger-analytics.jpg',
         quote: 'I wanted to work on large data and business intelligence projects. The course gave me strong SQL and Python skills, along with Power BI and Tableau for reporting, and the projects showed me how data teams work in real companies. The trainers and placement team guided me at every step, and I joined Tiger Analytics as a Senior Data Engineer in the Business Intelligence team.' },
       { name: 'Rahul T', course: 'Data Engineering', role: 'Manager · Chennai', company: 'Capgemini', pkg: '₹19 LPA',
-        headline: 'Now a Manager at Capgemini', letter: 'assets/offer-letters/rahul-t-capgemini.jpg',
+        headline: 'Now a Manager at Capgemini', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/CCNA/ccna-rahul-t-capgemini.jpg',
         quote: 'As a working professional, I needed depth, not another overview course. The modules on lakehouse design, Glue and Athena workflows, and pipeline orchestration matched what senior data roles actually test. I could discuss medallion architecture and partitioning trade-offs from real lab work, not slides. That made the difference in the Manager interviews, and I moved to 19 LPA.' },
       { name: 'Mohammed Hakeem', course: 'AWS DevOps', role: 'DevOps Engineer · Bangalore', company: 'Verint', pkg: '₹15 LPA',
         headline: 'Now a DevOps Engineer at Verint', letter: 'https://greenstechnology-files.s3.ap-south-1.amazonaws.com/AWS/aws-mohammed-hakeem-verint.jpg',
@@ -1738,18 +2115,44 @@
           </div>
           <h4 class="headline">${r.headline}</h4>
           <blockquote>&ldquo;${r.quote}&rdquo;</blockquote>
-          <button type="button" class="letter-btn" aria-expanded="false" onclick="this.setAttribute('aria-expanded', this.nextElementSibling.hidden); this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'View Offer Letter' : 'Hide Offer Letter';">
+          <button type="button" class="letter-btn" data-letter="${storyIndex}" aria-haspopup="dialog">
             <svg class="i"><use href="#i-book"/></svg> <span>View Offer Letter</span>
           </button>
-          <div class="story-letter" hidden>
-            <a href="${r.letter}" target="_blank" rel="noopener"><img src="${r.letter}" alt="${r.name}'s offer letter from ${r.company} (personal details hidden)" loading="lazy" /></a>
-            <small>Personal details hidden for privacy · Tap to enlarge</small>
-          </div>
         </article>`;
       [...storyPicks.children].forEach((b, k) => { b.classList.toggle('on', k === storyIndex); b.setAttribute('aria-pressed', k === storyIndex); });
-      document.getElementById('storyCount').textContent = `${pad2(storyIndex + 1)} / ${pad2(reviews.length)}`;
     };
     storyPicks.addEventListener('click', e => { const b = e.target.closest('.story-pick'); if (b) showStory(+b.dataset.i); });
+    storyFeature.addEventListener('click', e => { const b = e.target.closest('.letter-btn'); if (b) openLetter(reviews[+b.dataset.letter], b); });
+
+    /* ---------- Offer letter modal (focus stays inside, Escape / backdrop closes) ---------- */
+    const ltModal = document.getElementById('ltModal');
+    let ltOpener = null;
+    function openLetter(r, opener) {
+      ltOpener = opener;
+      document.getElementById('ltTitle').textContent = `${r.name} · ${r.company}`;
+      const img = document.getElementById('ltImg');
+      img.src = r.letter; img.alt = `${r.name}'s offer letter from ${r.company} (personal details hidden)`;
+      ltModal.hidden = false; document.body.classList.add('lt-lock');
+      if (window.gsap && !reduceMotion) {
+        gsap.fromTo(ltModal, { opacity: 0 }, { opacity: 1, duration: .25 });
+        gsap.fromTo('.lt-sheet', { y: 24, scale: .96, opacity: 0 }, { y: 0, scale: 1, opacity: 1, duration: .4, ease: 'power3.out' });
+      }
+      document.getElementById('ltClose').focus();
+    }
+    function closeLetter() {
+      ltModal.hidden = true; document.body.classList.remove('lt-lock');
+      document.getElementById('ltImg').removeAttribute('src');
+      if (ltOpener && document.body.contains(ltOpener)) ltOpener.focus();
+    }
+    document.getElementById('ltClose').addEventListener('click', closeLetter);
+    ltModal.addEventListener('click', e => { if (e.target === ltModal) closeLetter(); });
+    ltModal.addEventListener('keydown', e => {
+      if (e.key === 'Escape') { e.preventDefault(); closeLetter(); return; }
+      if (e.key !== 'Tab') return;
+      const f = [...ltModal.querySelectorAll('button, a[href], [tabindex="0"]')], first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    });
     document.getElementById('reviewPrev').addEventListener('click', () => showStory(storyIndex - 1));
     document.getElementById('reviewNext').addEventListener('click', () => showStory(storyIndex + 1));
     showStory(0);
@@ -1851,11 +2254,15 @@
     const logoSrc = path => path.startsWith('@') ? `https://www.google.com/s2/favicons?domain=${path.slice(1)}&sz=64`
       : path.startsWith('http') ? path
       : 'https://api.iconify.design/' + (path.includes('.svg') ? path : path + '.svg');
-    // Show four rows of companies; the rest are summed up as "& 500+ more global companies"
-    document.getElementById('companyGrid').innerHTML = companies.slice(0, 20).map(([name, path]) => {
-      if (!path) return `<div class="company"><span>${name}</span></div>`;
-      const src = logoSrc(path);
-      return `<div class="company"><img src="${src}" alt="${name} logo" loading="lazy" onerror="this.style.display='none'" /><span>${name}</span></div>`;
+    // Three marquee rows: rows 1 and 3 run right-to-left, row 2 runs left-to-right. Each row is doubled for a seamless loop.
+    const companyCard = ([name, path]) => path
+      ? `<div class="company"><img src="${logoSrc(path)}" alt="" decoding="async" onerror="this.style.display='none'" /><span>${name}</span></div>`
+      : `<div class="company"><span>${name}</span></div>`;
+    const coRows = [[], [], []];
+    companies.forEach((c, i) => coRows[i % 3].push(c));
+    document.getElementById('companyGrid').innerHTML = coRows.map((row, r) => {
+      const cards = row.map(companyCard).join('');
+      return `<div class="co-line"><div class="co-row${r % 2 ? ' rev' : ''}" style="--dur:${48 + r * 6}s">${cards}<span class="co-dup" aria-hidden="true">${cards}</span></div></div>`;
     }).join('');
 
     /* ---------- Branches: centre an incomplete last row ---------- */
@@ -1877,7 +2284,7 @@
     /* ---------- Founder video (loads on click) ---------- */
     document.getElementById('playVideo').addEventListener('click', () => {
       document.getElementById('videoWrap').innerHTML =
-        '<iframe src="https://www.youtube.com/embed/ytqbpfoqGSA?autoplay=1&rel=0&modestbranding=1" title="Greens Technologys founder video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+        '<iframe src="https://www.youtube.com/embed/ytqbpfoqGSA?autoplay=1&rel=0&modestbranding=1" title="Greens Technologies founder video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
     });
 
     /* ---------- Navbar + mobile menu ---------- */
@@ -1899,11 +2306,98 @@
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && mDrawer.classList.contains('active')) setMenu(false); });
     window.addEventListener('resize', () => { if (window.innerWidth > 900) setMenu(false); });
 
+    /* ---------- Courses mega menu: hover on desktop, tap on touch screens ---------- */
+    const navCourses = document.getElementById('navCourses');
+    const coursesBtn = navCourses.querySelector('.nav-courses-btn');
+    const canHover = window.matchMedia('(hover: hover)');
+    const setCourses = open => {
+      navCourses.classList.toggle('open', open);
+      coursesBtn.setAttribute('aria-expanded', String(open));
+      if (!open) navCourses.querySelectorAll('.has-sub.open').forEach(li => li.classList.remove('open'));
+    };
+    navCourses.addEventListener('mouseenter', () => coursesBtn.setAttribute('aria-expanded', 'true'));
+    navCourses.addEventListener('mouseleave', () => { if (!navCourses.classList.contains('open')) coursesBtn.setAttribute('aria-expanded', 'false'); });
+    coursesBtn.addEventListener('click', e => {
+      if (!canHover.matches && !navCourses.classList.contains('open')) { e.preventDefault(); setCourses(true); }
+    });
+    navCourses.querySelectorAll('.has-sub > a').forEach(a => a.addEventListener('click', e => {
+      const li = a.parentElement;
+      if (canHover.matches || li.classList.contains('open')) return;
+      e.preventDefault();
+      navCourses.querySelectorAll('.has-sub.open').forEach(x => x.classList.remove('open'));
+      li.classList.add('open');
+    }));
+    // Keep each sub-menu on screen: shift it up if it would run past the bottom of the window
+    navCourses.querySelectorAll('.has-sub').forEach(li => {
+      const sub = li.querySelector('.mega-sub');
+      const fit = () => requestAnimationFrame(() => {
+        sub.style.top = '';
+        const over = sub.getBoundingClientRect().bottom - (window.innerHeight - 12);
+        if (over > 0) sub.style.top = `${-4 - over}px`;
+      });
+      li.addEventListener('mouseenter', fit);
+      li.addEventListener('focusin', fit);
+      li.addEventListener('click', fit);
+    });
+    document.addEventListener('click', e => { if (!navCourses.contains(e.target)) setCourses(false); });
+
+    /* ---------- FAQs / For Business dropdowns: hover on desktop, tap on touch screens ---------- */
+    document.querySelectorAll('.nav-drop').forEach(drop => {
+      const btn = drop.querySelector('.nav-drop-btn');
+      const set = open => { drop.classList.toggle('open', open); btn.setAttribute('aria-expanded', String(open)); };
+      drop.addEventListener('mouseenter', () => btn.setAttribute('aria-expanded', 'true'));
+      drop.addEventListener('mouseleave', () => { if (!drop.classList.contains('open')) btn.setAttribute('aria-expanded', 'false'); });
+      btn.addEventListener('click', e => { if (!canHover.matches && !drop.classList.contains('open')) { e.preventDefault(); set(true); } });
+      document.addEventListener('click', e => { if (!drop.contains(e.target)) set(false); });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') set(false); });
+      drop.querySelectorAll('.drop-menu a').forEach(link => link.addEventListener('click', () => set(false)));
+    });
+
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') { setCourses(false); if (navCourses.contains(document.activeElement)) coursesBtn.focus(); } });
+
+
     /* ---------- Reveal on scroll ---------- */
-    const revealObserver = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); revealObserver.unobserve(e.target); } });
-    }, { threshold: 0.12 });
-    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    // GSAP drives every section when it is available; otherwise the simple CSS reveal is the fallback.
+    if (window.gsap && window.ScrollTrigger && !reduceMotion) {
+      gsap.registerPlugin(ScrollTrigger);
+      document.documentElement.classList.add('gsap-on');
+      const clear = { clearProps: 'transform,opacity' };
+      // 1. Hero: headline, copy and buttons rise in; side cards slide in from the edges; course orbit fades up
+      gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .from('.hero-eyebrow', { y: 14, opacity: 0, duration: .5, ...clear })
+        .from('.hero h1', { y: 40, opacity: 0, duration: .9, ...clear }, '-=.25')
+        .from('.hero-center > p', { y: 18, opacity: 0, duration: .6, stagger: .1, ...clear }, '-=.55')
+        .from('.hero-btns .btn', { y: 16, opacity: 0, duration: .5, stagger: .1, ...clear }, '-=.35')
+        .from('.hl-facts', { x: -70, opacity: 0, duration: .9, ...clear }, '-=.8')
+        .from('.hero-proof', { x: 70, opacity: 0, duration: .9, ...clear }, '<')
+        .from('.orbit', { y: 30, opacity: 0, duration: .8, ...clear }, '-=.5');
+      // Every section heading / block marked .reveal: fade up as it enters
+      ScrollTrigger.batch('.reveal', { start: 'top 88%', once: true,
+        onEnter: els => gsap.fromTo(els, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .8, ease: 'power3.out', stagger: .12, overwrite: true, ...clear }) });
+      // 2. Popular courses: cards stagger in
+      gsap.from('#courseGrid .course-card', { scrollTrigger: { trigger: '#courses', start: 'top 75%', once: true }, y: 50, opacity: 0, duration: .7, stagger: .07, ease: 'power3.out', ...clear });
+      // 3. Why choose us: feature cards lift in
+      gsap.from('#whyStage > *', { scrollTrigger: { trigger: '#why', start: 'top 70%', once: true }, y: 40, opacity: 0, duration: .7, stagger: .1, ease: 'power3.out', ...clear });
+      // 4. Success stories: picker chips pop in
+      gsap.from('#storyPicks .story-pick', { scrollTrigger: { trigger: '#reviews', start: 'top 70%', once: true }, y: 20, opacity: 0, duration: .5, stagger: .06, ease: 'back.out(1.6)', ...clear });
+      // 5. Companies: marquee rows slide in from alternate sides
+      gsap.from('.co-line', { scrollTrigger: { trigger: '#placements', start: 'top 75%', once: true }, x: i => (i % 2 ? 140 : -140), opacity: 0, duration: 1, stagger: .15, ease: 'power3.out', ...clear });
+      gsap.from('.placement-stats > div', { scrollTrigger: { trigger: '.placement-stats', start: 'top 90%', once: true }, y: 30, opacity: 0, duration: .6, stagger: .1, ease: 'power2.out', ...clear });
+      // 6. Branches: cards cascade in as they scroll into view
+      ScrollTrigger.batch('.branch-card', { start: 'top 92%', once: true,
+        onEnter: els => gsap.from(els, { y: 30, opacity: 0, scale: .97, duration: .55, stagger: .05, ease: 'power2.out', ...clear }) });
+      // 7. FAQ items and the enquiry form
+      ScrollTrigger.batch('.faq-item', { start: 'top 92%', once: true, onEnter: els => gsap.from(els, { y: 20, opacity: 0, duration: .5, stagger: .06, ...clear }) });
+      gsap.from('.enq-form', { scrollTrigger: { trigger: '#contact', start: 'top 80%', once: true }, y: 40, opacity: 0, duration: .8, ease: 'power3.out', ...clear });
+      // Story switch: crossfade the featured story
+      const storyFeatureEl = document.getElementById('storyFeature');
+      new MutationObserver(() => gsap.fromTo(storyFeatureEl.firstElementChild, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: .4, ease: 'power2.out', ...clear })).observe(storyFeatureEl, { childList: true });
+    } else {
+      const revealObserver = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); revealObserver.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+    }
 
     /* ---------- Count-up highlights (stats appear and count one by one) ---------- */
     const countUp = el => {
@@ -1932,6 +2426,28 @@
     }
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    /* ---------- Free demo enquiry form (sent through Web3Forms, same as the chat) ---------- */
+    const enqForm = document.getElementById('enqForm');
+    const enqBranch = document.getElementById('enqBranch');
+    [...document.querySelectorAll('#branchGrid .branch-name')].forEach(b => enqBranch.insertAdjacentHTML('beforeend', `<option>${b.textContent.trim()}</option>`));
+    enqBranch.insertAdjacentHTML('beforeend', '<option>Online</option>');
+    enqForm.addEventListener('input', e => e.target.classList.remove('bad'));
+    enqForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const f = enqForm.elements, note = document.getElementById('enqNote');
+      f.phone.value = f.phone.value.replace(/\D/g, '').slice(-10);
+      const bad = ['name', 'phone', 'course', 'email'].filter(n => !f[n].checkValidity());
+      bad.forEach(n => f[n].classList.add('bad'));
+      if (bad.length) { note.className = 'enq-note err'; note.textContent = 'Please check: ' + bad.map(n => ({ name: 'name', phone: '10-digit mobile number', course: 'course', email: 'email' })[n]).join(', ') + '.'; f[bad[0]].focus(); return; }
+      const btn = enqForm.querySelector('.enq-submit'); btn.disabled = true;
+      sendLead({ 'Name': f.name.value.trim(), 'Phone': '+91 ' + f.phone.value, 'Email': f.email.value.trim() || '-', 'Course': f.course.value,
+                 'Training Mode': f.mode.value, 'Preferred Centre': f.branch.value || 'Nearest to me' }, 'Free Demo Request');
+      (window.dataLayer = window.dataLayer || []).push({ event: 'lead_submit', form: 'home_free_demo', course: f.course.value });
+      enqForm.reset(); btn.disabled = false;
+      note.className = 'enq-note ok'; note.textContent = 'Thank you! Our advisor will call you within one working day.';
+    });
+
 
     /* ---------- Chat assistant (typed questions are emailed via Web3Forms) ---------- */
     const LEADS_ENDPOINT = 'https://api.web3forms.com/submit';
@@ -2041,6 +2557,37 @@
       }, 300);
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleChat(false); });
+  </script>
+
+  <script>
+    /* Desktop: navbar sits right under the pinned top strip, whatever the strip's height */
+    (function () {
+      var strip = document.querySelector('body > .topbar');
+      if (!strip) return;
+      var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
+      set(); window.addEventListener('resize', set);
+      if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
+  </script>
+
+  <!-- Graphics: Motion (the vanilla-JS edition of Framer Motion) for the hero's floating cards and springy course icons -->
+  <script type="module">
+    import { animate } from 'https://cdn.jsdelivr.net/npm/motion@11.11.13/+esm';
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      // Start after the GSAP hero intro so the two never move the same element at once
+      setTimeout(() => {
+        animate('.hl-facts', { y: [0, -8, 0] }, { duration: 7, repeat: Infinity, ease: 'easeInOut' });
+        animate('.hero-proof', { y: [0, 8, 0] }, { duration: 7.5, repeat: Infinity, ease: 'easeInOut' });
+      }, 2400);
+      document.querySelectorAll('.orbit-item').forEach(el => {
+        el.addEventListener('pointerenter', () => animate(el, { scale: 1.16, rotate: 6 }, { type: 'spring', stiffness: 420, damping: 12 }));
+        el.addEventListener('pointerleave', () => animate(el, { scale: 1, rotate: 0 }, { type: 'spring', stiffness: 300, damping: 18 }));
+      });
+      document.querySelectorAll('.placement-stats > div').forEach(el => {
+        el.addEventListener('pointerenter', () => animate(el, { y: -6 }, { type: 'spring', stiffness: 380, damping: 16 }));
+        el.addEventListener('pointerleave', () => animate(el, { y: 0 }, { type: 'spring', stiffness: 300, damping: 20 }));
+      });
+    }
   </script>
 </body>
 </html>
