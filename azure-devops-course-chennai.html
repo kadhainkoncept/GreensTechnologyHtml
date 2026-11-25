@@ -5530,6 +5530,83 @@
     .track-accordion .track-group.wide > ul { display: block; columns: 2 260px; column-gap: 32px; }
     .track-group.wide > ul > li { break-inside: avoid; margin-bottom: 4px; }
     .track-group ul ul { margin-top: 4px; padding-left: 18px; list-style-type: circle; gap: 2px; }
+      /* ---------- Pay After Placement */
+    .pap-section { background: #FFFFFF; padding: 36px 0 12px; }
+    .pap-section + .why-choose-section { border-top: none; }
+    .pap-card {
+      position: relative; overflow: hidden; isolation: isolate;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 36px;
+      padding: 52px 56px; border-radius: 28px; color: #FFFFFF;
+      background:
+        radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px) 0 0 / 22px 22px,
+        linear-gradient(115deg, var(--brand-dark) 0%, #173F27 55%, var(--brand-forest) 100%);
+      box-shadow: 0 24px 50px rgba(2, 38, 27, 0.22);
+    }
+    .pap-card::before, .pap-card::after {
+      content: ''; position: absolute; z-index: -1; border-radius: 50%;
+      border: 1px solid rgba(155, 210, 60, 0.28);
+    }
+    .pap-card::before { width: 420px; height: 420px; right: -140px; top: -170px; }
+    .pap-card::after { width: 640px; height: 640px; right: -250px; top: -280px; border-color: rgba(155, 210, 60, 0.14); }
+    .pap-icon {
+      width: 112px; height: 112px; border-radius: 30px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-lime); color: var(--brand-dark); font-size: 52px;
+      box-shadow: 0 0 0 10px rgba(155, 210, 60, 0.16);
+    }
+    .pap-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: var(--radius-full);
+      background: rgba(155, 210, 60, 0.16); border: 1px solid rgba(155, 210, 60, 0.4);
+      color: var(--brand-lime); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .pap-title {
+      margin: 14px 0 10px; font-family: var(--font-heading); font-weight: 800; color: #FFFFFF;
+      font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.02; letter-spacing: -0.03em;
+    }
+    .pap-title span { color: var(--brand-lime); }
+    .pap-text { margin: 0; max-width: 620px; font-size: 1.12rem; line-height: 1.6; color: rgba(255, 255, 255, 0.88); }
+    .pap-note { margin: 10px 0 0; font-size: 0.88rem; color: rgba(255, 255, 255, 0.62); }
+    .pap-actions { display: flex; flex-direction: column; gap: 12px; min-width: 250px; }
+    .pap-actions .btn { justify-content: center; }
+    .pap-call { background: transparent; color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.45); font-weight: 700; }
+    .pap-call:hover { background: rgba(255, 255, 255, 0.1); }
+    @media (max-width: 1023px) {
+      .pap-card { grid-template-columns: auto 1fr; padding: 40px 36px; }
+      .pap-actions { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+      .pap-actions .btn { flex: 1 1 220px; }
+    }
+    @media (max-width: 640px) {
+      .pap-section { padding-top: 24px; }
+      .pap-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 22px; border-radius: 22px; }
+      .pap-icon { width: 76px; height: 76px; border-radius: 22px; font-size: 36px; box-shadow: 0 0 0 7px rgba(155, 210, 60, 0.16); }
+      .pap-text { font-size: 1rem; }
+      .pap-actions { flex-direction: column; min-width: 0; }
+      .pap-actions .btn { flex: none; width: 100%; }
+    }
+
+      /* ---------- Single trainer: full-width card */
+    .faculty-grid.single { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .faculty-grid.single .faculty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-areas: "head details" "badge details" "bio details";
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        column-gap: 44px; row-gap: 14px; align-items: start;
+        padding: 34px 40px;
+      }
+      .faculty-grid.single .faculty-card:not(:has(.faculty-placed-badge)) { grid-template-areas: "head details" "bio details"; grid-template-rows: auto 1fr; }
+      .faculty-grid.single .faculty-header { grid-area: head; }
+      .faculty-grid.single .faculty-placed-badge { grid-area: badge; justify-self: start; }
+      .faculty-grid.single .faculty-bio { grid-area: bio; font-size: 0.95rem; }
+      .faculty-grid.single .faculty-details-list { grid-area: details; align-self: start; justify-content: flex-start; gap: 12px; padding: 20px 22px; font-size: 0.88rem; }
+      .faculty-grid.single .faculty-detail-label { min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
+    }
+
   </style>
 </head>
 <body>
@@ -6154,6 +6231,27 @@
     </section>
 
     <!-- ============================================================
+         PAY AFTER PLACEMENT
+         ============================================================ -->
+    <section class="pap-section" id="pay-after-placement" aria-labelledby="papTitle">
+      <div class="container">
+        <div class="pap-card">
+          <div class="pap-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></div>
+          <div class="pap-copy">
+            <span class="pap-eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg> Only at Greens Technologies</span>
+            <h2 class="pap-title" id="papTitle">Pay After <span>Placement</span></h2>
+            <p class="pap-text">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+            <p class="pap-note">Ask our counsellor for the Pay After Placement terms and eligibility.</p>
+          </div>
+          <div class="pap-actions">
+            <button type="button" class="btn btn-accent" onclick="openLeadModal('Pay After Placement Enquiry')">Ask About Pay After Placement</button>
+            <a class="btn pap-call" href="tel:+918939915577"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 89399 15577</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
          WHY CHOOSE GREENS TECHNOLOGIES
          ============================================================ -->
     <section class="section-spacing why-choose-section" id="why-choose">
@@ -6254,7 +6352,7 @@
         </div>
 
         <div class="faculty-carousel">
-        <div class="faculty-grid">
+        <div class="faculty-grid single">
           <!-- Trainer 1 -->
           <div class="faculty-card">
             <div class="faculty-header">
@@ -9512,6 +9610,22 @@
       var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
       set(); window.addEventListener('resize', set);
       if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
+  </script>
+  <script>
+    // Pay After Placement: gentle entrance when it scrolls into view
+    (() => {
+      const card = document.querySelector('.pap-card');
+      if (!card || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+      gsap.set(card.querySelectorAll('.pap-icon, .pap-copy > *, .pap-actions > *'), { opacity: 0, y: 18 });
+      new IntersectionObserver((es, ob) => es.forEach(en => {
+        if (!en.isIntersecting) return;
+        ob.disconnect();
+        const tl = gsap.timeline();
+        tl.fromTo(card.querySelector('.pap-icon'), { opacity: 0, scale: .6, y: 0 }, { opacity: 1, scale: 1, duration: .6, ease: 'back.out(2)' })
+          .to(card.querySelectorAll('.pap-copy > *'), { opacity: 1, y: 0, duration: .5, stagger: .08, ease: 'power2.out' }, '-=.35')
+          .to(card.querySelectorAll('.pap-actions > *'), { opacity: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, '-=.3');
+      }), { threshold: .3 }).observe(card);
     })();
   </script>
 </body>

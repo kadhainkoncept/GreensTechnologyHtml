@@ -5344,6 +5344,195 @@
       }
     }
 
+  
+    /* ---------- Single highlight under the stats card */
+    .hero-highlights.single { grid-template-columns: 1fr; }
+    .hero-highlights.single .hero-highlight { justify-content: center; }
+
+    /* ---------- Pay After Placement */
+    .pap-section { background: #FFFFFF; padding: 36px 0 12px; }
+    .pap-section + .why-choose-section { border-top: none; }
+    .pap-card {
+      position: relative; overflow: hidden; isolation: isolate;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 36px;
+      padding: 52px 56px; border-radius: 28px; color: #FFFFFF;
+      background:
+        radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px) 0 0 / 22px 22px,
+        linear-gradient(115deg, var(--brand-dark) 0%, #173F27 55%, var(--brand-forest) 100%);
+      box-shadow: 0 24px 50px rgba(2, 38, 27, 0.22);
+    }
+    .pap-card::before, .pap-card::after {
+      content: ''; position: absolute; z-index: -1; border-radius: 50%;
+      border: 1px solid rgba(155, 210, 60, 0.28);
+    }
+    .pap-card::before { width: 420px; height: 420px; right: -140px; top: -170px; }
+    .pap-card::after { width: 640px; height: 640px; right: -250px; top: -280px; border-color: rgba(155, 210, 60, 0.14); }
+    .pap-icon {
+      width: 112px; height: 112px; border-radius: 30px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-lime); color: var(--brand-dark); font-size: 52px;
+      box-shadow: 0 0 0 10px rgba(155, 210, 60, 0.16);
+    }
+    .pap-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: var(--radius-full);
+      background: rgba(155, 210, 60, 0.16); border: 1px solid rgba(155, 210, 60, 0.4);
+      color: var(--brand-lime); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .pap-title {
+      margin: 14px 0 10px; font-family: var(--font-heading); font-weight: 800; color: #FFFFFF;
+      font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.02; letter-spacing: -0.03em;
+    }
+    .pap-title span { color: var(--brand-lime); }
+    .pap-text { margin: 0; max-width: 620px; font-size: 1.12rem; line-height: 1.6; color: rgba(255, 255, 255, 0.88); }
+    .pap-note { margin: 10px 0 0; font-size: 0.88rem; color: rgba(255, 255, 255, 0.62); }
+    .pap-actions { display: flex; flex-direction: column; gap: 12px; min-width: 250px; }
+    .pap-actions .btn { justify-content: center; }
+    .pap-call { background: transparent; color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.45); font-weight: 700; }
+    .pap-call:hover { background: rgba(255, 255, 255, 0.1); }
+    @media (max-width: 1023px) {
+      .pap-card { grid-template-columns: auto 1fr; padding: 40px 36px; }
+      .pap-actions { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+      .pap-actions .btn { flex: 1 1 220px; }
+    }
+    @media (max-width: 640px) {
+      .pap-section { padding-top: 24px; }
+      .pap-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 22px; border-radius: 22px; }
+      .pap-icon { width: 76px; height: 76px; border-radius: 22px; font-size: 36px; box-shadow: 0 0 0 7px rgba(155, 210, 60, 0.16); }
+      .pap-text { font-size: 1rem; }
+      .pap-actions { flex-direction: column; min-width: 0; }
+      .pap-actions .btn { flex: none; width: 100%; }
+    }
+
+    /* ---------- Track course-content PDFs */
+    .track-panel[hidden], .projects-grid[hidden] { display: none; }
+    .pdf-list { list-style: none; margin: 0 auto; padding: 0; max-width: 1040px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    @media (max-width: 900px) { .pdf-list { grid-template-columns: 1fr; } }
+    .pdf-item {
+      width: 100%; height: 100%; text-align: left; cursor: pointer; font: inherit;
+      display: flex; align-items: center; gap: 16px; padding: 18px 18px;
+      background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 18px; color: var(--text-main);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .pdf-item:hover, .pdf-item:focus-visible { transform: translateY(-3px); border-color: var(--brand-forest); box-shadow: 0 14px 30px rgba(2, 38, 27, 0.1); outline: none; }
+    .pdf-item-icon { width: 48px; height: 48px; flex-shrink: 0; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: #EEF6E3; color: var(--brand-primary); font-size: 22px; }
+    .pdf-item-text { display: flex; flex-direction: column; gap: 3px; flex: 1; min-width: 0; }
+    .pdf-item-title { font-family: var(--font-heading); font-weight: 800; font-size: 1.02rem; color: var(--brand-dark); }
+    .pdf-item-desc { font-size: 0.86rem; line-height: 1.45; color: var(--text-light); }
+    .pdf-item-meta { margin-top: 2px; font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--brand-forest); }
+    .pdf-item-go { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 12px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.8rem; font-weight: 700; }
+    .journey-title { margin: 44px 0 18px; text-align: center; font-family: var(--font-heading); font-size: 1.35rem; font-weight: 800; color: var(--brand-dark); }
+    @media (max-width: 640px) {
+      .pdf-list { grid-template-columns: 1fr; gap: 10px; }
+      .pdf-item { padding: 14px; gap: 12px; }
+      .pdf-item-icon { width: 40px; height: 40px; font-size: 18px; }
+      .pdf-item-go span { display: none; }
+      .pdf-item-go { padding: 9px; }
+    }
+
+    /* ---------- PDF popup */
+    .pdf-modal { position: fixed; inset: 0; z-index: 4000; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .pdf-modal.open { display: flex; }
+    .pdf-backdrop { position: absolute; inset: 0; background: rgba(2, 38, 27, 0.62); backdrop-filter: blur(4px); }
+    .pdf-dialog {
+      position: relative; width: min(980px, 100%); height: min(90vh, 1100px);
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .pdf-modal.css-pop .pdf-backdrop { animation: pdfFade .3s ease both; }
+    .pdf-modal.css-pop .pdf-dialog { animation: pdfPop .45s cubic-bezier(.34, 1.56, .64, 1) both; }
+    @keyframes pdfFade { from { opacity: 0; } }
+    @keyframes pdfPop { from { opacity: 0; transform: translateY(18px) scale(.88); } }
+    .pdf-head { display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 22px; border-bottom: 1px solid var(--border-color); }
+    .pdf-head-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: #EEF6E3; color: var(--brand-primary); font-size: 19px; }
+    .pdf-head-text { flex: 1; min-width: 0; }
+    .pdf-head-title { margin: 0; font-family: var(--font-heading); font-size: 1.08rem; font-weight: 800; color: var(--brand-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-head-sub { font-size: 0.8rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-open { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: var(--radius-full); border: 1px solid var(--border-color); color: var(--brand-primary); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .pdf-open:hover { border-color: var(--brand-primary); }
+    .pdf-close { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--brand-dark); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .pdf-close:hover { background: var(--cream-surface); }
+    .pdf-body { flex: 1; overflow: auto; background: #EEF2EA; padding: 20px 16px; -webkit-overflow-scrolling: touch; }
+    .pdf-body canvas { display: block; margin: 0 auto 16px; max-width: 100%; height: auto; background: #FFFFFF; border-radius: 6px; box-shadow: 0 6px 20px rgba(2, 38, 27, 0.12); }
+    .pdf-body iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; background: #FFFFFF; }
+    .pdf-status { padding: 60px 20px; text-align: center; color: var(--text-light); font-weight: 600; }
+    .pdf-status::before { content: ''; display: block; width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 3px solid #D7E6C6; border-top-color: var(--brand-forest); animation: pdfSpin .8s linear infinite; }
+    @keyframes pdfSpin { to { transform: rotate(360deg); } }
+    body.pdf-lock { overflow: hidden; }
+    @media (max-width: 640px) {
+      .pdf-modal { padding: 0; align-items: flex-end; }
+      .pdf-dialog { height: 92vh; border-radius: 20px 20px 0 0; }
+      .pdf-head { padding: 12px 12px 12px 14px; gap: 10px; }
+      .pdf-head-icon { display: none; }
+      .pdf-open span { display: none; }
+      .pdf-open { padding: 10px; }
+      .pdf-body { padding: 12px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pdf-modal.css-pop .pdf-dialog, .pdf-modal.css-pop .pdf-backdrop { animation: none; }
+      .pdf-item { transition: none; }
+    }
+  
+    /* ---------- Course-content PDF dropdowns */
+    .journey-title-first { margin-top: 8px; }
+    .pdf-count { margin-left: 4px; font-size: 0.8rem; font-weight: 700; color: var(--text-light); }
+    .pdf-row { cursor: pointer; }
+    .pdf-row-go { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.8rem; font-weight: 700; transition: background .2s ease; }
+    .pdf-row:hover .pdf-row-go, .pdf-row:focus-visible .pdf-row-go { background: var(--brand-forest); }
+    @media (max-width: 640px) {
+      .pdf-count { display: none; }
+      .pdf-row-go span { display: none; }
+      .pdf-row-go { padding: 9px; }
+    }
+  
+    /* ---------- Single trainer: full-width card */
+    .faculty-grid.single { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .faculty-grid.single .faculty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-areas: "head details" "badge details" "bio details";
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        column-gap: 44px; row-gap: 14px; align-items: start;
+        padding: 34px 40px;
+      }
+      .faculty-grid.single .faculty-card:not(:has(.faculty-placed-badge)) { grid-template-areas: "head details" "bio details"; grid-template-rows: auto 1fr; }
+      .faculty-grid.single .faculty-header { grid-area: head; }
+      .faculty-grid.single .faculty-placed-badge { grid-area: badge; justify-self: start; }
+      .faculty-grid.single .faculty-bio { grid-area: bio; font-size: 0.95rem; }
+      .faculty-grid.single .faculty-details-list { grid-area: details; align-self: start; justify-content: flex-start; gap: 12px; padding: 20px 22px; font-size: 0.88rem; }
+      .faculty-grid.single .faculty-detail-label { min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
+    }
+
+    /* ---------- Real-time project PDFs */
+    .project-pdf-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-pdf {
+      width: 100%; height: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--text-main);
+      display: flex; flex-direction: column; gap: 14px; padding: 26px;
+      background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 22px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project-pdf:hover, .project-pdf:focus-visible { transform: translateY(-3px); border-color: var(--brand-forest); box-shadow: 0 16px 34px rgba(2, 38, 27, 0.1); outline: none; }
+    .project-pdf-top { display: flex; align-items: center; gap: 14px; }
+    .project-pdf-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: var(--brand-primary); color: var(--brand-lime); font-size: 24px; }
+    .project-pdf-head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .project-pdf-label { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-forest); }
+    .project-pdf-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--brand-dark); line-height: 1.25; }
+    .project-pdf-names { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .project-pdf-names li { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; color: var(--text-muted); }
+    .project-pdf-names b { flex-shrink: 0; font-size: 0.75rem; color: var(--brand-forest); }
+    .project-pdf-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .project-pdf-meta { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); }
+    .project-pdf-go { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.82rem; font-weight: 700; transition: background .2s ease; }
+    .project-pdf:hover .project-pdf-go { background: var(--brand-forest); }
+    @media (max-width: 767px) {
+      .project-pdf-list { grid-template-columns: 1fr; gap: 12px; }
+      .project-pdf { padding: 20px 18px; }
+      .project-pdf-icon { width: 44px; height: 44px; font-size: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -5966,20 +6155,22 @@
       </div>
     </section>
 
-    <!-- Highlights: Pay After Placement / Leading IT Training Institute -->
-    <section class="hero-highlights-strip" aria-label="Highlights">
+    <!-- ============================================================
+         PAY AFTER PLACEMENT
+         ============================================================ -->
+    <section class="pap-section" id="pay-after-placement" aria-labelledby="papTitle">
       <div class="container">
-        <div class="hero-highlights">
-          <div class="hero-highlight">
-            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
-            <div>
-              <h3 class="hero-highlight-title">Pay After Placement</h3>
-              <p class="hero-highlight-sub">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
-            </div>
+        <div class="pap-card">
+          <div class="pap-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></div>
+          <div class="pap-copy">
+            <span class="pap-eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg> Only at Greens Technologies</span>
+            <h2 class="pap-title" id="papTitle">Pay After <span>Placement</span></h2>
+            <p class="pap-text">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+            <p class="pap-note">Ask our counsellor for the Pay After Placement terms and eligibility.</p>
           </div>
-          <div class="hero-highlight">
-            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg></span>
-            <h3 class="hero-highlight-title">Chennai&rsquo;s Leading IT Training Institute</h3>
+          <div class="pap-actions">
+            <button type="button" class="btn btn-accent" onclick="openLeadModal('Pay After Placement Enquiry')">Ask About Pay After Placement</button>
+            <a class="btn pap-call" href="tel:+918939915560"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 89399 15560</a>
           </div>
         </div>
       </div>
@@ -6088,7 +6279,7 @@
         </div>
 
         <div class="faculty-carousel">
-        <div class="faculty-grid">
+        <div class="faculty-grid single">
           <!-- Trainer 1 -->
           <div class="faculty-card">
             <div class="faculty-header">
@@ -6458,331 +6649,216 @@
         <div class="section-header">
           <h2 class="section-title">Course Curriculum 2026 - One Course. A Clear Sequence.</h2>
           <p class="section-subtitle">
-            <strong>9 Modules &middot; One Complete Learning Journey:</strong> 150 hours of expert-led training that starts with Python and SQL as the working foundation and ends with a three-week, end-to-end ETL capstone project.
+            <strong>Choose your track:</strong> open AWS Data Engineering or Azure Data Engineering to see its course-content PDFs, and click any PDF to read it.
           </p>
         </div>
 
-        <div class="curriculum-panel" id="currAws" role="tabpanel">
-          <div class="phase-accordion">
-            <div class="phase-item active">
-              <button class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-accordion pdf-accordion">
+            <div class="phase-item">
+              <button class="phase-header" onclick="togglePhase(this); setBrochure('aws')">
                 <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 1</span>
-                  <span>Foundations</span>
+                  <span class="track-phase-label">AWS</span>
+                  <span>AWS Data Engineering</span>
+                  <span class="pdf-count">7 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-sql-course-content.pdf" data-pdf-title="SQL Course Content" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">01</span>
                         <span class="track-module-head">
-                          <span>Python</span>
-                          <span class="track-module-meta"><span>10 Topics</span></span>
+                          <span>SQL Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 3 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Build your programming foundation for data workflows.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Python setup, variables, data types and operators</li>
-                            <li>Control flow and looping</li>
-                            <li>Data structures: strings, lists, tuples, sets and dictionaries</li>
-                            <li>Functions, modules and modular scripting</li>
-                            <li>Object-oriented programming</li>
-                            <li>File handling (CSV, JSON) and exception handling</li>
-                            <li>Scripting and automation: os, pathlib, argparse, logging</li>
-                            <li>NumPy: arrays, vectorisation and broadcasting</li>
-                            <li>Pandas: loading, cleaning, transforming and analysing data</li>
-                            <li>Matplotlib and Seaborn visualisation</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-python-course-content.pdf" data-pdf-title="Python Course Content" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">02</span>
                         <span class="track-module-head">
-                          <span>SQL</span>
-                          <span class="track-module-meta"><span>10 Topics</span></span>
+                          <span>Python Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 4 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Query, manage and retrieve structured data efficiently.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Database concepts and SQL language overview: DQL, DML, DDL, DCL, TCL</li>
-                            <li>Restricting and sorting data; single-row functions</li>
-                            <li>Joins: inner, outer, natural, cross, self and multi-table joins</li>
-                            <li>Group functions, GROUP BY, HAVING, ROLLUP, CUBE and GROUPING SETS</li>
-                            <li>Subqueries: single-row, multi-row, correlated, EXISTS</li>
-                            <li>DML, transactions, DDL and constraints</li>
-                            <li>Views, materialized views, sequences, indexes and synonyms</li>
-                            <li>SET operators and hierarchical queries</li>
-                            <li>Analytic functions: LAG, LEAD, RANK, DENSE_RANK and partitioned aggregates</li>
-                            <li>Loading flat files, export / import and migration basics</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-pyspark-course-content.pdf" data-pdf-title="PySpark Course Content" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">03</span>
                         <span class="track-module-head">
-                          <span>Maths &amp; Statistics</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
+                          <span>PySpark Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 2 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Understand statistical concepts and validate data quality.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Descriptive statistics: mean, standard deviation, min, max and quantiles</li>
-                            <li>Statistical summaries with describe and value_counts</li>
-                            <li>Correlation analysis and heatmaps</li>
-                            <li>Outlier detection with IQR</li>
-                            <li>Binning data with cut and qcut</li>
-                            <li>Data validation and data quality checks</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 2</span>
-                  <span>Analytics &amp; BI</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <div class="modules-accordion track-accordion">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-aws-cloud-data-engineering.pdf" data-pdf-title="AWS Cloud Data Engineering Course Content" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">04</span>
                         <span class="track-module-head">
-                          <span>Power BI</span>
-                          <span class="track-module-meta"><span>10 Topics</span></span>
+                          <span>AWS Cloud Data Engineering Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 13 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Create interactive dashboards and visualize business insights.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Report design, visuals, grouping, hierarchies and drill-downs</li>
-                            <li>Slicers, filters, drill-through, bookmarks and buttons</li>
-                            <li>SQL database access, storage modes and DirectQuery</li>
-                            <li>Power Query transformations: merge, append, group by, pivot and parameters</li>
-                            <li>Data modelling: star and snowflake schemas and relationships</li>
-                            <li>DAX: columns, measures, CALCULATE, variables and time intelligence</li>
-                            <li>Row-level security</li>
-                            <li>Power BI Service and Microsoft Fabric: dashboards, gateways, refresh and apps</li>
-                            <li>Paginated reports with Power BI Report Server</li>
-                            <li>PL-300 exam guidance</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-snowflake-dbt-course-content.pdf" data-pdf-title="Snowflake &amp; dbt Course Content" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">05</span>
                         <span class="track-module-head">
-                          <span>Git &amp; GitHub</span>
-                          <span class="track-module-meta"><span>2 Topics</span></span>
+                          <span>Snowflake &amp; dbt Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 5 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Track changes, manage code and collaborate on projects.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Track changes, manage code and collaborate on projects</li>
-                            <li>Submit your course projects through GitHub</li>
-                          </ul>
-                        </div>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-power-bi-course-content.pdf" data-pdf-title="Power BI Course Content" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">06</span>
+                        <span class="track-module-head">
+                          <span>Power BI Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 3 pages</span></span>
+                        </span>
                       </div>
-                    </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-aws-real-time-projects.pdf" data-pdf-title="AWS Real-Time Projects" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">07</span>
+                        <span class="track-module-head">
+                          <span>AWS Real-Time Projects</span>
+                          <span class="track-module-meta"><span>PDF &middot; 1 page</span></span>
+                        </span>
+                      </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
                   </div>
                 </div>
               </div>
             </div>
             <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
+              <button class="phase-header" onclick="togglePhase(this); setBrochure('azure')">
                 <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 3</span>
-                  <span>Engineering at Scale</span>
+                  <span class="track-phase-label">Azure</span>
+                  <span>Azure Data Engineering</span>
+                  <span class="pdf-count">7 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-sql-course-content.pdf" data-pdf-title="SQL Course Content" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">01</span>
+                        <span class="track-module-head">
+                          <span>SQL Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 3 pages</span></span>
+                        </span>
+                      </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-python-course-content.pdf" data-pdf-title="Python Course Content" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">02</span>
+                        <span class="track-module-head">
+                          <span>Python Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 4 pages</span></span>
+                        </span>
+                      </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-pyspark-course-content.pdf" data-pdf-title="PySpark Course Content" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">03</span>
+                        <span class="track-module-head">
+                          <span>PySpark Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 2 pages</span></span>
+                        </span>
+                      </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-azure-cloud-data-engineering.pdf" data-pdf-title="Azure Cloud Data Engineering Course Content" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">04</span>
+                        <span class="track-module-head">
+                          <span>Azure Cloud Data Engineering Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 14 pages</span></span>
+                        </span>
+                      </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-snowflake-dbt-course-content.pdf" data-pdf-title="Snowflake &amp; dbt Course Content" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
+                      <div class="accordion-header-left">
+                        <span class="module-num">05</span>
+                        <span class="track-module-head">
+                          <span>Snowflake &amp; dbt Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 5 pages</span></span>
+                        </span>
+                      </div>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
+                    </button>
+                  </div>
+                  <div class="accordion-item">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-power-bi-course-content.pdf" data-pdf-title="Power BI Course Content" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">06</span>
                         <span class="track-module-head">
-                          <span>PySpark</span>
-                          <span class="track-module-meta"><span>8 Topics</span></span>
+                          <span>Power BI Course Content</span>
+                          <span class="track-module-meta"><span>PDF &middot; 3 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Transform and process large datasets at scale.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Spark architecture: driver, executors, jobs, stages, tasks and the DAG</li>
-                            <li>DataFrames and RDDs, transformations vs actions, lazy evaluation</li>
-                            <li>Reading and writing CSV, JSON and Parquet with explicit schemas</li>
-                            <li>DataFrame operations: select, filter, withColumn, groupBy, joins and deduplication</li>
-                            <li>Spark SQL, window functions, UDFs and pandas UDFs</li>
-                            <li>Nested JSON: explode, array and struct functions</li>
-                            <li>Spark on AWS Glue, Amazon EMR and Databricks (Delta Lake)</li>
-                            <li>Performance: partitions and shuffle, broadcast joins, AQE, data skew and caching</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-azure-real-time-projects.pdf" data-pdf-title="Azure Real-Time Projects" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">07</span>
                         <span class="track-module-head">
-                          <span>Cloud Fundamentals (AWS)</span>
-                          <span class="track-module-meta"><span>9 Topics</span></span>
+                          <span>Azure Real-Time Projects</span>
+                          <span class="track-module-meta"><span>PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Learn cloud computing and cloud data storage fundamentals.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>AWS IAM: users, groups, roles, policies and least privilege</li>
-                            <li>VPC basics, encryption with KMS and Secrets Manager</li>
-                            <li>Amazon S3: buckets, security, storage classes, lifecycle and file formats</li>
-                            <li>Purpose-built databases: Amazon RDS, Aurora and DynamoDB</li>
-                            <li>AWS Glue, Glue Data Catalog and crawlers</li>
-                            <li>Amazon Athena and Amazon Redshift</li>
-                            <li>AWS Lambda and Amazon EMR</li>
-                            <li>Orchestration with Apache Airflow and Step Functions</li>
-                            <li>Monitoring with CloudWatch</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">08</span>
-                        <span class="track-module-head">
-                          <span>Introduction to Data Engineering</span>
-                          <span class="track-module-meta"><span>8 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Explore data pipelines, ingestion and data architecture.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Role of a data engineer and the data lifecycle</li>
-                            <li>OLTP vs OLAP; row vs columnar storage</li>
-                            <li>Data warehouse vs data lake vs lakehouse</li>
-                            <li>Medallion architecture: raw, silver and gold layers</li>
-                            <li>ETL vs ELT, batch vs streaming, full vs incremental loads and CDC</li>
-                            <li>Data ingestion from databases, APIs and files</li>
-                            <li>Partitioning strategy and partition pruning</li>
-                            <li>Data quality, monitoring, orchestration, lineage and governance</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>End-to-End ETL Project</span>
-                          <span class="track-module-meta"><span>Capstone</span> &middot; <span>3 Weeks</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <p class="track-desc">Integrate your skills into a complete data-to-dashboard solution.</p>
-                      <div class="track-groups">
-                        <div class="track-group">
-                          <h4>What You Will Learn</h4>
-                          <ul>
-                            <li>Capstone runs for the final three weeks of the course</li>
-                            <li>Sales Data Lake on AWS: S3, Glue, PySpark, Athena and Power BI</li>
-                            <li>Customer 360 Warehouse: AWS DMS, Amazon Redshift, dbt, Apache Airflow and Power BI</li>
-                            <li>Real-Time Clickstream Analytics: Kinesis, Managed Flink, Firehose, Lambda and QuickSight</li>
-                            <li>Governed Serverless Data Platform: Step Functions, Glue, Apache Iceberg, Lake Formation and CloudWatch</li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
-        <!-- Curriculum CTAs -->
+        <!-- Curriculum CTAs: full syllabus downloads -->
         <div class="curriculum-cta-box">
-          <!-- Downloads the brochure for the selected curriculum tab (updated by switchCurriculumTab) -->
-          <a
-            class="btn btn-primary"
-            id="brochureDownload"
-            onclick="gateBrochureDownload(event)"
-            href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/aws-data-engineering-brochure.pdf"
-            download="Greens-Technologies-AWS-Data-Engineering-Brochure.pdf"
-          >
+          <a class="btn btn-primary" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-aws-data-engineering-syllabus.pdf" download="Greens-Technologies-AWS-Data-Engineering-Syllabus.pdf" onclick="directDownload(event)">
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download AWS Brochure (PDF)</span>
+          </a>
+          <a class="btn btn-primary" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-azure-data-engineering-syllabus.pdf" download="Greens-Technologies-Azure-Data-Engineering-Syllabus.pdf" onclick="directDownload(event)">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download Azure Brochure (PDF)</span>
           </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
             <svg class="ico" aria-hidden="true"><use href="#i-message"/></svg> Book Free Counselling
@@ -6799,85 +6875,63 @@
         <div class="section-header">
           <h2 class="section-title">Build a Real Data Engineering Portfolio</h2>
           <p class="section-subtitle">
-            Capstone projects that connect every tool in the stack to a real business scenario. The project mix can vary by batch to reflect the latest industry demands.
+            Capstone projects that connect every tool in the stack to a real business scenario. Open your track to read the real-time project details. The project mix can vary by batch to reflect the latest industry demands.
           </p>
         </div>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card">
-            <span class="project-number">Capstone Project 01</span>
-            <h3 class="project-title">1. Sales Data Lake on AWS</h3>
-            <div class="project-platform">Platform: AWS S3, Glue, PySpark, Athena &amp; Power BI</div>
-            <p class="project-desc">
-              Ingest raw multi-region transactional sales files into S3 landing zones. Transform, cleanse, and deduplicate them using AWS Glue and PySpark into a partitioned data lake. Run serverless ad-hoc queries with Athena and deliver interactive executive dashboards in Power BI.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag-pill">AWS S3</span>
-              <span class="project-tag-pill">Glue</span>
-              <span class="project-tag-pill">PySpark</span>
-              <span class="project-tag-pill">Athena</span>
-              <span class="project-tag-pill">Power BI</span>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card">
-            <span class="project-number">Capstone Project 02</span>
-            <h3 class="project-title">2. Customer 360 Warehouse</h3>
-            <div class="project-platform">Platform: Snowflake &amp; DBT</div>
-            <p class="project-desc">
-              Consolidate omni-channel customer interactions, support tickets, and purchase transactions. Build an enterprise star schema in Snowflake cloud data warehouse, execute modular data modeling and testing with DBT, and automate data quality alerting.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Snowflake</span>
-              <span class="project-tag-pill">DBT</span>
-              <span class="project-tag-pill">Star Schema</span>
-              <span class="project-tag-pill">Data Quality</span>
-            </div>
-          </div>
-
-          <!-- Project 3 -->
-          <div class="project-card">
-            <span class="project-number">Capstone Project 03</span>
-            <h3 class="project-title">3. Real-Time Clickstream Pipeline</h3>
-            <div class="project-platform">Platform: AWS Kinesis, PySpark &amp; Redshift</div>
-            <p class="project-desc">
-              Stream live user clickstream and mobile interaction events at scale through AWS Kinesis. Process micro-batches and sliding time windows using PySpark Structured Streaming, landing real-time operational aggregates directly into Amazon Redshift.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Kinesis</span>
-              <span class="project-tag-pill">Streaming</span>
-              <span class="project-tag-pill">PySpark</span>
-              <span class="project-tag-pill">Redshift</span>
-            </div>
-          </div>
-
-          <!-- Project 4 -->
-          <div class="project-card">
-            <span class="project-number">Capstone Project 04</span>
-            <h3 class="project-title">4. Marketing Spend Dashboard</h3>
-            <div class="project-platform">Platform: Python, DBT &amp; Power BI</div>
-            <p class="project-desc">
-              Combine multi-channel ad campaign data (Google Ads, Meta Ads) via REST APIs using Python scripts. Harmonize and model attribution with DBT transformations, tracking customer acquisition cost (CAC) and marketing ROI on a live Power BI dashboard.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag-pill">Python</span>
-              <span class="project-tag-pill">APIs</span>
-              <span class="project-tag-pill">DBT</span>
-              <span class="project-tag-pill">Power BI</span>
-            </div>
-          </div>
-        </div>
+        <ul class="project-pdf-list">
+          <li>
+            <button type="button" class="project-pdf" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-aws-real-time-projects.pdf" data-pdf-title="AWS Data Engineering Real-Time Projects" data-pdf-track="AWS Data Engineering" onclick="openPdf(this)">
+              <span class="project-pdf-top">
+                <span class="project-pdf-icon"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+                <span class="project-pdf-head">
+                  <span class="project-pdf-label">AWS Data Engineering</span>
+                  <span class="project-pdf-title">AWS Data Engineering Real-Time Projects</span>
+                </span>
+              </span>
+              <ul class="project-pdf-names">
+                <li><b>01</b><span>Sales Data Lake on AWS</span></li>
+                <li><b>02</b><span>Customer 360 Warehouse</span></li>
+                <li><b>03</b><span>Real-Time Clickstream Analytics</span></li>
+                <li><b>04</b><span>Governed Serverless Data Platform</span></li>
+              </ul>
+              <span class="project-pdf-foot">
+                <span class="project-pdf-meta">PDF &middot; 4 capstone projects</span>
+                <span class="project-pdf-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg> View PDF</span>
+              </span>
+            </button>
+          </li>
+          <li>
+            <button type="button" class="project-pdf" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-azure-real-time-projects.pdf" data-pdf-title="Azure Data Engineering Real-Time Projects" data-pdf-track="Azure Data Engineering" onclick="openPdf(this)">
+              <span class="project-pdf-top">
+                <span class="project-pdf-icon"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+                <span class="project-pdf-head">
+                  <span class="project-pdf-label">Azure Data Engineering</span>
+                  <span class="project-pdf-title">Azure Data Engineering Real-Time Projects</span>
+                </span>
+              </span>
+              <ul class="project-pdf-names">
+                <li><b>01</b><span>Retail Lakehouse on Azure Databricks</span></li>
+                <li><b>02</b><span>Real-Time Fraud Detection Pipeline</span></li>
+                <li><b>03</b><span>Healthcare Claims Warehouse on Microsoft Fabric</span></li>
+                <li><b>04</b><span>Automated Data Platform with CI/CD</span></li>
+              </ul>
+              <span class="project-pdf-foot">
+                <span class="project-pdf-meta">PDF &middot; 4 capstone projects</span>
+                <span class="project-pdf-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg> View PDF</span>
+              </span>
+            </button>
+          </li>
+        </ul>
 
         <div class="portfolio-callout-card">
-          <div class="portfolio-callout-icon"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg></div>
+          <div class="portfolio-callout-icon"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg></div>
           <p>
-            <strong>Your portfolio tells the story:</strong> In technical interviews, show the pipeline design, architecture diagrams, clean code, data quality checks, and executive dashboards. Clearly explain the business question and your technical choices to stand out from other candidates.
+            <strong>Download the Sample Resume:</strong> See how a data engineer&rsquo;s resume presents projects, skills and certifications. Use it as a reference and replace every detail with your own experience.
           </p>
-          <button class="btn btn-accent btn-sm" onclick="openLeadModal('Portfolio Review Request')">
-            Review Sample Portfolio
-          </button>
+          <a class="btn btn-accent btn-sm" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20engineering/de-sample-resume.pdf" download="Greens-Technologies-Data-Engineering-Sample-Resume.pdf" onclick="directDownload(event)">
+            <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> Download Sample Resume
+          </a>
         </div>
       </div>
     </section>
@@ -8275,21 +8329,7 @@
     });
 
     // Curriculum Tabs
-    function switchCurriculumTab(tab) {
-      document.querySelectorAll('.curriculum-tab').forEach(t => {
-        const active = t === tab;
-        t.classList.toggle('active', active);
-        t.setAttribute('aria-selected', active ? 'true' : 'false');
-        document.getElementById(t.dataset.panel).hidden = !active;
-      });
-
-      // Point the brochure button at the selected track
-      const track = tab.dataset.panel === 'currAzure' ? 'Azure' : 'AWS';
-      const link = document.getElementById('brochureDownload');
-      link.href = `assets/Broucher/${track}%20Data%20Engineering%20Broucher.pdf`;
-      link.download = `Greens-Technologies-${track}-Data-Engineering-Brochure.pdf`;
-      link.querySelector('span').textContent = `Download ${track} Brochure (PDF)`;
-    }
+    function switchCurriculumTab(tab) { switchTrack(tab); }
 
     // Curriculum Phase Dropdowns
     function togglePhase(btn) {
@@ -8298,6 +8338,9 @@
       item.parentElement.querySelectorAll(':scope > .phase-item').forEach(el => el.classList.remove('active'));
       if (!wasActive) {
         item.classList.add('active');
+        if (item.closest('.pdf-accordion') && window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          gsap.fromTo(item.querySelectorAll('.pdf-row'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .35, stagger: .05, ease: 'power2.out', clearProps: 'all' });
+        }
       }
     }
 
@@ -8310,7 +8353,7 @@
     // Chat assistant: canned answers from this page; typed questions are emailed to an advisor
     const CHAT_TOPICS = {
       'Upcoming batches': 'New batches start every Monday and Friday. Weekday slots run between 6:00 AM and 8:30 PM, and weekend batches are also available, in classroom or online live. <a href="#batches" onclick="toggleChat(false)">See batch timings</a>',
-      'Course curriculum': '9 modules in 3 phases over 150 hours: Python, SQL, Maths &amp; Statistics, Power BI, Git &amp; GitHub, PySpark, Cloud Fundamentals (AWS), Introduction to Data Engineering, and a three-week end-to-end ETL capstone. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
+      'Course curriculum': 'Choose the AWS or Azure Data Engineering track in the curriculum section and open each course-content PDF. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
       'Placement support': 'Our placement cell helps with resume preparation, mock interviews and interview coordination, through 500+ hiring partners. <a href="#placements" onclick="toggleChat(false)">See placement details</a>',
       'Course fees': 'Fees depend on the track and batch you choose. Share your details and an advisor will send you the current fees and offers. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Course Fee Details\')">Get fee details</a>',
       'Book a free demo': 'Great! Fill in your name, mobile number and email and we will confirm your free demo class. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Book a Free Demo Class\')">Book free demo</a>'
@@ -8503,6 +8546,23 @@
         .then(r => { if (!r.ok) throw new Error(r.status); return r.blob(); })
         .then(blob => { const obj = URL.createObjectURL(blob); save(obj); setTimeout(() => URL.revokeObjectURL(obj), 10000); })
         .catch(() => window.open(url, '_blank', 'noopener'));
+    }
+
+    // Every download asks for the visitor's details first; the file downloads as soon as the form is submitted
+    function directDownload(e) {
+      e.preventDefault();
+      const link = e.currentTarget;
+      const label = link.textContent.replace(/\s+/g, ' ').replace(' (PDF)', '').trim();
+      requestDownload(label, () => downloadFile(link.href, link.getAttribute('download')));
+    }
+
+    // PDF popup: "Download PDF" closes the popup and asks for details before downloading
+    function downloadFromPdf(e) {
+      e.preventDefault();
+      const link = e.currentTarget, title = document.getElementById('pdfTitle').textContent;
+      const url = link.href, name = 'Greens-Technologies-' + title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.pdf';
+      closePdf();
+      setTimeout(() => requestDownload('Download ' + title, () => downloadFile(url, name)), 260);
     }
 
     function gateBrochureDownload(e) {
@@ -8860,6 +8920,147 @@
       var set = function () { document.documentElement.style.setProperty('--top-strip-h', strip.offsetHeight + 'px'); };
       set(); window.addEventListener('resize', set);
       if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
+    })();
+  </script>
+
+  <!-- PDF popup (course content) -->
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-backdrop" onclick="closePdf()"></div>
+    <div class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+      <div class="pdf-head">
+        <span class="pdf-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg></span>
+        <div class="pdf-head-text">
+          <h3 class="pdf-head-title" id="pdfTitle">Course Content</h3>
+          <div class="pdf-head-sub" id="pdfSub">Greens Technologies</div>
+        </div>
+        <a class="pdf-open" id="pdfOpen" href="#" onclick="downloadFromPdf(event)"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Download PDF</span></a>
+        <button type="button" class="pdf-close" id="pdfClose" onclick="closePdf()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="pdf-body" id="pdfBody"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // Track tabs: one choice switches the course-content list, the brochure button and the capstone projects
+    function switchTrack(btn) {
+      const track = btn.dataset.track;
+      document.querySelectorAll('[data-track]').forEach(b => {
+        const on = b.dataset.track === track;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      document.querySelectorAll('[data-track-panel]').forEach(p => {
+        const on = p.dataset.trackPanel === track;
+        p.hidden = !on;
+        if (on && window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          gsap.fromTo(p.matches('.projects-grid') ? p.children : p.querySelectorAll('li'), { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .4, stagger: .05, ease: 'power2.out', clearProps: 'all' });
+        }
+      });
+      setBrochure(track);
+    }
+    function setBrochure(track) {
+      const name = track === 'azure' ? 'Azure' : 'AWS';
+      const link = document.getElementById('brochureDownload');
+      if (link) {
+        link.href = `https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/${track}-data-engineering-brochure.pdf`;
+        link.download = `Greens-Technologies-${name}-Data-Engineering-Brochure.pdf`;
+        link.querySelector('span').textContent = `Download ${name} Brochure (PDF)`;
+      }
+    }
+
+    // Course-content PDF popup (pages drawn with PDF.js so it works on phones too)
+    let pdfJsLoad = null, pdfToken = 0, pdfLastFocus = null;
+    function loadPdfJs() {
+      if (window.pdfjsLib) return Promise.resolve();
+      return pdfJsLoad || (pdfJsLoad = new Promise((res, rej) => {
+        const sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        sc.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; res(); };
+        sc.onerror = () => { pdfJsLoad = null; rej(new Error('pdf.js')); };
+        document.head.appendChild(sc);
+      }));
+    }
+    async function renderPdf(url, body, token) {
+      await loadPdfJs();
+      const doc = await pdfjsLib.getDocument(url).promise;
+      if (token !== pdfToken) return;
+      body.innerHTML = '';
+      const width = Math.min(body.clientWidth - 16, 860);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (let n = 1; n <= doc.numPages; n++) {
+        const page = await doc.getPage(n);
+        if (token !== pdfToken) return;
+        const base = page.getViewport({ scale: 1 });
+        const vp = page.getViewport({ scale: (width / base.width) * dpr });
+        const c = document.createElement('canvas');
+        c.width = vp.width; c.height = vp.height; c.style.width = width + 'px';
+        c.setAttribute('aria-label', `Page ${n} of ${doc.numPages}`);
+        body.appendChild(c);
+        await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+      }
+    }
+    function openPdf(btn) {
+      const modal = document.getElementById('pdfModal'), body = document.getElementById('pdfBody');
+      const url = btn.dataset.pdf, token = ++pdfToken;
+      pdfLastFocus = btn;
+      document.getElementById('pdfTitle').textContent = btn.dataset.pdfTitle;
+      document.getElementById('pdfSub').textContent = btn.dataset.pdfTrack + ' \u00b7 Greens Technologies';
+      document.getElementById('pdfOpen').href = url;
+      body.innerHTML = '<div class="pdf-status">Loading course content\u2026</div>';
+      body.scrollTop = 0;
+      modal.classList.remove('css-pop');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pdf-lock');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (window.gsap && !reduce) {
+        gsap.fromTo(modal.querySelector('.pdf-backdrop'), { opacity: 0 }, { opacity: 1, duration: .3, ease: 'power1.out' });
+        gsap.fromTo(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .86, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: .5, ease: 'back.out(1.6)' });
+      } else if (!reduce) { void modal.offsetWidth; modal.classList.add('css-pop'); }
+      document.getElementById('pdfClose').focus({ preventScroll: true });
+      renderPdf(url, body, token).catch(() => {
+        if (token !== pdfToken) return;
+        body.innerHTML = `<iframe src="${url}" title="${btn.dataset.pdfTitle}"></iframe>`;
+      });
+    }
+    function closePdf() {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      pdfToken++;
+      const done = () => { modal.classList.remove('open', 'css-pop'); modal.setAttribute('aria-hidden', 'true'); document.getElementById('pdfBody').innerHTML = ''; };
+      document.body.classList.remove('pdf-lock');
+      if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.to(modal.querySelector('.pdf-backdrop'), { opacity: 0, duration: .2 });
+        gsap.to(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .94, y: 12, duration: .22, ease: 'power2.in', onComplete: done });
+      } else done();
+      if (pdfLastFocus) pdfLastFocus.focus({ preventScroll: true });
+    }
+    document.addEventListener('keydown', e => {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePdf(); }
+      if (e.key === 'Tab') {
+        const f = [...modal.querySelectorAll('a[href], button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+
+    // Pay After Placement: gentle entrance when it scrolls into view
+    (() => {
+      const card = document.querySelector('.pap-card');
+      if (!card || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+      gsap.set(card.querySelectorAll('.pap-icon, .pap-copy > *, .pap-actions > *'), { opacity: 0, y: 18 });
+      new IntersectionObserver((es, ob) => es.forEach(en => {
+        if (!en.isIntersecting) return;
+        ob.disconnect();
+        const tl = gsap.timeline();
+        tl.fromTo(card.querySelector('.pap-icon'), { opacity: 0, scale: .6, y: 0 }, { opacity: 1, scale: 1, duration: .6, ease: 'back.out(2)' })
+          .to(card.querySelectorAll('.pap-copy > *'), { opacity: 1, y: 0, duration: .5, stagger: .08, ease: 'power2.out' }, '-=.35')
+          .to(card.querySelectorAll('.pap-actions > *'), { opacity: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, '-=.3');
+      }), { threshold: .3 }).observe(card);
     })();
   </script>
 </body>

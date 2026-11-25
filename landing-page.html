@@ -225,6 +225,32 @@
     .lp-hl-item h3 { font-family: "Plus Jakarta Sans", sans-serif; font-size: 19px; font-weight: 800; color: var(--green); line-height: 1.25; }
     .lp-hl-item p { margin-top: 4px; font-size: 14px; line-height: 1.5; color: var(--muted); }
     @media (max-width: 760px) { .lp-hl { grid-template-columns: 1fr; gap: 10px; margin-top: 32px; } .lp-hl-item { padding: 16px 18px; } .lp-hl-item h3 { font-size: 17px; } }
+
+    /* Pay After Placement */
+    .lp-pap { padding: 0 0 72px; background: var(--white); border-bottom: 1px solid var(--border); }
+    .highlights:has(+ .lp-pap) { border-bottom: 0; padding-bottom: 48px; }
+    .lp-pap-card { position: relative; overflow: hidden; isolation: isolate; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 36px; padding: 52px 56px; border-radius: 28px; color: var(--white);
+      background: radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px) 0 0 / 22px 22px, linear-gradient(115deg, var(--green-dark) 0%, var(--green) 55%, var(--green-mid) 100%); box-shadow: var(--shadow-lg); }
+    .lp-pap-card::before, .lp-pap-card::after { content: ''; position: absolute; z-index: -1; border-radius: 50%; border: 1px solid rgba(140,198,63,.28); }
+    .lp-pap-card::before { width: 420px; height: 420px; right: -140px; top: -170px; }
+    .lp-pap-card::after { width: 640px; height: 640px; right: -250px; top: -280px; border-color: rgba(140,198,63,.14); }
+    .lp-pap-icon { width: 112px; height: 112px; border-radius: 30px; display: grid; place-items: center; background: var(--accent); color: var(--green-dark); box-shadow: 0 0 0 10px rgba(140,198,63,.16); }
+    .lp-pap-icon svg { width: 52px; height: 52px; }
+    .lp-pap-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(140,198,63,.16); border: 1px solid rgba(140,198,63,.4); color: var(--accent); font-size: 12.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+    .lp-pap-eyebrow svg { width: 15px; height: 15px; }
+    .lp-pap-title { margin: 14px 0 10px; font-family: "Plus Jakarta Sans", sans-serif; font-weight: 800; font-size: clamp(36px, 5vw, 60px); line-height: 1.02; letter-spacing: -.03em; color: var(--white); }
+    .lp-pap-title span { color: var(--accent); }
+    .lp-pap-text { max-width: 620px; font-size: 18px; line-height: 1.6; color: rgba(255,255,255,.88); }
+    .lp-pap-note { margin-top: 10px; font-size: 14px; color: rgba(255,255,255,.62); }
+    .lp-pap-actions { display: flex; flex-direction: column; gap: 12px; min-width: 250px; }
+    .lp-pap-btn, .lp-pap-call { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 22px; border-radius: 12px; font-weight: 800; font-size: 15px; text-decoration: none; transition: transform .2s ease, background .2s ease; }
+    .lp-pap-btn { background: var(--accent); color: var(--green-dark); }
+    .lp-pap-btn:hover { transform: translateY(-2px); }
+    .lp-pap-call { color: var(--white); border: 1px solid rgba(255,255,255,.45); }
+    .lp-pap-call:hover { background: rgba(255,255,255,.1); }
+    .lp-pap-call svg { width: 17px; height: 17px; }
+    @media (max-width: 1023px) { .lp-pap-card { grid-template-columns: auto 1fr; padding: 40px 36px; } .lp-pap-actions { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; } .lp-pap-actions a { flex: 1 1 220px; } }
+    @media (max-width: 640px) { .lp-pap { padding-bottom: 48px; } .lp-pap-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 22px; border-radius: 22px; } .lp-pap-icon { width: 76px; height: 76px; border-radius: 22px; } .lp-pap-icon svg { width: 36px; height: 36px; } .lp-pap-text { font-size: 16px; } .lp-pap-actions { flex-direction: column; min-width: 0; } .lp-pap-actions a { flex: none; width: 100%; } }
     .hl-item { transition: opacity .6s ease, transform .6s ease; }
     .hl-item.hl-wait { opacity: 0; transform: translateY(18px); }
     .hl-item p { margin-top: 14px; font-size: 14.5px; font-weight: 500; color: var(--muted); }
@@ -1335,17 +1361,24 @@
           <div><h3 data-count="4">4</h3><p>Flexible Training Modes</p></div>
         </div>
       </div>
-      <div class="lp-hl">
-        <div class="lp-hl-item">
-          <span class="lp-hl-icon"><svg aria-hidden="true"><use href="#i-wallet"/></svg></span>
-          <div>
-            <h3>Pay After Placement</h3>
-            <p>With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
-          </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PAY AFTER PLACEMENT ================= -->
+  <section class="lp-pap" id="pay-after-placement" aria-labelledby="lpPapTitle">
+    <div class="container">
+      <div class="lp-pap-card">
+        <div class="lp-pap-icon"><svg aria-hidden="true"><use href="#i-wallet"/></svg></div>
+        <div class="lp-pap-copy">
+          <span class="lp-pap-eyebrow"><svg aria-hidden="true"><use href="#i-award"/></svg> Only at Greens Technologies</span>
+          <h2 class="lp-pap-title" id="lpPapTitle">Pay After <span>Placement</span></h2>
+          <p class="lp-pap-text">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+          <p class="lp-pap-note">Ask our counsellor for the Pay After Placement terms and eligibility.</p>
         </div>
-        <div class="lp-hl-item">
-          <span class="lp-hl-icon"><svg aria-hidden="true"><use href="#i-trophy"/></svg></span>
-          <h3>Chennai&rsquo;s Leading IT Training Institute</h3>
+        <div class="lp-pap-actions">
+          <a class="lp-pap-btn" href="#contact">Ask About Pay After Placement</a>
+          <a class="lp-pap-call" href="tel:+918939915577"><svg aria-hidden="true"><use href="#i-phone"/></svg> Call +91 89399 15577</a>
         </div>
       </div>
     </div>
@@ -2376,6 +2409,8 @@
         onEnter: els => gsap.fromTo(els, { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: .8, ease: 'power3.out', stagger: .12, overwrite: true, ...clear }) });
       // 2. Popular courses: cards stagger in
       gsap.from('#courseGrid .course-card', { scrollTrigger: { trigger: '#courses', start: 'top 75%', once: true }, y: 50, opacity: 0, duration: .7, stagger: .07, ease: 'power3.out', ...clear });
+      gsap.from('.lp-pap-card', { scrollTrigger: { trigger: '#pay-after-placement', start: 'top 80%', once: true }, y: 40, scale: .97, opacity: 0, duration: .8, ease: 'power3.out', ...clear });
+      gsap.from('.lp-pap-icon', { scrollTrigger: { trigger: '#pay-after-placement', start: 'top 80%', once: true }, scale: .6, opacity: 0, duration: .6, delay: .3, ease: 'back.out(2)', ...clear });
       // 3. Why choose us: feature cards lift in
       gsap.from('#whyStage > *', { scrollTrigger: { trigger: '#why', start: 'top 70%', once: true }, y: 40, opacity: 0, duration: .7, stagger: .1, ease: 'power3.out', ...clear });
       // 4. Success stories: picker chips pop in

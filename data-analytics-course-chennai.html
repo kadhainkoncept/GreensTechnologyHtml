@@ -452,7 +452,7 @@
       }
     }
 
-    @media (max-width: 374px) {
+    @media (max-width: 389px) {
       .top-pill-btn .ico {
         display: none;
       }
@@ -5456,6 +5456,181 @@
       }
     }
 
+      /* ---------- Pay After Placement */
+    .pap-section { background: #FFFFFF; padding: 36px 0 12px; }
+    .pap-section + .why-choose-section { border-top: none; }
+    .pap-card {
+      position: relative; overflow: hidden; isolation: isolate;
+      display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 36px;
+      padding: 52px 56px; border-radius: 28px; color: #FFFFFF;
+      background:
+        radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px) 0 0 / 22px 22px,
+        linear-gradient(115deg, var(--brand-dark) 0%, #173F27 55%, var(--brand-forest) 100%);
+      box-shadow: 0 24px 50px rgba(2, 38, 27, 0.22);
+    }
+    .pap-card::before, .pap-card::after {
+      content: ''; position: absolute; z-index: -1; border-radius: 50%;
+      border: 1px solid rgba(155, 210, 60, 0.28);
+    }
+    .pap-card::before { width: 420px; height: 420px; right: -140px; top: -170px; }
+    .pap-card::after { width: 640px; height: 640px; right: -250px; top: -280px; border-color: rgba(155, 210, 60, 0.14); }
+    .pap-icon {
+      width: 112px; height: 112px; border-radius: 30px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--brand-lime); color: var(--brand-dark); font-size: 52px;
+      box-shadow: 0 0 0 10px rgba(155, 210, 60, 0.16);
+    }
+    .pap-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: var(--radius-full);
+      background: rgba(155, 210, 60, 0.16); border: 1px solid rgba(155, 210, 60, 0.4);
+      color: var(--brand-lime); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+    .pap-title {
+      margin: 14px 0 10px; font-family: var(--font-heading); font-weight: 800; color: #FFFFFF;
+      font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.02; letter-spacing: -0.03em;
+    }
+    .pap-title span { color: var(--brand-lime); }
+    .pap-text { margin: 0; max-width: 620px; font-size: 1.12rem; line-height: 1.6; color: rgba(255, 255, 255, 0.88); }
+    .pap-note { margin: 10px 0 0; font-size: 0.88rem; color: rgba(255, 255, 255, 0.62); }
+    .pap-actions { display: flex; flex-direction: column; gap: 12px; min-width: 250px; }
+    .pap-actions .btn { justify-content: center; }
+    .pap-call { background: transparent; color: #FFFFFF; border: 1px solid rgba(255, 255, 255, 0.45); font-weight: 700; }
+    .pap-call:hover { background: rgba(255, 255, 255, 0.1); }
+    @media (max-width: 1023px) {
+      .pap-card { grid-template-columns: auto 1fr; padding: 40px 36px; }
+      .pap-actions { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; }
+      .pap-actions .btn { flex: 1 1 220px; }
+    }
+    @media (max-width: 640px) {
+      .pap-section { padding-top: 24px; }
+      .pap-card { grid-template-columns: 1fr; gap: 20px; padding: 32px 22px; border-radius: 22px; }
+      .pap-icon { width: 76px; height: 76px; border-radius: 22px; font-size: 36px; box-shadow: 0 0 0 7px rgba(155, 210, 60, 0.16); }
+      .pap-text { font-size: 1rem; }
+      .pap-actions { flex-direction: column; min-width: 0; }
+      .pap-actions .btn { flex: none; width: 100%; }
+    }
+
+    /* ---------- PDF popup */
+    .pdf-modal { position: fixed; inset: 0; z-index: 4000; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .pdf-modal.open { display: flex; }
+    .pdf-backdrop { position: absolute; inset: 0; background: rgba(2, 38, 27, 0.62); backdrop-filter: blur(4px); }
+    .pdf-dialog {
+      position: relative; width: min(980px, 100%); height: min(90vh, 1100px);
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .pdf-modal.css-pop .pdf-backdrop { animation: pdfFade .3s ease both; }
+    .pdf-modal.css-pop .pdf-dialog { animation: pdfPop .45s cubic-bezier(.34, 1.56, .64, 1) both; }
+    @keyframes pdfFade { from { opacity: 0; } }
+    @keyframes pdfPop { from { opacity: 0; transform: translateY(18px) scale(.88); } }
+    .pdf-head { display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 22px; border-bottom: 1px solid var(--border-color); }
+    .pdf-head-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: #EEF6E3; color: var(--brand-primary); font-size: 19px; }
+    .pdf-head-text { flex: 1; min-width: 0; }
+    .pdf-head-title { margin: 0; font-family: var(--font-heading); font-size: 1.08rem; font-weight: 800; color: var(--brand-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-head-sub { font-size: 0.8rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-open { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: var(--radius-full); border: 1px solid var(--border-color); color: var(--brand-primary); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .pdf-open:hover { border-color: var(--brand-primary); }
+    .pdf-close { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--brand-dark); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .pdf-close:hover { background: var(--cream-surface); }
+    .pdf-body { flex: 1; overflow: auto; background: #EEF2EA; padding: 20px 16px; -webkit-overflow-scrolling: touch; }
+    .pdf-body canvas { display: block; margin: 0 auto 16px; max-width: 100%; height: auto; background: #FFFFFF; border-radius: 6px; box-shadow: 0 6px 20px rgba(2, 38, 27, 0.12); }
+    .pdf-body iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; background: #FFFFFF; }
+    .pdf-status { padding: 60px 20px; text-align: center; color: var(--text-light); font-weight: 600; }
+    .pdf-status::before { content: ''; display: block; width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 3px solid #D7E6C6; border-top-color: var(--brand-forest); animation: pdfSpin .8s linear infinite; }
+    @keyframes pdfSpin { to { transform: rotate(360deg); } }
+    body.pdf-lock { overflow: hidden; }
+    @media (max-width: 640px) {
+      .pdf-modal { padding: 0; align-items: flex-end; }
+      .pdf-dialog { height: 92vh; border-radius: 20px 20px 0 0; }
+      .pdf-head { padding: 12px 12px 12px 14px; gap: 10px; }
+      .pdf-head-icon { display: none; }
+      .pdf-open span { display: none; }
+      .pdf-open { padding: 10px; }
+      .pdf-body { padding: 12px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pdf-modal.css-pop .pdf-dialog, .pdf-modal.css-pop .pdf-backdrop { animation: none; }
+      .pdf-item { transition: none; }
+    }
+  
+    /* ---------- Course-content PDF dropdowns */
+    .journey-title-first { margin-top: 8px; }
+    .pdf-count { margin-left: 4px; font-size: 0.8rem; font-weight: 700; color: var(--text-light); }
+    .pdf-row { cursor: pointer; }
+    .pdf-row-go { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.8rem; font-weight: 700; transition: background .2s ease; }
+    .pdf-row:hover .pdf-row-go, .pdf-row:focus-visible .pdf-row-go { background: var(--brand-forest); }
+    @media (max-width: 640px) {
+      .pdf-count { display: none; }
+      .pdf-row-go span { display: none; }
+      .pdf-row-go { padding: 9px; }
+    }
+  
+    /* ---------- Single trainer: full-width card */
+    .faculty-grid.single { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .faculty-grid.single .faculty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-areas: "head details" "badge details" "bio details";
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        column-gap: 44px; row-gap: 14px; align-items: start;
+        padding: 34px 40px;
+      }
+      .faculty-grid.single .faculty-card:not(:has(.faculty-placed-badge)) { grid-template-areas: "head details" "bio details"; grid-template-rows: auto 1fr; }
+      .faculty-grid.single .faculty-header { grid-area: head; }
+      .faculty-grid.single .faculty-placed-badge { grid-area: badge; justify-self: start; }
+      .faculty-grid.single .faculty-bio { grid-area: bio; font-size: 0.95rem; }
+      .faculty-grid.single .faculty-details-list { grid-area: details; align-self: start; justify-content: flex-start; gap: 12px; padding: 20px 22px; font-size: 0.88rem; }
+      .faculty-grid.single .faculty-detail-label { min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
+    }
+
+    /* ---------- Real-time project PDFs */
+    .project-pdf-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-pdf {
+      width: 100%; height: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--text-main);
+      display: flex; flex-direction: column; gap: 14px; padding: 26px;
+      background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 22px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project-pdf:hover, .project-pdf:focus-visible { transform: translateY(-3px); border-color: var(--brand-forest); box-shadow: 0 16px 34px rgba(2, 38, 27, 0.1); outline: none; }
+    .project-pdf-top { display: flex; align-items: center; gap: 14px; }
+    .project-pdf-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: var(--brand-primary); color: var(--brand-lime); font-size: 24px; }
+    .project-pdf-head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .project-pdf-label { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-forest); }
+    .project-pdf-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--brand-dark); line-height: 1.25; }
+    .project-pdf-names { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .project-pdf-names li { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; color: var(--text-muted); }
+    .project-pdf-names b { flex-shrink: 0; font-size: 0.75rem; color: var(--brand-forest); }
+    .project-pdf-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .project-pdf-meta { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); }
+    .project-pdf-go { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.82rem; font-weight: 700; transition: background .2s ease; }
+    .project-pdf:hover .project-pdf-go { background: var(--brand-forest); }
+    @media (max-width: 767px) {
+      .project-pdf-list { grid-template-columns: 1fr; gap: 12px; }
+      .project-pdf { padding: 20px 18px; }
+      .project-pdf-icon { width: 44px; height: 44px; font-size: 20px; }
+    }
+
+    .project-pdf-list.single { grid-template-columns: 1fr; }
+    .project-pdf-list.single .project-pdf-names { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 28px; }
+    .project-pdf-names small { display: block; margin-top: 3px; font-size: 0.8rem; color: var(--text-light); }
+    @media (max-width: 767px) { .project-pdf-list.single .project-pdf-names { grid-template-columns: 1fr; } }
+    .pdf-row .accordion-header-left, .pdf-row .track-module-head { min-width: 0; }
+    .pdf-row .track-module-meta span { white-space: normal; }
+    .project-pdf-go, .project-pdf-meta { white-space: nowrap; }
+    .project-pdf-foot { flex-wrap: wrap; }
+    @media (max-width: 480px) {
+      .pdf-accordion .phase-item .phase-body { padding-left: 10px; padding-right: 10px; }
+      .pdf-accordion .phase-item .phase-header { padding-left: 14px; padding-right: 14px; }
+      .pdf-accordion .pdf-row { padding: 13px 12px 13px 14px; gap: 10px; }
+      .pdf-accordion .pdf-row .module-num { display: none; }
+      .pdf-accordion .pdf-row .track-module-head > span:first-child { font-size: 0.98rem; }
+    }
+    .project-pdf, .project-pdf-list li { min-width: 0; }
   </style>
 </head>
 <body>
@@ -6077,20 +6252,22 @@
       </div>
     </section>
 
-    <!-- Highlights: Pay After Placement / Leading IT Training Institute -->
-    <section class="hero-highlights-strip" aria-label="Highlights">
+    <!-- ============================================================
+         PAY AFTER PLACEMENT
+         ============================================================ -->
+    <section class="pap-section" id="pay-after-placement" aria-labelledby="papTitle">
       <div class="container">
-        <div class="hero-highlights">
-          <div class="hero-highlight">
-            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></span>
-            <div>
-              <h3 class="hero-highlight-title">Pay After Placement</h3>
-              <p class="hero-highlight-sub">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
-            </div>
+        <div class="pap-card">
+          <div class="pap-icon"><svg class="ico" aria-hidden="true"><use href="#i-wallet"/></svg></div>
+          <div class="pap-copy">
+            <span class="pap-eyebrow"><svg class="ico" aria-hidden="true"><use href="#i-shield"/></svg> Only at Greens Technologies</span>
+            <h2 class="pap-title" id="papTitle">Pay After <span>Placement</span></h2>
+            <p class="pap-text">With 25+ training centres across Chennai, we&rsquo;re proud to be the only institute offering our exclusive Pay After Placement option.</p>
+            <p class="pap-note">Ask our counsellor for the Pay After Placement terms and eligibility.</p>
           </div>
-          <div class="hero-highlight">
-            <span class="hero-highlight-icon"><svg class="ico" aria-hidden="true"><use href="#i-trophy"/></svg></span>
-            <h3 class="hero-highlight-title">Chennai&rsquo;s Leading IT Training Institute</h3>
+          <div class="pap-actions">
+            <button type="button" class="btn btn-accent" onclick="openLeadModal('Pay After Placement Enquiry')">Ask About Pay After Placement</button>
+            <a class="btn pap-call" href="tel:+918939915560"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg> Call +91 89399 15560</a>
           </div>
         </div>
       </div>
@@ -6199,148 +6376,39 @@
         </div>
 
         <div class="faculty-carousel">
-        <div class="faculty-grid">
+        <div class="faculty-grid single">
           <!-- Trainer 1 -->
           <div class="faculty-card">
             <div class="faculty-header">
               <div class="faculty-avatar">AK</div>
               <div class="faculty-meta">
-                <h3>Arun Kumar</h3>
-                <div class="faculty-role">Senior Data Analytics Faculty</div>
-                <span class="faculty-exp">14+ Years Experience</span>
+                <h3>Arun Kumar R</h3>
+                <div class="faculty-role">Senior Data Analytics Faculty at a Leading MNC</div>
+                <span class="faculty-exp">15+ Years Experience</span>
               </div>
             </div>
             <div class="faculty-placed-badge">
               <svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>
-              <span>2,000+ Students Placed</span>
+              <span>25,000+ Freshers &amp; Corporate Employees Trained</span>
             </div>
             <div class="faculty-details-list">
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Power BI, Advanced Excel, SQL, Python for Data Analytics, Business Intelligence &amp; Dashboard Development</span>
+                <span class="faculty-detail-val">SQL, Power BI &amp; DAX, Python, Advanced Excel, Tableau, Microsoft Fabric &amp; Data Storytelling</span>
               </div>
               <div class="faculty-detail-row">
                 <span class="faculty-detail-label">Certifications:</span>
-                <span class="faculty-detail-val">Microsoft Power BI Data Analyst Associate (PL-300)</span>
+                <span class="faculty-detail-val">Salesforce Certified Tableau Data Analyst, Microsoft Certified: Power BI Data Analyst Associate (PL-300), Microsoft Certified: Fabric Analytics Engineer Associate (DP-600), Microsoft Certified: Fabric Data Engineer Associate (DP-700)</span>
               </div>
               <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Previously:</span>
-                <span class="faculty-detail-val">Cognizant</span>
+                <span class="faculty-detail-label">Corporate Training:</span>
+                <span class="faculty-detail-val">200+ corporate trainings, including as a senior instructor at Amazon</span>
               </div>
             </div>
             <p class="faculty-bio">
-              Arun specialises in transforming raw business data into meaningful insights using industry-standard analytics tools. His sessions focus on real-time business scenarios, interactive Power BI dashboards, SQL queries, and advanced Excel techniques. Students gain practical experience in data cleaning, reporting, KPI tracking, and presenting analytical findings to support business decisions.
+              Arun builds enterprise data and analytics platforms on the cloud at a leading MNC and brings that project experience straight into the classroom. His training is practical and project-based: every concept is taught through real-time industry scenarios, the same way it&rsquo;s done in live MNC projects, not just slides and theory.
             </p>
           </div>
-
-          <!-- Trainer 2 -->
-          <div class="faculty-card">
-            <div class="faculty-header">
-              <div class="faculty-avatar">SK</div>
-              <div class="faculty-meta">
-                <h3>Sundar Krishnan</h3>
-                <div class="faculty-role">Senior Business Intelligence Faculty</div>
-                <span class="faculty-exp">12+ Years Experience</span>
-              </div>
-            </div>
-            <div class="faculty-placed-badge">
-              <svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>
-              <span>1,800+ Students Mentored</span>
-            </div>
-            <div class="faculty-details-list">
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Microsoft Power BI, Tableau, SQL, DAX, Data Visualisation &amp; Business Reporting</span>
-              </div>
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Certifications:</span>
-                <span class="faculty-detail-val">Tableau Desktop Specialist</span>
-              </div>
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Previously:</span>
-                <span class="faculty-detail-val">Accenture, Infosys</span>
-              </div>
-            </div>
-            <p class="faculty-bio">
-              Sundar focuses on developing job-ready Business Intelligence skills through hands-on projects and business case studies. Her training covers interactive dashboards, data modelling, DAX calculations, report optimisation, and visual storytelling. She helps students understand how organisations use data to monitor performance, identify trends, and make informed business decisions.
-            </p>
-          </div>
-
-          <!-- Trainer 3 -->
-          <div class="faculty-card">
-            <div class="faculty-header">
-              <div class="faculty-avatar">NK</div>
-              <div class="faculty-meta">
-                <h3>Nandha Kumar</h3>
-                <div class="faculty-role">Lead SQL &amp; Data Analytics Faculty</div>
-                <span class="faculty-exp">13+ Years Experience</span>
-              </div>
-            </div>
-            <div class="faculty-placed-badge">
-              <svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>
-              <span>1,500+ Students Mentored</span>
-            </div>
-            <div class="faculty-details-list">
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">SQL, Python, Advanced Excel &amp; Exploratory Data Analysis</span>
-              </div>
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Certifications:</span>
-                <span class="faculty-detail-val">Microsoft Certified: Azure Data Fundamentals (DP-900), Python Institute PCAP Certification</span>
-              </div>
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Previously:</span>
-                <span class="faculty-detail-val">Wipro, HCLTech</span>
-              </div>
-            </div>
-            <p class="faculty-bio">
-              Nandha teaches the technical foundations of data analytics: efficient SQL queries, analysing datasets with Python, cleaning messy data and finding meaningful patterns. His practical, interview-oriented assignments build confidence in solving real analytical problems.
-            </p>
-          </div>
-
-          <!-- Trainer 4 -->
-          <div class="faculty-card">
-            <div class="faculty-header">
-              <div class="faculty-avatar">KR</div>
-              <div class="faculty-meta">
-                <h3>Keerthana Rajendran</h3>
-                <div class="faculty-role">Senior Data Analytics &amp; Reporting Faculty</div>
-                <span class="faculty-exp">11+ Years Experience</span>
-              </div>
-            </div>
-            <div class="faculty-placed-badge">
-              <svg class="ico" aria-hidden="true"><use href="#i-award"/></svg>
-              <span>600+ Students Placed</span>
-            </div>
-            <div class="faculty-details-list">
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Specialisation:</span>
-                <span class="faculty-detail-val">Tableau, Power BI, Python for Analytics &amp; Reporting</span>
-              </div>
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Certifications:</span>
-                <span class="faculty-detail-val">Microsoft Power BI Data Analyst Associate (PL-300), Tableau Certified Data Analyst</span>
-              </div>
-              <div class="faculty-detail-row">
-                <span class="faculty-detail-label">Previously:</span>
-                <span class="faculty-detail-val">Capgemini</span>
-              </div>
-            </div>
-            <p class="faculty-bio">
-              Keerthana combines analytics concepts with real business use. Her training covers data preparation, visualisation, reporting automation and dashboards, with portfolio projects on sales, customer behaviour and financial performance.
-            </p>
-          </div>
-        </div>
-
-        <!-- Mobile carousel arrows (the grid scrolls sideways on phones) -->
-        <div class="faculty-controls">
-          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(-1)" aria-label="Previous instructor" title="Previous instructor">
-            <svg class="ico" aria-hidden="true"><use href="#i-arrow-left"/></svg>
-          </button>
-          <button type="button" class="carousel-arrow-btn" onclick="scrollFaculty(1)" aria-label="Next instructor" title="Next instructor">
-            <svg class="ico" aria-hidden="true"><use href="#i-arrow-right"/></svg>
-          </button>
         </div>
         </div>
 
@@ -6664,2935 +6732,85 @@
         <div class="section-header">
           <h2 class="section-title">Course Curriculum 2026 - One Course. A Clear Sequence.</h2>
           <p class="section-subtitle">
-            <strong>From raw data to business decisions:</strong> 3 months, 6 modules and 108 chapters in the order the tools build on each other, from SQL and Excel to Power BI dashboards, Python and Tableau, finishing with two real-time healthcare projects.
+            <strong>From raw data to business decisions:</strong> open the course content to see each tool in the order it builds on the last, from SQL Server to Power BI, Python, Tableau and Microsoft Fabric. Click any PDF to read it.
           </p>
         </div>
 
-        <div class="curriculum-panel" id="currDa">
-          <div class="phase-accordion">
+        <div class="phase-accordion pdf-accordion">
             <div class="phase-item active">
               <button class="phase-header" onclick="togglePhase(this)">
                 <span class="phase-header-left">
-                  <span class="track-phase-label">Module 1</span>
-                  <span>MSSQL &amp; TSQL</span>
-                  <span class="phase-meta">&middot; 24 chapters</span>
+                  <span class="track-phase-label">Data Analytics</span>
+                  <span>Course Content</span>
+                  <span class="pdf-count">5 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">SQL Server, T-SQL queries, joins, procedures, performance and tuning.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20Analystics/da-sql-course-content.pdf" data-pdf-title="SQL Course Content" data-pdf-track="Data Analytics" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">01</span>
                         <span class="track-module-head">
-                          <span>SQL Database Job Roles</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
+                          <span>SQL Course Content</span>
+                          <span class="track-module-meta"><span>Microsoft SQL Server &amp; T-SQL &middot; PDF &middot; 4 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Database Intro</li>
-                      <li>OLTP, DWH, OLAP</li>
-                      <li>DBMS Basics</li>
-                      <li>Data Analyst Job Roles</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20Analystics/da-power-bi-course-content.pdf" data-pdf-title="Power BI Course Content" data-pdf-track="Data Analytics" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">02</span>
                         <span class="track-module-head">
-                          <span>Database Intro &amp; Installations</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
+                          <span>Power BI Course Content</span>
+                          <span class="track-module-meta"><span>Reports, Power Query, DAX &amp; Power BI Service &middot; PDF &middot; 4 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>SQL Server Installations</li>
-                      <li>Instance &amp; Collations</li>
-                      <li>SSMS Tool Installation</li>
-                      <li>Connections, Authentications</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20Analystics/da-python-course-content.pdf" data-pdf-title="Python for Data Analysts Course Content" data-pdf-track="Data Analytics" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">03</span>
                         <span class="track-module-head">
-                          <span>SQL Basics V1 (Commands)</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
+                          <span>Python for Data Analysts Course Content</span>
+                          <span class="track-module-meta"><span>Core Python, pandas &amp; SQL database access &middot; PDF &middot; 3 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>SQL Basics (DDL, DML, etc.)</li>
-                      <li>Creating Databases, Tables</li>
-                      <li>Data Inserts (GUI, SQL)</li>
-                      <li>Basic SELECT Queries</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20Analystics/da-tableau-course-content.pdf" data-pdf-title="Tableau Course Content" data-pdf-track="Data Analytics" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">04</span>
                         <span class="track-module-head">
-                          <span>SQL Basics V2 (Commands, Operators)</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Tableau Course Content</span>
+                          <span class="track-module-meta"><span>Visualisation, calculations &amp; dashboards &middot; PDF &middot; 2 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>DDL: Create, Alter, Drop</li>
-                      <li>DML: Insert, Update, Delete</li>
-                      <li>DQL: Select, Fetch</li>
-                      <li>Add, Truncate Statements</li>
-                      <li>SQL Operators</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20Analystics/da-microsoft-fabric-course-content.pdf" data-pdf-title="Microsoft Fabric Course Content" data-pdf-track="Data Analytics" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">05</span>
                         <span class="track-module-head">
-                          <span>Data Types &amp; Variables</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Microsoft Fabric Course Content</span>
+                          <span class="track-module-meta"><span>Ingest, transform, model, analyse &amp; report &middot; PDF &middot; 2 pages</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Integer Data Types</li>
-                      <li>Character, MAX Data Types</li>
-                      <li>Decimal &amp; Boolean Data Types</li>
-                      <li>Date and Time Data Types</li>
-                      <li>SQL_Variant Type</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">06</span>
-                        <span class="track-module-head">
-                          <span>Data Imports</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Data Imports with Excel</li>
-                      <li>Data Imports with CSV</li>
-                      <li>Data Types Detection</li>
-                      <li>OLE-DB Connections</li>
-                      <li>ORDER BY, TOP, OFFSET</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">07</span>
-                        <span class="track-module-head">
-                          <span>Schemas &amp; Batches</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Schemas &amp; Table Grouping</li>
-                      <li>Real-world Banking Database</li>
-                      <li>2 Part, 3 Part &amp; 4 Part Naming</li>
-                      <li>Batch Concept &amp; &ldquo;GO&rdquo; Command</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">08</span>
-                        <span class="track-module-head">
-                          <span>Constraints, Keys &amp; RDBMS</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Null, Not Null Constraints</li>
-                      <li>Unique Key &amp; Check</li>
-                      <li>Primary Key Constraint</li>
-                      <li>Foreign Keys, Default</li>
-                      <li>DB Diagrams &amp; ER Models</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>Normal Forms &amp; RDBMS</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Normal Forms: 1 NF, 2 NF</li>
-                      <li>3 NF, BCNF and 4 NF</li>
-                      <li>1:1, 1:M, M:1 Cardinality</li>
-                      <li>Cascading Keys, Self Referencing Keys</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Joins &amp; Queries</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Joins: Table Comparisons</li>
-                      <li>Inner Joins &amp; Matching Data</li>
-                      <li>Outer Joins: LEFT, RIGHT</li>
-                      <li>Full Outer Joins &amp; Aliases</li>
-                      <li>Self Joins &amp; Aliases</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">11</span>
-                        <span class="track-module-head">
-                          <span>Sub Queries</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Basic Sub Queries</li>
-                      <li>Aggregations</li>
-                      <li>Combining Queries</li>
-                      <li>Correlated Sub Queries</li>
-                      <li>UNION, UNION ALL</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">12</span>
-                        <span class="track-module-head">
-                          <span>Group By Queries</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Group By, Distinct</li>
-                      <li>GROUP BY, HAVING</li>
-                      <li>CUBE() and ROLLUP()</li>
-                      <li>Sub Totals &amp; Grand Totals</li>
-                      <li>GROUPING() &amp; Usage</li>
-                      <li>ISNULL, COALESCE</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">13</span>
-                        <span class="track-module-head">
-                          <span>Joins with Group By, Sub Queries</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>3 Table, 4 Table Joins</li>
-                      <li>Join Queries &amp; WHERE</li>
-                      <li>Join &amp; Group By, Sub Queries</li>
-                      <li>IIF(), CASE Statement</li>
-                      <li>EXISTS, NOT EXISTS</li>
-                      <li>Query Execution Order</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">14</span>
-                        <span class="track-module-head">
-                          <span>Views &amp; RLS</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Views: Real-time Usage</li>
-                      <li>DML, SELECT with Views</li>
-                      <li>WITH CHECK OPTION</li>
-                      <li>Row Level Security (RLS)</li>
-                      <li>Important System Views</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">15</span>
-                        <span class="track-module-head">
-                          <span>Functions &amp; Queries</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>User Defined Functions</li>
-                      <li>Scalar, Table Value Functions</li>
-                      <li>Variables &amp; Parameters</li>
-                      <li>Date &amp; Time Functions</li>
-                      <li>String Functions</li>
-                      <li>Aggregated Functions</li>
-                      <li>Data Conversion Functions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">16</span>
-                        <span class="track-module-head">
-                          <span>Advanced SQL &amp; Window Functions</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Window Functions (Rank)</li>
-                      <li>ROW_NUMBER, DENSE_RANK</li>
-                      <li>Partition By &amp; Order By</li>
-                      <li>LAG &amp; LEAD Functions</li>
-                      <li>PIVOT, UNPIVOT</li>
-                      <li>Running Totals</li>
-                      <li>Moving Average</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">17</span>
-                        <span class="track-module-head">
-                          <span>Stored Procedures - 1</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Stored Procedures: Real-time Use</li>
-                      <li>Parameters Concept with SPs</li>
-                      <li>Procedures with SELECT</li>
-                      <li>System Stored Procedures</li>
-                      <li>Stored Procedures, Tuning</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">18</span>
-                        <span class="track-module-head">
-                          <span>Stored Procedures - 2</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>MERGE Statement (Upsert)</li>
-                      <li>Merge with OLTP &amp; DWH</li>
-                      <li>Matched and Not Matched</li>
-                      <li>Merge &amp; SP Recompilations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">19</span>
-                        <span class="track-module-head">
-                          <span>Triggers &amp; Automations</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Need for Triggers in Real-world</li>
-                      <li>DDL &amp; DML Triggers</li>
-                      <li>For / After Triggers</li>
-                      <li>Instead Of Triggers</li>
-                      <li>Disabling DML Triggers</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">20</span>
-                        <span class="track-module-head">
-                          <span>Transactions &amp; ACID</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Auto Commit Transaction</li>
-                      <li>Explicit Transactions</li>
-                      <li>COMMIT, ROLLBACK</li>
-                      <li>Checkpoint &amp; Query Blocking</li>
-                      <li>READPAST, Lock Hints</li>
-                      <li>TRY...CATCH &amp; Error Handling</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">21</span>
-                        <span class="track-module-head">
-                          <span>SQL Query Performance &amp; Indexing</span>
-                          <span class="track-module-meta"><span>9 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Clustered vs Nonclustered Indexes</li>
-                      <li>Index Seek vs Scan</li>
-                      <li>Execution Plans</li>
-                      <li>SARGable Queries</li>
-                      <li>Tuning Queries</li>
-                      <li>Avoiding SELECT *</li>
-                      <li>Indexing JOIN/WHERE Columns</li>
-                      <li>Statistics Basics</li>
-                      <li>Query Optimization Examples</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">22</span>
-                        <span class="track-module-head">
-                          <span>CTEs &amp; Tuning</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Common Table Expression</li>
-                      <li>CTEs for Data Retrieval</li>
-                      <li>CTEs for DML Operations</li>
-                      <li>Data Cleansing Techniques</li>
-                      <li>Duplicate Detection/Removal</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">23</span>
-                        <span class="track-module-head">
-                          <span>Temp Tables &amp; Query Techniques</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Local &amp; Global Temp Tables</li>
-                      <li>SELECT...INTO Statement</li>
-                      <li>Cursor Basics: When to Use &amp; Avoid</li>
-                      <li>NULLIF</li>
-                      <li>Basic Execution-Plan Reading</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">24</span>
-                        <span class="track-module-head">
-                          <span>Bonus / Advanced Module: SQL Server Internals</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Database Engine Components</li>
-                      <li>Parser, Compiler &amp; Optimizer</li>
-                      <li>Parsing and Compilation</li>
-                      <li>Memory Manager &amp; IO Managers</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Module 2</span>
-                  <span>Power BI</span>
-                  <span class="phase-meta">&middot; 27 chapters</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Reports, Power Query, DAX, data modelling, cloud and PL-300 guidance.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">01</span>
-                        <span class="track-module-head">
-                          <span>Power BI Intro, Installation</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI &amp; Data Analysis</li>
-                      <li>Power BI Ecosystem</li>
-                      <li>Power BI Design Tools</li>
-                      <li>Power BI Installation</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">02</span>
-                        <span class="track-module-head">
-                          <span>Report Design Concepts</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Basic Report Design (PBIX)</li>
-                      <li>Data Points, Spotlight</li>
-                      <li>Visual Interactions &amp; Edits</li>
-                      <li>Focus Mode, PDF Exports</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">03</span>
-                        <span class="track-module-head">
-                          <span>Grouping, Hierarchies</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Creating Groups: Lists</li>
-                      <li>Creating Groups: Bins</li>
-                      <li>Hierarchies &amp; Drill-Downs</li>
-                      <li>Drill Up, Conditional Drill-Down</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">04</span>
-                        <span class="track-module-head">
-                          <span>Slicer &amp; Visual Sync</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Slicer Visual in Power BI</li>
-                      <li>Slicer: Format Options</li>
-                      <li>Single Select, Multi Select</li>
-                      <li>Slicer: Select All On / Off</li>
-                      <li>Visual Sync with Slicers</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">05</span>
-                        <span class="track-module-head">
-                          <span>Filters &amp; Drill Through</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Filters</li>
-                      <li>Basic, Top &amp; Advanced</li>
-                      <li>Visual Filters, Page Filters</li>
-                      <li>Report Level Filters, Clear Filter</li>
-                      <li>Drill Through Filters &amp; Usage</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">06</span>
-                        <span class="track-module-head">
-                          <span>Bookmarks, Buttons</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Bookmarks</li>
-                      <li>Images: Actions, Bookmarks</li>
-                      <li>Buttons: Actions, Bookmarks</li>
-                      <li>Page to Page Navigations</li>
-                      <li>Score Cards, Master Pages</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">07</span>
-                        <span class="track-module-head">
-                          <span>SQL DB Access &amp; Big Data</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>SQL DB Access, Queries</li>
-                      <li>Storage Modes: DirectQuery</li>
-                      <li>Formatting &amp; Date Time</li>
-                      <li>Storage Modes in Power BI</li>
-                      <li>Data Modeling &amp; Formatting</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">08</span>
-                        <span class="track-module-head">
-                          <span>Power BI Visualizations</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Charts, Bars, Lines, Area</li>
-                      <li>Tree Maps &amp; Axis Items</li>
-                      <li>Funnel, Card, Multi-Row Card</li>
-                      <li>Pie Charts &amp; Waterfall</li>
-                      <li>Scatter Chart, Play Axis</li>
-                      <li>Infographics, Classifications</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>Power Query Transformations - 1</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power Query (Mashup)</li>
-                      <li>ETL Transformations in PBI</li>
-                      <li>Table Combine Options</li>
-                      <li>Merge, Union All Options</li>
-                      <li>Missing Values, Duplicate Records</li>
-                      <li>Wrong Data Types, Outliers</li>
-                      <li>Close, Apply &amp; Visualize</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Power Query Transformations - 2</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Group By Transformation</li>
-                      <li>Aggregate, Pivot Operation</li>
-                      <li>Reverse Rows, Count Rows</li>
-                      <li>Data Cleaning, Null Handling</li>
-                      <li>Data Type Detection, Change</li>
-                      <li>Rename, Replace, Move</li>
-                      <li>Fill Up, Fill Down</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">11</span>
-                        <span class="track-module-head">
-                          <span>Power Query Transformations - 3</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>String / Text Transformations</li>
-                      <li>Split, Merge, Extract, Format</li>
-                      <li>Numeric and Date Time</li>
-                      <li>Add Column &amp; Expressions</li>
-                      <li>Column From Examples</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">12</span>
-                        <span class="track-module-head">
-                          <span>Power Query Transformations - 4</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Parameters in Power Query</li>
-                      <li>Static Parameters, Defaults</li>
-                      <li>Dynamic Dropdowns, Lists</li>
-                      <li>Linking with Table Queries</li>
-                      <li>Step Edits, Type Conversions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">13</span>
-                        <span class="track-module-head">
-                          <span>Power BI Cloud &amp; Fabric</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Cloud, Microsoft Fabric</li>
-                      <li>Microsoft Fabric Concepts</li>
-                      <li>Fabric OneLake (DWH, LH, etc.)</li>
-                      <li>Microsoft Fabric Workspace</li>
-                      <li>Power BI Desktop Connections</li>
-                      <li>Report Uploads (PBIX)</li>
-                      <li>Report Edits, Semantic Models</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">14</span>
-                        <span class="track-module-head">
-                          <span>Power BI Cloud Dashboards</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Dashboards</li>
-                      <li>Dashboard Creation, Usage</li>
-                      <li>Pin Visuals, Pin Live Pages</li>
-                      <li>Add Image, Video Tiles</li>
-                      <li>Q&amp;A &amp; Pin Tiles</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">15</span>
-                        <span class="track-module-head">
-                          <span>Power BI Cloud Operations</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Report Shares, Alerts</li>
-                      <li>Subscriptions, Exploration</li>
-                      <li>Downloads &amp; Edits</li>
-                      <li>Report Cloning in Cloud</li>
-                      <li>QR Codes, Web Publish</li>
-                      <li>Lineage &amp; Metrics</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">16</span>
-                        <span class="track-module-head">
-                          <span>Power BI Cloud Gateways</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Data Gateways, Data Refresh</li>
-                      <li>Install, Configure Gateways</li>
-                      <li>Data Refresh &amp; Scheduling</li>
-                      <li>Gateway Optimizations</li>
-                      <li>Incremental Refresh</li>
-                      <li>Large Dataset Optimization</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">17</span>
-                        <span class="track-module-head">
-                          <span>Power BI Cloud Apps</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Apps: Creation</li>
-                      <li>App Sections &amp; Content</li>
-                      <li>Audience &amp; App Security</li>
-                      <li>App Updates, Favorites</li>
-                      <li>App URL, End User Access</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">18</span>
-                        <span class="track-module-head">
-                          <span>Power BI Report Server, RDL</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Report Server</li>
-                      <li>RS Config Tool Options</li>
-                      <li>Report Database, TempDB</li>
-                      <li>Web Service &amp; Server URL</li>
-                      <li>Report Builder Tool</li>
-                      <li>Paginated Report (RDL)</li>
-                      <li>RDL Report Publish</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">19</span>
-                        <span class="track-module-head">
-                          <span>DAX Concepts &amp; Calculations</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>DAX Concepts: Intro &amp; Real-time Need</li>
-                      <li>DAX Columns: Creation, Use</li>
-                      <li>DAX Measures: Creation, Use</li>
-                      <li>DAX Functions: IF, ISBLANK</li>
-                      <li>SUM, CALCULATE Functions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">20</span>
-                        <span class="track-module-head">
-                          <span>DAX Quick Measures</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Quick Measures in Power BI</li>
-                      <li>Running Totals</li>
-                      <li>Star Rating Calculations</li>
-                      <li>DAX Measures in Data View</li>
-                      <li>DAX in Cloud Reports</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">21</span>
-                        <span class="track-module-head">
-                          <span>Data Modelling</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Dimension Tables</li>
-                      <li>Fact Tables &amp; DAX Measures</li>
-                      <li>Data Models &amp; DAX Joins</li>
-                      <li>Star &amp; Snowflake Schemas</li>
-                      <li>Many-to-Many Relationships</li>
-                      <li>Calculation Groups</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">22</span>
-                        <span class="track-module-head">
-                          <span>DAX Joins, Variables</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>CALCULATE &amp; Variables</li>
-                      <li>COUNT, COUNTA, etc.</li>
-                      <li>SUM, SUMX, etc.</li>
-                      <li>SELECTEDVALUE</li>
-                      <li>Filter Context, RETURN</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">23</span>
-                        <span class="track-module-head">
-                          <span>DAX Models &amp; Calculations</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>VAR, SWITCH, SUMMARIZE</li>
-                      <li>TREATAS, USERELATIONSHIP</li>
-                      <li>CROSSFILTER, GENERATE</li>
-                      <li>RANKX, TOPN, WINDOW</li>
-                      <li>OFFSET, INDEX</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">24</span>
-                        <span class="track-module-head">
-                          <span>DAX Time Intelligence</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Need for Time Intelligence</li>
-                      <li>Date Table Generation</li>
-                      <li>Time Intelligence with DAX</li>
-                      <li>PARALLELPERIOD, DATE</li>
-                      <li>CALENDAR, Total Functions</li>
-                      <li>YTD, QTD, MTD with DAX</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">25</span>
-                        <span class="track-module-head">
-                          <span>DAX - Row Level Security</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>RLS: Row Level Security</li>
-                      <li>Data Modelling &amp; Roles</li>
-                      <li>Add Cloud Users &amp; KPIs</li>
-                      <li>Copilot with DAX</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">26</span>
-                        <span class="track-module-head">
-                          <span>DAX - Analytical Reports</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>DAX with Excel</li>
-                      <li>Analytical Reports</li>
-                      <li>Virtual Cube Concepts</li>
-                      <li>Cross Filter Reporting</li>
-                      <li>Alerts, Data Activator</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">27</span>
-                        <span class="track-module-head">
-                          <span>PL-300 Exam Guidance</span>
-                          <span class="track-module-meta"><span>3 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>PL-300 Exam Guidance</li>
-                      <li>Exam Samples</li>
-                      <li>Exam Scenarios</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Module 3</span>
-                  <span>Python (For Data Analysts)</span>
-                  <span class="phase-meta">&middot; 17 chapters</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Core Python, data types, loops, pandas DataFrames and SQL access.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">01</span>
-                        <span class="track-module-head">
-                          <span>Python Introduction</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Introduction</li>
-                      <li>Python Versions</li>
-                      <li>Python for Data Analysts</li>
-                      <li>Python Architecture</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">02</span>
-                        <span class="track-module-head">
-                          <span>Python Installations</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Installations</li>
-                      <li>Anaconda Installation</li>
-                      <li>Python IDE &amp; Usage</li>
-                      <li>Jupyter Notebooks</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">03</span>
-                        <span class="track-module-head">
-                          <span>Python Print Statement</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Print Statement</li>
-                      <li>print() Basics</li>
-                      <li>Testing Case Sensitivity</li>
-                      <li>Single Line, Multi Line Prints</li>
-                      <li>print() with Single Quotations</li>
-                      <li>Debug with AI (AI Assistants)</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">04</span>
-                        <span class="track-module-head">
-                          <span>Python Variables</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Variables</li>
-                      <li>Assigning Values</li>
-                      <li>Variable Value Reads</li>
-                      <li>Multiple Variables &amp; print()</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">05</span>
-                        <span class="track-module-head">
-                          <span>Python Operators</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Arithmetic Operators</li>
-                      <li>Python String Literals</li>
-                      <li>Single, Double Quotes</li>
-                      <li>Format Strings (f-strings)</li>
-                      <li>Comparison, Indexing Operators</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">06</span>
-                        <span class="track-module-head">
-                          <span>Python Data Types</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Data Types</li>
-                      <li>Integer, Float, String Data Types</li>
-                      <li>Type Casting</li>
-                      <li>Type Identification</li>
-                      <li>Multi Value Assignments</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">07</span>
-                        <span class="track-module-head">
-                          <span>Python Lists</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Creating Python Lists</li>
-                      <li>Printing List Items</li>
-                      <li>Print List Slices</li>
-                      <li>Empty Lists, Append</li>
-                      <li>Loops, List Updates</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">08</span>
-                        <span class="track-module-head">
-                          <span>Python Dictionaries</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Dictionary</li>
-                      <li>Indexing Dictionaries</li>
-                      <li>Edit Key Values</li>
-                      <li>Lists inside Dictionaries</li>
-                      <li>Delete &amp; Clear</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>Python Tuples</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Tuples</li>
-                      <li>Defining, Indexing</li>
-                      <li>len(), type()</li>
-                      <li>Mixed Values in Tuples</li>
-                      <li>Overwriting Tuples</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Python IF...ELSE Condition</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>If...Else Conditions</li>
-                      <li>if...elif...else &amp; Shorthand if</li>
-                      <li>Composite Conditions</li>
-                      <li>in &amp; Negation Operators</li>
-                      <li>Range Conditions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">11</span>
-                        <span class="track-module-head">
-                          <span>Python Loops</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python For Loop</li>
-                      <li>For Loop @ Range</li>
-                      <li>For Loop @ Sequence Values</li>
-                      <li>While Loop, Exit Conditions</li>
-                      <li>Break, Continue, Pass</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">12</span>
-                        <span class="track-module-head">
-                          <span>Python DataFrames</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>DataFrames: Creation</li>
-                      <li>Pandas DataFrames</li>
-                      <li>DataFrames from Single List</li>
-                      <li>DataFrames from Dictionary</li>
-                      <li>Display DataFrames, List Items</li>
-                      <li>Identify, Replace Nulls, NumPy</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">13</span>
-                        <span class="track-module-head">
-                          <span>Python SQL DB Access</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>SQL DB Access with Python</li>
-                      <li>pyodbc Module, SQL Functions</li>
-                      <li>SQL Query Executions: DDL, DML</li>
-                      <li>Filters, Aggregations with SQL</li>
-                      <li>DataFrame Usage with SQL</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">14</span>
-                        <span class="track-module-head">
-                          <span>DataFrame Transformations - 1</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>DataFrame Transformations</li>
-                      <li>Concat &amp; Append</li>
-                      <li>Merge Function</li>
-                      <li>Join with Multiple DataFrames</li>
-                      <li>Data Type Checks, Conversions</li>
-                      <li>Loops with DataFrames</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">15</span>
-                        <span class="track-module-head">
-                          <span>DataFrame Transformations - 2</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Pandas - Cleaning Data</li>
-                      <li>Replace, Transform Columns</li>
-                      <li>Data Discovery &amp; Column Fill</li>
-                      <li>Identify &amp; Remove Duplicates</li>
-                      <li>dropna(), fillna() Functions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">16</span>
-                        <span class="track-module-head">
-                          <span>DataFrame Transformations - 3</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Functions for Date, Time</li>
-                      <li>now() Function in Python</li>
-                      <li>Date, Time Functions</li>
-                      <li>Calendar Data Generation</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">17</span>
-                        <span class="track-module-head">
-                          <span>Python Functions &amp; Lambda</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Python Functions &amp; Usage</li>
-                      <li>Function Parameters</li>
-                      <li>Default &amp; List Parameters</li>
-                      <li>Python Lambda Functions</li>
-                      <li>Return &amp; Print @ Lambda</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Module 4</span>
-                  <span>Excel Analytics (Basic to Advanced)</span>
-                  <span class="phase-meta">&middot; 22 chapters</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Functions, pivots, dashboards, lookups, VBA macros and statistics.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">01</span>
-                        <span class="track-module-head">
-                          <span>Excel Concepts, Basic Functions</span>
-                          <span class="track-module-meta"><span>3 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Excel Basics &amp; Concepts</li>
-                      <li>Excel Functions</li>
-                      <li>Excel Operations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">02</span>
-                        <span class="track-module-head">
-                          <span>Formatting and Proofing</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Currency Format</li>
-                      <li>Custom and Special Formats</li>
-                      <li>Formatting Cells</li>
-                      <li>Absolute, Mixed</li>
-                      <li>Relative Referencing</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">03</span>
-                        <span class="track-module-head">
-                          <span>Functions</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>SUMIF, SUMIFS, COUNTIF</li>
-                      <li>COUNTIFS, AVERAGEIF</li>
-                      <li>AVERAGEIFS, Nested IF</li>
-                      <li>IFERROR Statement</li>
-                      <li>AND, OR, NOT</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">04</span>
-                        <span class="track-module-head">
-                          <span>Protecting Excel</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>File Level Protection</li>
-                      <li>Workbook Protection</li>
-                      <li>Worksheet Protection</li>
-                      <li>Security Concepts</li>
-                      <li>Real-time Issues, Solutions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">05</span>
-                        <span class="track-module-head">
-                          <span>Text Functions</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>UPPER, LOWER, PROPER</li>
-                      <li>LEFT, MID, RIGHT</li>
-                      <li>TRIM, LEN, EXACT</li>
-                      <li>CONCATENATE</li>
-                      <li>FIND, SUBSTITUTE</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">06</span>
-                        <span class="track-module-head">
-                          <span>Date &amp; Time Functions</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>TODAY, NOW</li>
-                      <li>DAY, MONTH, YEAR</li>
-                      <li>DATE, DATEDIF, Date Add</li>
-                      <li>EOMONTH</li>
-                      <li>Weekday Functions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">07</span>
-                        <span class="track-module-head">
-                          <span>Advanced Techniques</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Paste Formulas</li>
-                      <li>Paste Formats</li>
-                      <li>Paste Validations</li>
-                      <li>Transpose Tables</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">08</span>
-                        <span class="track-module-head">
-                          <span>New in Excel &amp; 365 - 1</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Charts: Tree Map &amp; Waterfall</li>
-                      <li>Sunburst, Box and Whisker Charts</li>
-                      <li>Combo Charts: Secondary Axis</li>
-                      <li>Adding Slicers in Pivots &amp; Tables</li>
-                      <li>Using Power Map and Power View</li>
-                      <li>Forecast Sheet, Sparklines</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>New in Excel &amp; 365 - 2</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Using 3-D Map</li>
-                      <li>Pivot Tables, Timelines</li>
-                      <li>Auto-complete a Data Range</li>
-                      <li>Quick Analysis Tool</li>
-                      <li>Smart Lookup</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Printing Workbooks</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Setting Up Print Area</li>
-                      <li>Customizing Headers</li>
-                      <li>Templates</li>
-                      <li>Print Titles: Repeat Rows</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">11</span>
-                        <span class="track-module-head">
-                          <span>Sorting and Filtering</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Filtering on Text</li>
-                      <li>Numbers &amp; Colors</li>
-                      <li>Sorting Options</li>
-                      <li>Advanced Filters</li>
-                      <li>Filter Criteria</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">12</span>
-                        <span class="track-module-head">
-                          <span>What If Analysis</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Goal Seek</li>
-                      <li>Scenario Analysis</li>
-                      <li>Data Tables (PMT Function)</li>
-                      <li>Solver Tool</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">13</span>
-                        <span class="track-module-head">
-                          <span>Logical Functions</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>IF Function</li>
-                      <li>How to Fix Errors: IFERROR</li>
-                      <li>Nested IF</li>
-                      <li>Complex IF, AND, OR Functions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">14</span>
-                        <span class="track-module-head">
-                          <span>Data Validation</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Number, Date &amp; Time</li>
-                      <li>Text and List Validation</li>
-                      <li>Custom Validation Formulas</li>
-                      <li>Dynamic Dropdowns</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">15</span>
-                        <span class="track-module-head">
-                          <span>Lookup Functions</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>VLOOKUP</li>
-                      <li>XLOOKUP</li>
-                      <li>Reverse Lookup</li>
-                      <li>INDEX and MATCH</li>
-                      <li>Worksheet Linking</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">16</span>
-                        <span class="track-module-head">
-                          <span>Pivot Tables - 1</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Creating Simple Pivot Tables</li>
-                      <li>Filtering PivotTables</li>
-                      <li>Modifying PivotTable Data</li>
-                      <li>Grouping, Calculated Fields</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">17</span>
-                        <span class="track-module-head">
-                          <span>Pivot Tables - 2</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Array with IF, LEN</li>
-                      <li>MID Function Formulas</li>
-                      <li>Slicers, Filter Data</li>
-                      <li>Manage Primary Axis</li>
-                      <li>Manage Secondary Axis</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">18</span>
-                        <span class="track-module-head">
-                          <span>Excel Dashboard</span>
-                          <span class="track-module-meta"><span>3 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Planning a Dashboard</li>
-                      <li>Tables and Charts to Dashboard</li>
-                      <li>Dynamic Contents to Dashboard</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">19</span>
-                        <span class="track-module-head">
-                          <span>VBA Macro - Level 1</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Using Outlook Namespace</li>
-                      <li>Send Automated Mail</li>
-                      <li>Outlook Configurations, MAPI</li>
-                      <li>Worksheet Operations</li>
-                      <li>Workbook Operations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">20</span>
-                        <span class="track-module-head">
-                          <span>VBA Macro - Level 2</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Merge Worksheets using Macro</li>
-                      <li>Merge Multiple Excel Files into One Sheet</li>
-                      <li>Split Worksheets using VBA</li>
-                      <li>Worksheet Copiers</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">21</span>
-                        <span class="track-module-head">
-                          <span>Statistics for Data Analysis - 1</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Mean, Median</li>
-                      <li>Mode, Variance</li>
-                      <li>Standard Deviation</li>
-                      <li>Correlation</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">22</span>
-                        <span class="track-module-head">
-                          <span>Statistics for Data Analysis - 2</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Probability Basics</li>
-                      <li>Hypothesis Testing</li>
-                      <li>Confidence Interval</li>
-                      <li>Outliers, Normal Distribution</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Module 5</span>
-                  <span>Real-Time Projects</span>
-                  <span class="phase-meta">&middot; 2 projects</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Two projects, one healthcare portfolio, built end to end on the course tools: SQL, Power BI, Excel, Advanced Excel and Python.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">01</span>
-                        <span class="track-module-head">
-                          <span>Project 1: HealthCare Domain</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Solve 20+ real-world healthcare business requirements</li>
-                      <li>Database Design</li>
-                      <li>SQL Development</li>
-                      <li>Data Analysis</li>
-                      <li>Performance Optimization</li>
-                      <li>Tools: SQL, Power BI, Excel</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">02</span>
-                        <span class="track-module-head">
-                          <span>Project 2: Enterprise Healthcare Platform</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Design a modern healthcare data platform</li>
-                      <li>Process patient, hospital, clinical and operational data</li>
-                      <li>Power BI analytics and reporting services</li>
-                      <li>Tools: SQL, Power BI, Excel, Advanced Excel, Python</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">03</span>
-                        <span class="track-module-head">
-                          <span>Project 1 - Operational Flow</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Healthcare DB, Patients, Doctors</li>
-                      <li>Appointments, Treatments, Billing</li>
-                      <li>Insurance</li>
-                      <li>SQL Analysis, Stored Procedures</li>
-                      <li>Performance Tuning</li>
-                      <li>Business Reports</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">04</span>
-                        <span class="track-module-head">
-                          <span>Learning Outcomes</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Power BI Reporting</li>
-                      <li>Power BI Data Analytics</li>
-                      <li>Business Process Understanding</li>
-                      <li>Performance Optimization</li>
-                      <li>End-to-End Power BI Implementation in Cloud</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">05</span>
-                        <span class="track-module-head">
-                          <span>Career Guidance</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Resume Optimization</li>
-                      <li>LinkedIn Optimization</li>
-                      <li>ATS-Friendly Resume</li>
-                      <li>Interview Strategy</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Module 6</span>
-                  <span>Tableau</span>
-                  <span class="phase-meta">&middot; 18 modules</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Complete syllabus, beginner to advanced: visuals, calculations, dashboards and data connections.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">01</span>
-                        <span class="track-module-head">
-                          <span>Introduction to Tableau</span>
-                          <span class="track-module-meta"><span>11 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Overview of Tableau</b></li>
-                      <li>What is Tableau?</li>
-                      <li>Tableau as a BI &amp; Data Visualization Tool</li>
-                      <li>Tableau Desktop, Server, Online, Public</li>
-                      <li>Tableau Architecture &amp; Workflow</li>
-                      <li><b>Uses and Applications</b></li>
-                      <li>Business Reporting &amp; Dashboards</li>
-                      <li>Sales &amp; Marketing Analytics</li>
-                      <li>Finance &amp; Operations Reporting</li>
-                      <li>Healthcare, Retail &amp; Supply Chain Use Cases</li>
-                      <li>Tableau vs Other BI Tools (Power BI, Excel)</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">02</span>
-                        <span class="track-module-head">
-                          <span>Data Types in Tableau</span>
-                          <span class="track-module-meta"><span>8 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Numeric:</b> Number, Decimal, Whole</li>
-                      <li>Integer vs Floating Values</li>
-                      <li><b>String:</b> Usage, Cleaning &amp; Formatting Text</li>
-                      <li><b>Date &amp; Time:</b> Date, DateTime</li>
-                      <li>Date Hierarchy (Year &rarr; Quarter &rarr; Month &rarr; Day)</li>
-                      <li><b>Geographic:</b> Country, State, City, Postal Code</li>
-                      <li>Latitude &amp; Longitude, Geographic Roles</li>
-                      <li><b>Boolean:</b> True / False Values in Filters &amp; Calculations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">03</span>
-                        <span class="track-module-head">
-                          <span>Dimensions &amp; Measures</span>
-                          <span class="track-module-meta"><span>8 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Dimensions</b></li>
-                      <li>Discrete vs Continuous Dimensions</li>
-                      <li>Examples: Name, City, State, Category</li>
-                      <li><b>Measures</b></li>
-                      <li>Aggregated vs Non-aggregated Measures</li>
-                      <li>Examples: Sales, Income, Expense</li>
-                      <li><b>Converting Dimensions &amp; Measures</b></li>
-                      <li>Real-time Business Scenarios</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">04</span>
-                        <span class="track-module-head">
-                          <span>Data Organization</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Combine:</b> Combining Fields into a Single Field</li>
-                      <li><b>Group:</b> Creating Groups Manually</li>
-                      <li>Grouping Categories (Top vs Others)</li>
-                      <li><b>Hierarchy:</b> Creating Hierarchies</li>
-                      <li>Drill-down and Drill-up</li>
-                      <li>Example: Country &rarr; State &rarr; City</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">05</span>
-                        <span class="track-module-head">
-                          <span>Filters in Tableau</span>
-                          <span class="track-module-meta"><span>8 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Data Source Filters &amp; Performance</li>
-                      <li>Extract Filters: Extract vs Live</li>
-                      <li>Live Connection Filters</li>
-                      <li>Quick Filters &amp; Display Options</li>
-                      <li>Dimension Filters: Top, Bottom, Conditional</li>
-                      <li>Measure Filters: Aggregated &amp; Range</li>
-                      <li>Cascading Filters: Only Relevant Values</li>
-                      <li>Context Filters: Order of Execution &amp; Performance</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">06</span>
-                        <span class="track-module-head">
-                          <span>Axis Concepts</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Dual Axis:</b> Two Measures, Different Scales</li>
-                      <li>Dual-axis Charts (Bar + Line)</li>
-                      <li><b>Synchronizing Axis</b> with the Same Scale</li>
-                      <li><b>Blended Axis:</b> Two Charts, One Axis</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">07</span>
-                        <span class="track-module-head">
-                          <span>Charts &amp; Visualizations</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Donut Chart</b> using Dual Axis</li>
-                      <li>Formatting and Labeling</li>
-                      <li><b>Lollipop Chart:</b> Bar + Circle Combination</li>
-                      <li><b>Best Practices:</b> Choosing the Right Chart</li>
-                      <li>Avoiding Visual Clutter</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">08</span>
-                        <span class="track-module-head">
-                          <span>Apply Changes to Sheets</span>
-                          <span class="track-module-meta"><span>3 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Apply Formatting to All Worksheets</li>
-                      <li>Apply Changes to Selected Sheets</li>
-                      <li>Formatting across Related Data Sources</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>Data Formatting</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Table Creation:</b> Text &amp; Crosstab Tables</li>
-                      <li><b>Highlighting:</b> Highlight Tables</li>
-                      <li>Conditional Formatting</li>
-                      <li><b>Background Colors:</b> Cell Shading</li>
-                      <li>Banding Rows and Columns</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Quick Table Calculations</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Running Total</li>
-                      <li>Difference from Previous / Current</li>
-                      <li>Percent Difference, Percent of Total</li>
-                      <li>Rank (Ascending &amp; Descending)</li>
-                      <li>Percentile Analysis</li>
-                      <li>Moving Average &amp; Trend Smoothing</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">11</span>
-                        <span class="track-module-head">
-                          <span>Table Calculation Options</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Edit Table Calculation:</b> Compute Using</li>
-                      <li>Table Across, Table Down</li>
-                      <li>Pane Across, Pane Down</li>
-                      <li><b>Clear Table Calculation</b></li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">12</span>
-                        <span class="track-module-head">
-                          <span>Maps in Tableau</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Unknown Locations</li>
-                      <li>Edit Location: Correcting Geographic Roles</li>
-                      <li>Filter Map Data</li>
-                      <li>Default Map Position</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">13</span>
-                        <span class="track-module-head">
-                          <span>Analytics Pane</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Lines:</b> Constant &amp; Reference Lines</li>
-                      <li><b>Bands:</b> Reference &amp; Distribution Bands</li>
-                      <li><b>Statistical Analysis:</b> Average Line, Clustering, Totals</li>
-                      <li><b>Forecast:</b> Trend and Predictive Forecasting</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">14</span>
-                        <span class="track-module-head">
-                          <span>Dashboard Creation</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Dashboard Actions Overview</li>
-                      <li>Highlight Actions: Menu, Hover, Select</li>
-                      <li>Filter Actions between Sheets</li>
-                      <li>Navigation Actions: Go to URL, Go to Sheet</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">15</span>
-                        <span class="track-module-head">
-                          <span>Tableau Functions</span>
-                          <span class="track-module-meta"><span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Number:</b> ROUND, ABS, CEILING, FLOOR, SIGN, SQRT, SQUARE</li>
-                      <li><b>Aggregate:</b> SUM, AVG, MIN, MAX, COUNT, COUNTD</li>
-                      <li><b>Logical:</b> AND, OR, IF, ELSEIF, IFNULL, ISNULL, ZN</li>
-                      <li><b>String:</b> UPPER, LOWER, LEFT, RIGHT, MID, SPLIT, CONTAINS, ENDSWITH, FIND, FINDNTH</li>
-                      <li><b>Table Calculation:</b> FIRST, LAST, INDEX, RANK, RANK_DENSE</li>
-                      <li><b>Date:</b> TODAY, NOW, DATEDIFF, DATEADD, DATENAME, DATEPART</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">16</span>
-                        <span class="track-module-head">
-                          <span>Level of Detail (LOD) Expressions</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>FIXED:</b> Fixing Calculation Granularity</li>
-                      <li><b>EXCLUDE:</b> Excluding Dimensions</li>
-                      <li><b>LOD Best Practices:</b> Performance</li>
-                      <li>Real-time Examples</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">17</span>
-                        <span class="track-module-head">
-                          <span>Sets &amp; Parameters</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Sets:</b> Static &amp; Dynamic Sets</li>
-                      <li>Set Operations</li>
-                      <li><b>Parameters:</b> Creating Parameters</li>
-                      <li>Parameter Controls</li>
-                      <li>Using Parameters in Calculations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">18</span>
-                        <span class="track-module-head">
-                          <span>Data Connections</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li><b>Data Joining:</b> Inner, Left, Right, Full Joins</li>
-                      <li>Join Calculations</li>
-                      <li><b>Data Blending:</b> Primary vs Secondary Sources</li>
-                      <li>Relationships between Blended Data</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Curriculum CTAs -->
@@ -9621,43 +6839,31 @@
         <div class="section-header">
           <h2 class="section-title">Build a Real Data Analytics Portfolio</h2>
           <p class="section-subtitle">
-            Two projects. One healthcare portfolio. Both are built end to end on the course tools: SQL, Power BI, Excel, Advanced Excel and Python.
+            Two projects. One healthcare portfolio. Both are built end to end on the course tools: SQL, Power BI, Excel, Advanced Excel and Python. Open the project PDF to read the full brief.
           </p>
         </div>
 
-        <div class="projects-grid">
-          <!-- Project 1 -->
-          <div class="project-card">
-            <span class="project-number">Real-Time Project 01 &middot; Healthcare Domain</span>
-            <h3 class="project-title">1. HealthCare Domain</h3>
-            <div class="project-platform">Platform: SQL Server, Power BI &amp; Excel</div>
-            <p class="project-desc">
-              Solve 20+ real-world healthcare business requirements across database design, SQL development, data analysis and performance optimization. Work through the full operational flow: healthcare database, patients, doctors, appointments, treatments, billing and insurance, then SQL analysis, stored procedures, performance tuning and business reports.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag-pill">SQL</span>
-              <span class="project-tag-pill">Power BI</span>
-              <span class="project-tag-pill">Excel</span>
-            </div>
-          </div>
-
-          <!-- Project 2 -->
-          <div class="project-card">
-            <span class="project-number">Real-Time Project 02 &middot; Healthcare Platform</span>
-            <h3 class="project-title">2. Enterprise Healthcare Platform</h3>
-            <div class="project-platform">Platform: SQL, Power BI, Excel, Advanced Excel &amp; Python</div>
-            <p class="project-desc">
-              Design and implement a modern healthcare data platform using Power BI analytics and reporting services to process patient, hospital, clinical and operational data for reporting and analytics, through to an end-to-end Power BI implementation in the cloud.
-            </p>
-            <div class="project-tags">
-              <span class="project-tag-pill">SQL</span>
-              <span class="project-tag-pill">Power BI</span>
-              <span class="project-tag-pill">Excel</span>
-              <span class="project-tag-pill">Advanced Excel</span>
-              <span class="project-tag-pill">Python</span>
-            </div>
-          </div>
-        </div>
+        <ul class="project-pdf-list single">
+          <li>
+            <button type="button" class="project-pdf" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/data%20Analystics/da-projects.pdf" data-pdf-title="Data Analyst Training Projects" data-pdf-track="Data Analytics" onclick="openPdf(this)">
+              <span class="project-pdf-top">
+                <span class="project-pdf-icon"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg></span>
+                <span class="project-pdf-head">
+                  <span class="project-pdf-label">Healthcare Domain</span>
+                  <span class="project-pdf-title">Data Analyst Training Projects</span>
+                </span>
+              </span>
+              <ul class="project-pdf-names">
+                <li><b>01</b><span>Healthcare Domain<small>20+ business requirements &middot; SQL, Power BI &amp; Excel</small></span></li>
+                <li><b>02</b><span>Enterprise Healthcare Platform<small>SQL, Power BI, Excel, Advanced Excel &amp; Python</small></span></li>
+              </ul>
+              <span class="project-pdf-foot">
+                <span class="project-pdf-meta">PDF &middot; 2 real-time projects</span>
+                <span class="project-pdf-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg> View PDF</span>
+              </span>
+            </button>
+          </li>
+        </ul>
 
         <div class="portfolio-callout-card">
           <div class="portfolio-callout-icon"><svg class="ico" aria-hidden="true"><use href="#i-briefcase"/></svg></div>
@@ -11132,6 +8338,9 @@
       item.parentElement.querySelectorAll(':scope > .phase-item').forEach(el => el.classList.remove('active'));
       if (!wasActive) {
         item.classList.add('active');
+        if (item.closest('.pdf-accordion') && window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          gsap.fromTo(item.querySelectorAll('.pdf-row'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .35, stagger: .05, ease: 'power2.out', clearProps: 'all' });
+        }
       }
     }
 
@@ -11144,7 +8353,7 @@
     // Chat assistant: canned answers from this page; typed questions are emailed to an advisor
     const CHAT_TOPICS = {
       'Upcoming batches': 'New batches start every Monday and Friday. Weekday slots run between 6:00 AM and 8:30 PM, and weekend batches are also available, in classroom or online live. <a href="#batches" onclick="toggleChat(false)">See batch timings</a>',
-      'Course curriculum': 'The course has 6 modules and 108 chapters over 3 months: SQL Server, Power BI, Python, Excel Analytics and Tableau, plus two real-time healthcare projects. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
+      'Course curriculum': 'Open the course content in the curriculum section to read each PDF: SQL Server and T-SQL, Power BI, Python for Data Analysts, Tableau and Microsoft Fabric, plus two real-time healthcare projects. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
       'Placement support': 'Our placement cell helps with resume preparation, mock interviews and interview coordination, through 500+ hiring partners. <a href="#placements" onclick="toggleChat(false)">See placement details</a>',
       'Course fees': 'Fees depend on the track and batch you choose. Share your details and an advisor will send you the current fees and offers. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Course Fee Details\')">Get fee details</a>',
       'Book a free demo': 'Great! Fill in your name, mobile number and email and we will confirm your free demo class. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Book a Free Demo Class\')">Book free demo</a>'
@@ -11313,6 +8522,15 @@
 
     // Downloads are gated behind the enquiry form: the file is only delivered after the form is submitted
     let pendingDownload = null;
+
+    // PDF popup: "Download PDF" closes the popup and asks for details before downloading
+    function downloadFromPdf(e) {
+      e.preventDefault();
+      const link = e.currentTarget, title = document.getElementById('pdfTitle').textContent;
+      const url = link.href, name = 'Greens-Technologies-' + title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.pdf';
+      closePdf();
+      setTimeout(() => requestDownload('Download ' + title, () => downloadFile(url, name)), 260);
+    }
 
     function requestDownload(purpose, deliver) {
       openLeadModal(purpose);
@@ -11695,6 +8913,120 @@
       set(); window.addEventListener('resize', set);
       if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
     })();
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // Pay After Placement: gentle entrance when it scrolls into view
+    (() => {
+      const card = document.querySelector('.pap-card');
+      if (!card || !window.gsap || matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+      gsap.set(card.querySelectorAll('.pap-icon, .pap-copy > *, .pap-actions > *'), { opacity: 0, y: 18 });
+      new IntersectionObserver((es, ob) => es.forEach(en => {
+        if (!en.isIntersecting) return;
+        ob.disconnect();
+        const tl = gsap.timeline();
+        tl.fromTo(card.querySelector('.pap-icon'), { opacity: 0, scale: .6, y: 0 }, { opacity: 1, scale: 1, duration: .6, ease: 'back.out(2)' })
+          .to(card.querySelectorAll('.pap-copy > *'), { opacity: 1, y: 0, duration: .5, stagger: .08, ease: 'power2.out' }, '-=.35')
+          .to(card.querySelectorAll('.pap-actions > *'), { opacity: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, '-=.3');
+      }), { threshold: .3 }).observe(card);
+    })();
+  </script>
+  <!-- PDF popup (course content) -->
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-backdrop" onclick="closePdf()"></div>
+    <div class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+      <div class="pdf-head">
+        <span class="pdf-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg></span>
+        <div class="pdf-head-text">
+          <h3 class="pdf-head-title" id="pdfTitle">Course Content</h3>
+          <div class="pdf-head-sub" id="pdfSub">Greens Technologies</div>
+        </div>
+        <a class="pdf-open" id="pdfOpen" href="#" onclick="downloadFromPdf(event)"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Download PDF</span></a>
+        <button type="button" class="pdf-close" id="pdfClose" onclick="closePdf()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="pdf-body" id="pdfBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Course-content PDF popup (pages drawn with PDF.js so it works on phones too)
+    let pdfJsLoad = null, pdfToken = 0, pdfLastFocus = null;
+    function loadPdfJs() {
+      if (window.pdfjsLib) return Promise.resolve();
+      return pdfJsLoad || (pdfJsLoad = new Promise((res, rej) => {
+        const sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        sc.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; res(); };
+        sc.onerror = () => { pdfJsLoad = null; rej(new Error('pdf.js')); };
+        document.head.appendChild(sc);
+      }));
+    }
+    async function renderPdf(url, body, token) {
+      await loadPdfJs();
+      const doc = await pdfjsLib.getDocument(url).promise;
+      if (token !== pdfToken) return;
+      body.innerHTML = '';
+      const width = Math.min(body.clientWidth - 16, 860);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (let n = 1; n <= doc.numPages; n++) {
+        const page = await doc.getPage(n);
+        if (token !== pdfToken) return;
+        const base = page.getViewport({ scale: 1 });
+        const vp = page.getViewport({ scale: (width / base.width) * dpr });
+        const c = document.createElement('canvas');
+        c.width = vp.width; c.height = vp.height; c.style.width = width + 'px';
+        c.setAttribute('aria-label', `Page ${n} of ${doc.numPages}`);
+        body.appendChild(c);
+        await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+      }
+    }
+    function openPdf(btn) {
+      const modal = document.getElementById('pdfModal'), body = document.getElementById('pdfBody');
+      const url = btn.dataset.pdf, token = ++pdfToken;
+      pdfLastFocus = btn;
+      document.getElementById('pdfTitle').textContent = btn.dataset.pdfTitle;
+      document.getElementById('pdfSub').textContent = btn.dataset.pdfTrack + ' \u00b7 Greens Technologies';
+      document.getElementById('pdfOpen').href = url;
+      body.innerHTML = '<div class="pdf-status">Loading course content\u2026</div>';
+      body.scrollTop = 0;
+      modal.classList.remove('css-pop');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pdf-lock');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (window.gsap && !reduce) {
+        gsap.fromTo(modal.querySelector('.pdf-backdrop'), { opacity: 0 }, { opacity: 1, duration: .3, ease: 'power1.out' });
+        gsap.fromTo(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .86, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: .5, ease: 'back.out(1.6)' });
+      } else if (!reduce) { void modal.offsetWidth; modal.classList.add('css-pop'); }
+      document.getElementById('pdfClose').focus({ preventScroll: true });
+      renderPdf(url, body, token).catch(() => {
+        if (token !== pdfToken) return;
+        body.innerHTML = `<iframe src="${url}" title="${btn.dataset.pdfTitle}"></iframe>`;
+      });
+    }
+    function closePdf() {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      pdfToken++;
+      const done = () => { modal.classList.remove('open', 'css-pop'); modal.setAttribute('aria-hidden', 'true'); document.getElementById('pdfBody').innerHTML = ''; };
+      document.body.classList.remove('pdf-lock');
+      if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.to(modal.querySelector('.pdf-backdrop'), { opacity: 0, duration: .2 });
+        gsap.to(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .94, y: 12, duration: .22, ease: 'power2.in', onComplete: done });
+      } else done();
+      if (pdfLastFocus) pdfLastFocus.focus({ preventScroll: true });
+    }
+    document.addEventListener('keydown', e => {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePdf(); }
+      if (e.key === 'Tab') {
+        const f = [...modal.querySelectorAll('a[href], button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
   </script>
 </body>
 </html>
