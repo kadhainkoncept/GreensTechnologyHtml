@@ -18,7 +18,7 @@
 
   <!-- Primary SEO Meta Tags -->
   <title>AutoCAD Course in Chennai | Basic, Advanced &amp; Master Level Training | Greens Technologies</title>
-  <meta name="description" content="AutoCAD course in Chennai at Greens Technologies: 60 hours of live training across 10 modules covering 2D drafting, layers, annotations, blocks and Xrefs, 3D modeling and rendering, layouts and plotting, with Mechanical, Civil and Electrical capstone tracks and placement assistance." />
+  <meta name="description" content="AutoCAD course in Chennai at Greens Technologies: 8 modules covering 2D drafting, layers, annotations, blocks and Xrefs, 3D modeling and rendering, layouts and plotting, with Mechanical, Civil and Electrical capstone tracks and placement assistance." />
   <meta name="keywords" content="AutoCAD course in Chennai, AutoCAD training Chennai, AutoCAD classes Tambaram, CAD drafting course, AutoCAD 3D modeling course, Autodesk certification training, Greens Technologies AutoCAD" />
   <meta name="author" content="Greens Technologies" />
   <meta name="robots" content="index, follow" />
@@ -38,7 +38,7 @@
     "@context": "https://schema.org",
     "@type": "Course",
     "name": "AutoCAD Course in Chennai",
-    "description": "AutoCAD course in Chennai at Greens Technologies: 60 hours of live training across 10 modules covering 2D drafting, layers, annotations, blocks and Xrefs, 3D modeling and rendering, layouts and plotting, with Mechanical, Civil and Electrical capstone tracks and placement assistance.",
+    "description": "AutoCAD course in Chennai at Greens Technologies: 8 modules covering 2D drafting, layers, annotations, blocks and Xrefs, 3D modeling and rendering, layouts and plotting, with Mechanical, Civil and Electrical capstone tracks and placement assistance.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "Greens Technologies",
@@ -450,7 +450,7 @@
       }
     }
 
-    @media (max-width: 374px) {
+    @media (max-width: 389px) {
       .top-pill-btn .ico {
         display: none;
       }
@@ -5578,6 +5578,110 @@
       .pap-actions .btn { flex: none; width: 100%; }
     }
 
+    /* ---------- PDF popup */
+    .pdf-modal { position: fixed; inset: 0; z-index: 4000; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .pdf-modal.open { display: flex; }
+    .pdf-backdrop { position: absolute; inset: 0; background: rgba(2, 38, 27, 0.62); backdrop-filter: blur(4px); }
+    .pdf-dialog {
+      position: relative; width: min(980px, 100%); height: min(90vh, 1100px);
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .pdf-modal.css-pop .pdf-backdrop { animation: pdfFade .3s ease both; }
+    .pdf-modal.css-pop .pdf-dialog { animation: pdfPop .45s cubic-bezier(.34, 1.56, .64, 1) both; }
+    @keyframes pdfFade { from { opacity: 0; } }
+    @keyframes pdfPop { from { opacity: 0; transform: translateY(18px) scale(.88); } }
+    .pdf-head { display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 22px; border-bottom: 1px solid var(--border-color); }
+    .pdf-head-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: #EEF6E3; color: var(--brand-primary); font-size: 19px; }
+    .pdf-head-text { flex: 1; min-width: 0; }
+    .pdf-head-title { margin: 0; font-family: var(--font-heading); font-size: 1.08rem; font-weight: 800; color: var(--brand-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-head-sub { font-size: 0.8rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-open { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: var(--radius-full); border: 1px solid var(--border-color); color: var(--brand-primary); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .pdf-open:hover { border-color: var(--brand-primary); }
+    .pdf-close { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--brand-dark); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .pdf-close:hover { background: var(--cream-surface); }
+    .pdf-body { flex: 1; overflow: auto; background: #EEF2EA; padding: 20px 16px; -webkit-overflow-scrolling: touch; }
+    .pdf-body canvas { display: block; margin: 0 auto 16px; max-width: 100%; height: auto; background: #FFFFFF; border-radius: 6px; box-shadow: 0 6px 20px rgba(2, 38, 27, 0.12); }
+    .pdf-body iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; background: #FFFFFF; }
+    .pdf-status { padding: 60px 20px; text-align: center; color: var(--text-light); font-weight: 600; }
+    .pdf-status::before { content: ''; display: block; width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 3px solid #D7E6C6; border-top-color: var(--brand-forest); animation: pdfSpin .8s linear infinite; }
+    @keyframes pdfSpin { to { transform: rotate(360deg); } }
+    body.pdf-lock { overflow: hidden; }
+    @media (max-width: 640px) {
+      .pdf-modal { padding: 0; align-items: flex-end; }
+      .pdf-dialog { height: 92vh; border-radius: 20px 20px 0 0; }
+      .pdf-head { padding: 12px 12px 12px 14px; gap: 10px; }
+      .pdf-head-icon { display: none; }
+      .pdf-open span { display: none; }
+      .pdf-open { padding: 10px; }
+      .pdf-body { padding: 12px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pdf-modal.css-pop .pdf-dialog, .pdf-modal.css-pop .pdf-backdrop { animation: none; }
+      .pdf-item { transition: none; }
+    }
+  
+    /* ---------- Course-content PDF dropdowns */
+    .journey-title-first { margin-top: 8px; }
+    .pdf-count { margin-left: 4px; font-size: 0.8rem; font-weight: 700; color: var(--text-light); }
+    .pdf-row { cursor: pointer; }
+    .pdf-row-go { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.8rem; font-weight: 700; transition: background .2s ease; }
+    .pdf-row:hover .pdf-row-go, .pdf-row:focus-visible .pdf-row-go { background: var(--brand-forest); }
+    @media (max-width: 640px) {
+      .pdf-count { display: none; }
+      .pdf-row-go span { display: none; }
+      .pdf-row-go { padding: 9px; }
+    }
+  
+    /* ---------- Single trainer: full-width card */
+    .faculty-grid.single { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .faculty-grid.single .faculty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-areas: "head details" "badge details" "bio details";
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        column-gap: 44px; row-gap: 14px; align-items: start;
+        padding: 34px 40px;
+      }
+      .faculty-grid.single .faculty-card:not(:has(.faculty-placed-badge)) { grid-template-areas: "head details" "bio details"; grid-template-rows: auto 1fr; }
+      .faculty-grid.single .faculty-header { grid-area: head; }
+      .faculty-grid.single .faculty-placed-badge { grid-area: badge; justify-self: start; }
+      .faculty-grid.single .faculty-bio { grid-area: bio; font-size: 0.95rem; }
+      .faculty-grid.single .faculty-details-list { grid-area: details; align-self: start; justify-content: flex-start; gap: 12px; padding: 20px 22px; font-size: 0.88rem; }
+      .faculty-grid.single .faculty-detail-label { min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
+    }
+
+    /* ---------- Real-time project PDFs */
+    .project-pdf-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-pdf {
+      width: 100%; height: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--text-main);
+      display: flex; flex-direction: column; gap: 14px; padding: 26px;
+      background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 22px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project-pdf:hover, .project-pdf:focus-visible { transform: translateY(-3px); border-color: var(--brand-forest); box-shadow: 0 16px 34px rgba(2, 38, 27, 0.1); outline: none; }
+    .project-pdf-top { display: flex; align-items: center; gap: 14px; }
+    .project-pdf-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: var(--brand-primary); color: var(--brand-lime); font-size: 24px; }
+    .project-pdf-head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .project-pdf-label { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-forest); }
+    .project-pdf-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--brand-dark); line-height: 1.25; }
+    .project-pdf-names { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .project-pdf-names li { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; color: var(--text-muted); }
+    .project-pdf-names b { flex-shrink: 0; font-size: 0.75rem; color: var(--brand-forest); }
+    .project-pdf-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .project-pdf-meta { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); }
+    .project-pdf-go { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.82rem; font-weight: 700; transition: background .2s ease; }
+    .project-pdf:hover .project-pdf-go { background: var(--brand-forest); }
+    @media (max-width: 767px) {
+      .project-pdf-list { grid-template-columns: 1fr; gap: 12px; }
+      .project-pdf { padding: 20px 18px; }
+      .project-pdf-icon { width: 44px; height: 44px; font-size: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -6772,338 +6876,140 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Course Curriculum 2026 – Master CAD Design &amp; Drafting</h2>
-          <p class="section-subtitle">60 hours of live training across 10 modules in 4 phases, from 2D drafting to 3D modeling, rendering and a branch-specific capstone in the Mechanical, Civil or Electrical track.</p>
+          <p class="section-subtitle">A focused 8-module industry-ready path covering precision 2D drafting, domain engineering and architectural drawings, 3D solid modeling, sheet sets and plotting, and smart CAD &amp; automation workflows with hands-on practical training. Open a part and click any module to read its PDF.</p>
         </div>
 
-        <div class="curriculum-panel" id="currMain">
-          <div class="phase-accordion">
+        <div class="phase-accordion pdf-accordion">
             <div class="phase-item active">
               <button class="phase-header" onclick="togglePhase(this)">
                 <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 1</span>
-                  <span>GUI, Precision Drafting &amp; 2D Geometry Editing</span>
-                  <span class="phase-meta">&middot; Modules 01–03 · 18 Hours</span>
+                  <span class="track-phase-label">Part A</span>
+                  <span>2D Drafting Foundations &amp; Domain Drawings</span>
+                  <span class="pdf-count">4 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">Set up the CAD workspace, draw precise 2D geometry and edit it accurately.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-01.pdf" data-pdf-title="Module 1: AutoCAD Interface, Coordinates &amp; Precision 2D Geometry" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">01</span>
                         <span class="track-module-head">
-                          <span>CAD Fundamentals &amp; GUI Setup</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>AutoCAD Interface, Coordinates &amp; Precision 2D Geometry</span>
+                          <span class="track-module-meta"><span>Module 1 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>CAD Overview &amp; Industry Scope</li>
-                      <li>Workspace Navigation &amp; ViewCube</li>
-                      <li>Drawing Units &amp; Limits Setup</li>
-                      <li>Absolute &amp; Relative Coordinates</li>
-                      <li>Polar &amp; Dynamic Input Settings</li>
-                      <li>Command Line &amp; Ribbon Tweaks</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-02.pdf" data-pdf-title="Module 2: Modify Workflows, Layers, Annotations &amp; Reusable Blocks/Xrefs" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">02</span>
                         <span class="track-module-head">
-                          <span>2D Geometry Creation (Draw Commands)</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>Modify Workflows, Layers, Annotations &amp; Reusable Blocks/Xrefs</span>
+                          <span class="track-module-meta"><span>Module 2 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Line, Polyline &amp; Construction Lines</li>
-                      <li>Rectangles &amp; Polygons</li>
-                      <li>Splines, Revision Clouds &amp; Points</li>
-                      <li>Circle, Arc &amp; Ellipse Methods</li>
-                      <li>Object Snap (Osnap) Precision</li>
-                      <li>Object Snap Tracking (Otrack)</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-03.pdf" data-pdf-title="Module 3: Architectural Floor Plans, Elevations, Sections &amp; Civil Site Layouts" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">03</span>
                         <span class="track-module-head">
-                          <span>Modify Commands &amp; Precision Editing</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>Architectural Floor Plans, Elevations, Sections &amp; Civil Site Layouts</span>
+                          <span class="track-module-meta"><span>Module 3 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Move, Copy, Rotate &amp; Scale</li>
-                      <li>Fillet, Chamfer &amp; Blend Curves</li>
-                      <li>Stretch, Mirror &amp; Explode Tools</li>
-                      <li>Trim, Extend &amp; Offset Operations</li>
-                      <li>Rectangular &amp; Polar Arrays</li>
-                      <li>Lengthen, Break &amp; Join Utilities</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 2</span>
-                  <span>Layers, Annotations, Blocks &amp; Dynamic Xrefs</span>
-                  <span class="phase-meta">&middot; Modules 04–06 · 18 Hours</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Organise drawings with layers, annotate and dimension them, and reuse content with blocks and Xrefs.</p>
-                <div class="modules-accordion track-accordion">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-04.pdf" data-pdf-title="Module 4: Interior Joinery, Mechanical Assemblies with BOM &amp; Electrical Schematics" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">04</span>
                         <span class="track-module-head">
-                          <span>Layers, Properties &amp; Organization</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>Interior Joinery, Mechanical Assemblies with BOM &amp; Electrical Schematics</span>
+                          <span class="track-module-meta"><span>Module 4 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Layer Properties Manager</li>
-                      <li>Color, Linetype &amp; Lineweight</li>
-                      <li>Match Properties Command</li>
-                      <li>Lock, Freeze, Hide &amp; Isolate</li>
-                      <li>Layer Filters &amp; Layer States</li>
-                      <li>Standards &amp; Naming Conventions</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="phase-item">
+              <button class="phase-header" onclick="togglePhase(this)">
+                <span class="phase-header-left">
+                  <span class="track-phase-label">Part B</span>
+                  <span>3D Modeling, Visualization, Sheet Sets &amp; Smart CAD Automation</span>
+                  <span class="pdf-count">4 PDFs</span>
+                </span>
+                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+              </button>
+              <div class="phase-body">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-05.pdf" data-pdf-title="Module 5: 3D Workspace, UCS, Solid Primitives &amp; Boolean Modeling" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">05</span>
                         <span class="track-module-head">
-                          <span>Annotations, Dimensions &amp; Hatching</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>3D Workspace, UCS, Solid Primitives &amp; Boolean Modeling</span>
+                          <span class="track-module-meta"><span>Module 5 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Single &amp; Multiline Text Styles</li>
-                      <li>Linear, Aligned &amp; Radial Dims</li>
-                      <li>Dimension Style Customization</li>
-                      <li>Hatch Patterns &amp; Boundaries</li>
-                      <li>Gradient Fills &amp; Transparency</li>
-                      <li>Table Creation &amp; Data Linking</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-06.pdf" data-pdf-title="Module 6: 2D-to-3D Modeling, Materials, Lighting, Cameras &amp; Rendering" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">06</span>
                         <span class="track-module-head">
-                          <span>Blocks, Attributes &amp; External References</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>2D-to-3D Modeling, Materials, Lighting, Cameras &amp; Rendering</span>
+                          <span class="track-module-meta"><span>Module 6 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Block Creation &amp; WBlock Libraries</li>
-                      <li>Defining Block Attributes</li>
-                      <li>Dynamic Block Parameters/Actions</li>
-                      <li>Attaching &amp; Overlaying Xrefs</li>
-                      <li>Xref Path Management &amp; Clipping</li>
-                      <li>Attribute Data Extraction</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 3</span>
-                  <span>3D Modeling Foundations, Surfaces &amp; Rendering</span>
-                  <span class="phase-meta">&middot; Modules 07–08 · 12 Hours</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Build 3D solids, edit them, apply materials and lighting, and render presentation images.</p>
-                <div class="modules-accordion track-accordion">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-07.pdf" data-pdf-title="Module 7: Layouts, Viewports, Plot Styles, Sheet Sets &amp; Interoperability" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">07</span>
                         <span class="track-module-head">
-                          <span>3D Solid Modeling Foundations</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>Layouts, Viewports, Plot Styles, Sheet Sets &amp; Interoperability</span>
+                          <span class="track-module-meta"><span>Module 7 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>3D Workspaces &amp; Visual Styles</li>
-                      <li>3D Primitives (Box, Cylinder, etc.)</li>
-                      <li>User Coordinate System (UCS)</li>
-                      <li>Extrude &amp; Revolve Operations</li>
-                      <li>Sweep &amp; Loft Solid Creation</li>
-                      <li>Boolean Union, Subtract, Intersect</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-module-08.pdf" data-pdf-title="Module 8: Smart CAD Assistants, Cleanup, Auditing &amp; Automation Workflows" data-pdf-track="AutoCAD 2D, 3D &amp; Smart CAD Workflows &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">08</span>
                         <span class="track-module-head">
-                          <span>3D Editing, Materials &amp; Rendering</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
+                          <span>Smart CAD Assistants, Cleanup, Auditing &amp; Automation Workflows</span>
+                          <span class="track-module-meta"><span>Module 8 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>3D Move, Rotate, Mirror &amp; Array</li>
-                      <li>Fillet Edge &amp; Chamfer Edge</li>
-                      <li>Shelling &amp; Face Editing Tools</li>
-                      <li>Material Application &amp; Texturing</li>
-                      <li>Lighting Setup &amp; Sunlight Options</li>
-                      <li>Rendering Presets &amp; Image Output</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Phase 4</span>
-                  <span>Layouts, Plotting &amp; Branch-Specific Capstone</span>
-                  <span class="phase-meta">&middot; Modules 09–10 · 12 Hours</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">Prepare production drawings for print and PDF, then complete a capstone in your engineering track.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>Layouts, Plotting &amp; Documentation</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Model Space vs Paper Space Layouts</li>
-                      <li>Creating &amp; Scaling Viewports</li>
-                      <li>Page Setup Manager Settings</li>
-                      <li>Title Block &amp; Border Setup</li>
-                      <li>Plot Styles (CTB/STB) Config</li>
-                      <li>PDF Export &amp; eTransmit Bundles</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Industry Capstone Projects</span>
-                          <span class="track-module-meta"><span>6 sessions</span> &middot; <span>6 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Mechanical: Part Assembly &amp; BOM</li>
-                      <li>3D Model Presentation Rendering</li>
-                      <li>Structural Sectional Drawings</li>
-                      <li>Civil: Architectural Floor Plan</li>
-                      <li>Electrical: Circuit &amp; Panel Design</li>
-                      <li>Portfolio Assembly &amp; Review</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Curriculum CTAs -->
         <div class="curriculum-cta-box">
           <!-- Syllabus PDF: the enquiry form is shown first, the file downloads after it is submitted -->
-          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/autocad-syllabus.pdf" download="Greens-Technologies-AutoCAD-Syllabus.pdf">
+          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/autocad/autocad-syllabus-2026.pdf" download="Greens-Technologies-AutoCAD-Syllabus.pdf">
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download Detailed Syllabus (PDF)</span>
           </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
@@ -7783,7 +7689,7 @@
               <span>Q1. How is the AutoCAD course structured?</span>
               <span class="faq-toggle-icon"><svg class="ico" aria-hidden="true"><use href="#i-plus"/></svg></span>
             </button>
-            <div class="faq-answer"><p>The course runs for 60 hours across 10 modules in 4 phases: Phase 1 (Modules 01–03) covers the interface, precision drafting and 2D geometry editing; Phase 2 (Modules 04–06) covers layers, annotations, blocks and Xrefs; Phase 3 (Modules 07–08) covers 3D modeling, surfaces and rendering; Phase 4 (Modules 09–10) covers layouts, plotting and a branch-specific capstone.</p></div>
+            <div class="faq-answer"><p>The course has 8 modules in 2 parts: Part A (Modules 1–4) covers 2D Drafting Foundations &amp; Domain Drawings; Part B (Modules 5–8) covers 3D Modeling, Visualization, Sheet Sets &amp; Smart CAD Automation.</p></div>
           </div>
           <div class="faq-item">
             <button class="faq-question" onclick="toggleFaq(this)">
@@ -8556,6 +8462,9 @@
       item.parentElement.querySelectorAll(':scope > .phase-item').forEach(el => el.classList.remove('active'));
       if (!wasActive) {
         item.classList.add('active');
+        if (item.closest('.pdf-accordion') && window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          gsap.fromTo(item.querySelectorAll('.pdf-row'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .35, stagger: .05, ease: 'power2.out', clearProps: 'all' });
+        }
       }
     }
 
@@ -8568,7 +8477,7 @@
     // Chat assistant: canned answers from this page; typed questions are emailed to an advisor
     const CHAT_TOPICS = {
       'Upcoming batches': 'Weekday (10:00 AM – 12:30 PM), evening online (7:00 PM – 9:00 PM), weekend (Sat & Sun, 10:00 AM – 2:00 PM) and fast-track (2:00 PM – 6:00 PM) batches are available, in classroom or online. <a href="#batches" onclick="toggleChat(false)">See batch timings</a>',
-      'Course curriculum': 'The course has 10 modules over 60 hours in 4 phases: 2D drafting and editing, layers, annotations, blocks and Xrefs, 3D modeling and rendering, then layouts, plotting and a capstone in your Mechanical, Civil or Electrical track. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
+      'Course curriculum': 'The course has 8 modules in 2 parts: Part A (Modules 1–4) covers 2D Drafting Foundations & Domain Drawings; Part B (Modules 5–8) covers 3D Modeling, Visualization, Sheet Sets & Smart CAD Automation. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
       'Placement support': 'Our placement cell reviews your CAD blueprint portfolio, prepares your resume, runs mock speed-drafting tests and refers you to 500+ hiring partners. <a href="#placements" onclick="toggleChat(false)">See placement details</a>',
       'Course fees': 'Fees depend on the level and batch you choose. Share your details and an advisor will send you the current fees and offers. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Course Fee Details\')">Get fee details</a>',
       'Book a free demo': 'Great! Fill in your name, mobile number and email and we will confirm your free demo class. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Book a Free Demo Class\')">Book free demo</a>'
@@ -8737,6 +8646,15 @@
 
     // Downloads are gated behind the enquiry form: the file is only delivered after the form is submitted
     let pendingDownload = null;
+
+    // PDF popup: "Download PDF" closes the popup and asks for details before downloading
+    function downloadFromPdf(e) {
+      e.preventDefault();
+      const link = e.currentTarget, title = document.getElementById('pdfTitle').textContent;
+      const url = link.href, name = 'Greens-Technologies-' + title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.pdf';
+      closePdf();
+      setTimeout(() => requestDownload('Download ' + title, () => downloadFile(url, name)), 260);
+    }
 
     function requestDownload(purpose, deliver) {
       openLeadModal(purpose);
@@ -9120,6 +9038,7 @@
       if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
     })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
     // Pay After Placement: gentle entrance when it scrolls into view
     (() => {
@@ -9135,6 +9054,103 @@
           .to(card.querySelectorAll('.pap-actions > *'), { opacity: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, '-=.3');
       }), { threshold: .3 }).observe(card);
     })();
+  </script>
+  <!-- PDF popup (course content) -->
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-backdrop" onclick="closePdf()"></div>
+    <div class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+      <div class="pdf-head">
+        <span class="pdf-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg></span>
+        <div class="pdf-head-text">
+          <h3 class="pdf-head-title" id="pdfTitle">Course Content</h3>
+          <div class="pdf-head-sub" id="pdfSub">Greens Technologies</div>
+        </div>
+        <a class="pdf-open" id="pdfOpen" href="#" onclick="downloadFromPdf(event)"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Download PDF</span></a>
+        <button type="button" class="pdf-close" id="pdfClose" onclick="closePdf()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="pdf-body" id="pdfBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Course-content PDF popup (pages drawn with PDF.js so it works on phones too)
+    let pdfJsLoad = null, pdfToken = 0, pdfLastFocus = null;
+    function loadPdfJs() {
+      if (window.pdfjsLib) return Promise.resolve();
+      return pdfJsLoad || (pdfJsLoad = new Promise((res, rej) => {
+        const sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        sc.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; res(); };
+        sc.onerror = () => { pdfJsLoad = null; rej(new Error('pdf.js')); };
+        document.head.appendChild(sc);
+      }));
+    }
+    async function renderPdf(url, body, token) {
+      await loadPdfJs();
+      const doc = await pdfjsLib.getDocument(url).promise;
+      if (token !== pdfToken) return;
+      body.innerHTML = '';
+      const width = Math.min(body.clientWidth - 16, 860);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (let n = 1; n <= doc.numPages; n++) {
+        const page = await doc.getPage(n);
+        if (token !== pdfToken) return;
+        const base = page.getViewport({ scale: 1 });
+        const vp = page.getViewport({ scale: (width / base.width) * dpr });
+        const c = document.createElement('canvas');
+        c.width = vp.width; c.height = vp.height; c.style.width = width + 'px';
+        c.setAttribute('aria-label', `Page ${n} of ${doc.numPages}`);
+        body.appendChild(c);
+        await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+      }
+    }
+    function openPdf(btn) {
+      const modal = document.getElementById('pdfModal'), body = document.getElementById('pdfBody');
+      const url = btn.dataset.pdf, token = ++pdfToken;
+      pdfLastFocus = btn;
+      document.getElementById('pdfTitle').textContent = btn.dataset.pdfTitle;
+      document.getElementById('pdfSub').textContent = btn.dataset.pdfTrack + ' \u00b7 Greens Technologies';
+      document.getElementById('pdfOpen').href = url;
+      body.innerHTML = '<div class="pdf-status">Loading course content\u2026</div>';
+      body.scrollTop = 0;
+      modal.classList.remove('css-pop');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pdf-lock');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (window.gsap && !reduce) {
+        gsap.fromTo(modal.querySelector('.pdf-backdrop'), { opacity: 0 }, { opacity: 1, duration: .3, ease: 'power1.out' });
+        gsap.fromTo(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .86, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: .5, ease: 'back.out(1.6)' });
+      } else if (!reduce) { void modal.offsetWidth; modal.classList.add('css-pop'); }
+      document.getElementById('pdfClose').focus({ preventScroll: true });
+      renderPdf(url, body, token).catch(() => {
+        if (token !== pdfToken) return;
+        body.innerHTML = `<iframe src="${url}" title="${btn.dataset.pdfTitle}"></iframe>`;
+      });
+    }
+    function closePdf() {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      pdfToken++;
+      const done = () => { modal.classList.remove('open', 'css-pop'); modal.setAttribute('aria-hidden', 'true'); document.getElementById('pdfBody').innerHTML = ''; };
+      document.body.classList.remove('pdf-lock');
+      if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.to(modal.querySelector('.pdf-backdrop'), { opacity: 0, duration: .2 });
+        gsap.to(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .94, y: 12, duration: .22, ease: 'power2.in', onComplete: done });
+      } else done();
+      if (pdfLastFocus) pdfLastFocus.focus({ preventScroll: true });
+    }
+    document.addEventListener('keydown', e => {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePdf(); }
+      if (e.key === 'Tab') {
+        const f = [...modal.querySelectorAll('a[href], button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
   </script>
 </body>
 </html>

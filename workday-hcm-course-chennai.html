@@ -450,7 +450,7 @@
       }
     }
 
-    @media (max-width: 374px) {
+    @media (max-width: 389px) {
       .top-pill-btn .ico {
         display: none;
       }
@@ -5601,6 +5601,110 @@
       .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
     }
 
+    /* ---------- PDF popup */
+    .pdf-modal { position: fixed; inset: 0; z-index: 4000; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .pdf-modal.open { display: flex; }
+    .pdf-backdrop { position: absolute; inset: 0; background: rgba(2, 38, 27, 0.62); backdrop-filter: blur(4px); }
+    .pdf-dialog {
+      position: relative; width: min(980px, 100%); height: min(90vh, 1100px);
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .pdf-modal.css-pop .pdf-backdrop { animation: pdfFade .3s ease both; }
+    .pdf-modal.css-pop .pdf-dialog { animation: pdfPop .45s cubic-bezier(.34, 1.56, .64, 1) both; }
+    @keyframes pdfFade { from { opacity: 0; } }
+    @keyframes pdfPop { from { opacity: 0; transform: translateY(18px) scale(.88); } }
+    .pdf-head { display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 22px; border-bottom: 1px solid var(--border-color); }
+    .pdf-head-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: #EEF6E3; color: var(--brand-primary); font-size: 19px; }
+    .pdf-head-text { flex: 1; min-width: 0; }
+    .pdf-head-title { margin: 0; font-family: var(--font-heading); font-size: 1.08rem; font-weight: 800; color: var(--brand-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-head-sub { font-size: 0.8rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-open { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: var(--radius-full); border: 1px solid var(--border-color); color: var(--brand-primary); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .pdf-open:hover { border-color: var(--brand-primary); }
+    .pdf-close { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--brand-dark); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .pdf-close:hover { background: var(--cream-surface); }
+    .pdf-body { flex: 1; overflow: auto; background: #EEF2EA; padding: 20px 16px; -webkit-overflow-scrolling: touch; }
+    .pdf-body canvas { display: block; margin: 0 auto 16px; max-width: 100%; height: auto; background: #FFFFFF; border-radius: 6px; box-shadow: 0 6px 20px rgba(2, 38, 27, 0.12); }
+    .pdf-body iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; background: #FFFFFF; }
+    .pdf-status { padding: 60px 20px; text-align: center; color: var(--text-light); font-weight: 600; }
+    .pdf-status::before { content: ''; display: block; width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 3px solid #D7E6C6; border-top-color: var(--brand-forest); animation: pdfSpin .8s linear infinite; }
+    @keyframes pdfSpin { to { transform: rotate(360deg); } }
+    body.pdf-lock { overflow: hidden; }
+    @media (max-width: 640px) {
+      .pdf-modal { padding: 0; align-items: flex-end; }
+      .pdf-dialog { height: 92vh; border-radius: 20px 20px 0 0; }
+      .pdf-head { padding: 12px 12px 12px 14px; gap: 10px; }
+      .pdf-head-icon { display: none; }
+      .pdf-open span { display: none; }
+      .pdf-open { padding: 10px; }
+      .pdf-body { padding: 12px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pdf-modal.css-pop .pdf-dialog, .pdf-modal.css-pop .pdf-backdrop { animation: none; }
+      .pdf-item { transition: none; }
+    }
+  
+    /* ---------- Course-content PDF dropdowns */
+    .journey-title-first { margin-top: 8px; }
+    .pdf-count { margin-left: 4px; font-size: 0.8rem; font-weight: 700; color: var(--text-light); }
+    .pdf-row { cursor: pointer; }
+    .pdf-row-go { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.8rem; font-weight: 700; transition: background .2s ease; }
+    .pdf-row:hover .pdf-row-go, .pdf-row:focus-visible .pdf-row-go { background: var(--brand-forest); }
+    @media (max-width: 640px) {
+      .pdf-count { display: none; }
+      .pdf-row-go span { display: none; }
+      .pdf-row-go { padding: 9px; }
+    }
+  
+    /* ---------- Single trainer: full-width card */
+    .faculty-grid.single { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .faculty-grid.single .faculty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-areas: "head details" "badge details" "bio details";
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        column-gap: 44px; row-gap: 14px; align-items: start;
+        padding: 34px 40px;
+      }
+      .faculty-grid.single .faculty-card:not(:has(.faculty-placed-badge)) { grid-template-areas: "head details" "bio details"; grid-template-rows: auto 1fr; }
+      .faculty-grid.single .faculty-header { grid-area: head; }
+      .faculty-grid.single .faculty-placed-badge { grid-area: badge; justify-self: start; }
+      .faculty-grid.single .faculty-bio { grid-area: bio; font-size: 0.95rem; }
+      .faculty-grid.single .faculty-details-list { grid-area: details; align-self: start; justify-content: flex-start; gap: 12px; padding: 20px 22px; font-size: 0.88rem; }
+      .faculty-grid.single .faculty-detail-label { min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
+    }
+
+    /* ---------- Real-time project PDFs */
+    .project-pdf-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-pdf {
+      width: 100%; height: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--text-main);
+      display: flex; flex-direction: column; gap: 14px; padding: 26px;
+      background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 22px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project-pdf:hover, .project-pdf:focus-visible { transform: translateY(-3px); border-color: var(--brand-forest); box-shadow: 0 16px 34px rgba(2, 38, 27, 0.1); outline: none; }
+    .project-pdf-top { display: flex; align-items: center; gap: 14px; }
+    .project-pdf-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: var(--brand-primary); color: var(--brand-lime); font-size: 24px; }
+    .project-pdf-head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .project-pdf-label { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-forest); }
+    .project-pdf-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--brand-dark); line-height: 1.25; }
+    .project-pdf-names { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .project-pdf-names li { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; color: var(--text-muted); }
+    .project-pdf-names b { flex-shrink: 0; font-size: 0.75rem; color: var(--brand-forest); }
+    .project-pdf-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .project-pdf-meta { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); }
+    .project-pdf-go { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.82rem; font-weight: 700; transition: background .2s ease; }
+    .project-pdf:hover .project-pdf-go { background: var(--brand-forest); }
+    @media (max-width: 767px) {
+      .project-pdf-list { grid-template-columns: 1fr; gap: 12px; }
+      .project-pdf { padding: 20px 18px; }
+      .project-pdf-icon { width: 44px; height: 44px; font-size: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -6770,116 +6874,56 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Workday HCM Course Curriculum – From Fundamentals to Advanced Configuration &amp; Integrations</h2>
-          <p class="section-subtitle">The program is organized into 13 modules covering core HCM concepts, workforce processes, reporting, data handling, integrations and security.</p>
+          <p class="section-subtitle">The program is organized into 13 modules covering core HCM concepts, workforce processes, reporting, data handling, integrations and security. Open a part and click any module to read its PDF.</p>
         </div>
 
-        <div class="curriculum-panel" id="currMain">
-          <div class="phase-accordion">
+        <div class="phase-accordion pdf-accordion">
             <div class="phase-item active">
               <button class="phase-header" onclick="togglePhase(this)">
                 <span class="phase-header-left">
                   <span class="track-phase-label">Part 1</span>
                   <span>Workday &amp; Core HCM</span>
-                  <span class="phase-meta">&middot; Modules 1–3</span>
+                  <span class="pdf-count">3 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">Workday fundamentals, organizations, staffing models, jobs and positions.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-01.pdf" data-pdf-title="Module 1: Workday &amp; HCM Fundamentals" data-pdf-track="Workday HCM Training Program &middot; Part 1" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">01</span>
                         <span class="track-module-head">
                           <span>Workday &amp; HCM Fundamentals</span>
-                          <span class="track-module-meta"><span>10 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 1 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to Workday</li>
-                      <li>Workday HCM overview</li>
-                      <li>Workday navigation and terminology</li>
-                      <li>Workday architecture – functional overview</li>
-                      <li>Tenant concepts</li>
-                      <li>Organizations and organizational structures</li>
-                      <li>Supervisory Organizations</li>
-                      <li>Company, Cost Center and Location</li>
-                      <li>Geographic Organizations</li>
-                      <li>Organization hierarchy and assignments</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-02.pdf" data-pdf-title="Module 2: Staffing Models" data-pdf-track="Workday HCM Training Program &middot; Part 1" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">02</span>
                         <span class="track-module-head">
                           <span>Staffing Models</span>
-                          <span class="track-module-meta"><span>13 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 2 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Staffing concepts in Workday</li>
-                      <li>Staffing Models</li>
-                      <li>Position Management</li>
-                      <li>Job Management</li>
-                      <li>Headcount Management</li>
-                      <li>Hire Employee</li>
-                      <li>Create Position</li>
-                      <li>Change Job</li>
-                      <li>Move Workers</li>
-                      <li>Transfer Employees</li>
-                      <li>Termination</li>
-                      <li>Staffing-related business processes</li>
-                      <li>Staffing reports and validations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-03.pdf" data-pdf-title="Module 3: Jobs &amp; Positions" data-pdf-track="Workday HCM Training Program &middot; Part 1" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">03</span>
                         <span class="track-module-head">
                           <span>Jobs &amp; Positions</span>
-                          <span class="track-module-meta"><span>11 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 3 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Job Profiles</li>
-                      <li>Job Families</li>
-                      <li>Job Family Groups</li>
-                      <li>Positions</li>
-                      <li>Position Restrictions</li>
-                      <li>Position Management</li>
-                      <li>Job Requisitions</li>
-                      <li>Supervisory Organization &amp; positions</li>
-                      <li>Position lifecycle</li>
-                      <li>Difference between Job Profile, Position and Worker</li>
-                      <li>Practical configuration scenarios</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -6889,104 +6933,47 @@
                 <span class="phase-header-left">
                   <span class="track-phase-label">Part 2</span>
                   <span>Recruiting, Compensation &amp; Payroll</span>
-                  <span class="phase-meta">&middot; Modules 4–6</span>
+                  <span class="pdf-count">3 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">Recruiting from requisition to hire, compensation plans and payroll processing.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-04.pdf" data-pdf-title="Module 4: Workday Recruiting" data-pdf-track="Workday HCM Training Program &middot; Part 2" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">04</span>
                         <span class="track-module-head">
                           <span>Workday Recruiting</span>
-                          <span class="track-module-meta"><span>13 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 4 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Workday Recruiting overview</li>
-                      <li>Recruiting terminology</li>
-                      <li>Job Requisitions</li>
-                      <li>Create and manage requisitions</li>
-                      <li>Candidate management</li>
-                      <li>Candidate stages</li>
-                      <li>Application process</li>
-                      <li>Interview process</li>
-                      <li>Offer process</li>
-                      <li>Hire from Recruiting</li>
-                      <li>Recruiting business processes</li>
-                      <li>Recruiting reports</li>
-                      <li>Practical recruiting scenarios</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-05.pdf" data-pdf-title="Module 5: Compensation" data-pdf-track="Workday HCM Training Program &middot; Part 2" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">05</span>
                         <span class="track-module-head">
                           <span>Compensation</span>
-                          <span class="track-module-meta"><span>11 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 5 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Workday Compensation overview</li>
-                      <li>Compensation terminology</li>
-                      <li>Compensation Grades</li>
-                      <li>Compensation Grade Profiles</li>
-                      <li>Compensation Packages</li>
-                      <li>Compensation Plans</li>
-                      <li>Salary Plans</li>
-                      <li>Allowances</li>
-                      <li>Compensation eligibility rules</li>
-                      <li>Compensation business processes</li>
-                      <li>Compensation reporting</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-06.pdf" data-pdf-title="Module 6: Payroll" data-pdf-track="Workday HCM Training Program &middot; Part 2" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">06</span>
                         <span class="track-module-head">
                           <span>Payroll</span>
-                          <span class="track-module-meta"><span>8 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 6 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Workday Payroll overview</li>
-                      <li>Payroll concepts and terminology</li>
-                      <li>Payroll organizations</li>
-                      <li>Payroll inputs</li>
-                      <li>Payroll calculations – functional overview</li>
-                      <li>Payroll processing</li>
-                      <li>Payroll-related business processes</li>
-                      <li>Payroll reporting</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -6996,135 +6983,59 @@
                 <span class="phase-header-left">
                   <span class="track-phase-label">Part 3</span>
                   <span>Business Processes, Data &amp; Reporting</span>
-                  <span class="phase-meta">&middot; Modules 7–10</span>
+                  <span class="pdf-count">4 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">The business process framework, business objects, data sources, reports and calculated fields.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-07.pdf" data-pdf-title="Module 7: Business Processes" data-pdf-track="Workday HCM Training Program &middot; Part 3" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">07</span>
                         <span class="track-module-head">
                           <span>Business Processes</span>
-                          <span class="track-module-meta"><span>10 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 7 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>What is a Business Process?</li>
-                      <li>Business Process Framework</li>
-                      <li>Business Process Definition</li>
-                      <li>Business Process Steps</li>
-                      <li>Approval Steps</li>
-                      <li>Review Steps</li>
-                      <li>To-Dos</li>
-                      <li>Condition Rules</li>
-                      <li>Approval Chains</li>
-                      <li>Roles &amp; Responsibilities</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-08.pdf" data-pdf-title="Module 8: Business Objects &amp; Data Sources" data-pdf-track="Workday HCM Training Program &middot; Part 3" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">08</span>
                         <span class="track-module-head">
                           <span>Business Objects &amp; Data Sources</span>
-                          <span class="track-module-meta"><span>12 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 8 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to Workday Business Objects</li>
-                      <li>Understanding Business Objects</li>
-                      <li>Primary Business Objects</li>
-                      <li>Related Business Objects</li>
-                      <li>Business Object relationships</li>
-                      <li>Data Sources</li>
-                      <li>Report Data Sources</li>
-                      <li>Business Object → Data Source relationship</li>
-                      <li>Worker, Employee, Position, Job Requisition and Organization objects</li>
-                      <li>Supplier and Hire business objects/process-related data</li>
-                      <li>Navigating Workday data relationships</li>
-                      <li>Practical data-source exercises</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-09.pdf" data-pdf-title="Module 9: Workday Reporting" data-pdf-track="Workday HCM Training Program &middot; Part 3" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">09</span>
                         <span class="track-module-head">
                           <span>Workday Reporting</span>
-                          <span class="track-module-meta"><span>16 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 9 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to Workday Reporting</li>
-                      <li>Report types</li>
-                      <li>Simple Reports</li>
-                      <li>Advanced Reports</li>
-                      <li>Matrix Reports</li>
-                      <li>Composite Reports – overview</li>
-                      <li>Report Data Sources</li>
-                      <li>Business Objects</li>
-                      <li>Report Fields</li>
-                      <li>Prompts</li>
-                      <li>Filters</li>
-                      <li>Sorting</li>
-                      <li>Grouping</li>
-                      <li>Subtotals</li>
-                      <li>Calculated Fields in Reports</li>
-                      <li>Report Sharing</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-10.pdf" data-pdf-title="Module 10: Calculated Fields" data-pdf-track="Workday HCM Training Program &middot; Part 3" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">10</span>
                         <span class="track-module-head">
                           <span>Calculated Fields</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 10 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to Calculated Fields</li>
-                      <li>Why Calculated Fields are required</li>
-                      <li>Calculated Field types</li>
-                      <li>Related Business Objects</li>
-                      <li>Using Calculated Fields in Reports</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -7134,107 +7045,57 @@
                 <span class="phase-header-left">
                   <span class="track-phase-label">Part 4</span>
                   <span>Integrations &amp; Security</span>
-                  <span class="phase-meta">&middot; Modules 11–13</span>
+                  <span class="pdf-count">3 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">EIB, Workday Web Services, Core Connectors and the Workday security model.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-11.pdf" data-pdf-title="Module 11: EIB (Enterprise Interface Builder)" data-pdf-track="Workday HCM Training Program &middot; Part 4" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">11</span>
                         <span class="track-module-head">
                           <span>EIB (Enterprise Interface Builder)</span>
-                          <span class="track-module-meta"><span>7 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 11 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to EIB</li>
-                      <li>EIB concepts</li>
-                      <li>Inbound EIB</li>
-                      <li>Outbound EIB</li>
-                      <li>EIB templates</li>
-                      <li>Workday Web Services overview</li>
-                      <li>Data validation</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-12.pdf" data-pdf-title="Module 12: Workday Core Connectors" data-pdf-track="Workday HCM Training Program &middot; Part 4" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">12</span>
                         <span class="track-module-head">
                           <span>Workday Core Connectors</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 12 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to Workday Integrations</li>
-                      <li>Integration concepts</li>
-                      <li>Core Connectors overview</li>
-                      <li>Core Connector concepts</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-module-13.pdf" data-pdf-title="Module 13: Workday Security" data-pdf-track="Workday HCM Training Program &middot; Part 4" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">13</span>
                         <span class="track-module-head">
                           <span>Workday Security</span>
-                          <span class="track-module-meta"><span>13 Topics</span></span>
+                          <span class="track-module-meta"><span>Module 13 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to Workday Security</li>
-                      <li>Workday Security Model</li>
-                      <li>Security Groups</li>
-                      <li>User-Based Security Groups</li>
-                      <li>Role-Based Security Groups</li>
-                      <li>Job-Based Security Groups</li>
-                      <li>Organization-Based Security Groups</li>
-                      <li>Workday security policies</li>
-                      <li>Business Process Security</li>
-                      <li>Domain Security Policies</li>
-                      <li>Functional Areas</li>
-                      <li>Security permissions</li>
-                      <li>Role assignments</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
 
         <!-- Curriculum CTAs -->
         <div class="curriculum-cta-box">
           <!-- Syllabus PDF: the enquiry form is shown first, the file downloads after it is submitted -->
-          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/workday-hcm-syllabus.pdf" download="Greens-Technologies-Workday-HCM-Syllabus.pdf">
+          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/workday/workday-hcm-syllabus-2026.pdf" download="Greens-Technologies-Workday-HCM-Syllabus.pdf">
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download Detailed Syllabus (PDF)</span>
           </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
@@ -8704,6 +8565,9 @@
       item.parentElement.querySelectorAll(':scope > .phase-item').forEach(el => el.classList.remove('active'));
       if (!wasActive) {
         item.classList.add('active');
+        if (item.closest('.pdf-accordion') && window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          gsap.fromTo(item.querySelectorAll('.pdf-row'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .35, stagger: .05, ease: 'power2.out', clearProps: 'all' });
+        }
       }
     }
 
@@ -8885,6 +8749,15 @@
 
     // Downloads are gated behind the enquiry form: the file is only delivered after the form is submitted
     let pendingDownload = null;
+
+    // PDF popup: "Download PDF" closes the popup and asks for details before downloading
+    function downloadFromPdf(e) {
+      e.preventDefault();
+      const link = e.currentTarget, title = document.getElementById('pdfTitle').textContent;
+      const url = link.href, name = 'Greens-Technologies-' + title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.pdf';
+      closePdf();
+      setTimeout(() => requestDownload('Download ' + title, () => downloadFile(url, name)), 260);
+    }
 
     function requestDownload(purpose, deliver) {
       openLeadModal(purpose);
@@ -9268,6 +9141,7 @@
       if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
     })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
     // Pay After Placement: gentle entrance when it scrolls into view
     (() => {
@@ -9283,6 +9157,103 @@
           .to(card.querySelectorAll('.pap-actions > *'), { opacity: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, '-=.3');
       }), { threshold: .3 }).observe(card);
     })();
+  </script>
+  <!-- PDF popup (course content) -->
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-backdrop" onclick="closePdf()"></div>
+    <div class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+      <div class="pdf-head">
+        <span class="pdf-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg></span>
+        <div class="pdf-head-text">
+          <h3 class="pdf-head-title" id="pdfTitle">Course Content</h3>
+          <div class="pdf-head-sub" id="pdfSub">Greens Technologies</div>
+        </div>
+        <a class="pdf-open" id="pdfOpen" href="#" onclick="downloadFromPdf(event)"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Download PDF</span></a>
+        <button type="button" class="pdf-close" id="pdfClose" onclick="closePdf()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="pdf-body" id="pdfBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Course-content PDF popup (pages drawn with PDF.js so it works on phones too)
+    let pdfJsLoad = null, pdfToken = 0, pdfLastFocus = null;
+    function loadPdfJs() {
+      if (window.pdfjsLib) return Promise.resolve();
+      return pdfJsLoad || (pdfJsLoad = new Promise((res, rej) => {
+        const sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        sc.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; res(); };
+        sc.onerror = () => { pdfJsLoad = null; rej(new Error('pdf.js')); };
+        document.head.appendChild(sc);
+      }));
+    }
+    async function renderPdf(url, body, token) {
+      await loadPdfJs();
+      const doc = await pdfjsLib.getDocument(url).promise;
+      if (token !== pdfToken) return;
+      body.innerHTML = '';
+      const width = Math.min(body.clientWidth - 16, 860);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (let n = 1; n <= doc.numPages; n++) {
+        const page = await doc.getPage(n);
+        if (token !== pdfToken) return;
+        const base = page.getViewport({ scale: 1 });
+        const vp = page.getViewport({ scale: (width / base.width) * dpr });
+        const c = document.createElement('canvas');
+        c.width = vp.width; c.height = vp.height; c.style.width = width + 'px';
+        c.setAttribute('aria-label', `Page ${n} of ${doc.numPages}`);
+        body.appendChild(c);
+        await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+      }
+    }
+    function openPdf(btn) {
+      const modal = document.getElementById('pdfModal'), body = document.getElementById('pdfBody');
+      const url = btn.dataset.pdf, token = ++pdfToken;
+      pdfLastFocus = btn;
+      document.getElementById('pdfTitle').textContent = btn.dataset.pdfTitle;
+      document.getElementById('pdfSub').textContent = btn.dataset.pdfTrack + ' \u00b7 Greens Technologies';
+      document.getElementById('pdfOpen').href = url;
+      body.innerHTML = '<div class="pdf-status">Loading course content\u2026</div>';
+      body.scrollTop = 0;
+      modal.classList.remove('css-pop');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pdf-lock');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (window.gsap && !reduce) {
+        gsap.fromTo(modal.querySelector('.pdf-backdrop'), { opacity: 0 }, { opacity: 1, duration: .3, ease: 'power1.out' });
+        gsap.fromTo(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .86, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: .5, ease: 'back.out(1.6)' });
+      } else if (!reduce) { void modal.offsetWidth; modal.classList.add('css-pop'); }
+      document.getElementById('pdfClose').focus({ preventScroll: true });
+      renderPdf(url, body, token).catch(() => {
+        if (token !== pdfToken) return;
+        body.innerHTML = `<iframe src="${url}" title="${btn.dataset.pdfTitle}"></iframe>`;
+      });
+    }
+    function closePdf() {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      pdfToken++;
+      const done = () => { modal.classList.remove('open', 'css-pop'); modal.setAttribute('aria-hidden', 'true'); document.getElementById('pdfBody').innerHTML = ''; };
+      document.body.classList.remove('pdf-lock');
+      if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.to(modal.querySelector('.pdf-backdrop'), { opacity: 0, duration: .2 });
+        gsap.to(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .94, y: 12, duration: .22, ease: 'power2.in', onComplete: done });
+      } else done();
+      if (pdfLastFocus) pdfLastFocus.focus({ preventScroll: true });
+    }
+    document.addEventListener('keydown', e => {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePdf(); }
+      if (e.key === 'Tab') {
+        const f = [...modal.querySelectorAll('a[href], button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
   </script>
 </body>
 </html>

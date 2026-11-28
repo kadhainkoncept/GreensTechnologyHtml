@@ -18,7 +18,7 @@
 
   <!-- Primary SEO Meta Tags -->
   <title>Graphic Design Course in Chennai | Basic, Advanced &amp; Master Level Training | Greens Technologies</title>
-  <meta name="description" content="Graphic Design course in Chennai at Greens Technologies: 20 modules across Basic, Advanced and Master levels in Photoshop, Illustrator, InDesign, Canva, After Effects and Figma, covering branding, packaging, motion graphics, UI/UX and AI workflows, with placement assistance." />
+  <meta name="description" content="Graphic Design course in Chennai at Greens Technologies: 8 modules in Photoshop, Illustrator, InDesign, Canva, After Effects and Figma, covering branding, packaging, motion graphics, UI/UX and AI workflows, with placement assistance." />
   <meta name="keywords" content="Graphic Design course in Chennai, graphic design training Chennai, Photoshop course Chennai, Illustrator course, InDesign training, Figma UI design course, graphic design classes Tambaram, Greens Technologies graphic design" />
   <meta name="author" content="Greens Technologies" />
   <meta name="robots" content="index, follow" />
@@ -38,7 +38,7 @@
     "@context": "https://schema.org",
     "@type": "Course",
     "name": "Graphic Design Course in Chennai",
-    "description": "Graphic Design course in Chennai at Greens Technologies: 20 modules across Basic, Advanced and Master levels in Photoshop, Illustrator, InDesign, Canva, After Effects and Figma, covering branding, packaging, motion graphics, UI/UX and AI workflows, with placement assistance.",
+    "description": "Graphic Design course in Chennai at Greens Technologies: 8 modules in Photoshop, Illustrator, InDesign, Canva, After Effects and Figma, covering branding, packaging, motion graphics, UI/UX and AI workflows, with placement assistance.",
     "provider": {
       "@type": "EducationalOrganization",
       "name": "Greens Technologies",
@@ -450,7 +450,7 @@
       }
     }
 
-    @media (max-width: 374px) {
+    @media (max-width: 389px) {
       .top-pill-btn .ico {
         display: none;
       }
@@ -5578,6 +5578,110 @@
       .pap-actions .btn { flex: none; width: 100%; }
     }
 
+    /* ---------- PDF popup */
+    .pdf-modal { position: fixed; inset: 0; z-index: 4000; display: none; align-items: center; justify-content: center; padding: 16px; }
+    .pdf-modal.open { display: flex; }
+    .pdf-backdrop { position: absolute; inset: 0; background: rgba(2, 38, 27, 0.62); backdrop-filter: blur(4px); }
+    .pdf-dialog {
+      position: relative; width: min(980px, 100%); height: min(90vh, 1100px);
+      display: flex; flex-direction: column; overflow: hidden;
+      background: #FFFFFF; border-radius: 22px; box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+    }
+    .pdf-modal.css-pop .pdf-backdrop { animation: pdfFade .3s ease both; }
+    .pdf-modal.css-pop .pdf-dialog { animation: pdfPop .45s cubic-bezier(.34, 1.56, .64, 1) both; }
+    @keyframes pdfFade { from { opacity: 0; } }
+    @keyframes pdfPop { from { opacity: 0; transform: translateY(18px) scale(.88); } }
+    .pdf-head { display: flex; align-items: center; gap: 14px; padding: 14px 16px 14px 22px; border-bottom: 1px solid var(--border-color); }
+    .pdf-head-icon { width: 40px; height: 40px; flex-shrink: 0; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: #EEF6E3; color: var(--brand-primary); font-size: 19px; }
+    .pdf-head-text { flex: 1; min-width: 0; }
+    .pdf-head-title { margin: 0; font-family: var(--font-heading); font-size: 1.08rem; font-weight: 800; color: var(--brand-dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-head-sub { font-size: 0.8rem; color: var(--text-light); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .pdf-open { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border-radius: var(--radius-full); border: 1px solid var(--border-color); color: var(--brand-primary); font-size: 0.82rem; font-weight: 700; text-decoration: none; white-space: nowrap; }
+    .pdf-open:hover { border-color: var(--brand-primary); }
+    .pdf-close { width: 40px; height: 40px; flex-shrink: 0; border-radius: 50%; border: 1px solid var(--border-color); background: #FFFFFF; color: var(--brand-dark); font-size: 18px; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .pdf-close:hover { background: var(--cream-surface); }
+    .pdf-body { flex: 1; overflow: auto; background: #EEF2EA; padding: 20px 16px; -webkit-overflow-scrolling: touch; }
+    .pdf-body canvas { display: block; margin: 0 auto 16px; max-width: 100%; height: auto; background: #FFFFFF; border-radius: 6px; box-shadow: 0 6px 20px rgba(2, 38, 27, 0.12); }
+    .pdf-body iframe { width: 100%; height: 100%; border: 0; border-radius: 6px; background: #FFFFFF; }
+    .pdf-status { padding: 60px 20px; text-align: center; color: var(--text-light); font-weight: 600; }
+    .pdf-status::before { content: ''; display: block; width: 34px; height: 34px; margin: 0 auto 14px; border-radius: 50%; border: 3px solid #D7E6C6; border-top-color: var(--brand-forest); animation: pdfSpin .8s linear infinite; }
+    @keyframes pdfSpin { to { transform: rotate(360deg); } }
+    body.pdf-lock { overflow: hidden; }
+    @media (max-width: 640px) {
+      .pdf-modal { padding: 0; align-items: flex-end; }
+      .pdf-dialog { height: 92vh; border-radius: 20px 20px 0 0; }
+      .pdf-head { padding: 12px 12px 12px 14px; gap: 10px; }
+      .pdf-head-icon { display: none; }
+      .pdf-open span { display: none; }
+      .pdf-open { padding: 10px; }
+      .pdf-body { padding: 12px 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .pdf-modal.css-pop .pdf-dialog, .pdf-modal.css-pop .pdf-backdrop { animation: none; }
+      .pdf-item { transition: none; }
+    }
+  
+    /* ---------- Course-content PDF dropdowns */
+    .journey-title-first { margin-top: 8px; }
+    .pdf-count { margin-left: 4px; font-size: 0.8rem; font-weight: 700; color: var(--text-light); }
+    .pdf-row { cursor: pointer; }
+    .pdf-row-go { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; padding: 8px 14px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.8rem; font-weight: 700; transition: background .2s ease; }
+    .pdf-row:hover .pdf-row-go, .pdf-row:focus-visible .pdf-row-go { background: var(--brand-forest); }
+    @media (max-width: 640px) {
+      .pdf-count { display: none; }
+      .pdf-row-go span { display: none; }
+      .pdf-row-go { padding: 9px; }
+    }
+  
+    /* ---------- Single trainer: full-width card */
+    .faculty-grid.single { grid-template-columns: 1fr; }
+    @media (min-width: 768px) {
+      .faculty-grid.single .faculty-card {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+        grid-template-areas: "head details" "badge details" "bio details";
+        grid-template-rows: auto auto 1fr;
+        align-content: start;
+        column-gap: 44px; row-gap: 14px; align-items: start;
+        padding: 34px 40px;
+      }
+      .faculty-grid.single .faculty-card:not(:has(.faculty-placed-badge)) { grid-template-areas: "head details" "bio details"; grid-template-rows: auto 1fr; }
+      .faculty-grid.single .faculty-header { grid-area: head; }
+      .faculty-grid.single .faculty-placed-badge { grid-area: badge; justify-self: start; }
+      .faculty-grid.single .faculty-bio { grid-area: bio; font-size: 0.95rem; }
+      .faculty-grid.single .faculty-details-list { grid-area: details; align-self: start; justify-content: flex-start; gap: 12px; padding: 20px 22px; font-size: 0.88rem; }
+      .faculty-grid.single .faculty-detail-label { min-width: 150px; }
+    }
+    @media (max-width: 767px) {
+      .faculty-grid.single { grid-auto-columns: 100%; overflow: visible; margin: 0; padding: 4px 0 12px; }
+    }
+
+    /* ---------- Real-time project PDFs */
+    .project-pdf-list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .project-pdf {
+      width: 100%; height: 100%; text-align: left; font: inherit; cursor: pointer; color: var(--text-main);
+      display: flex; flex-direction: column; gap: 14px; padding: 26px;
+      background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 22px;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+    }
+    .project-pdf:hover, .project-pdf:focus-visible { transform: translateY(-3px); border-color: var(--brand-forest); box-shadow: 0 16px 34px rgba(2, 38, 27, 0.1); outline: none; }
+    .project-pdf-top { display: flex; align-items: center; gap: 14px; }
+    .project-pdf-icon { width: 52px; height: 52px; flex-shrink: 0; border-radius: 15px; display: flex; align-items: center; justify-content: center; background: var(--brand-primary); color: var(--brand-lime); font-size: 24px; }
+    .project-pdf-head { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+    .project-pdf-label { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brand-forest); }
+    .project-pdf-title { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 800; color: var(--brand-dark); line-height: 1.25; }
+    .project-pdf-names { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+    .project-pdf-names li { display: flex; gap: 10px; align-items: baseline; font-size: 0.92rem; color: var(--text-muted); }
+    .project-pdf-names b { flex-shrink: 0; font-size: 0.75rem; color: var(--brand-forest); }
+    .project-pdf-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .project-pdf-meta { font-size: 0.76rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-light); }
+    .project-pdf-go { display: inline-flex; align-items: center; gap: 6px; padding: 9px 16px; border-radius: var(--radius-full); background: var(--brand-primary); color: #FFFFFF; font-size: 0.82rem; font-weight: 700; transition: background .2s ease; }
+    .project-pdf:hover .project-pdf-go { background: var(--brand-forest); }
+    @media (max-width: 767px) {
+      .project-pdf-list { grid-template-columns: 1fr; gap: 12px; }
+      .project-pdf { padding: 20px 18px; }
+      .project-pdf-icon { width: 44px; height: 44px; font-size: 20px; }
+    }
   </style>
 </head>
 <body>
@@ -6792,547 +6896,139 @@
       <div class="container">
         <div class="section-header">
           <h2 class="section-title">Comprehensive Curriculum – Categorized by Skill Level (Basic to Master)</h2>
-          <p class="section-subtitle">20 modules across three progressive levels: Basic, Advanced and Master. Each level builds on the one before it.</p>
+          <p class="section-subtitle">A focused 8-module industry-ready path covering visual design fundamentals, typography and Photoshop compositing, social/ad creatives and mockups, vector drawing and brand identity systems, packaging and editorial print production, cross-platform asset handoff, AI-assisted design workflows, and a capstone portfolio. Open a part and click any module to read its PDF.</p>
         </div>
 
-        <div class="curriculum-panel" id="currMain">
-          <div class="phase-accordion">
+        <div class="phase-accordion pdf-accordion">
             <div class="phase-item active">
               <button class="phase-header" onclick="togglePhase(this)">
                 <span class="phase-header-left">
-                  <span class="track-phase-label">Tier 1</span>
-                  <span>Basic Level – Foundations of Graphic Design</span>
-                  <span class="phase-meta">&middot; Modules 1–6</span>
+                  <span class="track-phase-label">Part A</span>
+                  <span>Visual Foundations, Photoshop &amp; Campaign Creatives</span>
+                  <span class="pdf-count">4 PDFs</span>
                 </span>
                 <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
               </button>
               <div class="phase-body">
-                <p class="module-intro">6 modules and 26 topics in the Basic Level.</p>
-                <div class="modules-accordion track-accordion">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-01.pdf" data-pdf-title="Module 1: Graphic Design Principles, Composition &amp; Typography Hierarchy" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">01</span>
                         <span class="track-module-head">
-                          <span>Principles of Visual Communication &amp; Design Theory</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Graphic Design Principles, Composition &amp; Typography Hierarchy</span>
+                          <span class="track-module-meta"><span>Module 1 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Fundamentals of visual communication: Point, Line, Shape, Texture, Space, and Form</li>
-                      <li>Understanding Core Design Principles: Balance, Hierarchy, Contrast, Proximity, Alignment, Repetition</li>
-                      <li>Color Theory: Color wheel, Primary/Secondary/Tertiary colors, Warm vs. Cool colors, Color psychology</li>
-                      <li>Color Modes: RGB (Screen/Digital) vs. CMYK (Print), Pantone Matching System (PMS)</li>
-                      <li>Understanding raster vs. vector graphics, image resolution (72 DPI vs. 300 DPI)</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-02.pdf" data-pdf-title="Module 2: Photoshop Workspace, Selections &amp; Non-Destructive Layering" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">02</span>
                         <span class="track-module-head">
-                          <span>Fundamentals of Adobe Photoshop (Raster Graphics)</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Photoshop Workspace, Selections &amp; Non-Destructive Layering</span>
+                          <span class="track-module-meta"><span>Module 2 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Photoshop UI navigation, custom workspace configuration, canvas setup</li>
-                      <li>Layer management: Layer groups, lock modes, opacity, fill, and blending modes</li>
-                      <li>Essential selection tools: Marquee, Lasso, Quick Selection, Magic Wand, Object Selection</li>
-                      <li>Crop, Canvas Size adjustment, Transform tools (Scale, Rotate, Skew, Distort, Perspective)</li>
-                      <li>Basic retouching tools: Spot Healing Brush, Healing Brush, Patch tool, Clone Stamp</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-03.pdf" data-pdf-title="Module 3: Photo Retouching, Color Grading &amp; Composite Manipulation" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">03</span>
                         <span class="track-module-head">
-                          <span>Fundamentals of Adobe Illustrator (Vector Art)</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Photo Retouching, Color Grading &amp; Composite Manipulation</span>
+                          <span class="track-module-meta"><span>Module 3 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Illustrator UI navigation, artboard management, smart guides, rulers, and grids</li>
-                      <li>Drawing with basic shape tools, Line Segment tool, Arc tool, and Star tool</li>
-                      <li>Pen Tool Mastery: Drawing precise curves, anchor points, direction handles, and path editing</li>
-                      <li>Pathfinder &amp; Shape Builder tools: Uniting, subtracting, intersecting, and excluding shapes</li>
-                      <li>Object grouping, alignment, distribution, and basic appearance settings</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-04.pdf" data-pdf-title="Module 4: Social Media Creatives, Ad Banners, Posters &amp; Mockup Exports" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part A" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">04</span>
                         <span class="track-module-head">
-                          <span>Typography &amp; Text Layout Basics</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
+                          <span>Social Media Creatives, Ad Banners, Posters &amp; Mockup Exports</span>
+                          <span class="track-module-meta"><span>Module 4 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Anatomy of Typography: Serif, Sans-Serif, Script, Display, Slab Serif</li>
-                      <li>Leading, Tracking, Kerning, Alignment, and Paragraph Spacing</li>
-                      <li>Type Tool in Photoshop &amp; Illustrator: Character panel and Paragraph panel</li>
-                      <li>Creating basic typographic posters, quote cards, and social media announcements</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
+                </div>
+              </div>
+            </div>
+            <div class="phase-item">
+              <button class="phase-header" onclick="togglePhase(this)">
+                <span class="phase-header-left">
+                  <span class="track-phase-label">Part B</span>
+                  <span>Vector Identity, Print Production, AI Workflows &amp; Portfolio</span>
+                  <span class="pdf-count">4 PDFs</span>
+                </span>
+                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+              </button>
+              <div class="phase-body">
+                <div class="modules-accordion track-accordion pdf-rows">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-05.pdf" data-pdf-title="Module 5: Adobe Illustrator Mastery, Vector Drawing &amp; Brand Identity Systems" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">05</span>
                         <span class="track-module-head">
-                          <span>Graphic Design with Canva &amp; Quick Digital Assets</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
+                          <span>Adobe Illustrator Mastery, Vector Drawing &amp; Brand Identity Systems</span>
+                          <span class="track-module-meta"><span>Module 5 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Navigating the Canva AI interface for fast-paced commercial graphic production</li>
-                      <li>Working with pre-built templates for social media stories, banners, and flyers</li>
-                      <li>Customizing typography, color palettes, background removal, and asset export</li>
-                      <li>Integrating Canva speed workflows with professional Adobe Creative Cloud projects</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-06.pdf" data-pdf-title="Module 6: Packaging Dielines, Editorial Layouts &amp; Print Production Standards" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">06</span>
                         <span class="track-module-head">
-                          <span>Basic Layout Design &amp; Image Exporting</span>
-                          <span class="track-module-meta"><span>3 Topics</span></span>
+                          <span>Packaging Dielines, Editorial Layouts &amp; Print Production Standards</span>
+                          <span class="track-module-meta"><span>Module 6 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Designing basic flyers, business cards, letterheads, and single-page posters</li>
-                      <li>Image saving formats: JPEG, PNG-24 (Transparency), GIF, SVG, EPS, PDF</li>
-                      <li>Export settings for digital displays vs. basic home/office printing</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Tier 2</span>
-                  <span>Advanced Level – Branding, Advertising &amp; Print Production</span>
-                  <span class="phase-meta">&middot; Modules 7–13</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">7 modules and 31 topics in the Advanced Level.</p>
-                <div class="modules-accordion track-accordion">
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-07.pdf" data-pdf-title="Module 7: Cross-Platform Asset Handoff &amp; AI-Assisted Design Workflows" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">07</span>
                         <span class="track-module-head">
-                          <span>Advanced Photoshop: Photo Manipulation &amp; Digital Compositing</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Cross-Platform Asset Handoff &amp; AI-Assisted Design Workflows</span>
+                          <span class="track-module-meta"><span>Module 7 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Non-destructive editing: Adjustment Layers (Levels, Curves, Hue/Saturation, Color Balance)</li>
-                      <li>Advanced Masking: Layer Masks, Clipping Masks, Select Subject, Select and Mask (Hair Refinement)</li>
-                      <li>Digital Compositing: Combining multiple stock images, blending lighting, casting realistic shadows</li>
-                      <li>High-End Photo Retouching: Frequency Separation (Skin smoothing), Dodge &amp; Burn, Teeth whitening</li>
-                      <li>Working with Smart Objects, Smart Filters, and Camera Raw filter enhancements</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                   <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                    <button type="button" class="accordion-header pdf-row" data-pdf="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-module-08.pdf" data-pdf-title="Module 8: Capstone Project &amp; Portfolio Showcase Delivery" data-pdf-track="Graphic Design, Brand Identity &amp; AI Visuals &middot; Part B" onclick="openPdf(this)">
                       <div class="accordion-header-left">
                         <span class="module-num">08</span>
                         <span class="track-module-head">
-                          <span>Advanced Illustrator: Vector Illustration &amp; Logo Design</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
+                          <span>Capstone Project &amp; Portfolio Showcase Delivery</span>
+                          <span class="track-module-meta"><span>Module 8 &middot; PDF &middot; 1 page</span></span>
                         </span>
                       </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
+                      <span class="pdf-row-go"><svg class="ico" aria-hidden="true"><use href="#i-eye"/></svg><span>View PDF</span></span>
                     </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Principles of Logo Design: Minimalist, Emblem, Mascot, Lettermark, Wordmark, Combination Mark</li>
-                      <li>Grid-based logo design: Golden Ratio grids, geometric alignment, vector precision</li>
-                      <li>Advanced Pen Tool techniques, Gradient Tool, Gradient Mesh, Blend Tool</li>
-                      <li>Creating isometric illustrations, flat art, vector icons, and custom pattern swatches</li>
-                      <li>Live Trace / Image Trace: Converting raster images into clean, scalable vector paths</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">09</span>
-                        <span class="track-module-head">
-                          <span>Adobe InDesign: Editorial &amp; Publication Design</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>InDesign UI, Parent Pages (Master Pages), Page Numbering, and Multi-page document setup</li>
-                      <li>Margins, Bleed (3mm standard), Slug area, and Grid Columns setup</li>
-                      <li>Paragraph Styles, Character Styles, Object Styles, and Text Threading across frames</li>
-                      <li>Designing multi-page brochures, company profile PDFs, magazines, and ebooks</li>
-                      <li>Preflight panel: Checking missing links, missing fonts, overflow text, low-res images</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">10</span>
-                        <span class="track-module-head">
-                          <span>Brand Identity Systems &amp; Style Guides</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Creating complete corporate identity packages: Logo variants, color swatches, typography hierarchy</li>
-                      <li>Designing stationery sets: Business cards (Standard, Spot UV, Embossed), Letterhead, Envelopes</li>
-                      <li>Building a Brand Guidelines Manual (Brand Book): Usage rules, clear space, incorrect usage examples</li>
-                      <li>Creating brand moodboards and client pitch presentations</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">11</span>
-                        <span class="track-module-head">
-                          <span>Advertising Design &amp; Social Media Creative Strategies</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Designing high-converting digital ad banners for Facebook, Instagram, Google Display Network</li>
-                      <li>Creative framing: Visual focal points, Call-To-Action (CTA) placement, offer highlights</li>
-                      <li>Social Media Post Kits: Grid layouts, carousel posts, story templates, event covers</li>
-                      <li>Billboard, Roll-up Banner, and Kiosk design for outdoor advertising (OOH)</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">12</span>
-                        <span class="track-module-head">
-                          <span>E-Commerce Graphics &amp; Product Visuals</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Product image editing: Pure white background isolation (Amazon/Flipkart guidelines)</li>
-                      <li>Creating lifestyle product infographics, comparison tables, and dimension badges</li>
-                      <li>E-commerce store banner creation (Shopify, Amazon A+ Content graphics)</li>
-                      <li>Batch image processing and web optimization for fast loading speed</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">13</span>
-                        <span class="track-module-head">
-                          <span>Prepress Engineering &amp; Print Production</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Preparing artwork for commercial printing presses (Offset &amp; Digital Printing)</li>
-                      <li>Color separation, CMYK conversion, Rich Black vs. Standard Black (C:60 M:40 Y:40 K:100)</li>
-                      <li>Die-lines creation for custom cutouts, folding lines, spot UV layers, and foil stamping</li>
-                      <li>Exporting Press-Quality PDFs (PDF/X-1a, PDF/X-4) with trim marks and bleed settings</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="phase-item">
-              <button class="phase-header" onclick="togglePhase(this)">
-                <span class="phase-header-left">
-                  <span class="track-phase-label">Tier 3</span>
-                  <span>Master Level – Studio-Grade Design, UI/UX, Motion Graphics &amp; AI</span>
-                  <span class="phase-meta">&middot; Modules 14–20</span>
-                </span>
-                <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-              </button>
-              <div class="phase-body">
-                <p class="module-intro">7 modules and 28 topics in the Master Level.</p>
-                <div class="modules-accordion track-accordion">
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">14</span>
-                        <span class="track-module-head">
-                          <span>Motion Graphics for Graphic Designers (Adobe After Effects)</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Animating static graphic design assets: Vector logo reveal, kinetic typography, animated badges</li>
-                      <li>Keyframe easing, Speed Graph, and Spatial Interpolation</li>
-                      <li>Exporting Lottie JSON files for web/app micro-interactions &amp; animated SVGs</li>
-                      <li>Designing dynamic animated Instagram Stories and animated promotional ad graphics</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">15</span>
-                        <span class="track-module-head">
-                          <span>Packaging &amp; Product Design Masterclass</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Packaging Design Principles: Functional design, shelf impact, consumer psychology</li>
-                      <li>Creating 3D packaging die-lines for box packaging, labels, pouch bags, and bottles</li>
-                      <li>Applying brand graphics to die-lines with accurate dimensions and structural folds</li>
-                      <li>Creating realistic 3D product mockups using Photoshop Smart Objects and Adobe Dimension / Blender basics</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">16</span>
-                        <span class="track-module-head">
-                          <span>UI/UX Foundations, Wireframing &amp; Design Systems in Figma</span>
-                          <span class="track-module-meta"><span>5 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Introduction to UI/UX design: UX research basics, visual hierarchy, user interface graphics</li>
-                      <li>Figma interface, Frames, Layout Grids (12-column web grid, 4-column mobile grid)</li>
-                      <li>Designing modern Web Banners, Hero Sections, E-commerce landing page layouts</li>
-                      <li>Components, Auto-Layout, Design Tokens, Variants, and design system creation in Figma</li>
-                      <li>Interactive clickable wireframes and high-fidelity screen prototyping</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">17</span>
-                        <span class="track-module-head">
-                          <span>Advanced Matte Painting &amp; Generative AI Design Workflows</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Cinematic matte painting: Environmental creation, atmospheric haze, lighting synthesis</li>
-                      <li>Generative AI integration: Using Adobe Firefly, Midjourney, and Photoshop Generative Fill</li>
-                      <li>Prompt engineering for graphic designers: Generating textures, backgrounds, and conceptual elements</li>
-                      <li>Ethical AI usage, copyright considerations, and retouching AI outputs for professional client delivery</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">18</span>
-                        <span class="track-module-head">
-                          <span>3D Typography &amp; Advanced Graphic Effects</span>
-                          <span class="track-module-meta"><span>3 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>3D text effects in Photoshop &amp; Illustrator: Extrusion, bevels, lighting, metallic/glass textures</li>
-                      <li>Kinetic typographic poster design, distorted typography, vintage/retro graphic styles</li>
-                      <li>Glitch effects, neon glow art, liquid distortion, halftone print effects</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">19</span>
-                        <span class="track-module-head">
-                          <span>Freelance Business, Client Pitching &amp; Copyright Laws</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Structuring freelance design services: Hourly rates vs. project pricing vs. monthly retainers</li>
-                      <li>Writing professional design proposals, scope-of-work contracts, and invoice templates</li>
-                      <li>Managing client feedback, revision cycles, project handoff, and file management</li>
-                      <li>Intellectual property, copyright laws, stock media licensing (Shutterstock, Freepik, Unsplash), and trademark basics</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <button class="accordion-header" onclick="toggleAccordion(this)">
-                      <div class="accordion-header-left">
-                        <span class="module-num">20</span>
-                        <span class="track-module-head">
-                          <span>Master Portfolio Assembly &amp; Behance/Dribbble Showcasing</span>
-                          <span class="track-module-meta"><span>4 Topics</span></span>
-                        </span>
-                      </div>
-                      <span class="accordion-icon"><svg class="ico" aria-hidden="true"><use href="#i-chevron-down"/></svg></span>
-                    </button>
-                    <div class="accordion-body">
-                      <div class="track-groups">
-                        <div class="track-group wide">
-                          <ul>
-                      <li>Strategy and structure of an elite graphic design portfolio</li>
-                      <li>Curating 5–7 strong case studies: Branding package, packaging design, ad campaign, motion logo, editorial publication, UI layout</li>
-                      <li>Presenting design projects on Behance &amp; Dribbble: Process shots, moodboards, die-lines, context mockups</li>
-                      <li>Assembling a PDF resume portfolio, personal website setup, and mock agency interview preparation</li>
-                    </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <!-- Curriculum CTAs -->
         <div class="curriculum-cta-box">
-          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/syllabus/graphic-design-syllabus.pdf" download="Greens-Technologies-Graphic-Design-Syllabus.pdf">
+          <a class="btn btn-primary" id="brochureDownload" onclick="gateBrochureDownload(event)" href="https://greenstechnology-files.s3.ap-south-1.amazonaws.com/graphic%20design/graphic-design-syllabus-2026.pdf" download="Greens-Technologies-Graphic-Design-Syllabus.pdf">
             <svg class="ico" aria-hidden="true"><use href="#i-download"/></svg> <span>Download Graphic Design Syllabus (PDF)</span>
           </a>
           <button class="btn btn-outline" onclick="openLeadModal('Book Free Counselling')">
@@ -8786,6 +8482,9 @@
       item.parentElement.querySelectorAll(':scope > .phase-item').forEach(el => el.classList.remove('active'));
       if (!wasActive) {
         item.classList.add('active');
+        if (item.closest('.pdf-accordion') && window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          gsap.fromTo(item.querySelectorAll('.pdf-row'), { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: .35, stagger: .05, ease: 'power2.out', clearProps: 'all' });
+        }
       }
     }
 
@@ -8798,7 +8497,7 @@
     // Chat assistant: canned answers from this page; typed questions are emailed to an advisor
     const CHAT_TOPICS = {
       'Upcoming batches': 'Weekday (10:00 AM – 12:30 PM), evening online (7:00 PM – 9:00 PM), weekend (Sat & Sun, 10:00 AM – 2:00 PM) and fast-track (2:00 PM – 6:00 PM) batches are available, in classroom or online. <a href="#batches" onclick="toggleChat(false)">See batch timings</a>',
-      'Course curriculum': 'The course has 20 modules across Basic (design theory, Photoshop, Illustrator, Canva), Advanced (branding, InDesign, advertising, e-commerce and prepress) and Master (motion graphics, packaging, Figma UI/UX, AI workflows and portfolio) levels. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
+      'Course curriculum': 'The course has 8 modules in 2 parts: Part A (Modules 1–4) covers Visual Foundations, Photoshop & Campaign Creatives; Part B (Modules 5–8) covers Vector Identity, Print Production, AI Workflows & Portfolio. <a href="#curriculum" onclick="toggleChat(false)">View the curriculum</a>',
       'Placement support': 'Our placement cell coaches your Behance portfolio, prepares your resume, runs mock agency design tests and refers you to 500+ hiring partners. <a href="#placements" onclick="toggleChat(false)">See placement details</a>',
       'Course fees': 'Fees depend on the level and batch you choose. Share your details and an advisor will send you the current fees and offers. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Course Fee Details\')">Get fee details</a>',
       'Book a free demo': 'Great! Fill in your name, mobile number and email and we will confirm your free demo class. <a href="javascript:void(0)" onclick="toggleChat(false); openLeadModal(\'Book a Free Demo Class\')">Book free demo</a>'
@@ -8967,6 +8666,15 @@
 
     // Downloads are gated behind the enquiry form: the file is only delivered after the form is submitted
     let pendingDownload = null;
+
+    // PDF popup: "Download PDF" closes the popup and asks for details before downloading
+    function downloadFromPdf(e) {
+      e.preventDefault();
+      const link = e.currentTarget, title = document.getElementById('pdfTitle').textContent;
+      const url = link.href, name = 'Greens-Technologies-' + title.replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '') + '.pdf';
+      closePdf();
+      setTimeout(() => requestDownload('Download ' + title, () => downloadFile(url, name)), 260);
+    }
 
     function requestDownload(purpose, deliver) {
       openLeadModal(purpose);
@@ -9350,6 +9058,7 @@
       if (window.ResizeObserver) new ResizeObserver(set).observe(strip);
     })();
   </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script>
     // Pay After Placement: gentle entrance when it scrolls into view
     (() => {
@@ -9365,6 +9074,103 @@
           .to(card.querySelectorAll('.pap-actions > *'), { opacity: 1, y: 0, duration: .4, stagger: .08, ease: 'power2.out' }, '-=.3');
       }), { threshold: .3 }).observe(card);
     })();
+  </script>
+  <!-- PDF popup (course content) -->
+  <div class="pdf-modal" id="pdfModal" aria-hidden="true">
+    <div class="pdf-backdrop" onclick="closePdf()"></div>
+    <div class="pdf-dialog" role="dialog" aria-modal="true" aria-labelledby="pdfTitle">
+      <div class="pdf-head">
+        <span class="pdf-head-icon"><svg class="ico" aria-hidden="true"><use href="#i-file-text"/></svg></span>
+        <div class="pdf-head-text">
+          <h3 class="pdf-head-title" id="pdfTitle">Course Content</h3>
+          <div class="pdf-head-sub" id="pdfSub">Greens Technologies</div>
+        </div>
+        <a class="pdf-open" id="pdfOpen" href="#" onclick="downloadFromPdf(event)"><svg class="ico" aria-hidden="true"><use href="#i-download"/></svg><span>Download PDF</span></a>
+        <button type="button" class="pdf-close" id="pdfClose" onclick="closePdf()" aria-label="Close"><svg class="ico" aria-hidden="true"><use href="#i-x"/></svg></button>
+      </div>
+      <div class="pdf-body" id="pdfBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Course-content PDF popup (pages drawn with PDF.js so it works on phones too)
+    let pdfJsLoad = null, pdfToken = 0, pdfLastFocus = null;
+    function loadPdfJs() {
+      if (window.pdfjsLib) return Promise.resolve();
+      return pdfJsLoad || (pdfJsLoad = new Promise((res, rej) => {
+        const sc = document.createElement('script');
+        sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';
+        sc.onload = () => { pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'; res(); };
+        sc.onerror = () => { pdfJsLoad = null; rej(new Error('pdf.js')); };
+        document.head.appendChild(sc);
+      }));
+    }
+    async function renderPdf(url, body, token) {
+      await loadPdfJs();
+      const doc = await pdfjsLib.getDocument(url).promise;
+      if (token !== pdfToken) return;
+      body.innerHTML = '';
+      const width = Math.min(body.clientWidth - 16, 860);
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      for (let n = 1; n <= doc.numPages; n++) {
+        const page = await doc.getPage(n);
+        if (token !== pdfToken) return;
+        const base = page.getViewport({ scale: 1 });
+        const vp = page.getViewport({ scale: (width / base.width) * dpr });
+        const c = document.createElement('canvas');
+        c.width = vp.width; c.height = vp.height; c.style.width = width + 'px';
+        c.setAttribute('aria-label', `Page ${n} of ${doc.numPages}`);
+        body.appendChild(c);
+        await page.render({ canvasContext: c.getContext('2d'), viewport: vp }).promise;
+      }
+    }
+    function openPdf(btn) {
+      const modal = document.getElementById('pdfModal'), body = document.getElementById('pdfBody');
+      const url = btn.dataset.pdf, token = ++pdfToken;
+      pdfLastFocus = btn;
+      document.getElementById('pdfTitle').textContent = btn.dataset.pdfTitle;
+      document.getElementById('pdfSub').textContent = btn.dataset.pdfTrack + ' \u00b7 Greens Technologies';
+      document.getElementById('pdfOpen').href = url;
+      body.innerHTML = '<div class="pdf-status">Loading course content\u2026</div>';
+      body.scrollTop = 0;
+      modal.classList.remove('css-pop');
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('pdf-lock');
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (window.gsap && !reduce) {
+        gsap.fromTo(modal.querySelector('.pdf-backdrop'), { opacity: 0 }, { opacity: 1, duration: .3, ease: 'power1.out' });
+        gsap.fromTo(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .86, y: 24 }, { opacity: 1, scale: 1, y: 0, duration: .5, ease: 'back.out(1.6)' });
+      } else if (!reduce) { void modal.offsetWidth; modal.classList.add('css-pop'); }
+      document.getElementById('pdfClose').focus({ preventScroll: true });
+      renderPdf(url, body, token).catch(() => {
+        if (token !== pdfToken) return;
+        body.innerHTML = `<iframe src="${url}" title="${btn.dataset.pdfTitle}"></iframe>`;
+      });
+    }
+    function closePdf() {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      pdfToken++;
+      const done = () => { modal.classList.remove('open', 'css-pop'); modal.setAttribute('aria-hidden', 'true'); document.getElementById('pdfBody').innerHTML = ''; };
+      document.body.classList.remove('pdf-lock');
+      if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        gsap.to(modal.querySelector('.pdf-backdrop'), { opacity: 0, duration: .2 });
+        gsap.to(modal.querySelector('.pdf-dialog'), { opacity: 0, scale: .94, y: 12, duration: .22, ease: 'power2.in', onComplete: done });
+      } else done();
+      if (pdfLastFocus) pdfLastFocus.focus({ preventScroll: true });
+    }
+    document.addEventListener('keydown', e => {
+      const modal = document.getElementById('pdfModal');
+      if (!modal.classList.contains('open')) return;
+      if (e.key === 'Escape') { e.preventDefault(); closePdf(); }
+      if (e.key === 'Tab') {
+        const f = [...modal.querySelectorAll('a[href], button')];
+        const first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
   </script>
 </body>
 </html>
